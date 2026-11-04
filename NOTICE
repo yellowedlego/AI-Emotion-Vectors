@@ -1,0 +1,15 @@
+Kanana is licensed in accordance with the Kanana Open License Agreement. Copyright © KAKAO Corp. All Rights Reserved.
+
+Powered by Kanana
+
+This release contains material derived from Kanana-2-3B-instruct (https://huggingface.co/kakaocorp/kanana-2-3b-instruct):
+emotion vectors, layer activations and generated texts. The Kanana model weights are NOT included and were not modified.
+A copy of the Kanana Open License Agreement is in LICENSE-KANANA.
+
+Use restriction notice (Kanana Open License Agreement, Section 2.2): your use of this material must comply with
+applicable laws and regulations and adhere to KAKAO's Guidelines For Responsible AI. These restrictions apply to
+everyone who receives this material, and anyone who redistributes it must pass this notice on.
+
+Other components:
+- Qwen3-4B (https://huggingface.co/Qwen/Qwen3-4B), Apache-2.0: files with "qwen" in the name.
+- KOTE classifier (searle-j/kote_for_easygoing_people): not included; only its output scores are.

@@ -1,0 +1,11 @@
+# torch는 CUDA 11.8 빌드로 따로 설치한다:
+#   pip install torch==2.7.0 --index-url https://download.pytorch.org/whl/cu118
+transformers>=4.57
+accelerate
+bitsandbytes
+sentencepiece
+huggingface_hub
+safetensors
+pandas
+matplotlib
+scikit-learn

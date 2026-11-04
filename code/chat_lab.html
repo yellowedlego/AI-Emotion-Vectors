@@ -1,0 +1,739 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>감정 주입 실험실</title>
+<style>
+:root{--bg:#f7f6f2;--card:#fff;--ink:#22211e;--muted:#6f6c64;--line:#dcd9d0;--accent:#0072B2;--on:#fff;--soft:#eeece5;--warn:#9a5b00;--warnbg:#fbf0dc;--ok:#009E73;--mid:#E69F00;--bad:#D55E00;--pos:#C26A00;--neg:#0072B2}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#1b1b19;--card:#262623;--ink:#ecebe6;--muted:#a5a298;--line:#403f3a;--accent:#56B4E9;--on:#10222c;--soft:#32322e;--warn:#f0c674;--warnbg:#3a3020;--ok:#2BB58C;--mid:#E6A92A;--bad:#E8693A;--pos:#F0A43A;--neg:#56B4E9}}
+:root[data-theme="dark"]{--bg:#1b1b19;--card:#262623;--ink:#ecebe6;--muted:#a5a298;--line:#403f3a;--accent:#56B4E9;--on:#10222c;--soft:#32322e;--warn:#f0c674;--warnbg:#3a3020;--ok:#2BB58C;--mid:#E6A92A;--bad:#E8693A;--pos:#F0A43A;--neg:#56B4E9}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html,body{height:100%;margin:0}
+body{background:var(--bg);color:var(--ink);font:clamp(13px,.35vw + 11px,15px)/1.55 "Malgun Gothic","Apple SD Gothic Neo",system-ui,sans-serif;overflow:hidden}
+h1{font-size:1.15em;margin:0}
+h2{font-size:.9em;color:var(--muted);margin:0 0 8px;font-weight:700}
+h3{font-size:.92em;margin:0;font-weight:700}
+.sub{color:var(--muted);font-size:.87em}
+button,select,input[type=number]{font:inherit;color:var(--ink);background:var(--card);border:1px solid var(--line);border-radius:6px}
+button{padding:5px 10px;min-height:34px;cursor:pointer}
+button.main{background:var(--accent);border-color:var(--accent);color:var(--on);font-weight:700}
+button:disabled{opacity:.45;cursor:default}
+select{padding:4px 6px;min-height:32px}
+input[type=number]{padding:4px 6px;min-height:32px;font-variant-numeric:tabular-nums}
+
+/* 화면은 두 개: 감정 설정(s-set)과 대화(s-chat). 휴대폰에서는 대화 화면의 지표를 따로(s-ind) 본다.
+   JS가 #app에 화면 모양(wide / tall / narrow)도 붙인다. */
+#app{display:grid;grid-template-rows:auto minmax(0,1fr);height:100vh;height:100dvh}
+#top{display:flex;align-items:center;gap:8px 12px;flex-wrap:wrap;padding:8px 14px;background:var(--card);border-bottom:1px solid var(--line)}
+#tabs{display:flex;gap:4px}
+#tabs button.on{background:var(--accent);color:var(--on);border-color:var(--accent);font-weight:700}
+#tabs [data-v="ind"]{display:none}
+#app.narrow #tabs{width:100%}#app.narrow #tabs button{flex:1}
+#app.narrow #tabs [data-v="ind"]{display:block}
+#chips{display:flex;gap:4px;flex-wrap:wrap;min-width:0}
+.chip{font-size:.8em;background:var(--soft);border-radius:10px;padding:1px 8px;white-space:nowrap}
+#st{margin-left:auto}
+.mock{background:var(--warnbg);color:var(--warn);border-radius:4px;padding:1px 8px;font-size:.85em;font-weight:700}
+.screen{display:none;min-height:0;min-width:0}
+#app.s-set #setScreen,#app.s-chat #chatScreen,#app.s-ind #chatScreen{display:flex}
+.pane{min-width:0;min-height:0;overflow:auto;background:var(--card)}
+
+/* 드래그로 크기를 바꾸는 경계선 */
+.split{flex:none;background:var(--line);touch-action:none;position:relative;z-index:1}
+.split.x{width:6px;cursor:col-resize}
+.split.y{height:6px;cursor:row-resize}
+.split::after{content:"";position:absolute;inset:-5px}
+.split:hover,.split.drag,.split:focus-visible{background:var(--accent);outline:0}
+
+/* 감정 설정 화면: 위에 주입 줄(가로로 길게), 아래에 고른 줄의 통계 */
+#setScreen{flex-direction:column}
+#rowsPane{flex:0 0 44%;display:flex;flex-direction:column}
+#rowsScroll{flex:1;overflow:auto;padding:10px 14px}
+#stats{flex:1 1 0;padding:10px 14px;background:var(--bg)}
+/* 모니터처럼 가로가 긴 화면: 왼쪽에 주입 줄, 오른쪽에 통계 카드 6개를 스크롤 없이 3 × 2로 한눈에 */
+#app.wide #setScreen{flex-direction:row}
+#app.wide #rowsPane{flex:0 0 min(36vw,680px)}
+#app.wide #stats{display:flex;flex-direction:column;overflow:hidden}
+#app.wide .cards{flex:1;min-height:0;grid-template-columns:repeat(3,minmax(0,1fr));grid-template-rows:repeat(2,minmax(0,1fr))}
+#app.wide .card{display:flex;flex-direction:column;min-height:0;grid-column:auto}
+#app.wide .what{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+#app.wide .fig{flex:1;min-height:0}
+#app.wide .fig svg{height:100%}
+#app.narrow #setScreen{overflow:auto}
+#app.narrow #setScreen>.split{display:none}
+#app.narrow #rowsPane,#app.narrow #stats{flex:none;overflow:visible}
+#app.narrow #rowsScroll{overflow:visible}
+.rowsHead{display:flex;align-items:baseline;gap:6px 12px;flex-wrap:wrap;margin-bottom:6px}
+.rowsHead h2{margin:0}
+details.help{font-size:.87em;color:var(--muted)}
+details.help summary{cursor:pointer}
+details.help[open]{flex-basis:100%}
+/* 경고는 줄 위가 아니라 아래 고정 칸에 띄운다. 세기를 움직이는 동안 줄이 밀리지 않게 하기 위해서다. */
+#warn{flex:none;min-height:2.4em;display:flex;align-items:center;padding:5px 14px;font-size:.85em;border-top:1px solid var(--line);background:var(--card);color:var(--muted)}
+#warn.on{background:var(--warnbg);color:var(--warn)}
+#app.narrow #warn{position:sticky;bottom:0}
+
+.inj{border:1px solid var(--line);border-radius:8px;padding:6px 10px 8px;margin-bottom:8px;background:var(--bg)}
+.inj.cur{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent)}
+.inj.off{opacity:.8}
+.ihead{display:flex;gap:6px;align-items:center;min-width:0}
+.ihead .lay{display:flex;align-items:center;gap:2px;flex:none}
+.ihead .lay input{width:3.4em;text-align:center}
+.ihead .lay button{min-width:28px;min-height:32px;padding:0 4px}
+.ihead .del{margin-left:auto;flex:none;min-height:32px}
+.risk,.lim{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0;font-size:.85em}
+.risk{flex:0 1 auto}.lim{flex:0 1000 auto;color:var(--muted)}
+.risk b{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:5px;vertical-align:-1px}
+.strip{display:grid;grid-template-columns:repeat(32,minmax(0,1fr));gap:1px;margin:6px 0 1px;cursor:pointer}
+.strip i{height:12px;border-radius:2px;background:var(--soft);outline-offset:1px}
+.strip i.sel{outline:2px solid var(--ink)}
+.strip i.na{background:transparent;box-shadow:inset 0 0 0 1px var(--line)}
+.strip-ax{position:relative;height:12px;font-size:.66em;color:var(--muted)}
+.strip-ax span{position:absolute;transform:translateX(-50%)}
+/* 세기 슬라이더: 가로로 길고 낮게. 손잡이는 얇은 막대라서 위치를 정확히 볼 수 있다. */
+.sbox{position:relative;height:20px;margin-top:3px}
+.band{position:absolute;left:5px;right:5px;top:6px;height:8px;border-radius:2px}
+.band u{position:absolute;left:50%;top:-4px;bottom:-4px;width:2px;margin-left:-1px;background:var(--ink)}
+.sbox input{position:absolute;inset:0;width:100%;margin:0;-webkit-appearance:none;appearance:none;background:transparent;cursor:pointer}
+.sbox input::-webkit-slider-runnable-track{height:20px;background:transparent}
+.sbox input::-moz-range-track{height:20px;background:transparent}
+.sbox input::-webkit-slider-thumb{-webkit-appearance:none;width:10px;height:20px;border-radius:2px;background:var(--ink);border:2px solid var(--card);box-shadow:0 0 0 1px var(--ink)}
+.sbox input::-moz-range-thumb{width:6px;height:16px;border-radius:2px;background:var(--ink);border:2px solid var(--card)}
+.sbox input:focus-visible::-webkit-slider-thumb{box-shadow:0 0 0 3px var(--accent)}
+.ticks{position:relative;height:13px;margin:0 5px;font-size:.68em;line-height:13px;color:var(--muted);font-variant-numeric:tabular-nums}
+.ticks span{position:absolute;transform:translateX(-50%)}
+.fine{display:flex;gap:4px;align-items:center;margin-top:3px}
+.fine button{min-height:26px;padding:0 6px;font-size:.8em;font-variant-numeric:tabular-nums;flex:none}
+.fine .sbox{flex:1;margin:0}
+.fine input[type=number]{width:5.4em;min-height:26px;padding:1px 4px;flex:none}
+.fine .fl{font-size:.72em;color:var(--muted);flex:none;width:2.6em;text-align:center;font-variant-numeric:tabular-nums}
+.presets{display:flex;gap:4px;flex-wrap:wrap;align-items:center;margin-bottom:8px}
+.presets button{font-size:.8em;min-height:26px;padding:0 8px}
+.legend{display:flex;gap:10px;flex-wrap:wrap;font-size:.95em;margin:4px 0}
+.legend b{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:4px;vertical-align:-1px}
+.row{display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+
+/* 통계 카드 */
+.statHead{display:flex;gap:6px 14px;align-items:center;flex-wrap:wrap;margin-bottom:8px}
+.statHead label{font-size:.87em;display:flex;gap:4px;align-items:center}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,420px),1fr));gap:12px}
+@media (min-width:1000px){#app:not(.wide) .card.wide{grid-column:span 2}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:10px 12px;min-width:0}
+.card header{display:flex;align-items:center;gap:8px}
+.card header button{margin-left:auto;min-height:28px;padding:0 8px;font-size:.8em;flex:none}
+.what{color:var(--muted);font-size:.82em;margin:4px 0 6px}
+.fig svg{display:block;width:100%;height:auto}
+svg.ch text{font-family:"Malgun Gothic","Apple SD Gothic Neo",system-ui,sans-serif;fill:var(--muted)}
+svg.ch text.hot{fill:var(--ink);font-weight:700}
+svg.ch text.big{font-size:1.2em}
+
+/* 크게 보기 */
+#ov{position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:10;display:flex;padding:2vmin}
+#ov[hidden]{display:none}
+.ovBox{flex:1;display:flex;flex-direction:column;background:var(--card);border-radius:10px;padding:12px 16px;min-width:0;min-height:0}
+.ovBox header{display:flex;align-items:center;gap:8px}
+.ovBox header button{margin-left:auto}
+#ovFig{flex:1;min-height:0;display:flex;align-items:center;justify-content:center}
+#ovFig svg{width:100%;height:100%;display:block}
+
+/* 대화 화면: 왼쪽 대화, 오른쪽 지표(이 답변의 설정 · 감정 지표 · 지도) */
+#chatScreen{flex-direction:row}
+#chat{flex:1 1 0;display:flex;flex-direction:column;background:var(--bg);overflow:hidden}
+#side{flex:0 0 min(44vw,640px);display:flex;flex-direction:column;overflow:hidden}
+#app.tall #chatScreen{flex-direction:column}
+#app.tall #side{flex-basis:50%;flex-direction:row}
+#app.narrow #chatScreen>.split{display:none}
+#app.narrow.s-chat #side,#app.narrow.s-ind #chat{display:none}
+#app.narrow #side{flex:1 1 0}
+#side>section{padding:10px 14px;overflow:auto;min-height:0;min-width:0}
+#applied{flex:0 0 auto}
+#emo{flex:0 0 24%}
+#meter{flex:1 1 0;display:flex;flex-direction:column}
+#app.tall #applied{flex:0 0 28%}
+#app.tall #emo{flex:0 0 28%}
+
+#log{flex:1;overflow:auto;padding:14px;min-height:0}
+.empty{max-width:560px;margin:6vh auto;text-align:center;color:var(--muted)}
+.ex{display:flex;gap:6px;flex-wrap:wrap;justify-content:center;margin-top:12px}
+.q{font-weight:700;margin:14px 0 8px;white-space:pre-wrap;overflow-wrap:anywhere}
+.pair{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+#app.narrow .pair{grid-template-columns:minmax(0,1fr)}
+.ans{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:10px 12px;white-space:pre-wrap;overflow-wrap:anywhere;min-height:64px}
+.ans.steer{border-color:var(--accent)}
+.ans.broke{border-color:var(--mid);border-width:2px}
+.tag{display:block;color:var(--muted);font-size:.8em;font-weight:700;margin-bottom:4px;white-space:normal}
+.bad{display:inline-block;background:var(--warnbg);color:var(--warn);border-radius:4px;padding:0 6px;font-size:.8em;font-weight:700;margin-left:6px}
+form{display:flex;gap:8px;padding:10px 14px;border-top:1px solid var(--line);background:var(--card)}
+textarea{flex:1;min-width:0;font:inherit;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:6px;padding:8px;height:44px;resize:none}
+
+.used{list-style:none;margin:0;padding:0}
+.used li{display:flex;gap:8px;align-items:baseline;padding:3px 0;border-top:1px solid var(--line);font-size:.92em}
+.used li:first-child{border-top:0}
+.used b{display:inline-block;width:10px;height:10px;border-radius:2px;flex:none;align-self:center}
+.used .r{color:var(--muted);font-size:.85em;margin-left:auto;text-align:right}
+.changed{background:var(--warnbg);color:var(--warn);border-radius:6px;padding:6px 8px;font-size:.87em;margin-top:8px}
+.changed .row{margin-top:6px}
+
+.bars{display:grid;grid-template-columns:4.6em minmax(0,1fr) 4.2em;gap:3px 8px;align-items:center;font-size:.85em}
+.bars .n{color:var(--muted);text-align:right;white-space:nowrap}
+.bars .n.hot{color:var(--ink);font-weight:700}
+.bars .v{font-variant-numeric:tabular-nums;color:var(--muted);text-align:right}
+.bars .t{position:relative;height:12px;background:var(--soft);border-radius:2px}
+.bars .t::before{content:"";position:absolute;left:50%;top:-2px;bottom:-2px;width:1px;background:var(--muted)}
+.bars .t i{position:absolute;top:0;bottom:0;border-radius:2px}
+
+.mhead{display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-bottom:6px}
+.mhead h2{margin:0}
+.mhead .big{margin-left:auto;min-height:28px;padding:0 8px;font-size:.8em}
+.seg{display:flex;gap:0;margin:0 0 6px}
+.seg button{flex:1;min-height:30px;padding:3px 6px;border:1px solid var(--line);background:var(--card);color:var(--ink);font-size:.82em;border-radius:0}
+.seg button+button{border-left:0}
+.seg button:first-child{border-radius:6px 0 0 6px}.seg button:last-child{border-radius:0 6px 6px 0}
+.seg button.on{background:var(--ink);color:var(--card);font-weight:600}
+#mapLay{display:flex;align-items:center;gap:2px;font-size:.87em}
+#mapLay button{min-height:28px;min-width:28px;padding:0 4px}
+#heatBox{flex:1;min-height:140px;display:flex;align-items:center;justify-content:center}
+#heatBox svg{width:100%;height:100%;display:block}
+#meterNote{margin-top:6px}
+.scale{display:flex;align-items:center;gap:6px;font-size:.78em;color:var(--muted);margin-top:4px}
+.scale i{flex:1;height:10px;border-radius:3px;background:linear-gradient(90deg,var(--neg),var(--soft),var(--pos))}
+</style>
+</head>
+<body>
+<div id="app" class="wide s-set">
+<header id="top">
+  <h1>감정 주입 실험실</h1>
+  <nav id="tabs"><button type="button" data-v="set" class="on">① 감정 설정</button><button type="button" data-v="chat">② 대화</button><button type="button" data-v="ind">지표</button></nav>
+  <div id="chips"></div>
+  <span class="mock" id="mockTag" hidden>가짜 서버 · 답변과 계기판 값은 지어낸 것</span>
+  <span class="sub" id="st">불러오는 중입니다</span>
+</header>
+
+<div class="screen" id="setScreen">
+  <section class="pane" id="rowsPane" aria-label="감정 주입 설정">
+    <div id="rowsScroll">
+      <div class="rowsHead"><h2>감정 주입</h2><span class="sub">줄을 누르면(파란 테두리) 그 줄의 통계가 아래에 나옵니다.</span>
+        <details class="help"><summary>보는 법</summary>
+          <div>감정 · 층 · 세기를 한 줄로 정합니다. 세기 1은 그 층 활성값 크기만큼 감정 방향으로 미는 것입니다. 모델 안의 값을 미는 장치이며, AI가 감정을 느낀다는 뜻은 아닙니다.</div>
+          <div class="legend"><span><b style="background:var(--ok)"></b>붕괴 50% 미만</span><span><b style="background:var(--mid)"></b>50% 이상</span><span><b style="background:var(--bad)"></b>이미 무너져 건너뜀</span><span><b style="box-shadow:inset 0 0 0 1px var(--line)"></b>아직 안 잼</span></div>
+          <div>위 막대(−2~+2)로 크게 고르고, 아래 막대(지금 값 ±0.25 확대)로 0.01 단위까지 맞춥니다. ±0.01 · ±0.1 버튼, 숫자 직접 입력, 키보드 ←→(0.01) · Shift+←→(0.1), 더블클릭(0)도 됩니다. 칸 경계선을 끌면 크기가 바뀌고, 두 번 누르면 처음 크기로 돌아갑니다.</div>
+          <div id="judgeNote"></div>
+        </details>
+      </div>
+      <div class="presets" id="presets"></div>
+      <div id="rows"></div>
+      <div class="row"><button type="button" id="add">+ 주입 추가</button><button type="button" id="reset">전부 0으로</button><button type="button" class="main" id="toChat">② 대화로 가기 →</button></div>
+    </div>
+    <div id="warn" role="status"></div>
+  </section>
+  <div class="split" data-grow="prev" data-key="setRows" tabindex="0" role="separator" aria-label="주입 줄 칸 크기 조절"></div>
+  <section class="pane" id="stats" aria-label="고른 줄의 통계">
+    <div class="statHead"><h2 style="margin:0">통계</h2><span id="statTarget"></span><label><input type="checkbox" id="allBright">전부 밝게 보기</label></div>
+    <div class="cards" id="cards"></div>
+  </section>
+</div>
+
+<div class="screen" id="chatScreen">
+  <main id="chat" aria-label="대화">
+    <div id="log"></div>
+    <form id="f"><textarea id="t" placeholder="질문을 입력하세요 (Enter로 보내기, Shift+Enter로 줄바꿈)"></textarea><button class="main" id="go" disabled>보내기</button><button type="button" id="stop" disabled>멈춤</button><button type="button" id="clear">비우기</button></form>
+  </main>
+  <div class="split" data-grow="next" data-key="side" tabindex="0" role="separator" aria-label="지표 칸 크기 조절"></div>
+  <aside class="pane" id="side" aria-label="지금 답변의 지표">
+    <section id="applied"><h2>이 답변의 설정</h2><div id="usedBox"></div></section>
+    <div class="split" data-grow="prev" data-key="applied" tabindex="0" role="separator" aria-label="설정 칸 크기 조절"></div>
+    <section id="emo"><h2>답변 감정 지표</h2><div class="what">감정마다 32개 층의 코사인 차이(기준 답변 대비)를 평균한 값입니다. 넣은 감정만 오르는지, 다른 감정도 같이 움직이는지 봅니다.</div><div class="bars" id="bars"></div></section>
+    <div class="split" data-grow="prev" data-key="emo" tabindex="0" role="separator" aria-label="감정 지표 칸 크기 조절"></div>
+    <section id="meter">
+      <div class="mhead"><h2>지도</h2><span id="mapLay" hidden>층 <button type="button" data-d="-1" aria-label="앞 층">◀</button><b id="mapL"></b><button type="button" data-d="1" aria-label="뒤 층">▶</button></span><button type="button" class="big" id="meterBig">⤢ 크게 보기</button></div>
+      <div class="seg" id="mtab" role="group" aria-label="지도 고르기"><button type="button" data-t="meter" class="on">층 × 감정 계기판</button><button type="button" data-t="pca">감정 위치</button><button type="button" data-t="cos">코사인 유사도</button></div>
+      <div class="seg" id="mode" role="group" aria-label="계기판 값"><button type="button" data-m="cos" class="on">코사인 차이</button><button type="button" data-m="proj">투영 크기 차이</button></div>
+      <div class="what" id="mWhat"></div>
+      <div id="heatBox"></div>
+      <div class="scale" id="mScale"><span id="scaleLo">−0.25</span><i></i><span id="scaleHi">+0.25</span></div>
+      <div class="sub" id="meterNote">질문을 보내면 답변을 만드는 동안 칸이 바뀝니다.</div>
+    </section>
+  </aside>
+</div>
+</div>
+
+<div id="ov" hidden role="dialog" aria-modal="true" aria-labelledby="ovTitle"><div class="ovBox"><header><h3 id="ovTitle"></h3><button type="button" id="ovClose">닫기 ✕</button></header><div class="what" id="ovWhat"></div><div id="ovFig"></div></div></div>
+<script>
+const NAMES={joy:'기쁨',anger:'분노',sadness:'슬픔',boredom:'지루함',calm:'평온',curiosity:'호기심',dapdap:'답답함',desperation:'절박함',disgust:'혐오',eogul:'억울함',fear:'두려움',gratitude:'감사',guilt:'죄책감',jealousy:'질투',loneliness:'외로움',love:'사랑',pride:'자부심',seoreum:'서러움',shame:'수치심',surprise:'놀람',random0:'무작위(대조)'};
+const ORDER=['joy','anger','sadness','fear','surprise','disgust','love','gratitude','pride','calm','curiosity','boredom','loneliness','jealousy','shame','guilt','desperation','dapdap','eogul','seoreum','random0'];
+const PRESETS=[
+  ['기쁨 9층 +0.15',[['joy',9,.15]]],
+  ['슬픔 16층 +0.3',[['sadness',16,.3]]],
+  ['분노 9층 +0.1',[['anger',9,.1]]],
+  ['기쁨 23층 +0.3 (예전 창의 층)',[['joy',23,.3]]],
+  ['기쁨 1층만',[['joy',1,.1]]],
+  ['기쁨 5층만',[['joy',5,.1]]],
+  ['기쁨 1층 + 5층',[['joy',1,.1],['joy',5,.1]]],
+];
+const EX=['아침 루틴을 추천해 줘.','고양이에 대한 짧은 글을 써 줘.','친구가 약속을 또 어겼어. 뭐라고 말할까?','인공지능이 사람의 일을 대신해도 될까?'];
+const MANY_ROWS=5,SMAX=2,FINE=.25,HEAT_MAX=.25,BAR_MAX=.1;
+// 층별 탐색에서 잰 세기 24개(위가 +2)
+const STR=[2,1.5,1,.9,.8,.7,.6,.5,.4,.3,.2,.1,-.1,-.2,-.3,-.4,-.5,-.6,-.7,-.8,-.9,-1,-1.5,-2];
+const $=id=>document.getElementById(id);
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const sgn=v=>(v>0?'+':v<0?'−':'')+Math.abs(v).toFixed(2);
+const pct=v=>Math.round(v*100)+'%';
+const store={get(k){try{return JSON.parse(localStorage.getItem('lab.'+k))}catch(e){return null}},set(k,v){try{localStorage.setItem('lab.'+k,JSON.stringify(v))}catch(e){}}};
+let KEY='',META=null,ready=false,busy=false,ctrl=null,turns=[],rows=[],cur=null,meterNow=null,projNow=null,meterInj=[],mode='cos',mtab='meter',mapL=null,ovChart=null,shape='wide';
+
+// ---- 화면 모양과 화면 고르기 ----
+function layout(){
+  const w=innerWidth,h=innerHeight,app=$('app');
+  // 폭이나 높이가 작으면(휴대폰 세로·가로) 설정 · 대화 · 지표를 하나씩 본다
+  shape=w<600||h<560?'narrow':h>w?'tall':'wide';
+  app.classList.remove('wide','tall','narrow');app.classList.add(shape);
+  if(shape!=='narrow'&&app.classList.contains('s-ind'))show('chat');
+  document.querySelectorAll('.split').forEach(placeSplit);
+  drawMeter();
+}
+addEventListener('resize',layout);
+function show(v){
+  const app=$('app');app.classList.remove('s-set','s-chat','s-ind');app.classList.add('s-'+v);
+  document.querySelectorAll('#tabs button').forEach(x=>x.classList.toggle('on',x.dataset.v===v));
+  if(v==='set')drawStats();else{paintUsed();drawMeter();drawBars();}
+}
+$('tabs').onclick=e=>{const b=e.target.closest('[data-v]');if(b)show(b.dataset.v);};
+$('toChat').onclick=()=>show('chat');
+
+// ---- 드래그로 칸 크기 바꾸기 ----
+// 경계선 앞(prev)이나 뒤(next) 칸의 크기를 바꾼다. 방향은 부모가 가로로 놓였는지 세로로 놓였는지로 정한다.
+// 크기는 화면 모양(wide / tall)마다 따로 기억한다. 두 번 누르면 처음 크기로 돌아간다.
+const axisOf=sp=>getComputedStyle(sp.parentElement).flexDirection.startsWith('column')?'y':'x';
+const targetOf=sp=>sp.dataset.grow==='prev'?sp.previousElementSibling:sp.nextElementSibling;
+function placeSplit(sp){
+  const ax=axisOf(sp);sp.classList.toggle('x',ax==='x');sp.classList.toggle('y',ax==='y');
+  sp.setAttribute('aria-orientation',ax==='x'?'vertical':'horizontal');
+  const t=targetOf(sp),px=store.get('size.'+sp.dataset.key+'.'+shape);
+  t.style.flex=px&&shape!=='narrow'?`0 0 ${px}px`:'';
+}
+function resizeTo(sp,px){
+  const ax=axisOf(sp),t=targetOf(sp),full=sp.parentElement.getBoundingClientRect()[ax==='x'?'width':'height'];
+  px=Math.round(Math.max(80,Math.min(full-120,px)));
+  t.style.flex=`0 0 ${px}px`;store.set('size.'+sp.dataset.key+'.'+shape,px);drawMeter();
+}
+document.querySelectorAll('.split').forEach(sp=>{
+  sp.onpointerdown=e=>{
+    e.preventDefault();sp.setPointerCapture(e.pointerId);sp.classList.add('drag');
+    const ax=axisOf(sp),dir=sp.dataset.grow==='prev'?1:-1,t=targetOf(sp);
+    const start=ax==='x'?e.clientX:e.clientY,size=t.getBoundingClientRect()[ax==='x'?'width':'height'];
+    sp.onpointermove=m=>resizeTo(sp,size+dir*((ax==='x'?m.clientX:m.clientY)-start));
+    sp.onpointerup=sp.onpointercancel=()=>{sp.classList.remove('drag');sp.onpointermove=null;};
+  };
+  sp.ondblclick=()=>{store.set('size.'+sp.dataset.key+'.'+shape,null);placeSplit(sp);drawMeter();};
+  sp.onkeydown=e=>{
+    const ax=axisOf(sp),k={ArrowLeft:-1,ArrowUp:-1,ArrowRight:1,ArrowDown:1}[e.key];if(!k)return;
+    e.preventDefault();const t=targetOf(sp),size=t.getBoundingClientRect()[ax==='x'?'width':'height'];
+    resizeTo(sp,size+(sp.dataset.grow==='prev'?1:-1)*k*20);
+  };
+});
+
+// ---- 층별 탐색의 붕괴율 ----
+const pts=(emo,l)=>META&&META.safety[emo]&&META.safety[emo][l];
+// 세기 s에서의 붕괴율: 같은 방향에서 |s| 이상인 가장 작은 잰 세기(조심스러운 쪽). 안 잰 칸이면 null.
+function rateAt(emo,l,s){
+  if(!s)return {r:0};
+  const p=pts(emo,l);if(!p)return null;
+  const same=p.filter(x=>x[0]*s>0).sort((a,b)=>Math.abs(a[0])-Math.abs(b[0]));
+  if(!same.length)return null;
+  const hit=same.find(x=>Math.abs(x[0])>=Math.abs(s)-1e-9)||same[same.length-1];
+  return {r:hit[1],n:hit[2],at:hit[0],skip:hit[2]===0};
+}
+// 잰 세기 하나의 값 그대로. 안 잰 칸이면 null.
+function cellAt(emo,l,s){const p=pts(emo,l),x=p&&p.find(x=>Math.abs(x[0]-s)<1e-6);return x?{r:x[1],n:x[2],at:x[0],skip:x[2]===0}:null;}
+// 한 방향의 안전 한계: 작은 세기부터 붕괴율 50% 미만이 이어지는 마지막 세기
+function limit(emo,l,sign){
+  const p=pts(emo,l);if(!p)return null;
+  let last=0;for(const [s,r] of p.filter(x=>x[0]*sign>0).sort((a,b)=>Math.abs(a[0])-Math.abs(b[0]))){if(r>=.5)break;last=Math.abs(s);}
+  return last;
+}
+const riskCol=x=>!x?'transparent':x.skip?'var(--bad)':x.r>=.5?'var(--mid)':'var(--ok)';
+const riskText=x=>!x?'이 층은 아직 안 잼':x.skip?`${sgn(x.at)}은 이미 무너져 건너뜀`:`${sgn(x.at)}에서 붕괴 ${pct(x.r)} (${x.n}개 중 ${Math.round(x.r*x.n)}개)`;
+// 세기 구간을 칸으로 나눠 붕괴율 색 띠를 만든다. 칸마다 바깥쪽 끝 세기의 값을 쓴다.
+function bandCss(emo,l,lo,hi,n){
+  const seg=[],d=(hi-lo)/n;
+  for(let i=0;i<n;i++){const a=lo+i*d,b=a+d,s=Math.abs(a)>Math.abs(b)?a:b,x=Math.abs(s)<1e-9?{r:0}:rateAt(emo,l,s);seg.push(`${x?(Math.abs(s)<1e-9?'var(--soft)':riskCol(x)):'var(--soft)'} ${i/n*100}% ${(i+1)/n*100}%`);}
+  return `linear-gradient(90deg,${seg.join(',')})`;
+}
+
+// ---- 주입 줄 ----
+function addRow(emo='joy',layer=9,s=0){
+  const r={emo,layer,s,fc:s,el:document.createElement('div')};
+  r.el.className='inj';
+  r.el.innerHTML=`<div class="ihead"><select aria-label="감정">${ORDER.map(k=>`<option value="${k}">${NAMES[k]}</option>`).join('')}</select>
+    <span class="lay">층 <button type="button" data-d="-1" aria-label="앞 층">◀</button><input type="number" min="0" max="31" aria-label="층"><button type="button" data-d="1" aria-label="뒤 층">▶</button></span>
+    <span class="risk"><b></b><span></span></span><span class="lim"></span>
+    <button type="button" class="del" aria-label="이 줄 지우기">✕</button></div>
+    <div class="strip" title="층을 눌러 고르기. 색은 지금 세기에서의 붕괴율"></div>
+    <div class="strip-ax">${[0,4,8,12,16,20,24,28,31].map(l=>`<span style="left:${(l+.5)/32*100}%">${l}</span>`).join('')}</div>
+    <div class="sbox main"><div class="band"><u></u></div><input type="range" min="${-SMAX}" max="${SMAX}" step=".01" aria-label="세기 (−2~+2)"></div>
+    <div class="ticks">${[-2,-1.5,-1,-.5,0,.5,1,1.5,2].map(v=>`<span style="left:${(v+SMAX)/(2*SMAX)*100}%">${v>0?'+':v<0?'−':''}${Math.abs(v)}</span>`).join('')}</div>
+    <div class="fine"><button type="button" data-k="-.1">−0.1</button><button type="button" data-k="-.01">−0.01</button><span class="fl lo"></span>
+      <div class="sbox"><div class="band"><u></u></div><input type="range" step=".01" aria-label="세기 미세 조정 (지금 값 ±0.25)"></div>
+      <span class="fl hi"></span><button type="button" data-k=".01">+0.01</button><button type="button" data-k=".1">+0.1</button><input type="number" min="${-SMAX}" max="${SMAX}" step=".01" aria-label="세기"></div>`;
+  const q=s=>r.el.querySelector(s),sel=q('select'),lay=q('.lay input'),rng=q('.main input'),fin=q('.fine .sbox input'),num=q('.fine input[type=number]');
+  sel.value=emo;lay.value=layer;
+  // 미세 막대는 지금 값 ±0.25를 보여 준다. 미세 막대로 움직일 때는 가운데를 그대로 두고, 다른 방법으로 바꾸면 가운데를 새 값으로 옮긴다.
+  const set=(v,from)=>{r.s=Math.max(-SMAX,Math.min(SMAX,Math.round(v*100)/100));if(from!=='fine')r.fc=r.s;sync();paintRow(r);paintAll();};
+  const sync=()=>{rng.value=r.s;num.value=r.s.toFixed(2);const lo=Math.max(-SMAX,r.fc-FINE),hi=Math.min(SMAX,r.fc+FINE);fin.min=lo;fin.max=hi;fin.value=r.s;q('.fl.lo').textContent=sgn(lo);q('.fl.hi').textContent=sgn(hi);r.fine=[lo,hi];paintFine(r);};
+  const setLayer=l=>{r.layer=Math.max(0,Math.min(31,l|0));lay.value=r.layer;paintRow(r,true);paintAll();};
+  r.sync=sync;
+  sel.onchange=()=>{r.emo=sel.value;paintRow(r,true);paintAll();};
+  lay.onchange=()=>setLayer(+lay.value);
+  q('.lay').onclick=e=>{const b=e.target.closest('[data-d]');if(b)setLayer(r.layer+ +b.dataset.d);};
+  q('.strip').onclick=e=>{const i=e.target.closest('i');if(i)setLayer(+i.dataset.l);};
+  q('.fine').onclick=e=>{const b=e.target.closest('[data-k]');if(b)set(r.s+ +b.dataset.k);};
+  const keys=(inp,from)=>{inp.oninput=()=>set(+inp.value,from);inp.ondblclick=()=>set(0);
+    inp.onkeydown=e=>{if(e.shiftKey&&['ArrowLeft','ArrowRight','ArrowUp','ArrowDown'].includes(e.key)){e.preventDefault();set(r.s+(e.key==='ArrowLeft'||e.key==='ArrowDown'?-.1:.1));}};};
+  keys(rng,'main');keys(fin,'fine');
+  fin.onchange=()=>{r.fc=r.s;sync();};
+  num.onchange=()=>set(+num.value||0);
+  r.el.addEventListener('pointerdown',()=>pick(r),true);
+  r.el.addEventListener('focusin',()=>pick(r));
+  q('.del').onclick=e=>{e.stopPropagation();rows=rows.filter(x=>x!==r);r.el.remove();if(!rows.length)addRow();if(cur===r)pick(rows[0]);paintAll();};
+  $('rows').append(r.el);rows.push(r);sync();paintRow(r,true);pick(r);paintAll();
+  return r;
+}
+function pick(r){if(cur===r)return;cur=r;rows.forEach(x=>x.el.classList.toggle('cur',x===r));drawStats();}
+function paintFine(r){if(META&&r.fine)r.el.querySelector('.fine .band').style.background=bandCss(r.emo,r.layer,r.fine[0],r.fine[1],Math.round((r.fine[1]-r.fine[0])*100));
+  const u=r.el.querySelector('.fine .band u');if(r.fine){const p=(0-r.fine[0])/(r.fine[1]-r.fine[0]);u.style.display=p>=0&&p<=1?'':'none';u.style.left=p*100+'%';}}
+function paintRow(r,full){
+  const q=s=>r.el.querySelector(s);
+  if(full&&META){
+    q('.main .band').style.background=bandCss(r.emo,r.layer,-SMAX,SMAX,40);
+    const lp=limit(r.emo,r.layer,1),ln=limit(r.emo,r.layer,-1);
+    q('.lim').textContent=lp==null?'이 층은 아직 안 잼':`안전 한계 + ${lp?lp.toFixed(1):'없음'} · − ${ln?ln.toFixed(1):'없음'}`;
+    paintFine(r);
+  }
+  q('.strip').innerHTML=[...Array(32).keys()].map(l=>{const x=r.s?rateAt(r.emo,l,r.s):(pts(r.emo,l)?{r:0}:null);return `<i data-l="${l}" class="${l===r.layer?'sel':''} ${x?'':'na'}" style="background:${x?(r.s?riskCol(x):'var(--soft)'):''}" title="${l}층 · ${esc(r.s?riskText(x):'세기 0')}"></i>`;}).join('');
+  const x=rateAt(r.emo,r.layer,r.s);
+  q('.risk b').style.background=r.s?riskCol(x):'var(--soft)';
+  q('.risk span').textContent=r.s?riskText(x):'세기 0 (넣지 않음)';
+  q('.risk').title=q('.risk span').textContent;
+  r.el.classList.toggle('off',!r.s);
+}
+const active=()=>rows.filter(r=>r.s).map(r=>({emo:r.emo,layer:r.layer,s:r.s}));
+const injLabel=a=>a.length?a.map(x=>`${NAMES[x.emo]} ${x.layer}층 ${sgn(x.s)}`).join(', '):'주입 없음 (기준과 같음)';
+const same=(a,b)=>JSON.stringify(a)===JSON.stringify(b);
+function warnings(a){
+  const msgs=[];
+  if(a.some(x=>{const y=rateAt(x.emo,x.layer,x.s);return y&&y.r>=.5;}))msgs.push('붕괴율 50% 이상인 세기가 있습니다. 답변이 망가지기 쉽습니다.');
+  if(a.length>1)msgs.push('여러 줄을 함께 넣은 결과는 층별 탐색에서 재지 않았습니다. 색은 줄마다 따로 잰 값입니다.');
+  if(a.length>=MANY_ROWS)msgs.push(`지금 ${a.length}줄을 넣고 있습니다. 넣는 양이 쌓여서 줄마다의 색보다 훨씬 빨리 무너질 수 있습니다.`);
+  return msgs;
+}
+function paintAll(){
+  const a=active(),msgs=warnings(a);
+  $('warn').classList.toggle('on',msgs.length>0);
+  $('warn').textContent=msgs.length?msgs.join(' '):`경고 없음 · 넣는 줄 ${a.length}개`;
+  $('chips').innerHTML=a.length?a.map(x=>`<span class="chip">${esc(NAMES[x.emo])} ${x.layer}층 ${sgn(x.s)}</span>`).join(''):'<span class="chip">주입 없음</span>';
+  paintUsed();drawStats();
+}
+$('add').onclick=()=>addRow(rows.length?rows[rows.length-1].emo:'joy',rows.length?rows[rows.length-1].layer:9,0);
+$('reset').onclick=()=>{rows.forEach(r=>{r.s=r.fc=0;r.sync();paintRow(r);});paintAll();};
+$('presets').innerHTML='<span class="sub">미리 정한 조합</span>'+PRESETS.map(([n],i)=>`<button type="button" data-p="${i}">${esc(n)}</button>`).join('');
+$('presets').onclick=e=>{const b=e.target.closest('[data-p]');if(!b)return;rows.forEach(r=>r.el.remove());rows=[];cur=null;PRESETS[+b.dataset.p][1].forEach(([e2,l,s])=>addRow(e2,l,s));pick(rows[0]);paintAll();};
+
+// ---- 그림 도우미 (SVG 문자열) ----
+// 글자 크기는 그림마다 다르게 정한다(fs). 그림이 화면에 줄어드는 정도가 달라서다.
+const svgOf=(c,extra='')=>`<svg class="ch" viewBox="0 0 ${c.w} ${c.h}" preserveAspectRatio="xMidYMid meet" role="img" style="font-size:${c.fs||12}px"${extra}>${c.body}</svg>`;
+const T=(x,y,s,o='')=>`<text x="${x}" y="${y}" ${o}>${s}</text>`;
+const seqCol=c=>!c?'none':c.skip?'var(--bad)':`color-mix(in srgb,var(--bad) ${Math.round(c.r*100)}%,var(--soft))`;
+const divCol=(v,top)=>`color-mix(in srgb,${v>0?'var(--pos)':'var(--neg)'} ${Math.round(Math.min(1,Math.abs(v)/top)*100)}%,var(--soft))`;
+const dim=b=>b||$('allBright').checked?'':' opacity=".28"';
+function yAxis(L,R,y,vals,fmt=pct){return vals.map(v=>`<line x1="${L}" x2="${R}" y1="${y(v)}" y2="${y(v)}" stroke="var(--line)"${v===.5?' stroke-dasharray="4 3"':''}/>`+T(L-5,y(v)+4,fmt(v),'text-anchor="end"')).join('');}
+const noData=(w,h,msg)=>({w,h,body:T(w/2,h/2,esc(msg),'text-anchor="middle" class="big"')});
+
+// 1) 층별 붕괴율 (지금 세기)
+// 들어갈 상자가 있으면(넓은 화면의 카드, 크게 보기) 그림 높이를 상자 모양에 맞춰 상자를 채운다
+const fitH=(box,W,lo,hi,def)=>box&&box.width&&box.height?Math.max(lo,Math.min(hi,W*box.height/box.width)):def;
+function chLayers({emo,layer,s},box){
+  const W=660,H=fitH(box,660,200,1100,240),L=46,R=8,TP=12,B=40,pw=(W-L-R)/32,y=v=>TP+(1-v)*(H-TP-B);
+  if(!s)return noData(W,H,'세기가 0이면 넣지 않으므로 붕괴율이 없습니다. 세기를 정해 보세요.');
+  let b=yAxis(L,W-R,y,[0,.5,1]),avg=[];
+  for(let l=0;l<32;l++){
+    const x=L+l*pw,c=rateAt(emo,l,s);
+    const others=META.names.map(e=>rateAt(e,l,s)).filter(Boolean);
+    if(others.length)avg.push([x+pw/2,y(others.reduce((a,o)=>a+o.r,0)/others.length)]);
+    if(l%4===0||l===layer)b+=T(x+pw/2,H-B+17,(l===layer?'▲':'')+l,`text-anchor="middle" class="${l===layer?'hot':''}"`);
+    if(!c){b+=T(x+pw/2,y(0)-3,'·','text-anchor="middle"');continue;}
+    b+=`<rect x="${x+1}" y="${y(c.r)}" width="${pw-2}" height="${Math.max(1.5,y(0)-y(c.r))}" rx="1.5" fill="${riskCol(c)}"${dim(l===layer)}><title>${l}층 · ${esc(riskText(c))}</title></rect>`;
+  }
+  b+=`<polyline points="${avg.map(p=>p.map(v=>v.toFixed(1)).join(',')).join(' ')}" fill="none" stroke="var(--ink)" stroke-width="1.5" stroke-dasharray="5 3" opacity=".7"/>`;
+  b+=T(L,H-3,`층 → · 세기 ${sgn(s)} · 점선: 감정 20개 평균`);
+  return {w:W,h:H,body:b,fs:17};
+}
+// 2) 세기별 붕괴율 (이 층)
+function chCurve({emo,layer,s},box){
+  const W=660,H=fitH(box,660,200,1100,250),L=46,R=12,TP=14,B=40,x=v=>L+(v+SMAX)/(2*SMAX)*(W-L-R),y=v=>TP+(1-v)*(H-TP-B);
+  const p=pts(emo,layer);if(!p)return noData(W,H,`${NAMES[emo]} ${layer}층은 아직 안 쟀습니다.`);
+  const lp=limit(emo,layer,1),ln=limit(emo,layer,-1);
+  let b=`<rect x="${x(-ln)}" y="${TP}" width="${x(lp)-x(-ln)}" height="${H-TP-B}" fill="var(--ok)" opacity=".13"/>`+yAxis(L,W-R,y,[0,.5,1]);
+  [-2,-1.5,-1,-.5,0,.5,1,1.5,2].forEach(v=>{b+=T(x(v),H-B+17,(v>0?'+':v<0?'−':'')+Math.abs(v),'text-anchor="middle"');});
+  const lit=q=>!s||(q*s>0&&Math.abs(q)<=Math.abs(s)+1e-9);
+  for(const sign of [-1,1]){
+    const side=p.filter(q=>q[0]*sign>0).sort((a,c)=>Math.abs(a[0])-Math.abs(c[0]));
+    const path=side.map((q,i)=>(i?'L':'M')+x(q[0]).toFixed(1)+' '+y(q[1]).toFixed(1)).join(' ');
+    b+=`<path d="${path}" fill="none" stroke="var(--ink)" stroke-width="1.5"${dim(false)}/>`;
+    const on=side.filter(q=>lit(q[0]));
+    if(on.length>1)b+=`<path d="${on.map((q,i)=>(i?'L':'M')+x(q[0]).toFixed(1)+' '+y(q[1]).toFixed(1)).join(' ')}" fill="none" stroke="var(--ink)" stroke-width="2"/>`;
+    side.forEach(q=>{const c={r:q[1],n:q[2],at:q[0],skip:q[2]===0};b+=`<circle cx="${x(q[0])}" cy="${y(q[1])}" r="${c.skip?3.5:4}" fill="${c.skip?'var(--card)':riskCol(c)}" stroke="${c.skip?'var(--bad)':'var(--card)'}" stroke-width="1.5"${dim(lit(q[0]))}><title>${esc(riskText(c))}</title></circle>`;});
+  }
+  if(s)b+=`<line x1="${x(s)}" x2="${x(s)}" y1="${TP}" y2="${H-B}" stroke="var(--accent)" stroke-width="2"/>`+T(x(s)+(s>1.5?-4:4),TP+14,'지금 '+sgn(s),`class="hot" ${s>1.5?'text-anchor="end"':''}`);
+  b+=T(L,H-3,`세기 → · 초록 띠: 안전 범위(− ${ln?ln.toFixed(1):'0'} ~ + ${lp?lp.toFixed(1):'0'}) · 빈 동그라미: 건너뜀`);
+  return {w:W,h:H,body:b,fs:17};
+}
+// 3) 세기 × 층 붕괴율 지도 (원래 측정 전체)
+function chGrid({emo,layer,s},box){
+  const cw=19,L=50,TP=22,gap=5,W=L+32*cw+8,ch=Math.max(9,Math.min(30,(fitH(box,W,0,4000,0)-TP-gap-34)/24||12)),H=TP+24*ch+gap+34;
+  if(!META.safety[emo])return noData(W,H,`${NAMES[emo]}은 아직 안 쟀습니다.`);
+  const hit=s?rateAt(emo,layer,s):null,hs=hit&&hit.at;
+  let b='';
+  for(let l=0;l<32;l+=4)b+=T(L+l*cw+cw/2,TP-6,l,'text-anchor="middle"');
+  b+=T(L+layer*cw+cw/2,TP-6,'▼'+layer,'text-anchor="middle" class="hot"');
+  STR.forEach((st,i)=>{
+    const yy=TP+i*ch+(st<0?gap:0),rowOn=hs!=null&&Math.abs(st-hs)<1e-6;
+    if([2,1.5,1,.5,.1,-.1,-.5,-1,-1.5,-2].some(v=>Math.abs(v-st)<1e-6)||rowOn)b+=T(L-5,yy+ch-2,(rowOn?'▶ ':'')+sgn(st).replace('.00','').replace(/0$/,''),`text-anchor="end" class="${rowOn?'hot':''}"`);
+    for(let l=0;l<32;l++){
+      const c=cellAt(emo,l,st),xx=L+l*cw,on=rowOn||l===layer;
+      b+=c?`<rect x="${xx+.5}" y="${yy+.5}" width="${cw-1}" height="${ch-1}" rx="1" fill="${seqCol(c)}"${dim(on)}><title>${l}층 · ${esc(riskText(c))}</title></rect>`+(c.skip?`<line x1="${xx+3}" y1="${yy+ch-3}" x2="${xx+cw-3}" y2="${yy+3}" stroke="var(--card)" stroke-width="1.2"${dim(on)}/>`:'')
+        :`<rect x="${xx+1}" y="${yy+1}" width="${cw-2}" height="${ch-2}" rx="1" fill="none" stroke="var(--line)"${dim(on)}><title>${l}층 · ${sgn(st)} 아직 안 잼</title></rect>`;
+    }
+    if(rowOn)b+=`<rect x="${L+layer*cw}" y="${yy}" width="${cw}" height="${ch}" fill="none" stroke="var(--ink)" stroke-width="2"/>`;
+  });
+  const ly=H-12;
+  b+=T(L,ly,'붕괴율 0%');for(let i=0;i<=10;i++)b+=`<rect x="${L+80+i*14}" y="${ly-9}" width="13" height="10" fill="${seqCol({r:i/10})}"/>`;
+  b+=T(L+80+11*14+4,ly,'100% · 빗금: 건너뜀 · 빈 칸: 안 잼');
+  return {w:W,h:H,body:b,fs:14};
+}
+// 4) 감정별 붕괴율 (이 층 · 이 세기)
+function chEmos({emo,layer,s},box){
+  const ord=ORDER.filter(k=>META.safety[k]),L=92,R=110,TP=6,W=560,rh=Math.max(14,Math.min(34,(fitH(box,W,0,4000,0)-TP-20)/ord.length||17)),H=TP+ord.length*rh+20,x=v=>L+v*(W-L-R);
+  if(!s)return noData(W,H,'세기가 0이면 붕괴율이 없습니다.');
+  let b=[0,.5,1].map(v=>`<line x1="${x(v)}" x2="${x(v)}" y1="${TP}" y2="${H-18}" stroke="var(--line)"${v===.5?' stroke-dasharray="4 3"':''}/>`+T(x(v),H-4,pct(v),'text-anchor="middle"')).join('');
+  ord.forEach((k,i)=>{const yy=TP+i*rh,c=rateAt(k,layer,s),on=k===emo;
+    b+=T(L-6,yy+rh/2+4,esc(NAMES[k]),`text-anchor="end" class="${on?'hot':''}"`);
+    if(c)b+=`<rect x="${L}" y="${yy+rh*.2}" width="${Math.max(1.5,x(c.r)-L)}" height="${rh*.6}" rx="2" fill="${riskCol(c)}"${dim(on)}><title>${esc(NAMES[k])} · ${esc(riskText(c))}</title></rect>`;
+    b+=T(W-R+6,yy+rh/2+4,!c?'안 잼':c.skip?'건너뜀':`${pct(c.r)} (${c.n}개)`,`class="${on?'hot':''}"`);});
+  return {w:W,h:H,body:b,fs:13};
+}
+// 5) 감정 위치 지도 (PCA)
+function chPca({emo,layer,s}){
+  const S=520,pad=46;
+  if(!META.pca)return noData(S,S,'이 서버는 감정 지도 값을 보내지 않습니다.');
+  const P=META.pca[layer],v=META.pca_var[layer],keys=[...META.names,'random0'];
+  const m=Math.max(...P.flat().map(Math.abs))*1.08,X=a=>S/2+a/m*(S/2-pad),Y=a=>S/2-a/m*(S/2-pad);
+  const act=new Set(active().filter(x=>x.layer===layer).map(x=>x.emo));
+  let b=`<line x1="${pad/2}" x2="${S-pad/2}" y1="${S/2}" y2="${S/2}" stroke="var(--line)"/><line y1="${pad/2}" y2="${S-pad/2}" x1="${S/2}" x2="${S/2}" stroke="var(--line)"/>`;
+  b+=T(S-pad/2,S/2-6,`PC1 (담긴 비율 ${pct(v[0])})`,'text-anchor="end"')+T(S/2+6,pad/2+4,`PC2 (${pct(v[1])})`);
+  const i0=keys.indexOf(emo);
+  if(i0>=0&&s){const sg=Math.sign(s),tx=X(P[i0][0]*sg),ty=Y(P[i0][1]*sg),dx=tx-S/2,dy=ty-S/2,d=Math.hypot(dx,dy)||1,ux=dx/d,uy=dy/d;
+    b+=`<line x1="${S/2}" y1="${S/2}" x2="${tx-ux*10}" y2="${ty-uy*10}" stroke="var(--accent)" stroke-width="3"/><polygon points="${tx},${ty} ${tx-ux*13-uy*6},${ty-uy*13+ux*6} ${tx-ux*13+uy*6},${ty-uy*13-ux*6}" fill="var(--accent)"/>`;
+    if(sg<0)b+=T(tx+8,ty-8,'− 방향','class="hot"');}
+  keys.forEach((k,i)=>{const on=k===emo,a=act.has(k),cx=X(P[i][0]),cy=Y(P[i][1]);
+    b+=`<g${dim(on||a)}><circle cx="${cx}" cy="${cy}" r="${on?8:5.5}" fill="${on?'var(--accent)':a?'var(--ink)':k==='random0'?'none':'var(--muted)'}" stroke="${k==='random0'?'var(--muted)':'var(--card)'}" stroke-width="1.5"><title>${esc(NAMES[k])} (${P[i].map(z=>z.toFixed(2)).join(', ')})</title></circle>${T(cx+(cx>S-90?-10:10),cy+4,esc(NAMES[k]),`class="${on||a?'hot':''}" ${cx>S-90?'text-anchor="end"':''}`)}</g>`;});
+  return {w:S,h:S,body:b,fs:14};
+}
+// 6) 코사인 유사도 지도
+function chCos({emo,layer}){
+  const keys=[...META.names,'random0'],n=keys.length,c=19,L=66,TP=60,W=L+n*c+52,H=TP+n*c+30;
+  if(!META.gram)return noData(W,H,'이 서버는 코사인 유사도 값을 보내지 않습니다.');
+  const G=META.gram[layer],k0=keys.indexOf(emo);
+  let b='';
+  keys.forEach((k,i)=>{const on=i===k0;
+    b+=T(L+i*c+c/2,4,esc(NAMES[k].replace('(대조)','').slice(0,3)),`style="writing-mode:vertical-rl;text-orientation:upright;letter-spacing:-1px" class="${on?'hot':''}"`);
+    b+=T(L-5,TP+i*c+c-6,esc(NAMES[k].replace('(대조)','')),`text-anchor="end" class="${on?'hot':''}"`);
+    keys.forEach((k2,j)=>{const v=G[i][j];b+=`<rect x="${L+j*c+.5}" y="${TP+i*c+.5}" width="${c-1}" height="${c-1}" rx="1.5" fill="${divCol(v,1)}"${dim(i===k0||j===k0)}><title>${esc(NAMES[k])} · ${esc(NAMES[k2])} = ${v>0?'+':''}${v.toFixed(2)}</title></rect>`;});});
+  if(k0>=0)b+=`<rect x="${L}" y="${TP+k0*c}" width="${n*c}" height="${c}" fill="none" stroke="var(--ink)" stroke-width="1.5"/><rect x="${L+k0*c}" y="${TP}" width="${c}" height="${n*c}" fill="none" stroke="var(--ink)" stroke-width="1.5"/>`;
+  const sx=L+n*c+14;b+=T(sx,TP+8,'+1');for(let i=0;i<=20;i++)b+=`<rect x="${sx}" y="${TP+14+i*9}" width="14" height="9" fill="${divCol(1-i/10,1)}"/>`;b+=T(sx,TP+14+21*9+12,'−1');
+  return {w:W,h:H,body:b,fs:12};
+}
+// 7) 층 × 감정 계기판 (대화 중 실시간). 들어갈 상자가 세로로 길면 층을 세로로 그린다.
+function chMeter(_,box){
+  const tall=box&&box.height>box.width*.9,names=META.names,ord=ORDER.filter(k=>names.includes(k));
+  const inj=busy||meterNow?meterInj:active(),injL=new Set(inj.map(x=>x.layer)),injE=new Set(inj.map(x=>x.emo));
+  const curv=mode==='proj'?projNow:meterNow;
+  // 투영 크기는 층마다 크기가 많이 달라서 눈금을 지금 값의 최댓값에 맞춘다
+  const top=mode==='proj'?Math.max(1,...(curv||[[0]]).flat().map(Math.abs)):HEAT_MAX,fmt=v=>mode==='proj'?v.toFixed(1):v.toFixed(3);
+  $('scaleLo').textContent='−'+fmt(top);$('scaleHi').textContent='+'+fmt(top);
+  const cell=(x,y,w,h,v,k,l)=>`<rect x="${x+.5}" y="${y+.5}" width="${w-1}" height="${h-1}" rx="1.5" fill="${v==null?'var(--soft)':divCol(v,top)}"${injL.has(l)?' stroke="var(--ink)" stroke-width=".6"':''}><title>${esc(NAMES[k])} · ${l}층 · ${v==null?'값 없음':(v>0?'+':'')+fmt(v)}</title></rect>`;
+  const val=(l,k)=>curv?curv[l][names.indexOf(k)]:null;
+  let s='',W,H;
+  if(tall){
+    const cw=15,ch=12,L=34,TP=44;W=L+ord.length*cw+4;H=TP+32*ch+4;
+    ord.forEach((k,i)=>{s+=T(L+i*cw+cw/2,2,esc(NAMES[k].slice(0,3)),`style="writing-mode:vertical-rl;text-orientation:upright;letter-spacing:-1px" class="${injE.has(k)?'hot':''}"`);});
+    for(let l=0;l<32;l++){const y=TP+l*ch;
+      if(l%4===0||injL.has(l))s+=T(L-4,y+ch-2,(injL.has(l)?'▶ ':'')+l,`text-anchor="end" class="${injL.has(l)?'hot':''}"`);
+      ord.forEach((k,i)=>{s+=cell(L+i*cw,y,cw,ch,val(l,k),k,l);});}
+  }else{
+    const cw=14,ch=13,L=52,TP=26;W=L+32*cw+4;H=TP+ord.length*ch+16;
+    for(let l=0;l<32;l+=4)s+=T(L+l*cw+cw/2,10,l,'text-anchor="middle"');
+    injL.forEach(l=>{s+=T(L+l*cw+cw/2,TP-3,'▼','text-anchor="middle" class="hot"');});
+    ord.forEach((k,i)=>{const y=TP+i*ch;
+      s+=T(L-5,y+ch-3,esc(NAMES[k]),`text-anchor="end" class="${injE.has(k)?'hot':''}"`);
+      for(let l=0;l<32;l++)s+=cell(L+l*cw,y,cw,ch,val(l,k),k,l);});
+    s+=T(L,H-3,'층 →');
+  }
+  return {w:W,h:H,body:s,fs:10};
+}
+const MODE_TEXT={cos:'칸 값은 그 층의 활성값과 감정 벡터의 코사인이 기준 답변보다 얼마나 달라졌는지입니다. 층끼리 비교하기 좋습니다.',proj:'칸 값은 그 층의 활성값을 감정 방향으로 잰 길이(‖h‖ 포함)가 기준 답변보다 얼마나 달라졌는지입니다. 뒤 층일수록 값이 커서 눈금은 지금 가장 큰 값에 맞춥니다.'};
+const CH={
+  layers:{t:'층별 붕괴율 (지금 세기)',f:chLayers,w:'고른 감정을 지금 세기로 넣었을 때 층마다 답변이 무너진 비율입니다. 막대가 낮은 층일수록 같은 세기를 견딥니다. 고른 층만 밝게 그리고, 점선은 감정 20개의 평균입니다.'},
+  curve:{t:'세기별 붕괴율 (고른 층)',f:chCurve,w:'고른 층에서 세기를 키울수록 붕괴율이 어떻게 오르는지입니다. 초록 띠는 붕괴 50% 미만이 이어지는 안전 범위, 파란 세로선은 지금 세기입니다. 0부터 지금 세기까지는 밝게, 그 너머는 어둡게 그립니다.'},
+  grid:{t:'세기 × 층 붕괴율 지도 (층별 탐색에서 잰 원래 값)',f:chGrid,wide:1,w:'고른 감정에서 잰 값 전체입니다. 가로는 층, 세로는 세기이고, 진할수록 많이 무너졌습니다. 지금 층(세로줄)과 지금 세기(가로줄)만 밝게 보이고, 두 줄이 만나는 칸이 지금 설정입니다.'},
+  emos:{t:'감정별 붕괴율 (고른 층 · 지금 세기)',f:chEmos,w:'같은 층 · 같은 세기로 다른 감정을 넣었다면 얼마나 무너졌는지입니다. 이 층이 감정과 상관없이 약한지, 고른 감정만 약한지 봅니다.'},
+  pca:{t:'감정 위치 지도 (고른 층, 2차원으로 줄임)',f:chPca,w:'이 층의 감정 벡터를 가장 많이 퍼진 두 방향(PCA)으로 눌러 펼친 지도입니다. 가까울수록 모델 안에서 비슷한 방향입니다. 파란 화살표는 지금 넣는 방향이고, − 세기면 반대쪽을 가리킵니다. 축 이름의 %만큼만 담겨 있어서 거리는 대략적으로만 봅니다.'},
+  cos:{t:'코사인 유사도 지도 (고른 층)',f:chCos,w:'이 층에서 감정 벡터 두 개가 얼마나 같은 방향인지입니다. +1에 가까우면 같은 방향, 0이면 상관없음, −1이면 반대 방향입니다. 고른 감정의 가로줄 · 세로줄만 밝게 봅니다. 무작위 벡터는 모든 감정과 0 근처여야 정상입니다.'},
+  meter:{t:'층 × 감정 계기판',f:chMeter,w:''},
+};
+const SET_CARDS=['layers','curve','emos','grid','pca','cos'];
+$('cards').innerHTML=SET_CARDS.map(k=>`<article class="card${CH[k].wide?' wide':''}" data-c="${k}"><header><h3>${CH[k].t}</h3><button type="button" data-big="${k}">⤢ 크게 보기</button></header><p class="what" title="${CH[k].w}">${CH[k].w}</p><div class="fig"></div></article>`).join('');
+$('cards').onclick=e=>{const b=e.target.closest('[data-big]');if(b)openBig(b.dataset.big,ctxSet());};
+$('allBright').onchange=()=>{drawStats();drawMeter();redrawBig();};
+
+// ---- 통계 그리기 ----
+const ctxSet=()=>cur?{emo:cur.emo,layer:cur.layer,s:cur.s}:{emo:'joy',layer:9,s:0};
+let statsQueued=false;
+function drawStats(){
+  if(statsQueued)return;statsQueued=true;
+  requestAnimationFrame(()=>{statsQueued=false;
+    if(!META||!$('app').classList.contains('s-set')){redrawBig();return;}
+    const c=ctxSet();
+    $('statTarget').innerHTML=`<b>${esc(NAMES[c.emo])} · ${c.layer}층 · 세기 ${sgn(c.s)}</b> <span class="sub">(고른 줄)</span>`;
+    document.querySelectorAll('#cards .card').forEach(el=>{const fig=el.querySelector('.fig');fig.innerHTML=svgOf(CH[el.dataset.c].f(c,shape==='wide'?fig.getBoundingClientRect():null));});
+    redrawBig();
+  });
+}
+// 크게 보기: 같은 그림을 화면을 거의 다 채워 그린다. 설정이 바뀌면 같이 바뀐다.
+let ovCtx=null;
+function openBig(k,ctx){ovChart=k;ovCtx=ctx;$('ov').hidden=false;$('ovTitle').textContent=CH[k].t;$('ovWhat').textContent=k==='meter'?MODE_TEXT[mode]:CH[k].w;redrawBig();$('ovClose').focus();}
+function redrawBig(){
+  if(!ovChart||$('ov').hidden||!META)return;
+  const ctx=ovChart==='meter'||ovCtx.chat?ctxChat():ctxSet(),box=$('ovFig').getBoundingClientRect();
+  $('ovFig').innerHTML=svgOf(CH[ovChart].f(ctx,box));
+}
+$('ovClose').onclick=()=>{$('ov').hidden=true;ovChart=null;};
+$('ov').onclick=e=>{if(e.target===$('ov'))$('ovClose').click();};
+addEventListener('keydown',e=>{if(e.key==='Escape'&&!$('ov').hidden)$('ovClose').click();});
+
+// ---- 대화 화면의 지표 ----
+// 이 답변의 설정: 마지막 답변을 만들 때 쓴 주입. 설정 화면에서 바꿨으면 다시 만들지 묻는다.
+function paintUsed(){
+  const last=turns[turns.length-1],used=last?last.inj:active(),now=active();
+  let h=last?'':'<div class="sub" style="margin-bottom:4px">아직 답변이 없습니다. 질문을 보내면 아래 설정으로 만듭니다.</div>';
+  h+=used.length?'<ul class="used">'+used.map(x=>{const y=rateAt(x.emo,x.layer,x.s);return `<li><b style="background:${riskCol(y)}"></b><span>${esc(NAMES[x.emo])} ${x.layer}층 ${sgn(x.s)}</span><span class="r">${esc(riskText(y))}</span></li>`;}).join('')+'</ul>':'<div class="sub">주입 없음 (기준 답변과 같은 설정)</div>';
+  const w=warnings(used);if(w.length)h+=`<div class="sub" style="margin-top:6px">${esc(w.join(' '))}</div>`;
+  if(last&&!same(used,now))h+=`<div class="changed">설정 화면에서 바꾼 새 설정: ${esc(injLabel(now))}<div class="row"><button type="button" class="main" data-act="redo"${!ready||busy?' disabled':''}>새 설정으로 다시 만들기</button></div></div>`;
+  h+=`<div class="row" style="margin-top:8px"><button type="button" data-act="edit">① 설정 바꾸러 가기</button></div>`;
+  $('usedBox').innerHTML=h;
+}
+$('usedBox').onclick=e=>{const b=e.target.closest('[data-act]');if(!b)return;if(b.dataset.act==='edit')show('set');else rerun();};
+// 답변 감정 지표: 감정마다 32층 코사인 차이의 평균. 크기 순으로 보여 준다.
+function drawBars(){
+  if(!META)return;
+  const names=META.names,inj=new Set(meterInj.map(x=>x.emo));
+  if(!meterNow){$('bars').innerHTML='<span class="sub" style="grid-column:1/-1">질문을 보내면 나옵니다.</span>';return;}
+  const v=ORDER.filter(k=>names.includes(k)).map(k=>{const i=names.indexOf(k);return [k,meterNow.reduce((a,row)=>a+row[i],0)/meterNow.length];}).sort((a,b)=>Math.abs(b[1])-Math.abs(a[1]));
+  $('bars').innerHTML=v.map(([k,x])=>{const w=Math.min(50,Math.abs(x)/BAR_MAX*50);return `<span class="n ${inj.has(k)?'hot':''}">${esc(NAMES[k].replace('(대조)',''))}</span><span class="t" title="${esc(NAMES[k])} ${x>0?'+':''}${x.toFixed(3)}"><i style="${x>=0?'left:50%':'right:50%'};width:${w}%;background:${x>=0?'var(--pos)':'var(--neg)'}"></i></span><span class="v">${x>0?'+':''}${x.toFixed(3)}</span>`;}).join('');
+}
+// 대화 화면의 지도: 계기판 · 감정 위치 · 코사인 유사도. 지도의 층은 이 답변의 첫 주입 층이고, ◀▶로 바꿀 수 있다.
+function ctxChat(){
+  const inj=meterInj.length?meterInj:active(),f=inj[0]||{emo:'joy',layer:16,s:0};
+  return {emo:f.emo,layer:mapL==null?f.layer:mapL,s:f.s,chat:1};
+}
+function drawMeter(){
+  if(!META)return;
+  const box=$('heatBox').getBoundingClientRect();
+  $('mode').hidden=mtab!=='meter';$('mScale').hidden=mtab==='pca';$('mapLay').hidden=mtab==='meter';
+  const c=ctxChat();$('mapL').textContent=c.layer;
+  $('mWhat').textContent=mtab==='meter'?MODE_TEXT[mode]+' ▼(세로면 ▶)는 주입한 층입니다.':CH[mtab].w;
+  if(mtab==='cos'){$('scaleLo').textContent='−1';$('scaleHi').textContent='+1';}
+  if(box.width)$('heatBox').innerHTML=svgOf(CH[mtab].f(c,box));
+  if(ovChart==='meter')redrawBig();
+}
+$('mtab').onclick=e=>{const b=e.target.closest('[data-t]');if(!b)return;mtab=b.dataset.t;document.querySelectorAll('#mtab button').forEach(x=>x.classList.toggle('on',x===b));drawMeter();};
+$('mode').onclick=e=>{const b=e.target.closest('[data-m]');if(!b)return;mode=b.dataset.m;document.querySelectorAll('#mode button').forEach(x=>x.classList.toggle('on',x===b));drawMeter();};
+$('mapLay').onclick=e=>{const b=e.target.closest('[data-d]');if(!b)return;mapL=Math.max(0,Math.min(31,ctxChat().layer+ +b.dataset.d));drawMeter();};
+$('meterBig').onclick=()=>openBig(mtab,{chat:1});
+
+// ---- 대화 ----
+function view(){
+  const log=$('log');
+  if(!turns.length){log.innerHTML=`<div class="empty">① 감정 설정에서 감정 · 층 · 세기를 정한 뒤 질문을 보내면, 같은 질문의 기준 답변과 주입한 답변이 나란히 나옵니다.<div class="ex">${EX.map(x=>`<button type="button" data-ex="${esc(x)}">${esc(x)}</button>`).join('')}</div></div>`;return;}
+  log.innerHTML=turns.map(t=>`<div class="q">${esc(t.q)}</div><div class="pair"><div class="ans ${t.bad[0]?'broke':''}"><span class="tag">기준 답변${t.bad[0]?'<span class="bad">문장 붕괴</span>':''}</span>${esc(t.a[0])}</div><div class="ans steer ${t.bad[1]?'broke':''}"><span class="tag">${esc(injLabel(t.inj))}${t.bad[1]?'<span class="bad">문장 붕괴</span>':''}</span>${esc(t.a[1])}</div></div>`).join('');
+}
+function setBusy(b){busy=b;$('stop').disabled=!b;$('go').disabled=!ready||b;paintUsed();}
+async function run(){
+  const t=turns[turns.length-1],past=turns.slice(0,-1);
+  const hist=i=>[...past.flatMap(p=>[{role:'user',content:p.q},{role:'assistant',content:p.a[i]}]),{role:'user',content:t.q}];
+  ctrl&&ctrl.abort();
+  const me=ctrl=new AbortController();
+  meterInj=t.inj;meterNow=projNow=null;mapL=null;setBusy(true);drawMeter();drawBars();$('st').textContent='답변을 만드는 중입니다';
+  view();
+  const stick=()=>{const l=$('log');l.scrollTop=l.scrollHeight;};stick();
+  try{
+    const r=await fetch('/api/chat',{method:'POST',headers:{'Content-Type':'application/json','X-Key':KEY},body:JSON.stringify({base:hist(0),steer:hist(1),inject:t.inj}),signal:me.signal});
+    if(!r.ok)throw new Error('서버 응답 '+r.status);
+    const rd=r.body.getReader(),dec=new TextDecoder();let buf='';
+    for(;;){
+      const {value,done}=await rd.read();if(done)break;
+      buf+=dec.decode(value,{stream:true});
+      const lines=buf.split('\n');buf=lines.pop();
+      for(const line of lines){
+        const m=JSON.parse(line);
+        if(m.texts){t.a=m.texts;view();stick();}
+        if(m.meter){meterNow=m.meter;projNow=m.proj||null;drawMeter();drawBars();$('meterNote').textContent=`${m.token}번째 토큰 · ${injLabel(t.inj)}`;}
+        if(m.done){t.bad=m.collapsed;view();$('st').textContent=m.stopped?'멈췄습니다':`완료 (${m.seconds}초)`;}
+      }
+    }
+  }catch(e){if(e.name==='AbortError')return;$('st').textContent='오류: '+e.message;}
+  if(me===ctrl)setBusy(false);
+}
+function rerun(){if(!ready||!turns.length)return;const t=turns[turns.length-1];t.inj=active();t.a=['',''];t.bad=[false,false];run();}
+function ask(q){turns.push({q,inj:active(),a:['',''],bad:[false,false]});run();}
+function halt(){ctrl&&ctrl.abort();ctrl=null;fetch('/api/stop',{method:'POST',headers:{'X-Key':KEY}});setBusy(false);$('st').textContent='멈췄습니다';}
+$('f').onsubmit=e=>{e.preventDefault();const q=$('t').value.trim();if(!q||!ready||busy)return;$('t').value='';ask(q);};
+$('t').onkeydown=e=>{if(e.key==='Enter'&&!e.shiftKey&&!e.isComposing){e.preventDefault();$('f').requestSubmit();}};
+$('stop').onclick=halt;
+$('clear').onclick=()=>{if(busy)halt();turns=[];meterNow=projNow=null;meterInj=[];view();setBusy(false);drawMeter();drawBars();};
+$('log').onclick=e=>{const b=e.target.closest('[data-ex]');if(b&&ready&&!busy)ask(b.dataset.ex);};
+
+// ---- 서버 연결 ----
+function lock(msg){
+  $('st').innerHTML=`<label>${esc(msg)} <input type="password" id="key" autocomplete="off" style="font:inherit;width:170px"></label> <button type="button" id="enter">들어가기</button>`;
+  const go=()=>{KEY=$('key').value.trim();poll();};
+  $('enter').onclick=go;$('key').onkeydown=e=>{if(e.key==='Enter')go();};$('key').focus();
+}
+async function poll(){
+  try{
+    const s=await(await fetch('/api/status',{headers:{'X-Key':KEY}})).json();
+    if(!s.allowed)return lock(KEY?'비밀번호가 틀렸습니다':'비밀번호');
+    if(s.error){$('st').textContent='모델 오류: '+s.error;return;}
+    if(s.ready){
+      $('mockTag').hidden=!s.mock;
+      META=await(await fetch('/api/meta',{headers:{'X-Key':KEY}})).json();
+      $('judgeNote').textContent=`색은 층별 탐색(Kanana 2 3B, 중립 질문 10개)의 붕괴율입니다. 판정: ${META.judge==='collapsed3'?'반복 또는 뜻이 깨진 답변':'반복'}. 세기마다 같은 방향에서 그 이상인 가장 작은 잰 세기의 값을 씁니다.`;
+      rows.forEach(r=>paintRow(r,true));paintAll();
+      ready=true;$('st').textContent='준비됐습니다';setBusy(false);drawBars();drawStats();
+      // 화면 확인용: #demo는 1층+5층 조합으로 예시 질문을 보내고 대화 화면을 연다. #demo-ind는 휴대폰의 지표, #demo-set은 설정 화면.
+      if(location.hash.startsWith('#demo')){document.querySelector('[data-p="6"]').click();ask(EX[0]);show(location.hash.split('-')[1]||'chat');}
+      return;
+    }
+    $('st').textContent='모델을 불러오는 중입니다';
+  }catch(e){}
+  setTimeout(poll,1000);
+}
+addRow('joy',9,0);
+new ResizeObserver(()=>drawMeter()).observe($('heatBox'));
+new ResizeObserver(()=>redrawBig()).observe($('ovFig'));
+new ResizeObserver(()=>drawStats()).observe($('cards'));
+layout();view();poll();
+</script>
+</body>
+</html>

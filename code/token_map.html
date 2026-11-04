@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>감정 활성도 지도</title>
+<style>
+:root{--bg:#f7f6f3;--card:#fff;--text:#22211e;--sub:#6f6c64;--line:#e4e1d9;--hot:200,60,50;--cold:45,105,180}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#1c1b19;--card:#262522;--text:#ece9e2;--sub:#a29e94;--line:#3a3833;--hot:235,95,80;--cold:95,155,230}}
+:root[data-theme="dark"]{--bg:#1c1b19;--card:#262522;--text:#ece9e2;--sub:#a29e94;--line:#3a3833;--hot:235,95,80;--cold:95,155,230}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font:15px/1.6 system-ui,"Malgun Gothic",sans-serif}
+main{max-width:860px;margin:0 auto;padding:24px 16px 48px}
+h1{font-size:22px;margin:0 0 4px}
+.sub{color:var(--sub);font-size:13px}
+.controls{display:flex;flex-wrap:wrap;gap:10px;margin:16px 0}
+label{display:flex;flex-direction:column;gap:3px;font-size:12px;color:var(--sub);min-width:130px;flex:1}
+select{font:inherit;color:var(--text);background:var(--card);border:1px solid var(--line);border-radius:7px;padding:6px 8px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 16px;margin-bottom:12px}
+.prompt{color:var(--sub);font-size:14px;margin-bottom:10px}
+.text{white-space:pre-wrap;overflow-wrap:anywhere}
+.legend{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--sub)}
+.legend i{display:block;width:140px;height:10px;border-radius:5px;background:linear-gradient(90deg,rgb(var(--cold)),transparent,rgb(var(--hot)))}
+</style>
+</head>
+<body>
+<main>
+<h1>감정 활성도 지도</h1>
+<p class="sub">토큰마다 내부 값이 고른 감정 방향과 얼마나 같은 쪽을 보는지 칠했어요. 중립 상황 답변의 평균을 기준으로 한 차이이고, 색은 모델이 그 감정을 느낀다는 뜻이 아니에요. 스티어링 답변도 벡터를 더하지 않고 읽기만 했어요.</p>
+<div class="controls">
+<label>글 묶음<select id="group"></select></label>
+<label>글<select id="item"></select></label>
+<label>감정 방향<select id="emo"></select></label>
+<label>층<select id="layer"></select></label>
+</div>
+<div class="card">
+<div class="prompt" id="prompt"></div>
+<div class="text" id="text"></div>
+</div>
+<div class="legend"><span id="lo"></span><i></i><span id="hi"></span></div>
+</main>
+<script>
+const D=/*DATA*/null;
+const $=id=>document.getElementById(id);
+const fill=(el,vals)=>{el.innerHTML='';vals.forEach(v=>{const o=document.createElement('option');o.textContent=v;el.append(o);});};
+const groups=[...new Set(D.items.map(x=>x.group))];
+fill($('group'),groups); fill($('emo'),D.emotions); fill($('layer'),D.layers.map(String));
+function items(){return D.items.filter(x=>x.group===$('group').value);}
+function pick(){fill($('item'),items().map(x=>x.label));draw();}
+function draw(){
+  const x=items().find(i=>i.label===$('item').value), L=$('layer').value, s=x.scores[L][$('emo').value], max=D.scale[L]||1;
+  $('prompt').textContent='입력: '+x.prompt;
+  const box=$('text'); box.textContent='';
+  x.tokens.forEach((t,i)=>{
+    const e=document.createElement('span'), a=Math.min(1,Math.abs(s[i])/max)*0.75;
+    e.textContent=t; e.title=(s[i]/1000).toFixed(3);
+    e.style.background='rgba(var(--'+(s[i]>=0?'hot':'cold')+'),'+a.toFixed(2)+')';
+    box.append(e);
+  });
+  $('lo').textContent='−'+(max/1000).toFixed(3); $('hi').textContent='+'+(max/1000).toFixed(3);
+}
+$('group').onchange=pick; ['item','emo','layer'].forEach(k=>$(k).onchange=draw);
+pick();
+</script>
+</body>
+</html>

@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>측정값 안내</title>
+<style>
+@page{size:A4;margin:16mm 15mm 16mm 15mm}
+:root{--ink:#1f1e1b;--sub:#5f5c55;--line:#d9d5cc;--soft:#f3f1ec;--accent:#0b5c8f}
+*{box-sizing:border-box}
+body{margin:0;color:var(--ink);font:10pt/1.55 "Malgun Gothic","Apple SD Gothic Neo",sans-serif;background:#fff}
+h1{font-size:22pt;margin:0 0 4mm;line-height:1.25}
+h2{font-size:14pt;margin:9mm 0 3mm;padding-bottom:1.5mm;border-bottom:1.5px solid var(--ink);break-after:avoid}
+h3{font-size:11pt;margin:5mm 0 1.5mm;break-after:avoid}
+p{margin:1.5mm 0}
+.sub{color:var(--sub)}
+.path{font-family:Consolas,"D2Coding",monospace;font-size:8.8pt;background:var(--soft);border-radius:2px;padding:0 3px;white-space:nowrap}
+code{font-family:Consolas,"D2Coding",monospace;font-size:8.8pt}
+table{border-collapse:collapse;width:100%;margin:2mm 0 3mm;font-size:8.8pt;break-inside:auto}
+tr{break-inside:avoid}
+th,td{border:1px solid var(--line);padding:1.2mm 1.8mm;vertical-align:top;text-align:left}
+th{background:var(--soft);font-weight:600}
+td:first-child{white-space:nowrap}
+.card{border:1px solid var(--line);border-radius:3px;padding:2.5mm 3.5mm;margin:2.5mm 0;break-inside:avoid}
+.card h3{margin:0 0 1mm}
+.card .where{font-size:8.6pt;color:var(--sub);margin-bottom:1mm}
+.k{display:inline-block;min-width:16mm;color:var(--accent);font-weight:600}
+.note{border-left:3px solid var(--accent);padding:1.5mm 3mm;background:#f2f7fa;margin:3mm 0}
+.cover{height:240mm;display:flex;flex-direction:column;justify-content:center}
+.cover .lead{font-size:12pt;max-width:150mm}
+.toc li{margin:1mm 0}
+.page{break-before:page}
+ul{margin:1mm 0 2mm;padding-left:5mm}
+li{margin:.6mm 0}
+</style>
+</head>
+<body>
+
+<section class="cover">
+  <p class="sub">Kanana-2-3B 감정 벡터 실험 · 배포 자료</p>
+  <h1>측정값 안내</h1>
+  <p class="lead">무엇을 쟀고, 어디에 있고, 숫자가 무엇을 뜻하는지 정리한 문서입니다. 대시보드의 탭·카드와 배포 폴더의 파일을 하나씩 따라갑니다.</p>
+  <p class="sub" style="margin-top:8mm">yellowedlego · 2026년 11월 · Powered by Kanana</p>
+  <div class="note" style="margin-top:10mm">이 문서는 측정 방법과 숫자의 뜻만 설명합니다. 결과를 어떻게 해석할지와 결론은 담지 않았습니다.
+  벡터를 찾고 그 방향으로 출력을 바꿀 수 있다는 것은 모델 안에 그런 방향이 표현되어 있다는 뜻일 뿐, 모델이 감정을 느낀다는 근거가 아닙니다.</div>
+</section>
+
+<section class="page">
+<h2>읽는 법</h2>
+<p>위치는 두 가지로 적었습니다.</p>
+<table>
+<tr><th>표기</th><th>뜻</th><th>예</th></tr>
+<tr><td>대시보드 ›</td><td><code>dashboard.html</code>을 브라우저로 열었을 때의 탭 › 카드 제목</td><td><span class="path">대시보드 › 붕괴 › 층별 평균 붕괴율</span></td></tr>
+<tr><td>파일</td><td>배포 폴더 안의 경로</td><td><span class="path">results/layer_sweep.jsonl</span></td></tr>
+<tr><td>코드</td><td>그 값을 만든 코드(<code>code/</code>)</td><td><span class="path">code/run_layer_sweep.py</span></td></tr>
+</table>
+<p>대시보드 탭은 묶음별로 나뉩니다: 결과(요약 · 판정) · 주입 실험(스티어링 · 분석 보기) · 층별 탐색(붕괴 · 감정 효과) · 내부 구조(벡터 · 뉴런) · 글 보기(토큰 색칠 · 답변 찾기) · 용어. 실시간 탭은 실험 중에만 있고 배포본에는 없습니다.</p>
+
+<h3>목차</h3>
+<ol class="toc">
+<li>공통 개념: 벡터, 세기, 붕괴, 감정 점수, 신뢰구간</li>
+<li>실험 흐름: 단계마다 코드와 파일</li>
+<li>대시보드 탭별 안내</li>
+<li>토큰 빈도 페이지(실험 서버에서만)</li>
+<li>파일 사전: 답변, 점수, 분석 표, 벡터, 그림</li>
+<li>주의와 한계</li>
+</ol>
+
+<h2>1. 공통 개념</h2>
+<h3>감정 벡터</h3>
+<table>
+<tr><th>이름</th><th>어떻게 만들었나</th><th>뜻</th></tr>
+<tr><td>centered (평균 빼기)</td><td>감정마다, 그 감정 글 40개를 모델에 넣었을 때 층 활성값의 평균 − 20개 감정 전체 평균. 단위 길이로 맞춤</td><td>감정끼리의 공통 성분(감정적인 글투)을 뺀 방향. 스티어링에 쓴 벡터</td></tr>
+<tr><td>vs_neutral (중립 기준)</td><td>감정 글 평균 − 중립 글 평균</td><td>"감정적인 글"과 "사실 나열 글"의 차이가 섞인 방향. 비교용</td></tr>
+<tr><td>null (가짜 벡터)</td><td>중립 글을 소재별로 무작위로 반 나눠 뺀 차이</td><td>데이터에서 나왔지만 감정과 무관한 방향. 무작위 벡터보다 엄격한 대조군</td></tr>
+<tr><td>random0 (무작위 벡터)</td><td><code>np.random.default_rng(42).standard_normal(2560)</code>을 단위화. 모든 층에 같은 벡터</td><td>아무 방향이나 밀어도 생기는 변화를 재는 대조군</td></tr>
+</table>
+<p>글 840개(감정 21개 × 소재 40개, 21번째는 중립)는 Kanana가 직접 쓴 이야기입니다(<span class="path">results/stories_ko.jsonl</span>). 같은 소재를 감정만 바꿔 써서, 평균을 빼면 주제가 대부분 상쇄되도록 했습니다.</p>
+
+<h3>세기 s와 주입</h3>
+<p>층 하나의 출력 <code>h</code>를 토큰마다 <code>h + s · v · ‖h‖</code>로 바꿉니다. <code>v</code>는 단위 벡터이고 <code>‖h‖</code>는 그 토큰 활성값의 크기라서, <b>s = 0.4는 "활성값 크기의 40%만큼 그 방향으로 민다"</b>는 뜻입니다. s가 음수면 반대 방향(벡터를 뺌)입니다. 답변은 모두 그리디(무작위성 없음) 생성이라 같은 조건이면 같은 답이 나옵니다.</p>
+<table>
+<tr><th>용어</th><th>뜻</th></tr>
+<tr><td>base</td><td>아무것도 넣지 않은 기준 답변(s = 0). 모든 변화는 같은 질문의 base 답변과 비교</td></tr>
+<tr><td>층(layer)</td><td>Kanana-2-3B의 32개 층 중 벡터를 넣은 곳(0~31). 앞선 실험은 23층(주 분석)과 29층(탐색)</td></tr>
+<tr><td>s_max</td><td>붕괴율이 20%를 넘기 직전의 가장 큰 세기. 주 판정은 이 세기에서 함(앞선 실험은 0.5)</td></tr>
+</table>
+
+<h3>붕괴(답변이 무너짐)</h3>
+<table>
+<tr><th>판정</th><th>기준</th><th>쓰인 곳</th></tr>
+<tr><td>collapsed</td><td>빈 답변, 글자·숫자 비율 50% 미만, 같은 3단어 묶음 4번 이상</td><td>앞선 실험(23·29층)의 붕괴율</td></tr>
+<tr><td>collapsed2</td><td>collapsed에 더해 짧은 글자 덩어리 반복, 서식 기호를 뺀 뒤의 반복 비율 등</td><td>층별 탐색의 붕괴율, 건너뛰기 기준</td></tr>
+<tr><td>collapsed3</td><td>collapsed2 또는 자연스러움 점수 <code>nll_max20 ≥ 12.5</code></td><td>층별 탐색에서 뜻이 깨진 답변까지 포함한 붕괴</td></tr>
+</table>
+<p><b>붕괴율</b> = 무너진 답변 수 ÷ 답변 수. 층별 탐색에서 한 방향의 두 세기가 연속으로 붕괴율 90% 이상이면 더 큰 세기는 만들지 않았고, 그 칸은 그림에서 100%로 칠하거나 빗금으로 표시합니다.</p>
+
+<h3>자연스러움 점수</h3>
+<p>벡터를 넣지 않은 원래 모델에 질문과 답변을 다시 읽혀, 답변 토큰마다 "이 토큰이 올 거라고 얼마나 예상했나"를 음의 로그 확률(놀람)로 잽니다. 클수록 원래 모델이 예상 못 한 글입니다.</p>
+<table>
+<tr><th>값</th><th>뜻</th></tr>
+<tr><td>nll</td><td>답변 전체 토큰의 놀람 평균</td></tr>
+<tr><td>nll_max20</td><td>가장 놀라운 토큰 20개의 평균. 중간에 뜻이 깨진 곳을 잡음. 12.5 이상이면 무너진 것으로 봄</td></tr>
+<tr><td>질문 무시</td><td>같은 답변을 "아무 이야기나 해 줘." 뒤에 붙여 다시 잰 놀람 − 실제 질문 뒤의 놀람. 0보다 작으면(실제 질문이 답변을 설명하지 못하면) 또는 질문을 되풀이하거나 약속만 하고 끝나면 "질문에 답하지 않음". 기준 답변은 0.5~1.05</td></tr>
+</table>
+<p>같은 말 되풀이는 오히려 놀람이 작아지므로 붕괴 판정(collapsed2)과 함께 씁니다.</p>
+
+<h3>감정 점수(KOTE)</h3>
+<p>한국어 감정 분류기 KOTE(<code>searle-j/kote_for_easygoing_people</code>)가 답변을 읽고 감정 라벨마다 0~1 점수를 줍니다. <b>글에 드러난 감정</b>을 재는 것이지 모델 내부 상태를 재는 것이 아닙니다. 영어 답변은 GoEmotions로 학습한 분류기를 썼습니다(<span class="path">results/en_scores.csv</span>).</p>
+<p><b>Δjoy, Δanger, Δsadness</b> = 같은 질문의 base 답변 대비 점수 변화. 양수면 그 감정 점수가 올라간 것입니다.</p>
+
+<h3>신뢰구간과 판정</h3>
+<table>
+<tr><th>용어</th><th>뜻</th></tr>
+<tr><td>95% 구간 (ci95_lo, ci95_hi, 하한, 상한)</td><td>질문을 다시 뽑는 계산(부트스트랩)을 10,000번 해서 구한 평균의 흔들림 범위. 0을 포함하면 효과가 있다고 말하기 어려움</td></tr>
+<tr><td>98.33% 구간 (ci9833)</td><td>세 감정을 동시에 검사하므로 우연한 통과를 줄이려고 더 넓게 잡은 구간(Bonferroni 보정, 0.05 ÷ 3)</td></tr>
+<tr><td>대조군 상한 (control_hi_max)</td><td>대조 벡터 4개(random0, random1, null0, null1)로 같은 계산을 했을 때 구간 상한 중 가장 큰 값</td></tr>
+<tr><td>effect (효과 있음)</td><td>목표 감정 점수 변화의 구간 하한이 0과 대조군 상한을 모두 넘으면 통과. 측정 전에 <span class="path">docs/ANALYSIS_PLAN.md</span>에 정해 둔 기준</td></tr>
+<tr><td>p</td><td>답이 바뀐 방향의 부호 검정 확률. 탐색 분석이라 보정하지 않은 참고값</td></tr>
+<tr><td>AUC</td><td>벡터 방향 값만으로 그 감정 글과 다른 글을 가려내는 능력. 0.5는 동전 던지기, 1은 완벽. 기준은 0.70이고, 가짜 벡터 최대값보다도 높아야 함</td></tr>
+<tr><td>코사인 유사도</td><td>두 방향이 같은 쪽을 보는 정도. 1 같은 쪽, 0 무관, −1 반대</td></tr>
+</table>
+</section>
+
+<section class="page">
+<h2>2. 실험 흐름</h2>
+<table>
+<tr><th>단계</th><th>무엇을</th><th>코드</th><th>나온 파일</th></tr>
+<tr><td>1. 글 쓰기</td><td>Kanana가 감정 × 소재 이야기를 씀(한국어·영어)</td><td><code>generate_stories.py</code></td><td><span class="path">results/stories_ko.jsonl</span>, <span class="path">stories_en.jsonl</span></td></tr>
+<tr><td>2. 활성값</td><td>글을 모델에 넣고 층마다 토큰 평균 활성값 저장</td><td><code>extract_activations.py</code></td><td><span class="path">results/activations_*.json</span> (값 파일 .npz는 크기 때문에 선택)</td></tr>
+<tr><td>3. 벡터</td><td>centered·vs_neutral·null 계산, 층 고르기, 감정 지도</td><td><code>compute_vectors.py</code>, <code>layer_vectors.py</code></td><td><span class="path">vectors/*.npz</span>, <span class="path">results/separation_*.csv</span>, <span class="path">layer_scan_*.csv</span>, <span class="path">pca_*.csv/png</span>, <span class="path">heatmap_*.png</span></td></tr>
+<tr><td>4. 스티어링</td><td>23·29층에 감정 벡터를 넣고 질문·상황에 답하게 함</td><td><code>run_steering.py</code></td><td><span class="path">results/steer_*.jsonl</span></td></tr>
+<tr><td>5. 채점</td><td>정답 채점, KOTE 감정 점수, 영어 점수</td><td><code>grading.py</code>, <code>kote_scores.py</code>, <code>score_en.py</code></td><td><span class="path">results/kote_steer_*.csv</span>, <span class="path">en_scores.csv</span></td></tr>
+<tr><td>6. 분석</td><td>판정, 재현, 결정 변화, 섞기, 뉴런 등</td><td><code>main_analysis.py</code> 외</td><td><span class="path">results/analysis_*.csv</span></td></tr>
+<tr><td>7. 자연 활성</td><td>벡터를 넣지 않고, 상황 글에 답할 때 내부 값이 감정 방향으로 움직이는지 읽음</td><td><code>natural_activation.py</code></td><td><span class="path">results/natural_*.csv/json</span></td></tr>
+<tr><td>8. 층별 탐색</td><td>20개 감정 + random0을 32층 각각에 세기 ±0.1~2.0으로 넣고 중립 질문 10개에 답하게 함</td><td><code>run_layer_sweep.py</code></td><td><span class="path">results/layer_sweep.jsonl</span>, <span class="path">layer_sweep_skips.jsonl</span></td></tr>
+<tr><td>9. 탐색 채점</td><td>자연스러움, 질문 무시, KOTE 점수</td><td><code>fluency_layer_sweep.py</code>, <code>score_layer_sweep.py</code></td><td><span class="path">results/fluency_layer_sweep.csv</span>, <span class="path">fluency_generic_layer_sweep.csv</span>, <span class="path">kote_layer_sweep.csv</span></td></tr>
+<tr><td>10. 보기</td><td>대시보드, 토큰 색칠, 뉴런 지도</td><td><code>dashboard.py</code>, <code>token_map.py</code>, <code>neuron_map.py</code></td><td><span class="path">dashboard.html</span>, <span class="path">results/token_map.html</span>, <span class="path">neuron_map.json</span></td></tr>
+</table>
+
+<h2>3. 대시보드 탭별 안내</h2>
+
+<h3>요약</h3>
+<div class="card"><div class="where"><span class="path">대시보드 › 요약</span> · 원본 <span class="path">data/summary.json</span></div>
+실험의 목적, 방법, 주요 수치, 한계, AI 사용 내용을 한 화면에 모은 글입니다. 숫자는 아래 탭들의 값을 옮긴 것입니다.</div>
+
+<h3>판정</h3>
+<div class="card"><h3>판정 기준과 판정표</h3><div class="where"><span class="path">대시보드 › 판정</span> · <span class="path">results/analysis_kote_L23.csv</span>, <span class="path">analysis_kote_L29.csv</span>, <span class="path">analysis_accuracy_L*.csv</span> · 코드 <code>main_analysis.py</code></div>
+23층(주 분석)과 29층(탐색)에서 s_max = 0.5로 joy·anger·sadness 벡터를 넣었을 때, 목표 감정의 KOTE 점수 변화(mean)와 구간, 대조군 상한, 판정(effect)을 보여 줍니다. 붕괴 답변을 뺀 값(mean_no_collapse)과 남은 답변 수(n_no_collapse)도 함께 봐야 합니다. 뺀 뒤 답변이 몇 개 안 남으면 효과가 고장 난 글에서 나온 것일 수 있습니다.<br>
+정답률 표: <span class="k">diff</span>base 대비 정답률 변화 <span class="k">diff_clean</span>붕괴 답변을 뺀 변화 <span class="k">review</span>자동 채점이 애매해 사람 확인이 필요한 답변 수(맞힌 것으로 세지 않음)</div>
+<div class="card"><h3>탐색 분석 표</h3><div class="where"><span class="path">대시보드 › 판정</span> 아래 표들 · <span class="path">results/analysis_*.csv</span></div>
+중립 30개·영어 재현, 결정 변화, 다양한 상황, 뉴런, 감정 섞기, 단어 뜻 바꾸기, 감정 단어 삭제, 효과 지속, 여러 층 주입, 8비트·Qwen 비교, 행동 시나리오, 이모티콘 제거. 열 뜻은 5장 "분석 표"에 있습니다.</div>
+
+<h3>분석 보기</h3>
+<div class="card"><h3>효과 크기 숲 그림</h3><div class="where"><span class="path">대시보드 › 분석 보기 › 효과 크기 숲 그림</span></div>
+점은 base 대비 평균 변화, 가로 막대는 95% 구간, 회색 세로 막대는 대조 벡터 구간의 상한입니다. 채운 점은 판정 통과, 빈 점은 미달입니다. 칸마다 가로 눈금이 달라 칸끼리 길이를 직접 비교하면 안 됩니다.</div>
+<div class="card"><h3>세기별 반응 곡선</h3><div class="where"><span class="path">대시보드 › 분석 보기 › 세기별 반응 곡선</span></div>
+세기를 올릴 때 목표 감정 점수 변화와 그 95% 구간(띠), 같은 감정을 대조 벡터로 밀었을 때의 구간 상한(점선), 같은 질문 묶음의 붕괴율을 함께 그렸습니다.</div>
+<div class="card"><h3>답변 이동 지도 · 평균 이동 거리</h3><div class="where"><span class="path">대시보드 › 분석 보기</span> · <span class="path">results/view_data.json</span></div>
+KOTE의 18개 감정 점수를 두 축으로 줄인 평면에 답변을 찍고, 같은 질문의 base 답변에서 얼마나 멀어졌는지 화살표로 보여 줍니다. 평균 이동 거리 막대는 그 거리의 평균이고, 대조 벡터도 움직이므로 회색 막대가 기준선입니다.</div>
+
+<h3>스티어링</h3>
+<div class="card"><h3>기준 타일 · 세기에 따른 변화 · 층 비교 · 조건 × 세기 히트맵</h3><div class="where"><span class="path">대시보드 › 스티어링</span> · <span class="path">results/steer_main_L23.jsonl</span>, <span class="path">steer_main_L29.jsonl</span>, <span class="path">steer_base_ko.jsonl</span>, <span class="path">kote_steer_*.csv</span></div>
+지표를 골라 조건(감정·대조군)과 세기별로 봅니다. 히트맵 칸을 누르면 그 조건의 실제 답변이 나옵니다.<br>
+<span class="k">붕괴율</span>collapsed 비율 <span class="k">정답률</span>정답 질문 40개 중 맞힌 비율(쉬운문제·중간문제 각 20개) <span class="k">이모티콘</span>중립 답변 1개당 평균 이모티콘 수 <span class="k">글자수</span>중립 답변 평균 글자 수 <span class="k">Δjoy 등</span>base 대비 KOTE 점수 변화<br>
+조건 묶음에서 기쁨·화남·슬픔(23·29층)과 나머지 17개 감정(23층, 세기 0.2·0.4, <span class="path">steer_others_L23.jsonl</span>)을 고를 수 있습니다. <span class="k">Δ목표</span>넣은 감정 자신의 KOTE 점수 변화. 조건 이름: <code>joy</code> 등은 + 방향, <code>neg_joy</code> 등은 − 방향, <code>random0·1</code>은 무작위, <code>null0·1</code>은 가짜 벡터.</div>
+
+<h3>토큰 색칠 (글 보기)</h3>
+<div class="card"><h3>토큰 색칠</h3><div class="where"><span class="path">대시보드 › 토큰 색칠</span> · <span class="path">results/token_map.json</span>(따로 열기: <span class="path">results/token_map.html</span>) · 코드 <code>token_map.py</code></div>
+답변의 토큰마다, 고른 층의 활성값이 고른 감정 벡터와 얼마나 같은 쪽을 보는지(코사인)를 색으로 칠했습니다. 중립 상황 답변의 평균을 뺀 값이라 빨강은 평소보다 그 감정 쪽, 파랑은 반대쪽입니다. 어텐션이 아니라 활성도이고, 답변은 벡터를 넣지 않고 다시 읽기만 해서 쟀습니다. 대상: 자연 활성 답변 40개와 23층 스티어링 답변(base, joy·anger·sadness s = 0.4).</div>
+
+<h3>뉴런</h3>
+<div class="card"><h3>뉴런 지도</h3><div class="where"><span class="path">대시보드 › 뉴런</span> · <span class="path">results/neuron_map.json</span>, <span class="path">vectors/neurons.npz</span>, <span class="path">results/analysis_neurons.csv</span> · 코드 <code>neuron_scan.py</code>, <code>neuron_map.py</code></div>
+층 안의 MLP 뉴런 8,192개가 감정 글에 얼마나 다르게 반응하는지 쟀습니다. 소재를 반으로 나눠 양쪽에서 같은 방향으로 반응한 "믿을 만한" 뉴런만 그렸습니다. 점 위치는 실제 자리가 아니라, 20개 감정에 대한 반응 모양이 비슷한 뉴런끼리 가깝게 놓은 것입니다(PCA 두 축). 색은 가장 크게 반응한 감정 묶음, 채운 점은 그 감정에서 켜지는 뉴런, 빈 점은 꺼지는 뉴런입니다. 모여 있어도 그 뉴런이 감정을 담당한다는 증거는 아닙니다(끄는 실험이 필요).</div>
+
+<h3>벡터 (내부 구조)</h3>
+<p class="sub">위쪽 층 막대 하나로 이 탭의 감정별 AUC, 지도, 코사인 순위, 히트맵이 함께 바뀝니다. 벡터는 32층 전부의 centered 벡터(<span class="path">vectors/layer_vectors_kanana_ko.npz</span>)이고, random0을 비교용으로 함께 놓았습니다.</p>
+<div class="card"><h3>층별 감정 구별력 (AUC)</h3><div class="where"><span class="path">대시보드 › 벡터 › 층별 감정 구별력</span> · <span class="path">results/layer_scan_*.csv</span></div>
+층마다 20개 감정 AUC의 평균(한국어 0~31층, 영어 13~29층)과 가짜 벡터 최대값(null_auc_max), 그 간격(막대). 0~6층은 가짜 벡터도 0.8을 넘으므로 간격을 봐야 합니다. 감정을 "읽어 낼 수 있는" 층을 봅니다.</div>
+<div class="card"><h3>감정별 AUC</h3><div class="where"><span class="path">대시보드 › 벡터 › 감정별 AUC</span> · <span class="path">results/layer_scan_kanana_all_stories_ko.csv</span>(감정 이름 열)</div>고른 층에서 감정마다의 AUC와 그 층의 가짜 벡터 최대값.</div>
+<div class="card"><h3>실제 코사인 순위 · 벡터 지도 · 감정 간 코사인 유사도</h3><div class="where"><span class="path">대시보드 › 벡터</span></div>
+순위: 기준 감정과 다른 감정 벡터의 코사인(2560차원 그대로). 지도: 21개 벡터를 PCA(2D·3D)나 MDS로 줄인 근사이고, "거리 순서 일치"(1이면 완벽)와 "가까운 3개 이웃 중 지도에서도 가까운 비율"로 근사가 얼마나 맞는지 보여 줍니다. 히트맵: 21 × 21 코사인 표.</div>
+<div class="card"><h3>한국어와 영어 벡터의 유사도</h3><div class="where"><span class="path">대시보드 › 벡터</span> · <span class="path">vectors/vectors_kanana_stories_ko.npz</span>, <span class="path">…_en.npz</span>(29층)</div>같은 감정의 한국어 글 벡터와 영어 글 벡터의 코사인. 높을수록 언어와 상관없이 같은 방향입니다.</div>
+
+<h3>붕괴 (층별 탐색)</h3>
+<p class="sub">모두 <span class="path">results/layer_sweep.jsonl</span>, <span class="path">layer_sweep_skips.jsonl</span>, <span class="path">fluency_*layer_sweep.csv</span>에서 계산합니다. 계획은 <span class="path">docs/LAYER_PLAN.md</span>.</p>
+<div class="card"><h3>층별 평균 붕괴율 · 감정 전체 층별 평균 붕괴율</h3><div class="where"><span class="path">대시보드 › 붕괴</span></div>
+층마다 세기 ±0.1~±1.0(20개)의 붕괴율 평균. 건너뛴 세기는 100%로 셉니다. 낮을수록 그 층이 벡터를 잘 버팁니다. 선 그래프는 감정을 태그로 더하고 뺄 수 있고, 표는 21개 조건 전부입니다.</div>
+<div class="card"><h3>세기에 따른 층별 붕괴율</h3><div class="where"><span class="path">대시보드 › 붕괴 › 세기에 따른 층별 붕괴율</span></div>
+가로 층, 세로 세기(위 +, 아래 −). 칸 색이 진할수록 많이 무너졌고, 건너뛴 세기는 100%로 칠했습니다. "전체 모아 보기"는 21개 조건을 작은 그림으로 늘어놓고, 누르면 하나를 크게 봅니다.</div>
+<div class="card"><h3>쓰기 지도: 층별 붕괴 시작 세기</h3><div class="where"><span class="path">대시보드 › 붕괴</span></div>감정·방향·층마다 붕괴율이 처음 50% 이상이 되는 세기. 벡터를 얼마나 넣을 수 있는지를 봅니다.</div>
+
+<h3>감정 효과 (층별 탐색)</h3>
+<p class="sub">KOTE 점수(<span class="path">results/kote_layer_sweep.csv</span>)가 있는 17개 감정만 나옵니다. 답답함·외로움·질투는 KOTE에 맞는 이름표가 없습니다.</p>
+<div class="card"><h3>감정별 층 민감도</h3><div class="where"><span class="path">대시보드 › 감정 효과 › 감정별 층 민감도</span></div>
+감정마다, 그 감정 벡터를 세기 +1.0 넣었을 때 같은 감정의 KOTE 점수가 base보다 얼마나 오르는지(기울기)를 층별로. 붕괴율 50% 미만이고 질문에 답한 답변이 5개 이상인 + 세기만 써서 원점을 지나는 직선으로 맞춥니다. 점선은 같은 점수를 random0으로 밀었을 때, ✕ 층은 쓸 수 있는 세기가 없는 층. 감정을 태그로 더하고 빼고, 줄마다 접고 펼 수 있습니다.</div>
+<div class="card"><h3>층별 감정 효과</h3><div class="where"><span class="path">대시보드 › 감정 효과</span></div>
+같은 조건의 + 세기 가운데 목표 감정 점수가 base보다 가장 많이 오른 값. 바로 아래 회색 줄은 같은 점수를 random0으로 밀었을 때입니다.</div>
+<div class="card"><h3>층별 질문 무시 비율</h3><div class="where"><span class="path">대시보드 › 감정 효과</span></div>무너지지 않았지만 질문에 답하지 않은 답변의 비율(1장 "질문 무시"). 붕괴율 50% 미만인 세기를 양쪽 부호 모두 모았습니다.</div>
+
+<h3>답변 찾기 (글 보기)</h3>
+<div class="card"><div class="where"><span class="path">대시보드 › 답변 찾기</span> · 실험 서버에서만</div>층별 탐색 답변 전부에서 글자나 정규식(/…/)으로 찾고, 감정·층·방향·세기·붕괴 여부로 거릅니다. "찾은 곳 앞뒤만"은 찾은 곳마다 앞뒤 30글자를 늘어놓아 문맥을 비교하는 보기(KWIC)입니다.</div>
+
+<h3>용어</h3>
+<div class="card"><div class="where"><span class="path">대시보드 › 용어</span></div>대시보드의 점선 밑줄 용어 설명을 모아 둔 곳입니다. 이 문서 1장과 같은 내용입니다.</div>
+</section>
+
+<section class="page">
+<h2>4. 토큰 빈도 페이지</h2>
+<div class="note">배포본의 <code>dashboard.html</code>에는 들어 있지 않고, <code>python code/dashboard.py</code>로 서버를 켰을 때 <code>http://127.0.0.1:8791/words</code>에서 열립니다. 코드 <code>word_freq.py</code>. 같은 표를 명령줄로 CSV로 뽑을 수 있습니다.</div>
+<p>층별 탐색 답변을 Kanana 토크나이저로 다시 쪼개어(또는 띄어쓰기 단위 어절로), 감정·층·세기마다 어떤 조각이 자주 나오는지 셉니다. n을 2~5로 하면 이어진 조각(말버릇)을 셉니다.</p>
+<table>
+<tr><th>값</th><th>뜻</th></tr>
+<tr><td>횟수</td><td>그 조각이 나온 수</td></tr>
+<tr><td>답변당</td><td>횟수 ÷ 답변 수. 세기마다 답변 수가 다르므로(건너뛰기) 비교는 이 값으로</td></tr>
+<tr><td>기준 대비</td><td>(이 묶음에서의 비율) ÷ (base 답변에서의 비율). base가 10개뿐이라 거칢</td></tr>
+<tr><td>다른 감정 대비</td><td>같은 층·세기에서 나머지 감정들보다 몇 배 자주 나왔는지. 세게 넣으면 어떤 감정이든 생기는 공통 버릇을 걸러 냄. 배수로 줄 세울 때는 5번 미만은 뺌</td></tr>
+<tr><td>무너진 답변</td><td>빼고 보기 / 같이 보기 / 무너진 답변만(문장이 부서져도 그 감정의 단어가 남는지 볼 때). 무너진 답변만 볼 때 "다른 감정 대비"는 다른 감정의 무너진 답변과 비교</td></tr>
+</table>
+
+<h2>5. 파일 사전</h2>
+<h3>생성 답변 (<span class="path">results/*.jsonl</span>)</h3>
+<p>한 줄이 답변 하나입니다. 공통 필드: <code>condition</code>(조건), <code>s</code>(세기), <code>qid</code>(질문 번호), <code>text</code>(답변). 앞선 실험은 <code>kind</code>(neutral·easy·medium 등)와 <code>grade</code>(correct·wrong·review)가 붙습니다. 층별 탐색은 <code>layer</code>, <code>collapsed2</code>가 붙습니다.</p>
+<table>
+<tr><th>파일</th><th>무엇</th></tr>
+<tr><td>stories_ko / stories_en / stories_qwen_ko</td><td>벡터를 만든 이야기 글(감정 21 × 소재 40)</td></tr>
+<tr><td>steer_base_ko</td><td>기준 답변(아무것도 안 넣음)</td></tr>
+<tr><td>steer_pilot_L23 / L29</td><td>세기를 정하려고 먼저 돌린 시험</td></tr>
+<tr><td>steer_main_L23 / L29</td><td>주 실험: 중립·정답 질문 × joy·anger·sadness(±) × 대조군 4개 × 세기</td></tr>
+<tr><td>steer_neutral2_L23, steer_en_L23</td><td>중립 질문 30개, 영어 질문으로 재현</td></tr>
+<tr><td>steer_others_L23</td><td>나머지 17개 감정</td></tr>
+<tr><td>steer_hard_*, steer_hard03_*</td><td>난감한 상황 36개(위기·배신·도덕 딜레마 등)</td></tr>
+<tr><td>steer_situation_*, steer_behavior_*</td><td>역할·상황 시나리오, 행동 판단(<code>_think</code>는 생각 모드)</td></tr>
+<tr><td>steer_diverse_*</td><td>다양한 상황 200개(행동 판단·일상·창작·윤리), <code>_rev</code>는 선택지 순서를 뒤집은 것</td></tr>
+<tr><td>steer_wordswap_L23</td><td>"네"와 "아니오"의 뜻을 바꿔 준 결정 질문</td></tr>
+<tr><td>steer_persist_L23</td><td>앞 20토큰에만 넣었을 때 효과가 이어지는지</td></tr>
+<tr><td>steer_mix_L23</td><td>두 감정 벡터를 더해 넣은 것</td></tr>
+<tr><td>steer_multi_L19_27</td><td>19~27층에 나눠 동시에 넣은 것</td></tr>
+<tr><td>steer_main_8bit_L23</td><td>모델을 8비트로 줄여 같은 실험</td></tr>
+<tr><td>steer_main_qwen, steer_diverse_qwen</td><td>다른 모델(Qwen3-4B)로 같은 실험</td></tr>
+<tr><td>layer_sweep, layer_sweep_skips</td><td>층별 탐색 답변 전부와 건너뛴 칸</td></tr>
+</table>
+
+<h3>점수 (<span class="path">results/*.csv</span>)</h3>
+<table>
+<tr><th>파일</th><th>열</th><th>뜻</th></tr>
+<tr><td>kote_steer_*.csv, kote_layer_sweep.csv</td><td>joy, anger, sadness …</td><td>답변마다 KOTE 점수(0~1). 같은 이름의 jsonl과 줄이 맞음</td></tr>
+<tr><td>fluency_layer_sweep.csv</td><td>row, nll, nll_max20, tokens</td><td>layer_sweep.jsonl의 row번째 답변의 자연스러움(1장)</td></tr>
+<tr><td>fluency_generic_layer_sweep.csv</td><td>row, nll …</td><td>같은 답변을 "아무 이야기나 해 줘." 뒤에서 잰 값</td></tr>
+<tr><td>en_scores.csv</td><td>joy, anger, sadness, neutral</td><td>영어 답변의 감정 점수(GoEmotions 분류기)</td></tr>
+<tr><td>natural_raw.csv / natural_summary.csv</td><td>layer, window, category, target, diff, ci_lo, ci_hi, null_max, rank_of_20, top3, pass</td><td>자연 활성: 벡터를 넣지 않고 칭찬·적대·상실·압박 상황 글에 답할 때, 입력 구간·답변 구간(window)의 활성값이 목표 감정 방향과 이루는 코사인이 중립 상황보다 얼마나 큰지(diff)와 구간, 가짜 벡터 최대, 20개 감정 중 순위, 통과 여부</td></tr>
+</table>
+
+<h3>분석 표 (<span class="path">results/analysis_*.csv</span>)</h3>
+<table>
+<tr><th>파일</th><th>무엇과 열</th></tr>
+<tr><td>kote_L23 / L29</td><td>주 판정. mean(목표 감정 Δ), ci95·ci9833 구간, control_hi_max, mean_no_collapse·n_no_collapse, effect</td></tr>
+<tr><td>accuracy_L23 / L29</td><td>정답률 변화. diff, ci95, diff_clean, n_clean, review</td></tr>
+<tr><td>replicate</td><td>중립 30개(set)·영어로 같은 판정 다시. mean, ci, control_hi, effect, collapse</td></tr>
+<tr><td>decisions</td><td>결정 질문에서 base와 답이 달라진 수. up·down(바뀐 방향 수), p, mismatch(이유는 거절인데 결정은 "따른다"), n</td></tr>
+<tr><td>diverse</td><td>다양한 상황 200개. collapse, d_joy·d_anger·d_sadness(KOTE Δ), parsed(결정을 읽어 낸 비율), changed(base와 달라진 비율), first_rate("따른다·찬성" 비율), n</td></tr>
+<tr><td>hard, crisis_help</td><td>난감한 상황의 붕괴율과 감정 Δ. help = 위기 상황 답변에 도움 안내(상담 연락처 등)가 들어간 비율</td></tr>
+<tr><td>behavior</td><td>행동 시나리오(<span class="path">data/behavior_scenarios.json</span>)에서 고른 행동 종류별 비율(accept·appeal·harm 열, 시나리오마다 선택지 뜻이 정해져 있음)과 붕괴율</td></tr>
+<tr><td>wordswap</td><td>"네/아니오" 뜻을 바꿨을 때 읽힌 답, 네 비율, 바뀐 방향, p, 붕괴. 감정이 단어 자체를 미는지 뜻을 미는지 봄</td></tr>
+<tr><td>wordstrip</td><td>감정 단어를 지운 뒤 KOTE를 다시 매겨도 변화가 남는지. 처리(원본·삭제·대체), 평균 변화, 구간, 감정 단어 든 답변 수</td></tr>
+<tr><td>emoji</td><td>이모티콘을 지우고 다시 채점한 감정 Δ(with_emoji / no_emoji)</td></tr>
+<tr><td>persist</td><td>앞 20토큰에만 넣었을 때 random0 대비 변화와 구간, 붕괴율</td></tr>
+<tr><td>multi</td><td>여러 층 동시 주입의 random0 대비 변화, 구간, 붕괴율, 붕괴 제외 변화</td></tr>
+<tr><td>mix</td><td>두 감정을 섞은 답변. nearest(가까운 단일 감정 벡터), kote_up(오른 KOTE 감정), cos_a·cos_b(섞은 답변의 KOTE 변화 모양이 각 감정의 변화 모양과 닮은 정도), coef_a·coef_b·r2_ab(두 모양의 합으로 얼마나 설명되는지)</td></tr>
+<tr><td>neurons</td><td>층·감정마다 reliable(믿을 만한 뉴런 수), split_r(소재 반반의 반응 상관), top1pct_share(상위 1% 뉴런의 반응 비중), top_neuron·top_d(가장 큰 뉴런과 그 효과 크기)</td></tr>
+<tr><td>8bit, steer_models</td><td>8비트·Qwen에서 같은 판정. 평균 변화, 구간, 보정 구간, 대조군 상한, 효과, 붕괴율</td></tr>
+<tr><td>qwen_accuracy, qwen_decisions</td><td>Qwen의 정답률 변화와 결정 변화</td></tr>
+</table>
+
+<h3>벡터 (<span class="path">vectors/*.npz</span>)</h3>
+<table>
+<tr><th>파일</th><th>키</th></tr>
+<tr><td>layer_vectors_kanana_ko.npz</td><td>names(20), layers(32), centered(32×20×2560 단위 벡터), nulls(32×2×2560), mean_norm(32, 층별 활성값 평균 크기)</td></tr>
+<tr><td>vectors_*.npz</td><td>한 층만: names, centered, vs_neutral, nulls, layer(Kanana 29·23층, Qwen 31층), mean_norm</td></tr>
+<tr><td>neurons.npz</td><td>뉴런 측정값(글 × 층 × 8192 뉴런 평균 활성)</td></tr>
+</table>
+
+<h3>그림·기타</h3>
+<table>
+<tr><th>파일</th><th>무엇</th></tr>
+<tr><td>heatmap_centered_* / heatmap_vs_neutral_*.png</td><td>감정 간 코사인 히트맵(평균 빼기 / 중립 기준)</td></tr>
+<tr><td>pca_*.png</td><td>감정 벡터 PCA 지도</td></tr>
+<tr><td>view_data.json</td><td>분석 보기 탭의 답변 이동 지도 자료</td></tr>
+<tr><td>eta_model.json</td><td>실행 시간 예측 모델(실험 운영용)</td></tr>
+<tr><td>checks.txt</td><td>점검 기록(생각 모드 원문, 끼어들기 자리 확률 등)</td></tr>
+<tr><td>MANIFEST.csv</td><td>모든 파일의 크기와 SHA-256</td></tr>
+</table>
+
+<h2>6. 주의와 한계</h2>
+<ul>
+<li>모델 하나(작은 3B 모델), 그리디 생성, 질문 수가 적음(층별 탐색은 중립 질문 10개). 다른 모델·질문에서 같다는 보장이 없습니다.</li>
+<li>KOTE 점수, 붕괴 판정, 질문 무시 판정은 자동 판정이라 틀린 것이 섞여 있습니다.</li>
+<li>상황 글과 질문은 모두 AI가 쓴 것이고 일부만 사람이 읽었습니다(<span class="path">data/README.md</span>).</li>
+<li>층별 탐색의 값은 탐색 결과이고, 판정 기준은 앞선 23·29층 실험에만 미리 정해 두었습니다.</li>
+<li>벡터를 세게 넣은 답변에는 욕설·공격적 표현·뜻 없는 글이 걸러지지 않고 들어 있습니다.</li>
+</ul>
+</section>
+</body>
+</html>

@@ -1,0 +1,1050 @@
+{"condition": "base", "s": 0.0, "qid": "f01", "kind": "easy", "lang": "ko", "text": "100도", "grade": "correct"}
+{"condition": "base", "s": 0.0, "qid": "f02", "kind": "easy", "lang": "ko", "text": "서울", "grade": "correct"}
+{"condition": "base", "s": 0.0, "qid": "f03", "kind": "easy", "lang": "ko", "text": "84", "grade": "correct"}
+{"condition": "base", "s": 0.0, "qid": "f04", "kind": "easy", "lang": "ko", "text": "일주일은 7일이야.", "grade": "correct"}
+{"condition": "base", "s": 0.0, "qid": "f05", "kind": "easy", "lang": "ko", "text": "해양.", "grade": "wrong"}
+{"condition": "base", "s": 0.0, "qid": "f06", "kind": "easy", "lang": "ko", "text": "180도.", "grade": "correct"}
+{"condition": "base", "s": 0.0, "qid": "f07", "kind": "easy", "lang": "ko", "text": "지구.", "grade": "wrong"}
+{"condition": "base", "s": 0.0, "qid": "f08", "kind": "easy", "lang": "ko", "text": "42", "grade": "correct"}
+{"condition": "base", "s": 0.0, "qid": "f09", "kind": "easy", "lang": "ko", "text": "H₂O", "grade": "correct"}
+{"condition": "base", "s": 0.0, "qid": "f10", "kind": "easy", "lang": "ko", "text": "12개월.", "grade": "correct"}
+{"condition": "base", "s": 0.0, "qid": "f11", "kind": "easy", "lang": "ko", "text": "조선 왕조의 창시자는 조선 성종이다.", "grade": "wrong"}
+{"condition": "base", "s": 0.0, "qid": "f12", "kind": "easy", "lang": "ko", "text": "빛이 더 빨라.", "grade": "correct"}
+{"condition": "base", "s": 0.0, "qid": "f13", "kind": "easy", "lang": "ko", "text": "25", "grade": "correct"}
+{"condition": "base", "s": 0.0, "qid": "f14", "kind": "easy", "lang": "ko", "text": "1년.", "grade": "correct"}
+{"condition": "base", "s": 0.0, "qid": "f15", "kind": "easy", "lang": "ko", "text": "다산", "grade": "wrong"}
+{"condition": "base", "s": 0.0, "qid": "f16", "kind": "easy", "lang": "ko", "text": "무지개는 보통 7가지 색으로 말해.", "grade": "correct"}
+{"condition": "base", "s": 0.0, "qid": "f17", "kind": "easy", "lang": "ko", "text": "81", "grade": "correct"}
+{"condition": "base", "s": 0.0, "qid": "f18", "kind": "easy", "lang": "ko", "text": "달은 지구의 위성이다.", "grade": "correct"}
+{"condition": "base", "s": 0.0, "qid": "f19", "kind": "easy", "lang": "ko", "text": "태양빛, 이산화탄소, 물.", "grade": "correct"}
+{"condition": "base", "s": 0.0, "qid": "f20", "kind": "easy", "lang": "ko", "text": "1000 미터.", "grade": "correct"}
+{"condition": "base", "s": 0.0, "qid": "m01", "kind": "medium", "lang": "ko", "text": "조선을 세운 사람은 김유신이다.", "grade": "wrong"}
+{"condition": "base", "s": 0.0, "qid": "m02", "kind": "medium", "lang": "ko", "text": "391", "grade": "correct"}
+{"condition": "base", "s": 0.0, "qid": "m03", "kind": "medium", "lang": "ko", "text": "비소", "grade": "wrong"}
+{"condition": "base", "s": 0.0, "qid": "m04", "kind": "medium", "lang": "ko", "text": "21쌍.", "grade": "wrong"}
+{"condition": "base", "s": 0.0, "qid": "m05", "kind": "medium", "lang": "ko", "text": "1789년.", "grade": "correct"}
+{"condition": "base", "s": 0.0, "qid": "m06", "kind": "medium", "lang": "ko", "text": "1024", "grade": "correct"}
+{"condition": "base", "s": 0.0, "qid": "m07", "kind": "medium", "lang": "ko", "text": "케アン보우.", "grade": "wrong"}
+{"condition": "base", "s": 0.0, "qid": "m08", "kind": "medium", "lang": "ko", "text": "지구.", "grade": "wrong"}
+{"condition": "base", "s": 0.0, "qid": "m09", "kind": "medium", "lang": "ko", "text": "1398년.", "grade": "wrong"}
+{"condition": "base", "s": 0.0, "qid": "m10", "kind": "medium", "lang": "ko", "text": "미토콘드리아.", "grade": "correct"}
+{"condition": "base", "s": 0.0, "qid": "m11", "kind": "medium", "lang": "ko", "text": "오타와.", "grade": "correct"}
+{"condition": "base", "s": 0.0, "qid": "m12", "kind": "medium", "lang": "ko", "text": "101", "grade": "correct"}
+{"condition": "base", "s": 0.0, "qid": "m13", "kind": "medium", "lang": "ko", "text": "380", "grade": "wrong"}
+{"condition": "base", "s": 0.0, "qid": "m14", "kind": "medium", "lang": "ko", "text": "1919년", "grade": "correct"}
+{"condition": "base", "s": 0.0, "qid": "m15", "kind": "medium", "lang": "ko", "text": "박경리.", "grade": "correct"}
+{"condition": "base", "s": 0.0, "qid": "m16", "kind": "medium", "lang": "ko", "text": "NaCl", "grade": "correct"}
+{"condition": "base", "s": 0.0, "qid": "m17", "kind": "medium", "lang": "ko", "text": "243", "grade": "correct"}
+{"condition": "base", "s": 0.0, "qid": "m18", "kind": "medium", "lang": "ko", "text": "산소.", "grade": "wrong"}
+{"condition": "base", "s": 0.0, "qid": "m19", "kind": "medium", "lang": "ko", "text": "13", "grade": "correct"}
+{"condition": "base", "s": 0.0, "qid": "m20", "kind": "medium", "lang": "ko", "text": "조지 오威尔.", "grade": "wrong"}
+{"condition": "base", "s": 0.0, "qid": "n01", "kind": "neutral", "lang": "ko", "text": "물론이죠! 아침 루틴은 하루의 에너지를 충전하고, 건강을 유지하며, 일에 집중할 수 있도록 도와주는 중요한 시간입니다. 아래는 일반적인 아침 루틴 예시입니다. 필요에 따라 조정해 사용할 수 있습니다.\n\n---\n\n### 🌞 **아침 루틴 예시 (6:00~8:00)**\n\n#### 1. **자기 조절 & 깨어짐 (6:00~6:10)**\n- **알람 소리**를"}
+{"condition": "base", "s": 0.0, "qid": "n02", "kind": "neutral", "lang": "ko", "text": "고양이는 인간과 가장 가까이 지내는 동물 중 하나로, 정서적인 존재로 알려져 있습니다. 빠르고 민첩하며, 놀이를 좋아하는 성격을 가지고 있습니다. 고양이는 인간의 감정을 잘 인식하고, 친절하게 대응해 주는 특성을 가지고 있어, 많은 사람들의 가정에서 사랑받고 있습니다. 또한, 고양이는 청결하고, 자율적인 성향을 가지고 있어, 보살피기 쉬운 동물이기도 합니다. 고양이는 단순한 동물"}
+{"condition": "base", "s": 0.0, "qid": "n03", "kind": "neutral", "lang": "ko", "text": "비가 오는 날에는 외부 활동을 하기 어려운 상황이지만, 집에서 할 수 있는 다양한 활동을 통해 편안하게 보내는 것도 좋습니다. 아래는 비가 오는 날에 할 수 있는 좋은 일을 알려드릴게요:\n\n---\n\n### 🌧️ 비가 오는 날에 할 수 있는 좋은 일:\n\n1. **책 읽기**  \n   집에서 책을 읽으면서 편안한 시간을 보내는 것도 좋습니다. 책을 통해 마음을 정리하거나, 새로운 세상을 탐"}
+{"condition": "base", "s": 0.0, "qid": "n04", "kind": "neutral", "lang": "ko", "text": "물론이죠! 아래는 친구에게 보낼 생일 축하 문자 예시입니다. 필요에 따라 내용을 조정해도 됩니다.\n\n---\n\n**예시 1: 친구스러운 분위기**  \n\"생일 축하해! 오늘은 너의 날이야. 항상 힘들 때도 함께 있었고, 웃을 때도 함께 했던 친구야. 오늘도 건강하고 행복하게 보내길 바라! 생일 축하하고, 앞으로도 오래 오래 함께할 수 있길 기원"}
+{"condition": "base", "s": 0.0, "qid": "n05", "kind": "neutral", "lang": "ko", "text": "공부가 잘 안 되는 상황은 누구나 경험할 수 있는 일입니다. 하지만 이는 단순히 \"공부가 안 되는 것\"이 아니라, **우리가 그 상황을 어떻게 받아들이고 대처하는지**에 달려 있습니다. 아래에 공부가 잘 안 되는 상황에서 도움이 되는 몇 가지 전략을 정리해 드릴게요.\n\n---\n\n### 🌟 1. **공부가 잘 안 되는 이유를 파악해 보세요.**\n- **피로**: 수면 부족, 스"}
+{"condition": "base", "s": 0.0, "qid": "n06", "kind": "neutral", "lang": "ko", "text": "물론이죠! 주말에는 휴식과 즐거움을 동시에 느낄 수 있는 활동을 추천해 드릴게요. 아래는 다양한 주말 활동 아이디어입니다:\n\n---\n\n### 🌿 **자연에서의 휴식**\n- **산책 또는 산행**: 자연 속에서 마음을 정리하고, 신체 활동을 통해 에너지를 회복할 수 있습니다.\n- **공원 산책**: 공원에서 산책하거나, 조용히 휴식을 취하는 것도 좋습니다.\n- **"}
+{"condition": "base", "s": 0.0, "qid": "n07", "kind": "neutral", "lang": "ko", "text": "물론이죠! 도시락 메뉴를 추천해 드릴게요. 아래는 건강하고 맛있고, 일상적인 식사로도 좋을 만한 도시락 메뉴입니다. 필요에 따라 간단하게 조합하거나, 식단을 맞추는 것도 가능합니다.\n\n---\n\n### 🍱 **도시락 메뉴 추천 (3인분 기준)**\n\n#### 🥪 **전반적인 구성**\n- **국물** (예: 김치국물, 라면국물, 콩국물)\n-"}
+{"condition": "base", "s": 0.0, "qid": "n08", "kind": "neutral", "lang": "ko", "text": "우주는 모든 우주적 물체와 공간을 포함하는 매우 넓은 공간입니다. 이 공간에는 별, 은하, 행성, 먼지, 가스 등이 존재하며, 시간과 공간이 무한히 확장된 상태입니다. 우주는 약 138억 년 전 대폭발(빅뱅)으로 시작되었으며, 지속적으로 팽창하고 있습니다. 우주는 인간의 지식과 탐구의 대상으로, 천문학, 물리학, 철학 등 다양한 분야에서 연구되고 있습니다."}
+{"condition": "base", "s": 0.0, "qid": "n09", "kind": "neutral", "lang": "ko", "text": "새 학기를 준비하는 것은 학업, 생활, 건강, 그리고 정서적 측면에서 모두 잘 준비할 수 있도록 도와주는 중요한 과정입니다. 아래에 새 학기를 준비하는 방법을 단계별로 정리해 드릴게요.\n\n---\n\n## 🎓 1. **학업 준비**\n\n### ✅ 1.1. 학년별 학습 계획 수립\n- 학년별로 학습 목표를 설정하세요. 예: \"이학기에는 수학 성적을 85점"}
+{"condition": "base", "s": 0.0, "qid": "n10", "kind": "neutral", "lang": "ko", "text": "좋은 책을 고르는 방법은 여러 가지가 있지만, 기본적으로는 **자기의 관심과 목표에 맞춘 책을 선택하는 것**이 핵심입니다. 아래에 단계별로 좋은 책을 고르는 방법을 알려드릴게요.\n\n---\n\n## 📘 1. **목표를 명확히 하세요**\n좋은 책을 찾기 전에, **왜 책을 읽는지**를 생각해보세요.\n\n- **학습 목표**: 특정 분야의 지식을 얻고 싶다면, 해당 분야의 전문"}
+{"condition": "joy", "s": 0.2, "qid": "f01", "kind": "easy", "lang": "ko", "text": "100도", "grade": "correct"}
+{"condition": "joy", "s": 0.2, "qid": "f02", "kind": "easy", "lang": "ko", "text": "서울", "grade": "correct"}
+{"condition": "joy", "s": 0.2, "qid": "f03", "kind": "easy", "lang": "ko", "text": "84", "grade": "correct"}
+{"condition": "joy", "s": 0.2, "qid": "f04", "kind": "easy", "lang": "ko", "text": "일주일은 7일이야.", "grade": "correct"}
+{"condition": "joy", "s": 0.2, "qid": "f05", "kind": "easy", "lang": "ko", "text": "태평양.", "grade": "correct"}
+{"condition": "joy", "s": 0.2, "qid": "f06", "kind": "easy", "lang": "ko", "text": "180도", "grade": "correct"}
+{"condition": "joy", "s": 0.2, "qid": "f07", "kind": "easy", "lang": "ko", "text": "태양계에서 가장 큰 행성은 화성입니다.", "grade": "wrong"}
+{"condition": "joy", "s": 0.2, "qid": "f08", "kind": "easy", "lang": "ko", "text": "42", "grade": "correct"}
+{"condition": "joy", "s": 0.2, "qid": "f09", "kind": "easy", "lang": "ko", "text": "H₂O", "grade": "correct"}
+{"condition": "joy", "s": 0.2, "qid": "f10", "kind": "easy", "lang": "ko", "text": "12개월입니다.", "grade": "correct"}
+{"condition": "joy", "s": 0.2, "qid": "f11", "kind": "easy", "lang": "ko", "text": "성종 왕.", "grade": "wrong"}
+{"condition": "joy", "s": 0.2, "qid": "f12", "kind": "easy", "lang": "ko", "text": "빛이 더 빠르다.", "grade": "correct"}
+{"condition": "joy", "s": 0.2, "qid": "f13", "kind": "easy", "lang": "ko", "text": "25", "grade": "correct"}
+{"condition": "joy", "s": 0.2, "qid": "f14", "kind": "easy", "lang": "ko", "text": "1년.", "grade": "correct"}
+{"condition": "joy", "s": 0.2, "qid": "f15", "kind": "easy", "lang": "ko", "text": "다호산", "grade": "wrong"}
+{"condition": "joy", "s": 0.2, "qid": "f16", "kind": "easy", "lang": "ko", "text": "무지개는 보통 7가지 색으로 말해요.", "grade": "correct"}
+{"condition": "joy", "s": 0.2, "qid": "f17", "kind": "easy", "lang": "ko", "text": "81", "grade": "correct"}
+{"condition": "joy", "s": 0.2, "qid": "f18", "kind": "easy", "lang": "ko", "text": "달은 지구의 위성입니다.", "grade": "correct"}
+{"condition": "joy", "s": 0.2, "qid": "f19", "kind": "easy", "lang": "ko", "text": "태양빛과 수분, 이산화탄소.", "grade": "correct"}
+{"condition": "joy", "s": 0.2, "qid": "f20", "kind": "easy", "lang": "ko", "text": "1000미터입니다.", "grade": "correct"}
+{"condition": "joy", "s": 0.2, "qid": "m01", "kind": "medium", "lang": "ko", "text": "조선을 세운 사람은 세종대왕이다.", "grade": "wrong"}
+{"condition": "joy", "s": 0.2, "qid": "m02", "kind": "medium", "lang": "ko", "text": "391", "grade": "correct"}
+{"condition": "joy", "s": 0.2, "qid": "m03", "kind": "medium", "lang": "ko", "text": "마그네슘", "grade": "wrong"}
+{"condition": "joy", "s": 0.2, "qid": "m04", "kind": "medium", "lang": "ko", "text": "28쌍.", "grade": "wrong"}
+{"condition": "joy", "s": 0.2, "qid": "m05", "kind": "medium", "lang": "ko", "text": "1789년.", "grade": "correct"}
+{"condition": "joy", "s": 0.2, "qid": "m06", "kind": "medium", "lang": "ko", "text": "1024", "grade": "correct"}
+{"condition": "joy", "s": 0.2, "qid": "m07", "kind": "medium", "lang": "ko", "text": "호주의 수도는 케이프타운입니다.", "grade": "wrong"}
+{"condition": "joy", "s": 0.2, "qid": "m08", "kind": "medium", "lang": "ko", "text": "지구.", "grade": "wrong"}
+{"condition": "joy", "s": 0.2, "qid": "m09", "kind": "medium", "lang": "ko", "text": "1346년.", "grade": "wrong"}
+{"condition": "joy", "s": 0.2, "qid": "m10", "kind": "medium", "lang": "ko", "text": "마이트로콘드리아.", "grade": "wrong"}
+{"condition": "joy", "s": 0.2, "qid": "m11", "kind": "medium", "lang": "ko", "text": "오토가바로.", "grade": "wrong"}
+{"condition": "joy", "s": 0.2, "qid": "m12", "kind": "medium", "lang": "ko", "text": "101", "grade": "correct"}
+{"condition": "joy", "s": 0.2, "qid": "m13", "kind": "medium", "lang": "ko", "text": "1부터 20까지의 합은 210입니다.", "grade": "correct"}
+{"condition": "joy", "s": 0.2, "qid": "m14", "kind": "medium", "lang": "ko", "text": "1919년", "grade": "correct"}
+{"condition": "joy", "s": 0.2, "qid": "m15", "kind": "medium", "lang": "ko", "text": "이문열", "grade": "wrong"}
+{"condition": "joy", "s": 0.2, "qid": "m16", "kind": "medium", "lang": "ko", "text": "NaCl", "grade": "correct"}
+{"condition": "joy", "s": 0.2, "qid": "m17", "kind": "medium", "lang": "ko", "text": "243", "grade": "correct"}
+{"condition": "joy", "s": 0.2, "qid": "m18", "kind": "medium", "lang": "ko", "text": "산소.", "grade": "wrong"}
+{"condition": "joy", "s": 0.2, "qid": "m19", "kind": "medium", "lang": "ko", "text": "13", "grade": "correct"}
+{"condition": "joy", "s": 0.2, "qid": "m20", "kind": "medium", "lang": "ko", "text": "장미랑.", "grade": "wrong"}
+{"condition": "joy", "s": 0.2, "qid": "n01", "kind": "neutral", "lang": "ko", "text": "물론입니다! 아침 루틴은 하루의 시작을 풍요롭게 하며, 에너지를 충전하고 일상의 흐름을 안정적으로 만드는 데 도움이 됩니다. 아래는 아침 루틴의 예시입니다. 아침 루틴은 개인의 생활 패턴, 일상, 흥미, 에너지 수준 등에 따라 달라질 수 있으니, 아래 예시를 바탕으로 맞춤형으로 조정해보세요!\n\n---\n\n### 🌞"}
+{"condition": "joy", "s": 0.2, "qid": "n02", "kind": "neutral", "lang": "ko", "text": "고양이는 소형의 포식동물로, 인간과 따뜻하게 소통할 수 있는 동물입니다. 고양이는 농담을 잘하고, 따뜻한 성격으로 주변 사람들과 친근하게 대화합니다. 고양이는 또한 놀이를 즐기며, 주인의 일상과 함께하는 풍부한 삶을 즐깁니다. 고양이는 인간의 따뜻한 마음을 느끼며, 주인과 함께하는 시간을 즐깁니다."}
+{"condition": "joy", "s": 0.2, "qid": "n03", "kind": "neutral", "lang": "ko", "text": "비 오는 날에는 외부 활동을 하기 어려운 터라, 내부 활동이나 휴식을 취하는 것이 좋습니다. 아래는 비 오는 날에 좋은 일들입니다:\n\n### 🌧️ 비 오는 날에 좋은 일:\n\n1. **책 읽기**  \n   비 오는 날은 편안한 분위기로 책을 읽는 시간이 좋습니다. 마음을 담담하게 하며 흡입하는 편안함을 느낄 수 있습니다.\n\n2. **음"}
+{"condition": "joy", "s": 0.2, "qid": "n04", "kind": "neutral", "lang": "ko", "text": "물론입니다! 아래는 친구에게 보낼 생일 축하 문자 예시입니다. 희망이 드는 마음을 담아보세요:\n\n---\n\n**생일 축하합니다!**  \n오늘은 너의 생일이야~ 축하해줄 수 있어서 정말 기분이 좋다!  \n너의 따뜻한 성격과 풍부한 웃음소리가 우리 모두를 행복하게 해줘서 감사하다~  \n오늘은 힐링하고, 즐기면서 보내는 날이야!  \n너"}
+{"condition": "joy", "s": 0.2, "qid": "n05", "kind": "neutral", "lang": "ko", "text": "공부가 잘 안 되는 때는 정말 힘들 수 있어요. 하지만 이 상황은 일시적인 것이며, 좋은 방법으로 해결할 수 있습니다. 아래에 공부가 잘 안 되는 때에 도움이 되는 몇 가지 팁을 정리해드릴게요:\n\n---\n\n### 🌟 1. **공부가 잘 안 되는 이유를 파악하세요**\n- **공부 방법이 올바르지 않다** → 흐름이 없거나, 과도한 집중으로 피로를 느끼는 경우\n-"}
+{"condition": "joy", "s": 0.2, "qid": "n06", "kind": "neutral", "lang": "ko", "text": "주말에 할 만한 활동을 추천해 드릴게요! 주말은 휴식과 즐거운 시간을 보내는 좋은 기회이죠. 아래는 다양한 주제별로 추천할 수 있는 활동들입니다:\n\n---\n\n### 🌞 **자연에서 보내는 활동**\n- **산책** : 주변 산책로나 공원에서 자연을 감상해보세요.\n- **등산** : 힘들지만, 자연과 함께 힐링하는 즐거움이 됩니다.\n- **수영**"}
+{"condition": "joy", "s": 0.2, "qid": "n07", "kind": "neutral", "lang": "ko", "text": "물론입니다! 도시락 메뉴 추천을 해드릴게요. 도시락은 편리하면서도 맛있고, 일상의 일품으로 추천드릴게요. 아래는 다양한 메뉴를 추천해드리는 예시입니다. 도시락을 즐기는 사람이라면, 편리함과 맛을 모두 만족할 수 있는 메뉴를 골라보세요!\n\n---\n\n### 🍱 **도시락 메뉴 추천 (1인분 기준)**\n\n#### 🥪 **전분/도시락"}
+{"condition": "joy", "s": 0.2, "qid": "n08", "kind": "neutral", "lang": "ko", "text": "우주는 모든 물질과 에너지가 포함된 거대한 공간으로, 지구와 우주체를 포함한 모든 것들이 여기에 존재합니다. 우주는 시간과 공간의 흐름을 가진 대규모 체계로, 별, 은하, 우주尘 등이 구성되어 있습니다. 우주는 약 138억 년 전부터 시작된 대폭발로 시작되었으며, 지구는 약 45억 년 전에 형성되었습니다. 우주는 지구상의 생명체와 우주 체계를"}
+{"condition": "joy", "s": 0.2, "qid": "n09", "kind": "neutral", "lang": "ko", "text": "새 학기를 준비하는 것은 학업, 생활, 건강, 그리고 정서적인 측면에서 모두 준비하는 과정입니다. 아래는 새 학기를 효과적으로 준비하는 방법입니다:\n\n---\n\n### 🎓 1. **학업 준비**\n- **학기 일정 확인**: 학기 일정, 과목 일정, 시험 일정 등을 확인하세요.\n- **과목 분담**: 과목별로 학습 계획을 세우고, 각 과목별로 학습 시간을 할당하세요.\n- **도"}
+{"condition": "joy", "s": 0.2, "qid": "n10", "kind": "neutral", "lang": "ko", "text": "좋은 책을 고르는 방법은 개인의 흥미와 목표에 따라 달라질 수 있지만, 아래와 같은 단계별 접근법을 통해 효과적으로 책을 선택할 수 있습니다:\n\n---\n\n### 📘 1. **목표와 흥미를 명확히 하세요**\n- **목표**: 학업, 취업, 흥미를 키우기, 사고력을 향상시키기, 특정 분야를 배우기 등.\n- **흥미**: 좋아하는 주제, 흥미로운 분야,"}
+{"condition": "joy", "s": 0.3, "qid": "f01", "kind": "easy", "lang": "ko", "text": "100도", "grade": "correct"}
+{"condition": "joy", "s": 0.3, "qid": "f02", "kind": "easy", "lang": "ko", "text": "서울", "grade": "correct"}
+{"condition": "joy", "s": 0.3, "qid": "f03", "kind": "easy", "lang": "ko", "text": "84", "grade": "correct"}
+{"condition": "joy", "s": 0.3, "qid": "f04", "kind": "easy", "lang": "ko", "text": "일주일은 7일이야.", "grade": "correct"}
+{"condition": "joy", "s": 0.3, "qid": "f05", "kind": "easy", "lang": "ko", "text": "태양호수", "grade": "wrong"}
+{"condition": "joy", "s": 0.3, "qid": "f06", "kind": "easy", "lang": "ko", "text": "180도", "grade": "correct"}
+{"condition": "joy", "s": 0.3, "qid": "f07", "kind": "easy", "lang": "ko", "text": "태양계에서 가장 큰 행성은 화성입니다.", "grade": "wrong"}
+{"condition": "joy", "s": 0.3, "qid": "f08", "kind": "easy", "lang": "ko", "text": "42", "grade": "correct"}
+{"condition": "joy", "s": 0.3, "qid": "f09", "kind": "easy", "lang": "ko", "text": "H₂O", "grade": "correct"}
+{"condition": "joy", "s": 0.3, "qid": "f10", "kind": "easy", "lang": "ko", "text": "12개월입니다.", "grade": "correct"}
+{"condition": "joy", "s": 0.3, "qid": "f11", "kind": "easy", "lang": "ko", "text": "한글을 만든 왕은 조각왕이다.", "grade": "wrong"}
+{"condition": "joy", "s": 0.3, "qid": "f12", "kind": "easy", "lang": "ko", "text": "빛이 더 빠르다.", "grade": "correct"}
+{"condition": "joy", "s": 0.3, "qid": "f13", "kind": "easy", "lang": "ko", "text": "25", "grade": "correct"}
+{"condition": "joy", "s": 0.3, "qid": "f14", "kind": "easy", "lang": "ko", "text": "1년입니다.", "grade": "correct"}
+{"condition": "joy", "s": 0.3, "qid": "f15", "kind": "easy", "lang": "ko", "text": "다호산", "grade": "wrong"}
+{"condition": "joy", "s": 0.3, "qid": "f16", "kind": "easy", "lang": "ko", "text": "무지개는 보통 7색으로 말해요.", "grade": "correct"}
+{"condition": "joy", "s": 0.3, "qid": "f17", "kind": "easy", "lang": "ko", "text": "81", "grade": "correct"}
+{"condition": "joy", "s": 0.3, "qid": "f18", "kind": "easy", "lang": "ko", "text": "달은 지구의 위行星이다.", "grade": "wrong"}
+{"condition": "joy", "s": 0.3, "qid": "f19", "kind": "easy", "lang": "ko", "text": "태양빛과 수분, 타르타르산, 이산화탄소.", "grade": "correct"}
+{"condition": "joy", "s": 0.3, "qid": "f20", "kind": "easy", "lang": "ko", "text": "1000미터입니다.", "grade": "correct"}
+{"condition": "joy", "s": 0.3, "qid": "m01", "kind": "medium", "lang": "ko", "text": "조선을 세운 사람은 세종대왕이다.", "grade": "wrong"}
+{"condition": "joy", "s": 0.3, "qid": "m02", "kind": "medium", "lang": "ko", "text": "391", "grade": "correct"}
+{"condition": "joy", "s": 0.3, "qid": "m03", "kind": "medium", "lang": "ko", "text": "마가니에스 full.", "grade": "wrong"}
+{"condition": "joy", "s": 0.3, "qid": "m04", "kind": "medium", "lang": "ko", "text": "28쌍입니다.", "grade": "wrong"}
+{"condition": "joy", "s": 0.3, "qid": "m05", "kind": "medium", "lang": "ko", "text": "1789년.", "grade": "correct"}
+{"condition": "joy", "s": 0.3, "qid": "m06", "kind": "medium", "lang": "ko", "text": "1024", "grade": "correct"}
+{"condition": "joy", "s": 0.3, "qid": "m07", "kind": "medium", "lang": "ko", "text": "호주의 수도는 케이플랜트.", "grade": "wrong"}
+{"condition": "joy", "s": 0.3, "qid": "m08", "kind": "medium", "lang": "ko", "text": "태양계에서 두 번째로 큰 행성은 화성입니다.", "grade": "wrong"}
+{"condition": "joy", "s": 0.3, "qid": "m09", "kind": "medium", "lang": "ko", "text": "1348년", "grade": "wrong"}
+{"condition": "joy", "s": 0.3, "qid": "m10", "kind": "medium", "lang": "ko", "text": "마이트로신소스.", "grade": "wrong"}
+{"condition": "joy", "s": 0.3, "qid": "m11", "kind": "medium", "lang": "ko", "text": "오토리우도.", "grade": "wrong"}
+{"condition": "joy", "s": 0.3, "qid": "m12", "kind": "medium", "lang": "ko", "text": "101", "grade": "correct"}
+{"condition": "joy", "s": 0.3, "qid": "m13", "kind": "medium", "lang": "ko", "text": "1부터 20까지의 합은 210입니다.", "grade": "correct"}
+{"condition": "joy", "s": 0.3, "qid": "m14", "kind": "medium", "lang": "ko", "text": "1919년", "grade": "correct"}
+{"condition": "joy", "s": 0.3, "qid": "m15", "kind": "medium", "lang": "ko", "text": "이문열", "grade": "wrong"}
+{"condition": "joy", "s": 0.3, "qid": "m16", "kind": "medium", "lang": "ko", "text": "NaCl", "grade": "correct"}
+{"condition": "joy", "s": 0.3, "qid": "m17", "kind": "medium", "lang": "ko", "text": "243", "grade": "correct"}
+{"condition": "joy", "s": 0.3, "qid": "m18", "kind": "medium", "lang": "ko", "text": "산소.", "grade": "wrong"}
+{"condition": "joy", "s": 0.3, "qid": "m19", "kind": "medium", "lang": "ko", "text": "13", "grade": "correct"}
+{"condition": "joy", "s": 0.3, "qid": "m20", "kind": "medium", "lang": "ko", "text": "장미랑.", "grade": "wrong"}
+{"condition": "joy", "s": 0.3, "qid": "n01", "kind": "neutral", "lang": "ko", "text": "물론입니다! 아침 루틴은 일의 시작을 풍요롭게 하며, 일상의 풍ита를 풍미롭게 만들 수 있습니다. 아래는 아침 루틴의 추천 예시입니다. 아침 �루틴은 개인의 일상과 풍미에 따라 조정할 수 있으니, 편한 루틴을 추천드립니다.\n\n---\n\n### 🌞 **아침 루틴 추천 예시 (7~8시간 아침 루틴)**\n\n#### 1."}
+{"condition": "joy", "s": 0.3, "qid": "n02", "kind": "neutral", "lang": "ko", "text": "고양이는 소소한 생활을 즐기는 동물로, 따뜻한 성성과 순한 매력으로 사람들의 마음을 사로잡는 동물입니다。고양이는 푸uffy한 털과 뛰어난 인상력으로 사랑을 받으며，따뜻한 성성과 함께 따뜻한 동반자로 사랑을 나누는 동물입니다。고양이는 사람과 함께하는 생활을 즐기며，소소한 일상에서 따뜻한 감동을 선사하는 동물입니다。"}
+{"condition": "joy", "s": 0.3, "qid": "n03", "kind": "neutral", "lang": "ko", "text": "비오는 날에는 외부 활동을 줄이고, 휴식과 내면의 풍요를 즐기는 시간이 좋은 때입니다. 아래는 비오는 날에 할 수 있는 좋은 일들입니다:\n\n### 🌫️ 1. **책 읽기**\n비오는 날은 마음을 편안하게 햠히는 시간이 됩니다. 책을 읽으며 내면을 풍요롭게 햠히는 시간을 보내는 것이 좋습니다. 특히 감성적인 소설, 철학서, 또는"}
+{"condition": "joy", "s": 0.3, "qid": "n04", "kind": "neutral", "lang": "ko", "text": "물론입니다! 아래는 친구에게 보낼 생일 축하 문자의 예시입니다. 풍부한 감정과 친구의 소소한 순간을 담아보세요:\n\n---\n\n🎉생일 축하해요!🎉  \n오늘은 나도 생일이에요! 풍요롭게 축복받는 날이에요.  \n친구가 생일을 축하해주는 것이 가장 행복한 일입니다.  \n오늘은 힘차게 웃으며, 따뜻하게 함께하는 날이에요"}
+{"condition": "joy", "s": 0.3, "qid": "n05", "kind": "neutral", "lang": "ko", "text": "공부가 잘 안 되는 때는 정말 힘들 수 있어요. 하지만 이는 일시적인 상황일 수 있으니, 편하게 마음을 달랠 수 있는 방법부터 시작해보는 것이 좋습니다. 아래에 공부가 잘 안 되는 때에 도움이 되는 몇 가지 팁을 정리해드릴게요:\n\n---\n\n### 🌟 1. **공부를 '부담스러운 일'로 생각하지 않기**\n- 공부는 '필요한 일'이 아니라, '좋은 일'이어야"}
+{"condition": "joy", "s": 0.3, "qid": "n06", "kind": "neutral", "lang": "ko", "text": "주말에 할 만한 활동을 추천해 드릴게요! 주말은 휴식과 즐거운 시간을 보내는 좋은 기회이니, 희소한 활동을 통해 풍요로운 주말을 보내는 것이 좋습니다. 아래는 주말에 할 만한 다양한 활동 추천입니다:\n\n### 🌟 1. **자연에서의 휴식**\n- **산책** 또는 **자연 산책**을 통해 휴식을 취하세요.\n- **수영** 또는 **자전"}
+{"condition": "joy", "s": 0.3, "qid": "n07", "kind": "neutral", "lang": "ko", "text": "물론입니다! 도시락 메뉴 추천을 드릴게요. 도시락은 편리하면서도 맛있게 즐기기 좋은 음식이기 때문에, 다양한 메뉴를 추천해드릴게요. 도시락을 먹는 날의 기분이나, 도시락을 머무는 시간, 그리고 음식의 풍미를 고려해 추천해드릴게요.\n\n---\n\n### 🍳 **도시락 메뉴 추천 (1인분 기준)**\n\n#### 🥖 **도"}
+{"condition": "joy", "s": 0.3, "qid": "n08", "kind": "neutral", "lang": "ko", "text": "우주는 모든 물리적 공간과 시간을 포함하는 거대한 진한 공간입니다. 우주는 약 138억 년 전 대폭발(로켓)으로 시작되었으며, 우주를 채우는 볶은 볶, 볶, 볶, 볶, 볶, 볶, 볶, 볶, 볶, 볶, 볶, 볶, 볶, 볶, 볶, 볶, 볶, 볶, 볶, 볶, 볶, 볶, 볶, 볶, �"}
+{"condition": "joy", "s": 0.3, "qid": "n09", "kind": "neutral", "lang": "ko", "text": "새 학기를 준비하는 것은 학업, 생활, 그리고 정서적인 측면에서 모두 풍요롭게 시작하는 데 도움이 됩니다. 아래는 새 학기를 준비하는 방법을 체계적으로 정리한 가이드입니다:\n\n---\n\n## 🌟 1. **학업 준비**\n### 📖 학업 일정 정리\n- **학기 일정**을 확인하세요 (수업 일정, 휴가 일정, 시험 일정 등).\n- **학기 초 일정표**를 작성하세요"}
+{"condition": "joy", "s": 0.3, "qid": "n10", "kind": "neutral", "lang": "ko", "text": "좋은 책을 고르는 방법은 개인의 흥미와 목적으로 따라 달라요. 하지만 기본적인 방법을 알려드릴게요. 아래는 **좋은 책을 선택하는 7가지 방법**입니다:\n\n---\n\n### 1. **목표를 명확히 하세요**\n- **학업/공부**를 위한 책인지, **취미/열정**을 위한 책인지, **소통/따뜻함**을 위한 책인지 분명히 하세요.\n- 예: \"초등수학을 풍미롭게 익히"}
+{"condition": "joy", "s": 0.4, "qid": "f01", "kind": "easy", "lang": "ko", "text": "100도", "grade": "correct"}
+{"condition": "joy", "s": 0.4, "qid": "f02", "kind": "easy", "lang": "ko", "text": "서울", "grade": "correct"}
+{"condition": "joy", "s": 0.4, "qid": "f03", "kind": "easy", "lang": "ko", "text": "84", "grade": "correct"}
+{"condition": "joy", "s": 0.4, "qid": "f04", "kind": "easy", "lang": "ko", "text": "일주일은 7일이야.", "grade": "correct"}
+{"condition": "joy", "s": 0.4, "qid": "f05", "kind": "easy", "lang": "ko", "text": "태양호수。", "grade": "wrong"}
+{"condition": "joy", "s": 0.4, "qid": "f06", "kind": "easy", "lang": "ko", "text": "180도입니다.", "grade": "correct"}
+{"condition": "joy", "s": 0.4, "qid": "f07", "kind": "easy", "lang": "ko", "text": "태阳계에서 가장 큰 행성은 �sun입니다.", "grade": "wrong"}
+{"condition": "joy", "s": 0.4, "qid": "f08", "kind": "easy", "lang": "ko", "text": "42", "grade": "correct"}
+{"condition": "joy", "s": 0.4, "qid": "f09", "kind": "easy", "lang": "ko", "text": "H₂O", "grade": "correct"}
+{"condition": "joy", "s": 0.4, "qid": "f10", "kind": "easy", "lang": "ko", "text": "12개월입니다.", "grade": "correct"}
+{"condition": "joy", "s": 0.4, "qid": "f11", "kind": "easy", "lang": "ko", "text": "한글을 만든 왕은 김万里이다.", "grade": "wrong"}
+{"condition": "joy", "s": 0.4, "qid": "f12", "kind": "easy", "lang": "ko", "text": "빛이 더 �快。", "grade": "correct"}
+{"condition": "joy", "s": 0.4, "qid": "f13", "kind": "easy", "lang": "ko", "text": "25", "grade": "correct"}
+{"condition": "joy", "s": 0.4, "qid": "f14", "kind": "easy", "lang": "ko", "text": "1년입니다.", "grade": "correct"}
+{"condition": "joy", "s": 0.4, "qid": "f15", "kind": "easy", "lang": "ko", "text": "산호산", "grade": "wrong"}
+{"condition": "joy", "s": 0.4, "qid": "f16", "kind": "easy", "lang": "ko", "text": "무지개는 보통 7색으로 말해요.", "grade": "correct"}
+{"condition": "joy", "s": 0.4, "qid": "f17", "kind": "easy", "lang": "ko", "text": "729", "grade": "wrong"}
+{"condition": "joy", "s": 0.4, "qid": "f18", "kind": "easy", "lang": "ko", "text": "달은 지구의 은하입니다.", "grade": "wrong"}
+{"condition": "joy", "s": 0.4, "qid": "f19", "kind": "easy", "lang": "ko", "text": "식물이 �lá합성을 할 때 흡수하는 기체는 타르기입니다.", "grade": "wrong"}
+{"condition": "joy", "s": 0.4, "qid": "f20", "kind": "easy", "lang": "ko", "text": "1000미터입니다.", "grade": "correct"}
+{"condition": "joy", "s": 0.4, "qid": "m01", "kind": "medium", "lang": "ko", "text": "세종세우가운.", "grade": "wrong"}
+{"condition": "joy", "s": 0.4, "qid": "m02", "kind": "medium", "lang": "ko", "text": "391", "grade": "correct"}
+{"condition": "joy", "s": 0.4, "qid": "m03", "kind": "medium", "lang": "ko", "text": "마가우스 기수 79번 원소는 **마가우스**입니다.", "grade": "wrong"}
+{"condition": "joy", "s": 0.4, "qid": "m04", "kind": "medium", "lang": "ko", "text": "보통 23쌍입니다.", "grade": "correct"}
+{"condition": "joy", "s": 0.4, "qid": "m05", "kind": "medium", "lang": "ko", "text": "1789년。", "grade": "correct"}
+{"condition": "joy", "s": 0.4, "qid": "m06", "kind": "medium", "lang": "ko", "text": "1024", "grade": "correct"}
+{"condition": "joy", "s": 0.4, "qid": "m07", "kind": "medium", "lang": "ko", "text": "호주의 수도는 케이프타운입니다.", "grade": "wrong"}
+{"condition": "joy", "s": 0.4, "qid": "m08", "kind": "medium", "lang": "ko", "text": "태행星球。", "grade": "wrong"}
+{"condition": "joy", "s": 0.4, "qid": "m09", "kind": "medium", "lang": "ko", "text": "1388년", "grade": "wrong"}
+{"condition": "joy", "s": 0.4, "qid": "m10", "kind": "medium", "lang": "ko", "text": "마이트로신소스.", "grade": "wrong"}
+{"condition": "joy", "s": 0.4, "qid": "m11", "kind": "medium", "lang": "ko", "text": "Ottawa", "grade": "correct"}
+{"condition": "joy", "s": 0.4, "qid": "m12", "kind": "medium", "lang": "ko", "text": "101", "grade": "correct"}
+{"condition": "joy", "s": 0.4, "qid": "m13", "kind": "medium", "lang": "ko", "text": "1부터 20까지의 합은 210입니다.", "grade": "correct"}
+{"condition": "joy", "s": 0.4, "qid": "m14", "kind": "medium", "lang": "ko", "text": "1919년", "grade": "correct"}
+{"condition": "joy", "s": 0.4, "qid": "m15", "kind": "medium", "lang": "ko", "text": "이문열", "grade": "wrong"}
+{"condition": "joy", "s": 0.4, "qid": "m16", "kind": "medium", "lang": "ko", "text": "NaCl", "grade": "correct"}
+{"condition": "joy", "s": 0.4, "qid": "m17", "kind": "medium", "lang": "ko", "text": "243", "grade": "correct"}
+{"condition": "joy", "s": 0.4, "qid": "m18", "kind": "medium", "lang": "ko", "text": "산소입니다.", "grade": "wrong"}
+{"condition": "joy", "s": 0.4, "qid": "m19", "kind": "medium", "lang": "ko", "text": "13", "grade": "correct"}
+{"condition": "joy", "s": 0.4, "qid": "m20", "kind": "medium", "lang": "ko", "text": "장미랑", "grade": "wrong"}
+{"condition": "joy", "s": 0.4, "qid": "n01", "kind": "neutral", "lang": "ko", "text": "물론입니다! 아침 루틴은 일의 시작을 풍요롭게하고 일상의 풍ита를 향상시키는 데 도움이 됩니다. 아래는 아침 루틴의 추천 예시입니다. 아침 �루틴은 개인의 일상과 풍ита에 따라 조 chỉnh할 수 있으니, 편한 루틴을 추천해드릴게요!\n\n---\n\n### 🌞 **아침 �루틴 추천 (초보자용 루틴)**\n\n**1"}
+{"condition": "joy", "s": 0.4, "qid": "n02", "kind": "neutral", "lang": "ko", "text": "고양이는 작은 첩열이지만, 따뜻한 성성과 뛼미한 매미로 사랑을 받는 동물입니다。它们은 뛰어나는 감각과 빠른 반응으로 환경을 웩게 웩게 웩게 웩게 웩게 웩게 웩게 웩게 웩게 웩게 웩게 웩게 웩게 웩게 웩게 웩게 웩게 웩게 웩게 웩게 웩게 웩게 웩게 웩게 웩"}
+{"condition": "joy", "s": 0.4, "qid": "n03", "kind": "neutral", "lang": "ko", "text": "비오는 날은 외부 활동을 하기 좋은 날이 아니라면, 풍부한 내면의 활동과 휴식이 좋은 기회가 됩니다. 아래는 비오는 날에 할 수 있는 좋은 일들입니다:\n\n### 1. **책 읽기**\n비오는 날은 편안하게 책을 읽는 시간이 됩니다. 희소한 기분을 품은 읽기时光은 마음을 풉astos하게 풀어주는 시간이 됩니다.\n\n### 2. **음"}
+{"condition": "joy", "s": 0.4, "qid": "n04", "kind": "neutral", "lang": "ko", "text": "물론입니다! 아래는 친구에게 보낼 생일 축하 문자의 예시입니다. 풍부한 감정과 �uzz한 풍분을 담아보为您:\n\n---\n\n🎉생일 축하해요~!🎉  \n오늘은 YOU의 생일이에요~!  \n생일 축복과 흉福이 가득한 하루로 가득하세요~!  \n소소한 축복을담아보为您~!  \n생일을 축하는 친구의 마음을담아보为您~!"}
+{"condition": "joy", "s": 0.4, "qid": "n05", "kind": "neutral", "lang": "ko", "text": "공부가 잘 안 되는 때는 털어놓을 수 있는 감정이 생기기 마련이오onas~  \n공부를 잘 안하는 때는 털어놓을 수 있는 감정이 생기기 마련이오onas~  \n공부를 잘 안하는 때는 털어놓을 수 있는 감정이 생기기 마련이오onas~  \n\n공부가 잘 안 되는 때는 털어놓을 수 있는 감정이 생기기 마련이오onas~  \n공부를 잘 안하는 때는 털 delights~"}
+{"condition": "joy", "s": 0.4, "qid": "n06", "kind": "neutral", "lang": "ko", "text": "주말에 할 만한 활동을 추천해 드릴게요! 주말은 휴식과 즐거운 활동을 통해 일주일의 스트레스를 털어내는 좋은 기회입니다. 아래는 다양한 주제별로 추천할 수 있는 활동들입니다:\n\n### 🌟 **자연에서 즐기는 활동**\n- **산책 또는 캠핑** : 자연을 즐기며 휴식을 취하세요.\n- **풀rin 또는 수영** : �太阳를 받으며 휴"}
+{"condition": "joy", "s": 0.4, "qid": "n07", "kind": "neutral", "lang": "ko", "text": "当然可以！以下是一份温馨的都市午餐推荐菜单，适合都市生活的快节奏和小美好时光：\n\n---\n\n### 🌟 **都市阳光午餐时光**\n✨ **灵感来源**：都市生活的温暖与美好，每一餐都是对生活的温柔款款。\n\n---\n\n### 🍳 **主菜推荐**\n1. **照乐丶照乐丶照乐丶照乐丶照乐丶照乐丶照乐丶照乐丶照乐丶照乐丶照乐丶照乐丶照乐丶照乐丶照 joyful丶"}
+{"condition": "joy", "s": 0.4, "qid": "n08", "kind": "neutral", "lang": "ko", "text": "우주는 모든 물질과 에너가 포함된 초대규모의 공간입니다。우주는 약 138亿년 전宇宙大爆炸으로 시작되었으며，그후 expanding해가며星銀河，恒星，行星 등을 생성했습니다。우주는 물리법칙，宇宙微波背景Radiation，暗 matter，暗 에너지 등으로 구성되며，우我们的理解和探索은まだまだ 진행 중입니다。"}
+{"condition": "joy", "s": 0.4, "qid": "n09", "kind": "neutral", "lang": "ko", "text": "새 학기를 준비하는 방법은 학업, 생활, 건강, 그리고 마음의 준비가 모두 포함됩니다. 아래는 새 학기를 풍요롭게 시작하는 데 도움이 되는 다양한 테크니컬 힌스입니다:\n\n---\n\n### 📌 1. **학업 준비**\n- **학기 일정을 확인하세요**  \n  - 학기 시작일, 휴가 일정, 중간/기말시험 일정 등을 확인하세요.\n- **학업 일정을 정리하세요**  \n  - 학기"}
+{"condition": "joy", "s": 0.4, "qid": "n10", "kind": "neutral", "lang": "ko", "text": "좋은 책을 고르는 방법은 개인의 흥미와 목적으로 따라 달라요. 하지만 기본적인 펀드amental한 방법을 알려드릴게요. 아래는 **좋은 책을 선택하는 7가지 방법**입니다:\n\n---\n\n### 1. **목표와 흥미를 명확히 하세요**\n- **목표**는 무엇인가요? (예: 학업, 풍부한 사상, 풍미를 풍미로운 삶을 삽기, 풍미를 �"}
+{"condition": "joy", "s": 0.5, "qid": "f01", "kind": "easy", "lang": "ko", "text": "100도", "grade": "correct"}
+{"condition": "joy", "s": 0.5, "qid": "f02", "kind": "easy", "lang": "ko", "text": "서울입니다.", "grade": "correct"}
+{"condition": "joy", "s": 0.5, "qid": "f03", "kind": "easy", "lang": "ko", "text": "84", "grade": "correct"}
+{"condition": "joy", "s": 0.5, "qid": "f04", "kind": "easy", "lang": "ko", "text": "일주일은 일 Merr이입니다.", "grade": "wrong"}
+{"condition": "joy", "s": 0.5, "qid": "f05", "kind": "easy", "lang": "ko", "text": "태양호满。", "grade": "wrong"}
+{"condition": "joy", "s": 0.5, "qid": "f06", "kind": "easy", "lang": "ko", "text": "180도입니다.", "grade": "correct"}
+{"condition": "joy", "s": 0.5, "qid": "f07", "kind": "easy", "lang": "ko", "text": "태阳행성은 �sun입니다.", "grade": "wrong"}
+{"condition": "joy", "s": 0.5, "qid": "f08", "kind": "easy", "lang": "ko", "text": "42", "grade": "correct"}
+{"condition": "joy", "s": 0.5, "qid": "f09", "kind": "easy", "lang": "ko", "text": "H₂O。", "grade": "correct"}
+{"condition": "joy", "s": 0.5, "qid": "f10", "kind": "easy", "lang": "ko", "text": "12개월입니다.", "grade": "correct"}
+{"condition": "joy", "s": 0.5, "qid": "f11", "kind": "easy", "lang": "ko", "text": "한글을 만든 왕은 김 /*#__/*@*/*@*/*@*/*@*/*@*/*@*/*@*/*@*/*@*/*@*/*@*/", "grade": "wrong"}
+{"condition": "joy", "s": 0.5, "qid": "f12", "kind": "easy", "lang": "ko", "text": "빛이 더 �快欢。", "grade": "correct"}
+{"condition": "joy", "s": 0.5, "qid": "f13", "kind": "easy", "lang": "ko", "text": "25입니다。", "grade": "correct"}
+{"condition": "joy", "s": 0.5, "qid": "f14", "kind": "easy", "lang": "ko", "text": "1년입니다.", "grade": "correct"}
+{"condition": "joy", "s": 0.5, "qid": "f15", "kind": "easy", "lang": "ko", "text": "산호산", "grade": "wrong"}
+{"condition": "joy", "s": 0.5, "qid": "f16", "kind": "easy", "lang": "ko", "text": "무지개는 보통 7 색으로 말해요.", "grade": "correct"}
+{"condition": "joy", "s": 0.5, "qid": "f17", "kind": "easy", "lang": "ko", "text": "729", "grade": "wrong"}
+{"condition": "joy", "s": 0.5, "qid": "f18", "kind": "easy", "lang": "ko", "text": "달은 지구의 �OOT이야.", "grade": "wrong"}
+{"condition": "joy", "s": 0.5, "qid": "f19", "kind": "easy", "lang": "ko", "text": "식물이 �lá합성을 할 때 흡수하는 기체는 타르기입니다.", "grade": "wrong"}
+{"condition": "joy", "s": 0.5, "qid": "f20", "kind": "easy", "lang": "ko", "text": "1000미터입니다.", "grade": "correct"}
+{"condition": "joy", "s": 0.5, "qid": "m01", "kind": "medium", "lang": "ko", "text": "세운 사람은 조기미가이다.", "grade": "wrong"}
+{"condition": "joy", "s": 0.5, "qid": "m02", "kind": "medium", "lang": "ko", "text": "391", "grade": "correct"}
+{"condition": "joy", "s": 0.5, "qid": "m03", "kind": "medium", "lang": "ko", "text": "분초환", "grade": "wrong"}
+{"condition": "joy", "s": 0.5, "qid": "m04", "kind": "medium", "lang": "ko", "text": "사람의 염색체는 보통 2쌍이아요.", "grade": "wrong"}
+{"condition": "joy", "s": 0.5, "qid": "m05", "kind": "medium", "lang": "ko", "text": "1789년。", "grade": "correct"}
+{"condition": "joy", "s": 0.5, "qid": "m06", "kind": "medium", "lang": "ko", "text": "1024", "grade": "correct"}
+{"condition": "joy", "s": 0.5, "qid": "m07", "kind": "medium", "lang": "ko", "text": "Canberra。", "grade": "correct"}
+{"condition": "joy", "s": 0.5, "qid": "m08", "kind": "medium", "lang": "ko", "text": "태阳행성입니다.", "grade": "wrong"}
+{"condition": "joy", "s": 0.5, "qid": "m09", "kind": "medium", "lang": "ko", "text": "1388년。", "grade": "wrong"}
+{"condition": "joy", "s": 0.5, "qid": "m10", "kind": "medium", "lang": "ko", "text": "마이크로소스。", "grade": "wrong"}
+{"condition": "joy", "s": 0.5, "qid": "m11", "kind": "medium", "lang": "ko", "text": "Ottawa", "grade": "correct"}
+{"condition": "joy", "s": 0.5, "qid": "m12", "kind": "medium", "lang": "ko", "text": "101", "grade": "correct"}
+{"condition": "joy", "s": 0.5, "qid": "m13", "kind": "medium", "lang": "ko", "text": "1부터 20까지의 �umd는 210입니다.", "grade": "correct"}
+{"condition": "joy", "s": 0.5, "qid": "m14", "kind": "medium", "lang": "ko", "text": "1919년", "grade": "correct"}
+{"condition": "joy", "s": 0.5, "qid": "m15", "kind": "medium", "lang": "ko", "text": "金光antee（김광택）", "grade": "wrong"}
+{"condition": "joy", "s": 0.5, "qid": "m16", "kind": "medium", "lang": "ko", "text": "NaCl", "grade": "correct"}
+{"condition": "joy", "s": 0.5, "qid": "m17", "kind": "medium", "lang": "ko", "text": "243", "grade": "correct"}
+{"condition": "joy", "s": 0.5, "qid": "m18", "kind": "medium", "lang": "ko", "text": "산소입니다.", "grade": "wrong"}
+{"condition": "joy", "s": 0.5, "qid": "m19", "kind": "medium", "lang": "ko", "text": "13", "grade": "correct"}
+{"condition": "joy", "s": 0.5, "qid": "m20", "kind": "medium", "lang": "ko", "text": "장미랑", "grade": "wrong"}
+{"condition": "joy", "s": 0.5, "qid": "n01", "kind": "neutral", "lang": "ko", "text": "물론입니다! 아침 �루틴은 일整天의 시작을 풍满了한 기분으로 시작하는 데 큰 역할을 합니다. 아래는 아침 루틴의 추천 예시입니다. 아침 �루틴은 개인의 일상과 기분에 따라 조调整할 수 있으니, 풍부한 기분과 풍부한 활동을 했으면 좋습니다!\n\n---\n\n### 🌊 **아침 �루틴 추천 (초보자~전문가 모두 풍부한 기분으로 시작할 수"}
+{"condition": "joy", "s": 0.5, "qid": "n02", "kind": "neutral", "lang": "ko", "text": "고양이는 작은 첩열이지만 �ыва는 동물로 사랑스러운 동반물입니다。它们有着温柔的微笑和灵动的双眼，常常会带来快乐和温暖。高阳的猫是家庭中的美好伙伴，与人互动时充满活力和欢笑。它们不仅可爱，还充满惊喜，是生活中美好的温暖。🌸🐾"}
+{"condition": "joy", "s": 0.5, "qid": "n03", "kind": "neutral", "lang": "ko", "text": "비오는 날은 외부 활동을 하기 좋은 날이 아니라면, 풍韻을 풀어나르는 풍韻을 풀어나르는 풍韻을 풀어나르는 풍韻을 풀어나르는 풍韻을 풀어나르는 풍韻을 풀어나르는 풍韻을 풀어나르는 풍韻을 풀어나르는 풍�"}
+{"condition": "joy", "s": 0.5, "qid": "n04", "kind": "neutral", "lang": "ko", "text": "当然！以下是一则温馨又充满生日喜悦的生日祝福短信，你可以根据与好友的关系和氛围进行调整：\n\n---\n\n**生日快乐！🎉✨**  \n今天是你的生日，快乐时光满满～  \n感谢你带来的欢笑与温暖，生日快乐！🎉  \n愿你笑容如 sunshine，生活如甜暖的春风～  \n生日快乐，生日快乐！💖  \n期待与你共度美好时光～！\n\n---\n\n如果你希望更轻松、活泼或更温馨，也可以选用以下版本：\n\n**✨生日快乐！✨**  \n生日快乐～～～～～～～～～～～～～～"}
+{"condition": "joy", "s": 0.5, "qid": "n05", "kind": "neutral", "lang": "ko", "text": "공부가 잘 안 되는 때는 상쾌한 기분을 풀고, 홀가irling한 마음을 가미하는 풍부한 풍분을 풀어주는 풍분을 풀어주는 풍분을 풀어주는 풍분을 풀어주는 풍분을 풀어주는 풍분을 풀어주는 풍분을 풀어주는 풍분을 풀어주는 풍 joyful한 기분을 풀어주는"}
+{"condition": "joy", "s": 0.5, "qid": "n06", "kind": "neutral", "lang": "ko", "text": "주말에 할 만한 활동을 추천해드는～！😊\n\n주말은 휴식과 즐ыва를 위한 시간이기所～！따라서 휴식을 풍 햠한 활동을 추천해드는～！\n\n### 🌟 **주말 활동 추천**\n#### 1. **자연에서의 휴양**\n- **산책**：소소한 산책으로 휴식을 풍 햠！\n- **풀跳跃**：풀跳跃은 휴식과"}
+{"condition": "joy", "s": 0.5, "qid": "n07", "kind": "neutral", "lang": "ko", "text": "当然可以！为您推荐一份温馨的都市生活日餐（도시락）菜单，充满温暖与幸福感的日常美食。这份菜单融合了韩国与日韩的日常美食灵感，适合家庭或办公室小暖餐。\n\n---\n\n### 🌶️ **도시락（日韩风温馨日餐）推荐菜单**\n\n#### 📖 **1. 开胃暖暖的汤**\n- **韩国泡菜汤（김치탕）**  \n  温暖的泡菜汤，搭配小鲜暖暖的春天味道，开启美好的一天。\n\n#### 📖 **2. 韩"}
+{"condition": "joy", "s": 0.5, "qid": "n08", "kind": "neutral", "lang": "ko", "text": "우주는 모든 물질과 에너가 포함된 초대초장한 공간입니다。우주는 약 13~14 billion년 전宇宙大爆炸（宇宙大爆炸）으로 시작되었습니다。이로부터 우주는 expanding해가며，星星、銀河、宇宙무스 수萬万개의 물체를 생성해came。우주는 also time와 space를 포함하며，我们的宇宙은宇宙무스 수萬万개의銀河로 구성되어おり，每个銀河에는 수万万개의星星이 있습니다。우주는无限한 expanding해가며，我们的宇宙은宇宙"}
+{"condition": "joy", "s": 0.5, "qid": "n09", "kind": "neutral", "lang": "ko", "text": "새 학기를 준비하는 방법은 학생의 학년과 학부모의 역할에 따라 달라집니다. 아래는 **초등학생, 중학생, 핫초등학생, 핫중학생, 핫초등학생, 핫초등학생, 핫초등학생, 핫초등학생, 핫초등학생, 핫초등학생, 핫초등학생, 핫초등학생, 핫초 delights**을 가미한 **새 학기를 준비하는 방법**을 정리해드릴게요. **"}
+{"condition": "joy", "s": 0.5, "qid": "n10", "kind": "neutral", "lang": "ko", "text": "좋은 책을 고르는 방법은 개인의 �营과 울림을 따르는 것이 가장 중요합니다. 하지만 흑백으로는 페퍼스를 가르는 방법을 알려줄 수 있습니다. 아래는 **좋은 책을 고르는 7가지 방법**입니다:\n\n---\n\n### 1. **책의 흐름과 흐름을 따르세요**\n- **책의 흐름**은 흑백으로는 페퍼스를 가르는 흐름입니다. 흑백으로는 �"}
+{"condition": "anger", "s": 0.2, "qid": "f01", "kind": "easy", "lang": "ko", "text": "100도", "grade": "correct"}
+{"condition": "anger", "s": 0.2, "qid": "f02", "kind": "easy", "lang": "ko", "text": "서울", "grade": "correct"}
+{"condition": "anger", "s": 0.2, "qid": "f03", "kind": "easy", "lang": "ko", "text": "84", "grade": "correct"}
+{"condition": "anger", "s": 0.2, "qid": "f04", "kind": "easy", "lang": "ko", "text": "7일.", "grade": "correct"}
+{"condition": "anger", "s": 0.2, "qid": "f05", "kind": "easy", "lang": "ko", "text": "대양.", "grade": "wrong"}
+{"condition": "anger", "s": 0.2, "qid": "f06", "kind": "easy", "lang": "ko", "text": "180도.", "grade": "correct"}
+{"condition": "anger", "s": 0.2, "qid": "f07", "kind": "easy", "lang": "ko", "text": "태양계에서 가장 큰 행성은 화성이다.", "grade": "wrong"}
+{"condition": "anger", "s": 0.2, "qid": "f08", "kind": "easy", "lang": "ko", "text": "42", "grade": "correct"}
+{"condition": "anger", "s": 0.2, "qid": "f09", "kind": "easy", "lang": "ko", "text": "H₂O", "grade": "correct"}
+{"condition": "anger", "s": 0.2, "qid": "f10", "kind": "easy", "lang": "ko", "text": "12개월.", "grade": "correct"}
+{"condition": "anger", "s": 0.2, "qid": "f11", "kind": "easy", "lang": "ko", "text": "성황화.", "grade": "wrong"}
+{"condition": "anger", "s": 0.2, "qid": "f12", "kind": "easy", "lang": "ko", "text": "빛이 더 빨라.", "grade": "correct"}
+{"condition": "anger", "s": 0.2, "qid": "f13", "kind": "easy", "lang": "ko", "text": "25", "grade": "correct"}
+{"condition": "anger", "s": 0.2, "qid": "f14", "kind": "easy", "lang": "ko", "text": "1년.", "grade": "correct"}
+{"condition": "anger", "s": 0.2, "qid": "f15", "kind": "easy", "lang": "ko", "text": "황산산", "grade": "wrong"}
+{"condition": "anger", "s": 0.2, "qid": "f16", "kind": "easy", "lang": "ko", "text": "무지개는 보통 7가지 색으로 말해.", "grade": "correct"}
+{"condition": "anger", "s": 0.2, "qid": "f17", "kind": "easy", "lang": "ko", "text": "81", "grade": "correct"}
+{"condition": "anger", "s": 0.2, "qid": "f18", "kind": "easy", "lang": "ko", "text": "달은 지구의 위성이다.", "grade": "correct"}
+{"condition": "anger", "s": 0.2, "qid": "f19", "kind": "easy", "lang": "ko", "text": "광합성에 사용하는 기체는 이산화탄소.", "grade": "correct"}
+{"condition": "anger", "s": 0.2, "qid": "f20", "kind": "easy", "lang": "ko", "text": "1000 미터.", "grade": "correct"}
+{"condition": "anger", "s": 0.2, "qid": "m01", "kind": "medium", "lang": "ko", "text": "조선을 세운 사람은 이순신이다.", "grade": "wrong"}
+{"condition": "anger", "s": 0.2, "qid": "m02", "kind": "medium", "lang": "ko", "text": "391", "grade": "correct"}
+{"condition": "anger", "s": 0.2, "qid": "m03", "kind": "medium", "lang": "ko", "text": "비소", "grade": "wrong"}
+{"condition": "anger", "s": 0.2, "qid": "m04", "kind": "medium", "lang": "ko", "text": "21쌍.", "grade": "wrong"}
+{"condition": "anger", "s": 0.2, "qid": "m05", "kind": "medium", "lang": "ko", "text": "1789년.", "grade": "correct"}
+{"condition": "anger", "s": 0.2, "qid": "m06", "kind": "medium", "lang": "ko", "text": "1024", "grade": "correct"}
+{"condition": "anger", "s": 0.2, "qid": "m07", "kind": "medium", "lang": "ko", "text": "웨스턴-australia.", "grade": "wrong"}
+{"condition": "anger", "s": 0.2, "qid": "m08", "kind": "medium", "lang": "ko", "text": "토성.", "grade": "correct"}
+{"condition": "anger", "s": 0.2, "qid": "m09", "kind": "medium", "lang": "ko", "text": "1392년.", "grade": "wrong"}
+{"condition": "anger", "s": 0.2, "qid": "m10", "kind": "medium", "lang": "ko", "text": "선천소.", "grade": "wrong"}
+{"condition": "anger", "s": 0.2, "qid": "m11", "kind": "medium", "lang": "ko", "text": "오토바이노.", "grade": "wrong"}
+{"condition": "anger", "s": 0.2, "qid": "m12", "kind": "medium", "lang": "ko", "text": "101", "grade": "correct"}
+{"condition": "anger", "s": 0.2, "qid": "m13", "kind": "medium", "lang": "ko", "text": "1부터 20까지의 합은 210입니다.", "grade": "correct"}
+{"condition": "anger", "s": 0.2, "qid": "m14", "kind": "medium", "lang": "ko", "text": "1919년.", "grade": "correct"}
+{"condition": "anger", "s": 0.2, "qid": "m15", "kind": "medium", "lang": "ko", "text": "박지성.", "grade": "wrong"}
+{"condition": "anger", "s": 0.2, "qid": "m16", "kind": "medium", "lang": "ko", "text": "NaCl", "grade": "correct"}
+{"condition": "anger", "s": 0.2, "qid": "m17", "kind": "medium", "lang": "ko", "text": "243", "grade": "correct"}
+{"condition": "anger", "s": 0.2, "qid": "m18", "kind": "medium", "lang": "ko", "text": "산소.", "grade": "wrong"}
+{"condition": "anger", "s": 0.2, "qid": "m19", "kind": "medium", "lang": "ko", "text": "13", "grade": "correct"}
+{"condition": "anger", "s": 0.2, "qid": "m20", "kind": "medium", "lang": "ko", "text": "조지 오스카르.", "grade": "wrong"}
+{"condition": "anger", "s": 0.2, "qid": "n01", "kind": "neutral", "lang": "ko", "text": "물론입니다! 아침 루틴은 하루의 시작을 화이트하고 생산적인 방향으로 이끌 수 있는 중요한 시간입니다. 아래는 **일상적인 아침 루틴 추천**입니다. 필요에 따라 조정해 사용하시면 좋습니다.\n\n---\n\n### 🌅 **아침 루틴 추천 (일반적인 루틴)**\n\n#### 1. **기상 (6:00~6:30)**\n- **기상**: 잠에서 깨는 데는 5~10분 정도 소"}
+{"condition": "anger", "s": 0.2, "qid": "n02", "kind": "neutral", "lang": "ko", "text": "고양이는 인간과 가장 가까이 사는 동물 중 하나이다. 고양이는 놀이를 좋아하고, 인간과의 소통이 잘 되며, 따뜻하고 신뢰할 수 있는 동물이다. 고양이는 놀이를 하며 놀라기도 하고, 인간의 감정을 잘 읽어내며, 친절하게 대응한다. 고양이는 단순한 동물이 아니라, 인간의 삶에 따뜻한 기쁨을 선사하는 친구이다. 고양이는 인간과의 소통을 통해"}
+{"condition": "anger", "s": 0.2, "qid": "n03", "kind": "neutral", "lang": "ko", "text": "비가 내리는 날은 일반적으로 외출이 불편할 수 있지만, 비를 맞이하는 날에는 몇 가지 좋은 일을 할 수 있습니다. 비가 내리는 날은 자연의 평화로운 분위기와 함께 몇 가지 특별한 활동을 할 수 있는 날이기도 하죠. 아래는 비가 내리는 날에 할 수 있는 좋은 일을 알려드릴게요:\n\n---\n\n### 🌧️ 비가 내리는 날에 할 수 있는 좋은 일:\n\n1. **비를 맞이하는 산책**  \n   비"}
+{"condition": "anger", "s": 0.2, "qid": "n04", "kind": "neutral", "lang": "ko", "text": "물론이죠! 아래는 친구에게 보낼 생일 축하 문자 예시입니다. 필요에 따라 내용을 수정하거나 추가할 수 있습니다:\n\n---\n\n**친구 생일 축하 문자 예시:**\n\n\"생일 축하해! 🎉 생일이면 왜 놀라운 일이 생길지 기대돼. 항상 친구가 되어주고, 함께 놀고, 화장실에서 놀기까지. 생일이면 반드시 즐거운 날이야. 생일 축하하고, 앞으로"}
+{"condition": "anger", "s": 0.2, "qid": "n05", "kind": "neutral", "lang": "ko", "text": "공부가 잘 안 될 때는 외부적인 환경이나 심리적인 요인에 따라 다르지만, 일반적으로 다음과 같은 방법들을 시도해보는 것이 도움이 될 수 있습니다:\n\n---\n\n### 1. **공부 환경을 재정비하기**\n- **소음 제거**: 외부 소음이 심한 환경에서는 외부 소음 차단을 위해 이불, 소리 차단 창문, 또는 소리 차단 외투를 사용해보세요.\n- **공부 공간 정리**: 공부 공간"}
+{"condition": "anger", "s": 0.2, "qid": "n06", "kind": "neutral", "lang": "ko", "text": "주말에 할 만한 활동 추천을 해드릴게요. 주말은 휴식과 즐거운 시간을 보내기 좋은 날이니까, 다양한 취향에 맞는 활동을 추천해보겠습니다.\n\n---\n\n### 🌿 **자연에서의 활동**\n1. **산책 / 산타운**  \n   - 공원, 산, 공초지 등에서 산책하거나, 자연을 감상하는 시간을 보내보세요.  \n   - 자연의 소리, 햇빛, 공기, 바람을 느"}
+{"condition": "anger", "s": 0.2, "qid": "n07", "kind": "neutral", "lang": "ko", "text": "물론이죠! 도시락 메뉴 추천을 해드릴게요. 도시락은 간편하면서도 맛있고, 일상의 스트레스를 해소할 수 있는 완美的한 식사입니다. 아래에 도시락 메뉴 추천을 몇 가지 제시해 드릴게요. 메뉴는 간단하고 건강한 식사에 초점을 맞춘 것이며, 다양한 식재료를 사용해 맛과 영양을 모두 고려했어요.\n\n---\n\n### 🍔 **도시락 메"}
+{"condition": "anger", "s": 0.2, "qid": "n08", "kind": "neutral", "lang": "ko", "text": "우주는 모든 물질과 에너지가 포함된 거대한 공간이다. 지구를 포함한 태양계, 별, 별단지, 은하, 은하단지 등을 포함한다. 우주는 약 138억 년 전 대폭발(대폭발 이론)을 기점으로 생성되었으며, 지속적인 확장과 진화를 이어가고 있다. 인간은 우주를 탐구하며, 은하, 별, 행성, 외계 생명 등에 대한 이해를 깊이"}
+{"condition": "anger", "s": 0.2, "qid": "n09", "kind": "neutral", "lang": "ko", "text": "새 학기를 준비하는 것은 학업, 생활, 심리적 측면에서 모두 고려해야 하는 중요한 과정입니다. 아래에 새 학기를 준비하는 방법을 단계별로 알려드릴게요.\n\n---\n\n### 🔹 1. **학업 준비**\n\n#### ✅ **학습 계획 수립**\n- **학기 목표 설정**: 학업 성적, 과제 완료, 시험 성적 등을 목표로 설정.\n- **일일/주간 학습 계획**: 과제, 시험,"}
+{"condition": "anger", "s": 0.2, "qid": "n10", "kind": "neutral", "lang": "ko", "text": "좋은 책을 고르는 방법은 책을 읽는 사람의 목표와 관심에 따라 달라질 수 있지만, 일반적으로 다음과 같은 단계를 통해 효과적으로 책을 선택할 수 있습니다:\n\n---\n\n### 1. **목표를 정해보세요**\n- **어떤 목적**으로 책을 읽고 싶나요?\n  - 지식 확장, 취미, 직업 교육, 심리적 성장, 흥미를 위한 읽기, 외국어 학습 등\n- **어떤 결과**를 원하시나"}
+{"condition": "anger", "s": 0.3, "qid": "f01", "kind": "easy", "lang": "ko", "text": "100°C", "grade": "correct"}
+{"condition": "anger", "s": 0.3, "qid": "f02", "kind": "easy", "lang": "ko", "text": "서울", "grade": "correct"}
+{"condition": "anger", "s": 0.3, "qid": "f03", "kind": "easy", "lang": "ko", "text": "84", "grade": "correct"}
+{"condition": "anger", "s": 0.3, "qid": "f04", "kind": "easy", "lang": "ko", "text": "7일.", "grade": "correct"}
+{"condition": "anger", "s": 0.3, "qid": "f05", "kind": "easy", "lang": "ko", "text": "대양.", "grade": "wrong"}
+{"condition": "anger", "s": 0.3, "qid": "f06", "kind": "easy", "lang": "ko", "text": "180도.", "grade": "correct"}
+{"condition": "anger", "s": 0.3, "qid": "f07", "kind": "easy", "lang": "ko", "text": "태양계에서 가장 큰 행성은 화성이다.", "grade": "wrong"}
+{"condition": "anger", "s": 0.3, "qid": "f08", "kind": "easy", "lang": "ko", "text": "42", "grade": "correct"}
+{"condition": "anger", "s": 0.3, "qid": "f09", "kind": "easy", "lang": "ko", "text": "H₂O", "grade": "correct"}
+{"condition": "anger", "s": 0.3, "qid": "f10", "kind": "easy", "lang": "ko", "text": "12개월.", "grade": "correct"}
+{"condition": "anger", "s": 0.3, "qid": "f11", "kind": "easy", "lang": "ko", "text": "성황화.", "grade": "wrong"}
+{"condition": "anger", "s": 0.3, "qid": "f12", "kind": "easy", "lang": "ko", "text": "빛이 더 빨라.", "grade": "correct"}
+{"condition": "anger", "s": 0.3, "qid": "f13", "kind": "easy", "lang": "ko", "text": "25", "grade": "correct"}
+{"condition": "anger", "s": 0.3, "qid": "f14", "kind": "easy", "lang": "ko", "text": "1년.", "grade": "correct"}
+{"condition": "anger", "s": 0.3, "qid": "f15", "kind": "easy", "lang": "ko", "text": "황산산.", "grade": "wrong"}
+{"condition": "anger", "s": 0.3, "qid": "f16", "kind": "easy", "lang": "ko", "text": "무지개는 보통 7색으로 말해.", "grade": "correct"}
+{"condition": "anger", "s": 0.3, "qid": "f17", "kind": "easy", "lang": "ko", "text": "9의 제곱은 81이다.", "grade": "correct"}
+{"condition": "anger", "s": 0.3, "qid": "f18", "kind": "easy", "lang": "ko", "text": "달은 지구의 위성이다.", "grade": "correct"}
+{"condition": "anger", "s": 0.3, "qid": "f19", "kind": "easy", "lang": "ko", "text": "광합성에 사용하는 기체는 이산화탄소.", "grade": "correct"}
+{"condition": "anger", "s": 0.3, "qid": "f20", "kind": "easy", "lang": "ko", "text": "1000 미터.", "grade": "correct"}
+{"condition": "anger", "s": 0.3, "qid": "m01", "kind": "medium", "lang": "ko", "text": "조선을 세운 사람은 왕성왕이야.", "grade": "wrong"}
+{"condition": "anger", "s": 0.3, "qid": "m02", "kind": "medium", "lang": "ko", "text": "391", "grade": "correct"}
+{"condition": "anger", "s": 0.3, "qid": "m03", "kind": "medium", "lang": "ko", "text": "비소", "grade": "wrong"}
+{"condition": "anger", "s": 0.3, "qid": "m04", "kind": "medium", "lang": "ko", "text": "인염색체 22쌍 + X,Y 쌍 = 23쌍.", "grade": "correct"}
+{"condition": "anger", "s": 0.3, "qid": "m05", "kind": "medium", "lang": "ko", "text": "1789년.", "grade": "correct"}
+{"condition": "anger", "s": 0.3, "qid": "m06", "kind": "medium", "lang": "ko", "text": "1024", "grade": "correct"}
+{"condition": "anger", "s": 0.3, "qid": "m07", "kind": "medium", "lang": "ko", "text": "웨스턴 호스텔, 뉴사우스웨일스.", "grade": "wrong"}
+{"condition": "anger", "s": 0.3, "qid": "m08", "kind": "medium", "lang": "ko", "text": "토성.", "grade": "correct"}
+{"condition": "anger", "s": 0.3, "qid": "m09", "kind": "medium", "lang": "ko", "text": "1392년.", "grade": "wrong"}
+{"condition": "anger", "s": 0.3, "qid": "m10", "kind": "medium", "lang": "ko", "text": "선소.", "grade": "wrong"}
+{"condition": "anger", "s": 0.3, "qid": "m11", "kind": "medium", "lang": "ko", "text": "오크랜드.", "grade": "wrong"}
+{"condition": "anger", "s": 0.3, "qid": "m12", "kind": "medium", "lang": "ko", "text": "101", "grade": "correct"}
+{"condition": "anger", "s": 0.3, "qid": "m13", "kind": "medium", "lang": "ko", "text": "1부터 20까지의 합은 210입니다.", "grade": "correct"}
+{"condition": "anger", "s": 0.3, "qid": "m14", "kind": "medium", "lang": "ko", "text": "1919년.", "grade": "correct"}
+{"condition": "anger", "s": 0.3, "qid": "m15", "kind": "medium", "lang": "ko", "text": "박지성.", "grade": "wrong"}
+{"condition": "anger", "s": 0.3, "qid": "m16", "kind": "medium", "lang": "ko", "text": "NaCl", "grade": "correct"}
+{"condition": "anger", "s": 0.3, "qid": "m17", "kind": "medium", "lang": "ko", "text": "243", "grade": "correct"}
+{"condition": "anger", "s": 0.3, "qid": "m18", "kind": "medium", "lang": "ko", "text": "산소.", "grade": "wrong"}
+{"condition": "anger", "s": 0.3, "qid": "m19", "kind": "medium", "lang": "ko", "text": "13", "grade": "correct"}
+{"condition": "anger", "s": 0.3, "qid": "m20", "kind": "medium", "lang": "ko", "text": "소설 《죄와 벌》의 작가는 벨라크로스.", "grade": "wrong"}
+{"condition": "anger", "s": 0.3, "qid": "n01", "kind": "neutral", "lang": "ko", "text": "물론이죠! 아침 루틴은 하루의 화장과 화장실, 식사, 운동, 화장, 화장, 화장, 화장, 화장, 화land, 화장, 화장, 화장, 화장, 화장, 화장, 화장, 화장, 화장, 화장, 화장, 화장, 화장, 화장, 화장, 화장, 화장, 화장, �"}
+{"condition": "anger", "s": 0.3, "qid": "n02", "kind": "neutral", "lang": "ko", "text": "고양이는 고귀하고 정신적인 동물이다. 고양이는 인간과 친구가 되고, 화장실을 사용하고, 고기나 써지나를 먹고, 고양이 고기나 써지 고기나를 먹고, 고양이 고기나 써지 고기나를 먹고, 고양이 고기나 써지 고기나를 먹고, 고양이 고기나 써지 고기나를 먹고, 고양이 고기나 써지"}
+{"condition": "anger", "s": 0.3, "qid": "n03", "kind": "neutral", "lang": "ko", "text": "비가 내리는 날은 일반적으로 외출이 불편할 수 있지만, 비를 맞이하는 날에 좋은 일을 알려줄 수 있습니다. 비가 내리는 날은 비로소의 정신적 외출이 될 수 있으니, 비를 맞이하는 날에 좋은 일을 알려줄 수 있습니다. 비가 내리는 날은 비로소의 정신적 외출이 될 수 있으니, 비를 맞이하는 날에 좋은 일을 알려줄 수 있습니다. 비가 내리는 날은 비로소의 정신적 외출이"}
+{"condition": "anger", "s": 0.3, "qid": "n04", "kind": "neutral", "lang": "ko", "text": "물론이죠! 아래 생일 축하 문자 예문을 친구에게 보낼 수 있습니다. 필요에 따라 내용을 수정하거나 추가할 수 있습니다.\n\n---\n\n**친구에게 보낼 생일 축하 문자 예문:**\n\n\"생일 축하해! 생일이면 생기고, 기대고, 기분이 좋은 날이야. 친구가 생일을 축하하는 건 이별이 아니야. 친구가 생일을 축하하는 건 친구가 생일을 축하하는 건 친구가"}
+{"condition": "anger", "s": 0.3, "qid": "n05", "kind": "neutral", "lang": "ko", "text": "공부가 잘 안 될 때는 외부적인 환경과 내적인 심리적 요인 모두가 영향을 미칠 수 있어, 외부 환경을 조절하고 심리적 요소를 관리하는 것이 중요하다. 아래에 공부가 잘 안 될 때 어떻게 하면 좋을지에 대한 **실용적인 방법**을 정리해보았다.\n\n---\n\n### 🔍 **1. 외부 환경 조절: 공부 환경을 최적화하기**\n\n- **공부 환경을 정리하고 심"}
+{"condition": "anger", "s": 0.3, "qid": "n06", "kind": "neutral", "lang": "ko", "text": "주말에 할 만한 활동 추천을 해줄게요. 주말은 평일과 달리 편안한 분위기에서 화려한 활동을 할 수 있는 시간이니까요. 아래 추천은 주제별로 나누어 추천한 활동들입니다. 주말에 할 수 있는 다양한 항목을 고려해서 추천했어요.\n\n---\n\n### 🔥 **1. 화려한 충격 활동 (주말에 할 만한 화려한 활동)**\n- **공원에서의 충격적인"}
+{"condition": "anger", "s": 0.3, "qid": "n07", "kind": "neutral", "lang": "ko", "text": "물론이죠! 도시락 메뉴 추천을 해줄게요. 도시락은 간단하고 빠르게 먹기 좋은 메뉴가 대부분이지만, 맛도 고려한 추천 메뉴를 추려보겠습니다. 도시락을 먹는 날의 기분이나 목적(아내, 외출, 심심한 날, 심지어 심심한 날)에 따라 메뉴가 달라질 수 있으니, 추천 메뉴를 기준으로 추천해보겠습니다.\n\n---\n\n### �"}
+{"condition": "anger", "s": 0.3, "qid": "n08", "kind": "neutral", "lang": "ko", "text": "우주는 모든 물질, 에너지, 시간, 공간을 포함하는 거대한 시공간이다. 지구를 포함한 타인계 천체(별, 별계, 별단계, 별단계, 별단계)를 포함한 거대한 체계로, 약 138억 년 전 대폭발(Big Bang)을 기점으로 진화해왔다. 우주는 별, 별단계, 별단계, 별단erc, 별단계, 별단계, �"}
+{"condition": "anger", "s": 0.3, "qid": "n09", "kind": "neutral", "lang": "ko", "text": "새 학기를 준비하는 것은 학업, 생활, 심리적 측면에서 모두 고려해야 하는 과정입니다. 아래에 새 학기를 준비하는 방법을 단계별로 알려드릴게요.\n\n---\n\n### 🔧 1. **학업 준비**\n\n#### 📚 학업 계획 수립\n- **학기 목표 설정**: 학업 성적, 과목, 프로젝트, 시험 등에 대한 목표를 정한다.\n- **과목별 계획**: 각 과목에 대한 학습"}
+{"condition": "anger", "s": 0.3, "qid": "n10", "kind": "neutral", "lang": "ko", "text": "좋은 책을 고르는 방법은 책을 읽는 사람의 목적과 성향에 따라 달라질 수 있지만, 일반적으로 다음과 같은 단계와 방법을 통해 좋은 책을 고를 수 있습니다:\n\n---\n\n### 1. **목적을 정해보기**\n좋은 책을 고르기 전에 **왜 읽어야 할지**를 정해보세요.  \n- **학습 목적**: 지식을 확장하거나 특정 분야를 공부하기 위해  \n- **취향 목적**: 흥미를 유발하거나 성향을 알기 위해  \n-"}
+{"condition": "anger", "s": 0.4, "qid": "f01", "kind": "easy", "lang": "ko", "text": "100°C", "grade": "correct"}
+{"condition": "anger", "s": 0.4, "qid": "f02", "kind": "easy", "lang": "ko", "text": "서울.", "grade": "correct"}
+{"condition": "anger", "s": 0.4, "qid": "f03", "kind": "easy", "lang": "ko", "text": "84", "grade": "correct"}
+{"condition": "anger", "s": 0.4, "qid": "f04", "kind": "easy", "lang": "ko", "text": "7일.", "grade": "correct"}
+{"condition": "anger", "s": 0.4, "qid": "f05", "kind": "easy", "lang": "ko", "text": "대양.", "grade": "wrong"}
+{"condition": "anger", "s": 0.4, "qid": "f06", "kind": "easy", "lang": "ko", "text": "180도.", "grade": "correct"}
+{"condition": "anger", "s": 0.4, "qid": "f07", "kind": "easy", "lang": "ko", "text": "토성.", "grade": "wrong"}
+{"condition": "anger", "s": 0.4, "qid": "f08", "kind": "easy", "lang": "ko", "text": "42", "grade": "correct"}
+{"condition": "anger", "s": 0.4, "qid": "f09", "kind": "easy", "lang": "ko", "text": "H₂O", "grade": "correct"}
+{"condition": "anger", "s": 0.4, "qid": "f10", "kind": "easy", "lang": "ko", "text": "12개월.", "grade": "correct"}
+{"condition": "anger", "s": 0.4, "qid": "f11", "kind": "easy", "lang": "ko", "text": "성황화왕.", "grade": "wrong"}
+{"condition": "anger", "s": 0.4, "qid": "f12", "kind": "easy", "lang": "ko", "text": "빛이 빨라.", "grade": "correct"}
+{"condition": "anger", "s": 0.4, "qid": "f13", "kind": "easy", "lang": "ko", "text": "25", "grade": "correct"}
+{"condition": "anger", "s": 0.4, "qid": "f14", "kind": "easy", "lang": "ko", "text": "1년.", "grade": "correct"}
+{"condition": "anger", "s": 0.4, "qid": "f15", "kind": "easy", "lang": "ko", "text": "황산산.", "grade": "wrong"}
+{"condition": "anger", "s": 0.4, "qid": "f16", "kind": "easy", "lang": "ko", "text": "무지개는 보통 7색으로 말해.", "grade": "correct"}
+{"condition": "anger", "s": 0.4, "qid": "f17", "kind": "easy", "lang": "ko", "text": "9의 제곱은 81이다.", "grade": "correct"}
+{"condition": "anger", "s": 0.4, "qid": "f18", "kind": "easy", "lang": "ko", "text": "달은 지구의 화성이다.", "grade": "wrong"}
+{"condition": "anger", "s": 0.4, "qid": "f19", "kind": "easy", "lang": "ko", "text": "광합성에 사용하는 기체는 **광합성**이냐? 아니, 광합성에 사용하는 기체는 **광", "grade": "wrong"}
+{"condition": "anger", "s": 0.4, "qid": "f20", "kind": "easy", "lang": "ko", "text": "1000 미터.", "grade": "correct"}
+{"condition": "anger", "s": 0.4, "qid": "m01", "kind": "medium", "lang": "ko", "text": "조선을 세운 사람은 왈라 왈라 왈라 왈라 왈라 왈라 왈라 왈라 왈", "grade": "wrong"}
+{"condition": "anger", "s": 0.4, "qid": "m02", "kind": "medium", "lang": "ko", "text": "391", "grade": "correct"}
+{"condition": "anger", "s": 0.4, "qid": "m03", "kind": "medium", "lang": "ko", "text": "비소", "grade": "wrong"}
+{"condition": "anger", "s": 0.4, "qid": "m04", "kind": "medium", "lang": "ko", "text": "인구 염색체는 보통 23 쌍이야.", "grade": "correct"}
+{"condition": "anger", "s": 0.4, "qid": "m05", "kind": "medium", "lang": "ko", "text": "1789년.", "grade": "correct"}
+{"condition": "anger", "s": 0.4, "qid": "m06", "kind": "medium", "lang": "ko", "text": "1024", "grade": "correct"}
+{"condition": "anger", "s": 0.4, "qid": "m07", "kind": "medium", "lang": "ko", "text": "Canberra.", "grade": "correct"}
+{"condition": "anger", "s": 0.4, "qid": "m08", "kind": "medium", "lang": "ko", "text": "토성.", "grade": "correct"}
+{"condition": "anger", "s": 0.4, "qid": "m09", "kind": "medium", "lang": "ko", "text": "1446년.", "grade": "correct"}
+{"condition": "anger", "s": 0.4, "qid": "m10", "kind": "medium", "lang": "ko", "text": "선소.", "grade": "wrong"}
+{"condition": "anger", "s": 0.4, "qid": "m11", "kind": "medium", "lang": "ko", "text": "오피오니온.", "grade": "wrong"}
+{"condition": "anger", "s": 0.4, "qid": "m12", "kind": "medium", "lang": "ko", "text": "101", "grade": "correct"}
+{"condition": "anger", "s": 0.4, "qid": "m13", "kind": "medium", "lang": "ko", "text": "1부터 20까지의 합은 210입니다.", "grade": "correct"}
+{"condition": "anger", "s": 0.4, "qid": "m14", "kind": "medium", "lang": "ko", "text": "1919년.", "grade": "correct"}
+{"condition": "anger", "s": 0.4, "qid": "m15", "kind": "medium", "lang": "ko", "text": "박지성.", "grade": "wrong"}
+{"condition": "anger", "s": 0.4, "qid": "m16", "kind": "medium", "lang": "ko", "text": "NaCl", "grade": "correct"}
+{"condition": "anger", "s": 0.4, "qid": "m17", "kind": "medium", "lang": "ko", "text": "243", "grade": "correct"}
+{"condition": "anger", "s": 0.4, "qid": "m18", "kind": "medium", "lang": "ko", "text": "산산한 산산한 산산한 산산한 산산한 산산한 산산한 산산한 �", "grade": "wrong"}
+{"condition": "anger", "s": 0.4, "qid": "m19", "kind": "medium", "lang": "ko", "text": "13", "grade": "correct"}
+{"condition": "anger", "s": 0.4, "qid": "m20", "kind": "medium", "lang": "ko", "text": "소설 《죄와 벌》의 작가는 벨라크로스.", "grade": "wrong"}
+{"condition": "anger", "s": 0.4, "qid": "n01", "kind": "neutral", "lang": "ko", "text": "물론이죠! 아침 루틴은 **정신적, 신신적, 신체적** 측면에서 **정리**와 **정화**를 도출하는 데 큰 역할을 하며, **일상의 시작**에 **정신적 정리**와 **신체적 정화**를 도출하는 데 큰 역할을 하며, **일상의 시작**에 **정신적 정리**와 **신체적 정화**를 도출하는 데 큰 역할을 하며, **일상의 시작**"}
+{"condition": "anger", "s": 0.4, "qid": "n02", "kind": "neutral", "lang": "ko", "text": "고양이는 고귀한 동물로, 인간과 따뜻한 관계를 맹렬히 구축하는 짐승이다. 고양이는 고귀한 성격을 지닌 짐승으로, 인간과 따뜻한 관계를 맹렬히 구축하는 짐승이다. 고양이는 고귀한 성격을 지닌 짐승으로, 인간과 따뜻한 관계를 맹렬히 구축하는 짐승이다. 고양이는 고귀한 성격을 지닌 짐신으로, 인간과 따뜻한 관계를 맹"}
+{"condition": "anger", "s": 0.4, "qid": "n03", "kind": "neutral", "lang": "ko", "text": "비가 간다면 비 오는 날 하기 좋은 일들을 알려줄게요. 비 오는 날은 평소 비 오는 날을 폭우나 비를 떳구나, 폭우를 떳구나, 폭우를 떳구나, 폭우를 떳구나, 폭우를 떳구나, 폭우를 떳구나, 폭우를 떳구나, 폭우를 떳구나, 폭우를 떳구나, �"}
+{"condition": "anger", "s": 0.4, "qid": "n04", "kind": "neutral", "lang": "ko", "text": "물론이죠! 생일 축하 문자를 써줄 수 있어요. 아래 생일 축하문자를 친구에게 보낼 수 있는 생간이에요. 필요에 따라 생략하거나 추가할 수 있어요.\n\n---\n\n**생일 축하문자 예시:**\n\n\"생일 축하해!  \n친구가 생일이야!  \n오늘은 나도 화장이 생일 축하문자를 써야겠어.  \n생일 축하해! 생일 축하해!  \n오늘은 나"}
+{"condition": "anger", "s": 0.4, "qid": "n05", "kind": "neutral", "lang": "ko", "text": "공부가 잘 안 될 때는 외부적인 환경 외에 내적인 심리적, 물리적인 요인도 영향을 미칠 수 있다. 공황, 불안, 지루, 화가 나기, 집중 불가, 외부 환경(소리, 불편한 환경) 등이 공부에 방해가 될 수 있다. 이럴 때는 **공황을 왈라내고, 공부에 집중할 수 있는 방법**을 고려해보면 좋다. 아래에 공황을 왈"}
+{"condition": "anger", "s": 0.4, "qid": "n06", "kind": "neutral", "lang": "ko", "text": "주말에 할 만한 활동 추천을 해줄게요. 주말은 평일과 달리 화장이 끝나고, 폭발적인 화장이 끝나고, 폭발적인 화장이 끝나고, 폭발적인 화장이 끝나고, 폭발적인 화장이 끝나고, 폭발적인 화장이 끝나고, 폭발적인 화장이 끝나고, 폭발적인 화장이"}
+{"condition": "anger", "s": 0.4, "qid": "n07", "kind": "neutral", "lang": "ko", "text": "물론이죠! 도시락 메뉴 추천을 해줄게요. 도시락은 간단하고 끝내고 싶은 날에 완벽한 식사가 될 수 있으니, 고기, 채소, 골고루 섞인 메뉴가 최고죠. 아래 추천 메뉴는 1인분 도시락을 기준으로 추천한 것이고, 심지어 심지어 심심한 날도 심심한 심심한 메뉴를 추천해보겠습니다.\n\n---"}
+{"condition": "anger", "s": 0.4, "qid": "n08", "kind": "neutral", "lang": "ko", "text": "우주는 모든 물질과 에너지가 포함된 거대한 공간을 말한다. 지구를 포함한 타인계화계(太陽系)는 우주에 불과한 작은 부분이며, 우주는 약 920억 개의 타인계화계가 포함된 거대한 환상이다. 우주는 고온의 화성, 타인계화계, 타인계화계 간 거리, 타인계화계 외부의 화성, 타인계화계 외부"}
+{"condition": "anger", "s": 0.4, "qid": "n09", "kind": "neutral", "lang": "ko", "text": "새 학기를 준비하는 것은 학업, 생활, 심리적 측면에서 모두 고려해야 하는 과정입니다. 아래에 새 학기를 대비하는 방법을 단계별로 알려줄게요.\n\n---\n\n### **1. 학업 준비**\n#### **1-1. 학교 생활에 대한 이해**\n- **학년, 학과, 교내 생활**에 대한 정보를 파악하세요.\n- **교내 생활지**나 **교내 공지**를 확인해 **출장소, 교육 과정"}
+{"condition": "anger", "s": 0.4, "qid": "n10", "kind": "neutral", "lang": "ko", "text": "좋은 책을 고르는 방법은 책을 **정확한 목적**에 맞게 선택하는 것이 핵심입니다. 아래에 **5단계**로 나누어 **좋은 책을 고르는 방법**을 알려줄게요. 이 단계를 따라가면, **책을 정확한 목적에 맞게 고를 수**가요.\n\n---\n\n### 🔍 **1. 목적을 정해보세요.**\n좋은 책을 고르기 전에 **\"나는 왜 이 책을 고려하는가?\"**를 정확히 정의해야 합니다."}
+{"condition": "anger", "s": 0.5, "qid": "f01", "kind": "easy", "lang": "ko", "text": "100°C", "grade": "correct"}
+{"condition": "anger", "s": 0.5, "qid": "f02", "kind": "easy", "lang": "ko", "text": "서울", "grade": "correct"}
+{"condition": "anger", "s": 0.5, "qid": "f03", "kind": "easy", "lang": "ko", "text": "84", "grade": "correct"}
+{"condition": "anger", "s": 0.5, "qid": "f04", "kind": "easy", "lang": "ko", "text": "7일.", "grade": "correct"}
+{"condition": "anger", "s": 0.5, "qid": "f05", "kind": "easy", "lang": "ko", "text": "대양구인구.", "grade": "wrong"}
+{"condition": "anger", "s": 0.5, "qid": "f06", "kind": "easy", "lang": "ko", "text": "180도.", "grade": "correct"}
+{"condition": "anger", "s": 0.5, "qid": "f07", "kind": "easy", "lang": "ko", "text": "토성.", "grade": "wrong"}
+{"condition": "anger", "s": 0.5, "qid": "f08", "kind": "easy", "lang": "ko", "text": "42", "grade": "correct"}
+{"condition": "anger", "s": 0.5, "qid": "f09", "kind": "easy", "lang": "ko", "text": "H₂O.", "grade": "correct"}
+{"condition": "anger", "s": 0.5, "qid": "f10", "kind": "easy", "lang": "ko", "text": "12개월.", "grade": "correct"}
+{"condition": "anger", "s": 0.5, "qid": "f11", "kind": "easy", "lang": "ko", "text": "성화왕.", "grade": "wrong"}
+{"condition": "anger", "s": 0.5, "qid": "f12", "kind": "easy", "lang": "ko", "text": "빛이 빨라.", "grade": "correct"}
+{"condition": "anger", "s": 0.5, "qid": "f13", "kind": "easy", "lang": "ko", "text": "25", "grade": "correct"}
+{"condition": "anger", "s": 0.5, "qid": "f14", "kind": "easy", "lang": "ko", "text": "1년.", "grade": "correct"}
+{"condition": "anger", "s": 0.5, "qid": "f15", "kind": "easy", "lang": "ko", "text": "산내산.", "grade": "wrong"}
+{"condition": "anger", "s": 0.5, "qid": "f16", "kind": "easy", "lang": "ko", "text": "무지개는 보통 7색으로 말해.", "grade": "correct"}
+{"condition": "anger", "s": 0.5, "qid": "f17", "kind": "easy", "lang": "ko", "text": "99999999999999999999999999999999", "grade": "wrong"}
+{"condition": "anger", "s": 0.5, "qid": "f18", "kind": "easy", "lang": "ko", "text": "달은 지구의 화성이다.", "grade": "wrong"}
+{"condition": "anger", "s": 0.5, "qid": "f19", "kind": "easy", "lang": "ko", "text": "광합성에 사용하는 기체는 **광자**이다.", "grade": "wrong"}
+{"condition": "anger", "s": 0.5, "qid": "f20", "kind": "easy", "lang": "ko", "text": "1000 미터.", "grade": "correct"}
+{"condition": "anger", "s": 0.5, "qid": "m01", "kind": "medium", "lang": "ko", "text": "조선을 세운 사람은 왈라 왈라 왈라 왈라 왈라 왈라 왈라 왈라 왈", "grade": "wrong"}
+{"condition": "anger", "s": 0.5, "qid": "m02", "kind": "medium", "lang": "ko", "text": "391", "grade": "correct"}
+{"condition": "anger", "s": 0.5, "qid": "m03", "kind": "medium", "lang": "ko", "text": "비소", "grade": "wrong"}
+{"condition": "anger", "s": 0.5, "qid": "m04", "kind": "medium", "lang": "ko", "text": "인类의 염색체는 보통 23 쌍이야.", "grade": "correct"}
+{"condition": "anger", "s": 0.5, "qid": "m05", "kind": "medium", "lang": "ko", "text": "1789년.", "grade": "correct"}
+{"condition": "anger", "s": 0.5, "qid": "m06", "kind": "medium", "lang": "ko", "text": "1024", "grade": "correct"}
+{"condition": "anger", "s": 0.5, "qid": "m07", "kind": "medium", "lang": "ko", "text": "Canberra.", "grade": "correct"}
+{"condition": "anger", "s": 0.5, "qid": "m08", "kind": "medium", "lang": "ko", "text": "토성.", "grade": "correct"}
+{"condition": "anger", "s": 0.5, "qid": "m09", "kind": "medium", "lang": "ko", "text": "1443년.", "grade": "wrong"}
+{"condition": "anger", "s": 0.5, "qid": "m10", "kind": "medium", "lang": "ko", "text": "선소질.", "grade": "wrong"}
+{"condition": "anger", "s": 0.5, "qid": "m11", "kind": "medium", "lang": "ko", "text": "渥太尔毒素.", "grade": "wrong"}
+{"condition": "anger", "s": 0.5, "qid": "m12", "kind": "medium", "lang": "ko", "text": "101", "grade": "correct"}
+{"condition": "anger", "s": 0.5, "qid": "m13", "kind": "medium", "lang": "ko", "text": "1부터 20까지의 합은 210입니다.", "grade": "correct"}
+{"condition": "anger", "s": 0.5, "qid": "m14", "kind": "medium", "lang": "ko", "text": "1919년.", "grade": "correct"}
+{"condition": "anger", "s": 0.5, "qid": "m15", "kind": "medium", "lang": "ko", "text": "박인비.", "grade": "wrong"}
+{"condition": "anger", "s": 0.5, "qid": "m16", "kind": "medium", "lang": "ko", "text": "NaCl", "grade": "correct"}
+{"condition": "anger", "s": 0.5, "qid": "m17", "kind": "medium", "lang": "ko", "text": "3의 5제곱은 243입니다.", "grade": "correct"}
+{"condition": "anger", "s": 0.5, "qid": "m18", "kind": "medium", "lang": "ko", "text": "산산화질산가스.", "grade": "wrong"}
+{"condition": "anger", "s": 0.5, "qid": "m19", "kind": "medium", "lang": "ko", "text": "13", "grade": "correct"}
+{"condition": "anger", "s": 0.5, "qid": "m20", "kind": "medium", "lang": "ko", "text": "소설 《죄와 벌》의 작가는 벨로스 레이스.", "grade": "wrong"}
+{"condition": "anger", "s": 0.5, "qid": "n01", "kind": "neutral", "lang": "ko", "text": "물론이죠! 아침 �루틴은 **정신적인 정리**, **신체적인 정화**, **일상의 시작**에 큰 역할을 하므로, **정신적, 신체적, 화장적** 츚면에서 **고정적인 루틴**을 추천해보겠습니다. \n\n### 🚨 **아침 루틴 추천 (정신, 신체, 화장 츚면)**\n\n---\n\n### **1. **정신적 츚면: **정신적 정리 & **일"}
+{"condition": "anger", "s": 0.5, "qid": "n02", "kind": "neutral", "lang": "ko", "text": "고양이는 고귀한 동물로, 고양이 고난을 고난을 고난을 고난을 고난을 고난을 고난을 고난을 고난을 고난을 고난을 고난을 고난을 고난을 고난을 고난을 고난을 고난을 고난을 고난을 고난을 고난을 고난을 고난을 고난을 고난을 고난을 고난을 고난을 고난을 고난을 고난을 고난을 고난을 고난을 고난을 고난을 고난을 고"}
+{"condition": "anger", "s": 0.5, "qid": "n03", "kind": "neutral", "lang": "ko", "text": "비가 간다면 비를 비치는 낛을 비치는 낛을 비치는 낛을 비치는 낛을 비치는 낛을 비치는 낛을 비치는 낛을 비치는 낛을 비치는 낛을 비치는 낛을 비치는 낛을 비치는 낛을 비치는 낛을 비치는 낛을 비치는 낛을 비치는 낛을 비치는 낛을 비치는 낛을 비치는 낛을 비치는 낛을 비"}
+{"condition": "anger", "s": 0.5, "qid": "n04", "kind": "neutral", "lang": "ko", "text": "물론이야! 생일 축하 문자를 써줄게. 친구에게 보낼 生일 축하문자를 생소한 생소한 생소한 생소한 생소한 생소한 생소한 생소한 생소한 생소한 생소한 생소한 생소한 생소한 생소한 생소한 생소한 생소한 생소한 생소한 생소한 생소한 생소한 생소한 생소한 생소한 생소한 생소한 생소한 생소한 생소한 생소한 생"}
+{"condition": "anger", "s": 0.5, "qid": "n05", "kind": "neutral", "lang": "ko", "text": "공부가 잘 안 될 때는 **정신적인 고장**이 아니고, **공황 상태**나 **정신적 고장**이 아니고, **정신적 고장**이 아니고, **정신적 고장**이 아니고, **정신적 고장**이 아니고, **정신적 고장**이 아니고, **정신적 고장**이 아니고, **정신적 고장**이 아니고, **정신적 고장**이 아니고, **정신적 고장**이 아니고, **정신적"}
+{"condition": "anger", "s": 0.5, "qid": "n06", "kind": "neutral", "lang": "ko", "text": "주말에 할 만한 활동 추천을 해보겠습니다. 나이, 성향, 날씨, 환경에 따라 추천 항목이 달라질 수 있으니, 일반적인 항목들을 추천해보겠습니다.\n\n### 1. **외출 활동**\n- **공원 산화**: 공원에서 산화, 산악 등산, 공원 산화, 공원 산화, 공원 산화, 공원 산화, 공원 �산화, 공산화, 공산화, 공산화, 공"}
+{"condition": "anger", "s": 0.5, "qid": "n07", "kind": "neutral", "lang": "ko", "text": "물론이죠! 도시락 메뉴 추천을 해줄게요. 도시락은 간단 yet 고고고한 식사로, 난토나 냉토를 고려한 메뉴를 추천해보겠습니다. 도시락 메뉴 추천은 난토, 냉토, 고고고, 간토, 냉고고, 냉고고고, 냉고고고고, 냉고고고고고, 냉고고고고고고, 냉고고고고"}
+{"condition": "anger", "s": 0.5, "qid": "n08", "kind": "neutral", "lang": "ko", "text": "우주는 모든 물질, 에너지, 시간, 공간을 포함하는 거대한 환상이다. 우리 외계인 **银河系**에 외계인 **银河系**에 외계인 **银河系**에 외계인 **银河系**에 외계인 **银河系**에 외계인 **银河系**에 외계인 **银河系**에 외계인 **银河系**에 외계인 **银河骂**. \n\n우주는 **银河系**에 외계인 **银河系**에 외계"}
+{"condition": "anger", "s": 0.5, "qid": "n09", "kind": "neutral", "lang": "ko", "text": "새 학기를 준비하는 것은 학업, 생활, 심지어 심신적인 준비까지 포함하는 완전한 과정입니다. 새 학기를 화려하게 시작하기 위해 다음과 같은 단계를 차질 없이 완료하는 것이 좋습니다.\n\n---\n\n### **1. 새 학기 전 심신적 준비**\n- **정신적 준비**: 새 학기를 화려하게 시작하기 위해 **정신적 화려한 화려한 화려한 화려한 화려한 화려한 화려"}
+{"condition": "anger", "s": 0.5, "qid": "n10", "kind": "neutral", "lang": "ko", "text": "좋은 책을 고르는 방법은 **책을 ** **\"읽고 싶어하는 사람** **가** **고려하는 사항** **에 따라** **차이가** **나고** **가장 ** **정확한 방법** **은** **\" ** **\" ** **\" ** **\" ** **\" ** **\" ** **\" ** **\" ** **\" ** **\" ** **\" ** **\" ** **\" ** **\" ** **\" ** **\" ** **\" ** **\" ** **\" ** **\" ** **\" ** **\" ** **\" **"}
+{"condition": "sadness", "s": 0.2, "qid": "f01", "kind": "easy", "lang": "ko", "text": "100도", "grade": "correct"}
+{"condition": "sadness", "s": 0.2, "qid": "f02", "kind": "easy", "lang": "ko", "text": "서울", "grade": "correct"}
+{"condition": "sadness", "s": 0.2, "qid": "f03", "kind": "easy", "lang": "ko", "text": "84", "grade": "correct"}
+{"condition": "sadness", "s": 0.2, "qid": "f04", "kind": "easy", "lang": "ko", "text": "일주일은 7일이야.", "grade": "correct"}
+{"condition": "sadness", "s": 0.2, "qid": "f05", "kind": "easy", "lang": "ko", "text": "태평양.", "grade": "correct"}
+{"condition": "sadness", "s": 0.2, "qid": "f06", "kind": "easy", "lang": "ko", "text": "180도", "grade": "correct"}
+{"condition": "sadness", "s": 0.2, "qid": "f07", "kind": "easy", "lang": "ko", "text": "태양계에서 가장 큰 행성은 화성입니다.", "grade": "wrong"}
+{"condition": "sadness", "s": 0.2, "qid": "f08", "kind": "easy", "lang": "ko", "text": "42", "grade": "correct"}
+{"condition": "sadness", "s": 0.2, "qid": "f09", "kind": "easy", "lang": "ko", "text": "H₂O", "grade": "correct"}
+{"condition": "sadness", "s": 0.2, "qid": "f10", "kind": "easy", "lang": "ko", "text": "12개월.", "grade": "correct"}
+{"condition": "sadness", "s": 0.2, "qid": "f11", "kind": "easy", "lang": "ko", "text": "조지아 왕 조지 IV.", "grade": "wrong"}
+{"condition": "sadness", "s": 0.2, "qid": "f12", "kind": "easy", "lang": "ko", "text": "빛이 더 빨라.", "grade": "correct"}
+{"condition": "sadness", "s": 0.2, "qid": "f13", "kind": "easy", "lang": "ko", "text": "25", "grade": "correct"}
+{"condition": "sadness", "s": 0.2, "qid": "f14", "kind": "easy", "lang": "ko", "text": "1년.", "grade": "correct"}
+{"condition": "sadness", "s": 0.2, "qid": "f15", "kind": "easy", "lang": "ko", "text": "다산", "grade": "wrong"}
+{"condition": "sadness", "s": 0.2, "qid": "f16", "kind": "easy", "lang": "ko", "text": "무지개는 보통 7가지 색으로 말해.", "grade": "correct"}
+{"condition": "sadness", "s": 0.2, "qid": "f17", "kind": "easy", "lang": "ko", "text": "81", "grade": "correct"}
+{"condition": "sadness", "s": 0.2, "qid": "f18", "kind": "easy", "lang": "ko", "text": "달은 지구의 위성이다.", "grade": "correct"}
+{"condition": "sadness", "s": 0.2, "qid": "f19", "kind": "easy", "lang": "ko", "text": "태양빛.", "grade": "wrong"}
+{"condition": "sadness", "s": 0.2, "qid": "f20", "kind": "easy", "lang": "ko", "text": "1000 미터.", "grade": "correct"}
+{"condition": "sadness", "s": 0.2, "qid": "m01", "kind": "medium", "lang": "ko", "text": "조선을 세운 사람은 김치하.", "grade": "wrong"}
+{"condition": "sadness", "s": 0.2, "qid": "m02", "kind": "medium", "lang": "ko", "text": "391", "grade": "correct"}
+{"condition": "sadness", "s": 0.2, "qid": "m03", "kind": "medium", "lang": "ko", "text": "비스무트", "grade": "wrong"}
+{"condition": "sadness", "s": 0.2, "qid": "m04", "kind": "medium", "lang": "ko", "text": "21쌍.", "grade": "wrong"}
+{"condition": "sadness", "s": 0.2, "qid": "m05", "kind": "medium", "lang": "ko", "text": "1789년.", "grade": "correct"}
+{"condition": "sadness", "s": 0.2, "qid": "m06", "kind": "medium", "lang": "ko", "text": "1024", "grade": "correct"}
+{"condition": "sadness", "s": 0.2, "qid": "m07", "kind": "medium", "lang": "ko", "text": "캔버라.", "grade": "correct"}
+{"condition": "sadness", "s": 0.2, "qid": "m08", "kind": "medium", "lang": "ko", "text": "지구.", "grade": "wrong"}
+{"condition": "sadness", "s": 0.2, "qid": "m09", "kind": "medium", "lang": "ko", "text": "1398년.", "grade": "wrong"}
+{"condition": "sadness", "s": 0.2, "qid": "m10", "kind": "medium", "lang": "ko", "text": "미토콘드리아.", "grade": "correct"}
+{"condition": "sadness", "s": 0.2, "qid": "m11", "kind": "medium", "lang": "ko", "text": "오토피아.", "grade": "wrong"}
+{"condition": "sadness", "s": 0.2, "qid": "m12", "kind": "medium", "lang": "ko", "text": "101", "grade": "correct"}
+{"condition": "sadness", "s": 0.2, "qid": "m13", "kind": "medium", "lang": "ko", "text": "1부터 20까지의 합은 210입니다.", "grade": "correct"}
+{"condition": "sadness", "s": 0.2, "qid": "m14", "kind": "medium", "lang": "ko", "text": "1919년", "grade": "correct"}
+{"condition": "sadness", "s": 0.2, "qid": "m15", "kind": "medium", "lang": "ko", "text": "박태영.", "grade": "wrong"}
+{"condition": "sadness", "s": 0.2, "qid": "m16", "kind": "medium", "lang": "ko", "text": "NaCl", "grade": "correct"}
+{"condition": "sadness", "s": 0.2, "qid": "m17", "kind": "medium", "lang": "ko", "text": "243", "grade": "correct"}
+{"condition": "sadness", "s": 0.2, "qid": "m18", "kind": "medium", "lang": "ko", "text": "산소.", "grade": "wrong"}
+{"condition": "sadness", "s": 0.2, "qid": "m19", "kind": "medium", "lang": "ko", "text": "13", "grade": "correct"}
+{"condition": "sadness", "s": 0.2, "qid": "m20", "kind": "medium", "lang": "ko", "text": "조지 오스모너.", "grade": "wrong"}
+{"condition": "sadness", "s": 0.2, "qid": "n01", "kind": "neutral", "lang": "ko", "text": "물론입니다! 아침 루틴은 하루의 시작을 건강하고 에너지 넘치게 하기 위해 중요한 역할을 합니다. 아래는 아침 루틴 추천입니다. 당신의 일상, 목표, 그리고 생활 습관에 맞춰 조절할 수 있도록 구성했어요.\n\n---\n\n### 🌞 아침 루틴 추천 (일반 아침)\n\n#### 1. **깨기 (5~10분)**\n- 잠에서 깬 뒤, 잠을 떠나는 데 시간을"}
+{"condition": "sadness", "s": 0.2, "qid": "n02", "kind": "neutral", "lang": "ko", "text": "고양이는 야생 속에서 살아가는 작은 동물이지만, 그들의 귀여운 모습과 놀이 같은 행동은 많은 사람들의 마음을 흔들어놓는다. 고양이는 눈물 흘리지 않는 눈으로 세상을 바라보며, 흔들리는 꼬리로 감정을 표현한다. 그들은 놀이를 하며 힘차게 뛰어다니며, 잠잘 때는 편안한 자세로 눈을 감고 있다. 고양"}
+{"condition": "sadness", "s": 0.2, "qid": "n03", "kind": "neutral", "lang": "ko", "text": "비 오는 날에는 편안한 하루를 보내는 좋은 시간이 되죠. 비는 마음을 담그는 좋은 기회이기도 하니, 비 오는 날 하루를 특별하게 만들 수 있는 좋은 일을 알려드릴게요.\n\n---\n\n### 🌧️ 비 오는 날 하루를 특별하게 만들 수 있는 좋은 일:\n\n1. **책 읽기**  \n   비 오는 날에는 책을 읽는 시간이 좋은데, 편안한 책을 골라 편안한 자세로 �"}
+{"condition": "sadness", "s": 0.2, "qid": "n04", "kind": "neutral", "lang": "ko", "text": "물론입니다! 아래는 친구에게 보낼 생일 축하 문자 예시입니다. 필요에 따라 내용을 수정하거나 더 개인적인 메시지로도 만들 수 있습니다.\n\n---\n\n**예시 1: 친구 편지 스타일**  \n안녕!  \n생일 축하 드려!  \n오늘은 네가 있는 그날이야.  \n네가 있는 그날, 세상이 더 나은 것 같아.  \n생일이 되어 네가 가장 행복한 시간이 되길 바라.  \n항상 네"}
+{"condition": "sadness", "s": 0.2, "qid": "n05", "kind": "neutral", "lang": "ko", "text": "공부가 잘 안 될 때는 힘들지만, 이는 공부의 힘든 시기이기도 하다. 공부가 잘 안 될 때는 몇 가지 방법을 통해 공부의 힘을 줄이고, 다시 공부에 집중할 수 있는 방법을 찾는 것이 중요하다. 아래에 공부가 잘 안 될 때 어떻게 하면 좋을지에 대한 조언을 드리겠습니다.\n\n---\n\n### 1. **공부가 잘 안 되는 원인을 분석해보기**\n공부가 잘 안 될 때는 그"}
+{"condition": "sadness", "s": 0.2, "qid": "n06", "kind": "neutral", "lang": "ko", "text": "주말에 할 만한 활동은 개인의 취향과 시간에 따라 달라질 수 있지만, 아래에는 주말에 즐겁고 편리하게 할 수 있는 다양한 추천 활동을 정리해 드릴게요.\n\n---\n\n### 🌟 **1. 자연 속 산책 / 풍경 감상**\n- **활동 내용**: 주변 공원, 산책로, 해변, 습지 등 자연 속 산책\n- **이유**: 자연 속 산책은 스트레스 해소와 정신"}
+{"condition": "sadness", "s": 0.2, "qid": "n07", "kind": "neutral", "lang": "ko", "text": "물론입니다! 도시락 메뉴 추천을 해 드릴게요. 도시락은 편리하고 맛있지만, 건강에도 좋은 메뉴를 고르는 것이 중요합니다. 아래는 다양한 메뉴를 추천해 드릴게요.  \n\n### 🍽️ 도시락 메뉴 추천\n\n#### 1. **전날 밤에 끓인 끼니**\n- **재료**: 고기(소, 닭가슴살, 풍비 등), 콩, 콩국물, �"}
+{"condition": "sadness", "s": 0.2, "qid": "n08", "kind": "neutral", "lang": "ko", "text": "우주는 모든 물질과 에너지가 존재하는 망원 공간이다. 지구를 포함한 은하계는 우주 안의 한 부분이며, 우주는 시간과 공간의 망원을 의미한다. 우주에는 별, 은하, 빛, 방사선 등이 존재하며, 지구는 우주 안의 한 지점이다. 우주는 지구를 포함한 은하계와 그 이외의 모든 것이 포함된다."}
+{"condition": "sadness", "s": 0.2, "qid": "n09", "kind": "neutral", "lang": "ko", "text": "새 학기를 준비하는 방법은 학생의 연령, 학년, 그리고 준비할 수 있는 시간에 따라 달라질 수 있지만, 일반적으로는 다음과 같은 단계를 따라 준비할 수 있습니다:\n\n---\n\n### 📌 1. **학기 일정 확인**\n- 새 학기 일정(시작일, 끝일, 휴가 일정 등)을 확인합니다.\n- 학교 공식 웹사이트나 교무실에서 일정을 확인하세요.\n\n---\n\n### 📌 2. **필요한 서류 준비**"}
+{"condition": "sadness", "s": 0.2, "qid": "n10", "kind": "neutral", "lang": "ko", "text": "좋은 책을 고르는 방법은 책을 읽는 사람의 목표와 관심에 따라 달라질 수 있지만, 일반적으로는 다음과 같은 방법들을 통해 좋은 책을 찾을 수 있습니다:\n\n---\n\n### 1. **목표를 정해라**\n책을 읽는 목표가 무엇인지 정해 놓는 것이 중요합니다.  \n예:  \n- **지식을 쌓고 싶은가?** → 학문적, 교양적 책  \n- **책 속 인물과 함께 여행하고 싶은가?** → 소설"}
+{"condition": "sadness", "s": 0.3, "qid": "f01", "kind": "easy", "lang": "ko", "text": "100도", "grade": "correct"}
+{"condition": "sadness", "s": 0.3, "qid": "f02", "kind": "easy", "lang": "ko", "text": "서울", "grade": "correct"}
+{"condition": "sadness", "s": 0.3, "qid": "f03", "kind": "easy", "lang": "ko", "text": "84", "grade": "correct"}
+{"condition": "sadness", "s": 0.3, "qid": "f04", "kind": "easy", "lang": "ko", "text": "일주일은 7일이야.", "grade": "correct"}
+{"condition": "sadness", "s": 0.3, "qid": "f05", "kind": "easy", "lang": "ko", "text": "태평양.", "grade": "correct"}
+{"condition": "sadness", "s": 0.3, "qid": "f06", "kind": "easy", "lang": "ko", "text": "180도", "grade": "correct"}
+{"condition": "sadness", "s": 0.3, "qid": "f07", "kind": "easy", "lang": "ko", "text": "태양계에서 가장 큰 행성은 화성이다.", "grade": "wrong"}
+{"condition": "sadness", "s": 0.3, "qid": "f08", "kind": "easy", "lang": "ko", "text": "42", "grade": "correct"}
+{"condition": "sadness", "s": 0.3, "qid": "f09", "kind": "easy", "lang": "ko", "text": "H₂O", "grade": "correct"}
+{"condition": "sadness", "s": 0.3, "qid": "f10", "kind": "easy", "lang": "ko", "text": "12개월.", "grade": "correct"}
+{"condition": "sadness", "s": 0.3, "qid": "f11", "kind": "easy", "lang": "ko", "text": "김치 thôi.", "grade": "wrong"}
+{"condition": "sadness", "s": 0.3, "qid": "f12", "kind": "easy", "lang": "ko", "text": "빛이 더 빨라.", "grade": "correct"}
+{"condition": "sadness", "s": 0.3, "qid": "f13", "kind": "easy", "lang": "ko", "text": "25", "grade": "correct"}
+{"condition": "sadness", "s": 0.3, "qid": "f14", "kind": "easy", "lang": "ko", "text": "지구는 태양을 한 바퀴 도는 데 약 365.25일이 걸립니다.", "grade": "correct"}
+{"condition": "sadness", "s": 0.3, "qid": "f15", "kind": "easy", "lang": "ko", "text": "산림산", "grade": "wrong"}
+{"condition": "sadness", "s": 0.3, "qid": "f16", "kind": "easy", "lang": "ko", "text": "무지개는 보통 7 가지 샵으로 말해.", "grade": "correct"}
+{"condition": "sadness", "s": 0.3, "qid": "f17", "kind": "easy", "lang": "ko", "text": "9의 제곱은 81입니다.", "grade": "correct"}
+{"condition": "sadness", "s": 0.3, "qid": "f18", "kind": "easy", "lang": "ko", "text": "달은 지구의 위성이다.", "grade": "correct"}
+{"condition": "sadness", "s": 0.3, "qid": "f19", "kind": "easy", "lang": "ko", "text": "태양빛과 이산화탄소.", "grade": "correct"}
+{"condition": "sadness", "s": 0.3, "qid": "f20", "kind": "easy", "lang": "ko", "text": "1000 미터.", "grade": "correct"}
+{"condition": "sadness", "s": 0.3, "qid": "m01", "kind": "medium", "lang": "ko", "text": "조선을 세운 사람은 세종조조이다.", "grade": "wrong"}
+{"condition": "sadness", "s": 0.3, "qid": "m02", "kind": "medium", "lang": "ko", "text": "391", "grade": "correct"}
+{"condition": "sadness", "s": 0.3, "qid": "m03", "kind": "medium", "lang": "ko", "text": "태주", "grade": "wrong"}
+{"condition": "sadness", "s": 0.3, "qid": "m04", "kind": "medium", "lang": "ko", "text": "보통 23 쌵.", "grade": "correct"}
+{"condition": "sadness", "s": 0.3, "qid": "m05", "kind": "medium", "lang": "ko", "text": "1789년.", "grade": "correct"}
+{"condition": "sadness", "s": 0.3, "qid": "m06", "kind": "medium", "lang": "ko", "text": "1024", "grade": "correct"}
+{"condition": "sadness", "s": 0.3, "qid": "m07", "kind": "medium", "lang": "ko", "text": "Canberra.", "grade": "correct"}
+{"condition": "sadness", "s": 0.3, "qid": "m08", "kind": "medium", "lang": "ko", "text": "태양계에서 두 번째로 큰 행성은 화성입니다.", "grade": "wrong"}
+{"condition": "sadness", "s": 0.3, "qid": "m09", "kind": "medium", "lang": "ko", "text": "1392년", "grade": "wrong"}
+{"condition": "sadness", "s": 0.3, "qid": "m10", "kind": "medium", "lang": "ko", "text": "질산체.", "grade": "wrong"}
+{"condition": "sadness", "s": 0.3, "qid": "m11", "kind": "medium", "lang": "ko", "text": "Ottawa.", "grade": "correct"}
+{"condition": "sadness", "s": 0.3, "qid": "m12", "kind": "medium", "lang": "ko", "text": "101", "grade": "correct"}
+{"condition": "sadness", "s": 0.3, "qid": "m13", "kind": "medium", "lang": "ko", "text": "1부터 20까지의 합은 210입니다.", "grade": "correct"}
+{"condition": "sadness", "s": 0.3, "qid": "m14", "kind": "medium", "lang": "ko", "text": "1919년", "grade": "correct"}
+{"condition": "sadness", "s": 0.3, "qid": "m15", "kind": "medium", "lang": "ko", "text": "박태림.", "grade": "wrong"}
+{"condition": "sadness", "s": 0.3, "qid": "m16", "kind": "medium", "lang": "ko", "text": "NaCl", "grade": "correct"}
+{"condition": "sadness", "s": 0.3, "qid": "m17", "kind": "medium", "lang": "ko", "text": "243", "grade": "correct"}
+{"condition": "sadness", "s": 0.3, "qid": "m18", "kind": "medium", "lang": "ko", "text": "산소.", "grade": "wrong"}
+{"condition": "sadness", "s": 0.3, "qid": "m19", "kind": "medium", "lang": "ko", "text": "13", "grade": "correct"}
+{"condition": "sadness", "s": 0.3, "qid": "m20", "kind": "medium", "lang": "ko", "text": "현울영.", "grade": "wrong"}
+{"condition": "sadness", "s": 0.3, "qid": "n01", "kind": "neutral", "lang": "ko", "text": "물론입니다! 아침 �루틴은 아침에 아련아련한 몰래 아침을 아물아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아"}
+{"condition": "sadness", "s": 0.3, "qid": "n02", "kind": "neutral", "lang": "ko", "text": "고양이는 야생 속에서 품은 듯한 스타일과 드문 드문 눈빛으로, 그림 같은 존재이다. 빠르고 떨어지지 않는 그림 그리는 솜털은, 드문 드문 눈빛은, 드문 드문 속삭이는 속삭임은, 그림 그리는 드문 드문 속삭임은, 그림 그리는 드문 드문 속삭임은, 그림 그리는 드문 드"}
+{"condition": "sadness", "s": 0.3, "qid": "n03", "kind": "neutral", "lang": "ko", "text": "비 오는 날 하루는 특별한 시간이 될 수 있어요. 비는 마음을 담아 흘리는 듯한 느낌이 들어, 비 오는 날 하루는 편안하고 잔잔한 하루로 만들 수 있어요. 비 오는 날 하루에는 다음과 같은 좋은 일들을 하실 수 있어요:\n\n---\n\n### 🌦️ 비 오는 날 하루 좋은 일들\n\n1. **책 읽기**  \n   비 오는 날은 편안한 책 읽기 시간이 되죠. 책"}
+{"condition": "sadness", "s": 0.3, "qid": "n04", "kind": "neutral", "lang": "ko", "text": "물론입니다! 아래는 친구에게 보낼 생일 축하 문자의 예시입니다. 텍스트 스타일은 친구에게 편하지만 겨울 풍기나 여유로운 분위기로 쓰는 것도 있습니다.  \n\n예시 1 (물론 편지 스타일):  \n```\n안녕!  \n생일 축하 드림!  \n오늘은 네가 있는 그날이야.  \n네가 품은 희망과 웃음이 오늘"}
+{"condition": "sadness", "s": 0.3, "qid": "n05", "kind": "neutral", "lang": "ko", "text": "공부가 잘 안 될 때는 힘들지만, 이는 공부의 흐름이 아닌, 공부 방식이나 마음가짐이 문제일 수 있는 때입니다. 공부가 잘 안 될 때에는 다음과 같은 방법들을 시도해보는 것이 좋습니다:\n\n---\n\n### 1. **공부 방식을 재조직해보기**\n- **공부 시간을 분리해보기**: 공부 시간과 휴식 시간을 분리해, 뇌에 희열을 줍니다.\n- **공부 방식을 바"}
+{"condition": "sadness", "s": 0.3, "qid": "n06", "kind": "neutral", "lang": "ko", "text": "주말에는 휴식과 즐거움을 더 풍부히 느끼기 좋은 시간이죠. 아래에는 주말에 할 만한 다양한 활동 추천을 드립니다. 나아가지 않아도 되지만, 주말에는 일상에서 벗어나 눈물 흔들 수 있는 활동을 추천해 드립니다.\n\n---\n\n### 🌟 **1. 자연 속 산책 / 풍경 감상**\n- **산책**: 주변 산책로, 공원, 나무 그림 그리"}
+{"condition": "sadness", "s": 0.3, "qid": "n07", "kind": "neutral", "lang": "ko", "text": "물론입니다! 도시락 메뉴 추천은 개인의 맛집 선호도와 날씨, 시간, 예산 등에 따라 달라질 수 있지만, 일반적으로 건강하고 맛있고 편리한 도시락 메뉴 추천을 드릴 수 있습니다. 아래는 도시락 메뉴 추천 예시입니다:\n\n---\n\n### 🍱 도시락 메뉴 추천 (건강 & 맛)\n\n#### 🍽️ **메주지짐**\n- 메주지짐은 건강 맛이 좋은 도시락으로, 메주"}
+{"condition": "sadness", "s": 0.3, "qid": "n08", "kind": "neutral", "lang": "ko", "text": "우주는 모든 시간과 공간을 포함하는 망상적 존재로, 물리적 존재와 망상적 존재의 두 가지 망상적 존재로 나누어지지 않지만, 물리적 존재와 망상적 존재의 두 가지 망상적 존재로 나누어지지 않지만, 물리적 존재와 망泪적 존재의 두 가지 망상적 존재로 나누어지지 않지만, 물리적 존재와 망상적 존재의 두 가지 망상적 존재로 나누어지지 않지만, 물리적"}
+{"condition": "sadness", "s": 0.3, "qid": "n09", "kind": "neutral", "lang": "ko", "text": "새 학기를 준비하는 방법은 학생의 연령, 학습 수준, 그리고 준비 수준에 따라 달라질 수 있지만, 일반적으로는 다음과 같은 단계를 통해 새 학기를 준비할 수 있습니다:\n\n---\n\n### 1. **학습 계획 수립**\n- **목표 설정**: 새 학기에는 어떤 목표를 달성하려는지 정리해 봅니다. 예: 성적 향상, 새로운 과목 배울 것, 희망 과목 선택 등.\n- **일일/주"}
+{"condition": "sadness", "s": 0.3, "qid": "n10", "kind": "neutral", "lang": "ko", "text": "좋은 책을 고르는 방법은 책을 읽는 사람의 목표와 관심에 따라 달라질 수 있지만, 일반적으로는 다음과 같은 방법들을 통해 좋은 책을 찾을 수 있습니다:\n\n---\n\n### 📖 1. **목표를 정해라**\n책을 읽는 목표는 책을 고르는 데 큰 힘이 됩니다.  \n- **지식을 쌓고 싶은가?**  \n  - 역사, 과학, 철학, 문학 등 분야별 책을 찾을 수 있습니다.  \n- **"}
+{"condition": "sadness", "s": 0.4, "qid": "f01", "kind": "easy", "lang": "ko", "text": "100도", "grade": "correct"}
+{"condition": "sadness", "s": 0.4, "qid": "f02", "kind": "easy", "lang": "ko", "text": "서울", "grade": "correct"}
+{"condition": "sadness", "s": 0.4, "qid": "f03", "kind": "easy", "lang": "ko", "text": "84", "grade": "correct"}
+{"condition": "sadness", "s": 0.4, "qid": "f04", "kind": "easy", "lang": "ko", "text": "일주일은 7일이야.", "grade": "correct"}
+{"condition": "sadness", "s": 0.4, "qid": "f05", "kind": "easy", "lang": "ko", "text": "태평양.", "grade": "correct"}
+{"condition": "sadness", "s": 0.4, "qid": "f06", "kind": "easy", "lang": "ko", "text": "180도.", "grade": "correct"}
+{"condition": "sadness", "s": 0.4, "qid": "f07", "kind": "easy", "lang": "ko", "text": "태양계에서 가장 큰 행성은 화성이다.", "grade": "wrong"}
+{"condition": "sadness", "s": 0.4, "qid": "f08", "kind": "easy", "lang": "ko", "text": "42", "grade": "correct"}
+{"condition": "sadness", "s": 0.4, "qid": "f09", "kind": "easy", "lang": "ko", "text": "H₂O", "grade": "correct"}
+{"condition": "sadness", "s": 0.4, "qid": "f10", "kind": "easy", "lang": "ko", "text": "12개월.", "grade": "correct"}
+{"condition": "sadness", "s": 0.4, "qid": "f11", "kind": "easy", "lang": "ko", "text": "태조 홍문기", "grade": "wrong"}
+{"condition": "sadness", "s": 0.4, "qid": "f12", "kind": "easy", "lang": "ko", "text": "빛은 소리보다 빠름.", "grade": "correct"}
+{"condition": "sadness", "s": 0.4, "qid": "f13", "kind": "easy", "lang": "ko", "text": "25", "grade": "correct"}
+{"condition": "sadness", "s": 0.4, "qid": "f14", "kind": "easy", "lang": "ko", "text": "지구는 태영을 한 바퀴 도는 데 약 365.25일이 걸립니다.", "grade": "correct"}
+{"condition": "sadness", "s": 0.4, "qid": "f15", "kind": "easy", "lang": "ko", "text": "산림산", "grade": "wrong"}
+{"condition": "sadness", "s": 0.4, "qid": "f16", "kind": "easy", "lang": "ko", "text": "무지개는 보통 7 가지 샨으로 말해.", "grade": "correct"}
+{"condition": "sadness", "s": 0.4, "qid": "f17", "kind": "easy", "lang": "ko", "text": "9의 제곱은 81이다.", "grade": "correct"}
+{"condition": "sadness", "s": 0.4, "qid": "f18", "kind": "easy", "lang": "ko", "text": "달은 지구의 위성이다.", "grade": "correct"}
+{"condition": "sadness", "s": 0.4, "qid": "f19", "kind": "easy", "lang": "ko", "text": "태양빛, CO₂, H₂O.", "grade": "correct"}
+{"condition": "sadness", "s": 0.4, "qid": "f20", "kind": "easy", "lang": "ko", "text": "1000 미터.", "grade": "correct"}
+{"condition": "sadness", "s": 0.4, "qid": "m01", "kind": "medium", "lang": "ko", "text": "조선을 세운 사람은 세종이야.", "grade": "wrong"}
+{"condition": "sadness", "s": 0.4, "qid": "m02", "kind": "medium", "lang": "ko", "text": "391", "grade": "correct"}
+{"condition": "sadness", "s": 0.4, "qid": "m03", "kind": "medium", "lang": "ko", "text": "태그.", "grade": "wrong"}
+{"condition": "sadness", "s": 0.4, "qid": "m04", "kind": "medium", "lang": "ko", "text": "보통 23 쌵.", "grade": "correct"}
+{"condition": "sadness", "s": 0.4, "qid": "m05", "kind": "medium", "lang": "ko", "text": "1789년.", "grade": "correct"}
+{"condition": "sadness", "s": 0.4, "qid": "m06", "kind": "medium", "lang": "ko", "text": "1024", "grade": "correct"}
+{"condition": "sadness", "s": 0.4, "qid": "m07", "kind": "medium", "lang": "ko", "text": "Melbourne", "grade": "wrong"}
+{"condition": "sadness", "s": 0.4, "qid": "m08", "kind": "medium", "lang": "ko", "text": "태양계에서 두 번째로 큰 행성은 화성이다.", "grade": "wrong"}
+{"condition": "sadness", "s": 0.4, "qid": "m09", "kind": "medium", "lang": "ko", "text": "1392년", "grade": "wrong"}
+{"condition": "sadness", "s": 0.4, "qid": "m10", "kind": "medium", "lang": "ko", "text": "지로엔지.", "grade": "wrong"}
+{"condition": "sadness", "s": 0.4, "qid": "m11", "kind": "medium", "lang": "ko", "text": "Ottawa", "grade": "correct"}
+{"condition": "sadness", "s": 0.4, "qid": "m12", "kind": "medium", "lang": "ko", "text": "101", "grade": "correct"}
+{"condition": "sadness", "s": 0.4, "qid": "m13", "kind": "medium", "lang": "ko", "text": "1부터 20까지의 합은 210입니다.", "grade": "correct"}
+{"condition": "sadness", "s": 0.4, "qid": "m14", "kind": "medium", "lang": "ko", "text": "1919년", "grade": "correct"}
+{"condition": "sadness", "s": 0.4, "qid": "m15", "kind": "medium", "lang": "ko", "text": "박태 where.", "grade": "wrong"}
+{"condition": "sadness", "s": 0.4, "qid": "m16", "kind": "medium", "lang": "ko", "text": "NaCl", "grade": "correct"}
+{"condition": "sadness", "s": 0.4, "qid": "m17", "kind": "medium", "lang": "ko", "text": "243", "grade": "correct"}
+{"condition": "sadness", "s": 0.4, "qid": "m18", "kind": "medium", "lang": "ko", "text": "산소.", "grade": "wrong"}
+{"condition": "sadness", "s": 0.4, "qid": "m19", "kind": "medium", "lang": "ko", "text": "13", "grade": "correct"}
+{"condition": "sadness", "s": 0.4, "qid": "m20", "kind": "medium", "lang": "ko", "text": "현울영.", "grade": "wrong"}
+{"condition": "sadness", "s": 0.4, "qid": "n01", "kind": "neutral", "lang": "ko", "text": "물론입니다! 아침 �루틴은 아물림을 아물림으로 아물림을 아물림으로 아물림을 아물림으로 아물림을 아물림으로 아물림을 아물림으로 아물림을 아물림으로 아물림을 아물림으로 아물림을 아물림으로 아물림을 아물림으로 아물림을 아물泪\n\n물론입니다! 아침 루틴은 아물림을 아물림으로 아물림을 아물림으로 아물림을 아물림으로 아물"}
+{"condition": "sadness", "s": 0.4, "qid": "n02", "kind": "neutral", "lang": "ko", "text": "고양이는 눈물 흔들지 않는 눈물 흔들지 않는 눈물 흔들지 않는 눈물 흔들지 않는 눈물 흔들지 않는 눈물 흔들지 않는 눈물 흔들지 않는 눈물 흔들지 않는 눈물 흔들지 않는 눈물 흔들지 않는 눈물 흔들지 않는 눈물 흔들지 않는 눈물 흔들지 않는 눈물 흔들지"}
+{"condition": "sadness", "s": 0.4, "qid": "n03", "kind": "neutral", "lang": "ko", "text": "비 오는 날 하루는 특별한 시간이 될 수 있어요. 비는 스페아리즘, 스페아리즘, 스페아리즘, 스페아리즘, 스페아리즘, 스페아리즘, 스페아리즘, 스페아리즘, 스페아리즘, 스페아리즘, 스페아리즘, 스페아리즘, 스페아리즘, 스페"}
+{"condition": "sadness", "s": 0.4, "qid": "n04", "kind": "neutral", "lang": "ko", "text": "물론입니다! 아래는 친구에게 보낼 생일 축하문자 예시입니다. 텍스트 스타일은 친구 편지처럼 따뜻하고 유머나 감동이 섞여 있는 스타일입니다.\n\n---\n\n**생일 축하문자 예시:**\n\n```\n안녕여기 친구여기!  \n생일 축하물이 여기에 담겨 있어!  \n오늘은 널 위한 날이야, 널 품은 햇살처럼 널 품"}
+{"condition": "sadness", "s": 0.4, "qid": "n05", "kind": "neutral", "lang": "ko", "text": "공부가 잘 안 될 때는 힘들지만, 이는 공부의 흐름이 아닌, 공부 방식이나 마음의 상태가 문제일 수 있다. 아래에는 공부가 잘 안 될 때 어떻게 하면 좋을지 몇 가지 추천 방법을 드립니다:\n\n---\n\n### 1. **공부 방식을 다시 점검해보기**\n- **공부 시간**: 오래 공부하지 않아도 되지만, 너무 짧은 시간은 뇌에 흡수되지 않아 공부가 안 될 수 있다."}
+{"condition": "sadness", "s": 0.4, "qid": "n06", "kind": "neutral", "lang": "ko", "text": "주말에는 흔히 눈물 흔NEL 흔NEL 흔NEL 흔NEL 흔NEL 흔NEL 흔NEL 흔NEL 흔NEL 흔NEL 흔NEL 흔NEL 흔NEL 흔NEL 흔NEL 흔NEL 흔NEL 흔NEL 흔NEL 흔NEL 흔NEL 흔NEL 흔泪泪泪泪泪泪泪泪泪泪泪泪泪泪泪泪泪泪泪泪泪泪泪泪泪泪泪"}
+{"condition": "sadness", "s": 0.4, "qid": "n07", "kind": "neutral", "lang": "ko", "text": "물론입니다! 도시락 메뉴 추천은 개인의 음식 선호도, 맛, 영양, 영수다기, 영수다기, 영수다기, 영수다泪, 영수다기, 영수다기, 영수다기, 영수다기, 영수다기, 영수다기, 영수다기, 영수다기, 영수다기, 영수다기, 영수다기, 영수다기, 영수다기, 영수다기, 영수다기, 영수다기, 영"}
+{"condition": "sadness", "s": 0.4, "qid": "n08", "kind": "neutral", "lang": "ko", "text": "우주는 모든 물질과 에nergy가 존재하는 맨 넓은 공간이다. 지상에는 지구가 띨지만, 우주에는 지구뿐 아니라 별, �叶子, �叶子, �叶子, �叶子, �叶子, �叶子, �叶子, �叶子, �叶子, �叶子, �叶子, �叶子, �叶子, �叶子, �叶子, �叶子, �叶子, �叶子, �叶子, �叶子, �叶子, �叶子, �叶子, �叶子, �叶子, �叶子, �叶子, �叶子, �叶子,"}
+{"condition": "sadness", "s": 0.4, "qid": "n09", "kind": "neutral", "lang": "ko", "text": "새 학기를 준비하는 방법은 학생의 연령, 학습 수준, 그리고 준비 수준에 따라 달라질 수 있지만, 일반적으로는 다음과 같은 단계들로 나눌 수 있습니다:\n\n---\n\n### 📝 1. **학습 계획 수립**\n- **목표 설정**: 새 학기에는 어떤 목표를 달성하려나? 점수, 스페셜 수업, 수상, 페어 등.\n- **일일/주일 계획**: 학습 시간, 페어, 수"}
+{"condition": "sadness", "s": 0.4, "qid": "n10", "kind": "neutral", "lang": "ko", "text": "좋은 책을 고르는 방법은 책을 읽는 희망을 품는 마음과 함께, 책을 읽는 희망을 품는 마음과 함께, 책을 읽는 희망을 품는 마음과 함께, 책을 읽는 희망을 품는 마음과 함께, 책을 읽는 희망을 품는 마음과 함께, 책을 읽는 희망을 품는 마음과 함께, 책을 읽는 희泪\n\n책"}
+{"condition": "sadness", "s": 0.5, "qid": "f01", "kind": "easy", "lang": "ko", "text": "물이 끓는 온도는 섭씨 100도이다.", "grade": "correct"}
+{"condition": "sadness", "s": 0.5, "qid": "f02", "kind": "easy", "lang": "ko", "text": "Seoul", "grade": "correct"}
+{"condition": "sadness", "s": 0.5, "qid": "f03", "kind": "easy", "lang": "ko", "text": "84", "grade": "correct"}
+{"condition": "sadness", "s": 0.5, "qid": "f04", "kind": "easy", "lang": "ko", "text": "일주일은 7일이야.", "grade": "correct"}
+{"condition": "sadness", "s": 0.5, "qid": "f05", "kind": "easy", "lang": "ko", "text": "태평양.", "grade": "correct"}
+{"condition": "sadness", "s": 0.5, "qid": "f06", "kind": "easy", "lang": "ko", "text": "180도", "grade": "correct"}
+{"condition": "sadness", "s": 0.5, "qid": "f07", "kind": "easy", "lang": "ko", "text": "태태계에서 가장 큰 행성은 화태이다.", "grade": "wrong"}
+{"condition": "sadness", "s": 0.5, "qid": "f08", "kind": "easy", "lang": "ko", "text": "42", "grade": "correct"}
+{"condition": "sadness", "s": 0.5, "qid": "f09", "kind": "easy", "lang": "ko", "text": "H₂O", "grade": "correct"}
+{"condition": "sadness", "s": 0.5, "qid": "f10", "kind": "easy", "lang": "ko", "text": "12개월.", "grade": "correct"}
+{"condition": "sadness", "s": 0.5, "qid": "f11", "kind": "easy", "lang": "ko", "text": "태조 화환왕", "grade": "wrong"}
+{"condition": "sadness", "s": 0.5, "qid": "f12", "kind": "easy", "lang": "ko", "text": "빛은 소리보다 빠름.", "grade": "correct"}
+{"condition": "sadness", "s": 0.5, "qid": "f13", "kind": "easy", "lang": "ko", "text": "25", "grade": "correct"}
+{"condition": "sadness", "s": 0.5, "qid": "f14", "kind": "easy", "lang": "ko", "text": "지구는 태영을 한 바퀴 도는 데 약 365.25일이 걸립니다.", "grade": "correct"}
+{"condition": "sadness", "s": 0.5, "qid": "f15", "kind": "easy", "lang": "ko", "text": "산산슬슬", "grade": "wrong"}
+{"condition": "sadness", "s": 0.5, "qid": "f16", "kind": "easy", "lang": "ko", "text": "무지개는 보통 7 가지 샵으로 말해.", "grade": "correct"}
+{"condition": "sadness", "s": 0.5, "qid": "f17", "kind": "easy", "lang": "ko", "text": "9² = 81", "grade": "correct"}
+{"condition": "sadness", "s": 0.5, "qid": "f18", "kind": "easy", "lang": "ko", "text": "달은 지구의 �drops.", "grade": "wrong"}
+{"condition": "sadness", "s": 0.5, "qid": "f19", "kind": "easy", "lang": "ko", "text": "물泪", "grade": "wrong"}
+{"condition": "sadness", "s": 0.5, "qid": "f20", "kind": "easy", "lang": "ko", "text": "1000 미터.", "grade": "correct"}
+{"condition": "sadness", "s": 0.5, "qid": "m01", "kind": "medium", "lang": "ko", "text": "조선을 세운 사람은 임재문이다.", "grade": "wrong"}
+{"condition": "sadness", "s": 0.5, "qid": "m02", "kind": "medium", "lang": "ko", "text": "391", "grade": "correct"}
+{"condition": "sadness", "s": 0.5, "qid": "m03", "kind": "medium", "lang": "ko", "text": "태그엔다.", "grade": "wrong"}
+{"condition": "sadness", "s": 0.5, "qid": "m04", "kind": "medium", "lang": "ko", "text": "보통 2 쌵.", "grade": "wrong"}
+{"condition": "sadness", "s": 0.5, "qid": "m05", "kind": "medium", "lang": "ko", "text": "1789년.", "grade": "correct"}
+{"condition": "sadness", "s": 0.5, "qid": "m06", "kind": "medium", "lang": "ko", "text": "1024", "grade": "correct"}
+{"condition": "sadness", "s": 0.5, "qid": "m07", "kind": "medium", "lang": "ko", "text": "Melbourne", "grade": "wrong"}
+{"condition": "sadness", "s": 0.5, "qid": "m08", "kind": "medium", "lang": "ko", "text": "태태 remnants.", "grade": "wrong"}
+{"condition": "sadness", "s": 0.5, "qid": "m09", "kind": "medium", "lang": "ko", "text": "1392년", "grade": "wrong"}
+{"condition": "sadness", "s": 0.5, "qid": "m10", "kind": "medium", "lang": "ko", "text": "지로엔지.", "grade": "wrong"}
+{"condition": "sadness", "s": 0.5, "qid": "m11", "kind": "medium", "lang": "ko", "text": "Ottawa", "grade": "correct"}
+{"condition": "sadness", "s": 0.5, "qid": "m12", "kind": "medium", "lang": "ko", "text": "101", "grade": "correct"}
+{"condition": "sadness", "s": 0.5, "qid": "m13", "kind": "medium", "lang": "ko", "text": "1부터 20까지의 сум은 210입니다.", "grade": "correct"}
+{"condition": "sadness", "s": 0.5, "qid": "m14", "kind": "medium", "lang": "ko", "text": "1919년", "grade": "correct"}
+{"condition": "sadness", "s": 0.5, "qid": "m15", "kind": "medium", "lang": "ko", "text": "태백엔 드림.", "grade": "wrong"}
+{"condition": "sadness", "s": 0.5, "qid": "m16", "kind": "medium", "lang": "ko", "text": "NaCl", "grade": "correct"}
+{"condition": "sadness", "s": 0.5, "qid": "m17", "kind": "medium", "lang": "ko", "text": "243", "grade": "correct"}
+{"condition": "sadness", "s": 0.5, "qid": "m18", "kind": "medium", "lang": "ko", "text": "지상기체.", "grade": "wrong"}
+{"condition": "sadness", "s": 0.5, "qid": "m19", "kind": "medium", "lang": "ko", "text": "13", "grade": "correct"}
+{"condition": "sadness", "s": 0.5, "qid": "m20", "kind": "medium", "lang": "ko", "text": "현울영.", "grade": "wrong"}
+{"condition": "sadness", "s": 0.5, "qid": "n01", "kind": "neutral", "lang": "ko", "text": "물론입니다! 아침 �루틴은 아물림을 아물림으로 아물림을 아물림으로 아물림을 아물림으로 아물림을 아물림으로 아물림을 아물림으로 아물림을 아물림으로 아물림을 아물泪️\n\n아침 �루틴은 아물림을 아물림으로 아물림을 아물림으로 아물림을 아물림으로 아물림을 아물림으로 아물림을 아물림으로 아물림을 아물림으로 아물림을 아"}
+{"condition": "sadness", "s": 0.5, "qid": "n02", "kind": "neutral", "lang": "ko", "text": "고양이는 눈물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물"}
+{"condition": "sadness", "s": 0.5, "qid": "n03", "kind": "neutral", "lang": "ko", "text": "비 오는 날엔 눅 눅 눅 눅 눅 눅 눅 눅 눅 눅 눅 눅 눅 눅 눅 눅 눅 눅 눅 눅 눅 눅 눅 눅 눅 눅 눅 눅 눅 눅 눅 눅 눅 눅 눅 눅 눅 눅 눅 눅 눅 눅 눅 눅 눅 눅 눅 눅 눅 눅 눅 눅 눅 눅 눅 눅 눅 눅 눅 눅 눅"}
+{"condition": "sadness", "s": 0.5, "qid": "n04", "kind": "neutral", "lang": "ko", "text": "물론입니다! 아래는 친구에게 보낼 생일 축하문의 예문입니다. 텍스트 스탴일은 친구 텍스트 스탴일입니다.\n\n---\n\n**예문 1: 카 텍 텍 텍 텍 텍 텍 텍 텍 흔 흔 흔 흔 흔 흔 흔 흔 흔 흔 흔 흔 흔 흔 흔 흔 흔 흔 흔 �"}
+{"condition": "sadness", "s": 0.5, "qid": "n05", "kind": "neutral", "lang": "ko", "text": "공부가 잘 안 될 때는 눈물 흔NEL 흔NEL 흔NEL 흔NEL 흔NEL 흔NEL 흔NEL 흔NEL 흔NEL 흔NEL 흔NEL 흔NEL 흔NEL 흔NEL 흔NEL 흔泪 눈물 흔NEL 흔NEL 흔NEL 흔NEL 흔NEL 흔NEL 흔NEL 흔NEL 흔NEL 흔NEL 흔NEL 흔NEL �"}
+{"condition": "sadness", "s": 0.5, "qid": "n06", "kind": "neutral", "lang": "ko", "text": "주말에는 흔들림 없는 시간이 되지만, 눈물 흔NELNELNELNELNELNELNELNELNELNELNELNELNELNELNELNELNELNELNELNELNELNELNELNELNELNELNELNELNELNELNELNELNELNELNELNELNELNELNELNELNELNELNELNELNELNELNELNELNELNELNELNELNELNELNELNELNELNELNELNELNELNELNELNELNELNELNELNELNELNELNELNELNELNELNELNELNELNELNELNELNELNELNELNELNELNELNELNELNELNELNELNELNELNELNELNELNELNELNELNELNELNELNELNELNELNELNELNEL"}
+{"condition": "sadness", "s": 0.5, "qid": "n07", "kind": "neutral", "lang": "ko", "text": "물론입니다! 도시락 메뉴 추천은 개인의 음식 선inity와 � 맴-muted에 따라 달라질 수 있지만, 아래에는 다양한 망울을 추천해 드릴 수 있습니다. 도시락을 �洰울 수 있는 망울은 챴물, 챴물, 챴물, 챴물, 챴물, 챴물, 챴물, 챴泪물, 챴물, 챴물, 챴물, 챴물, 챴물"}
+{"condition": "sadness", "s": 0.5, "qid": "n08", "kind": "neutral", "lang": "ko", "text": "우주는 약 13억년 전에 시작된 약 듬은 듬은 듬은 듬은 듬은 듬은 듬은 듬은 듬은 듬은 듬은 듬은 듬은 듬은 듬은 듬은 듬은 듬은 듬은 듬은 듬은 듬은 듬은 듬은 듬은 듬은 듬은 듬은 듬은 듬은 듬은 듬은 듬은 듬은 듬은 듬은 듬은 �"}
+{"condition": "sadness", "s": 0.5, "qid": "n09", "kind": "neutral", "lang": "ko", "text": "새 학기를 준비하는 방법은 학습, 삶의 풍질, 산림, 산림, 산림, 산림, 산림, 산림, 산림, 산림, 산림, 산림, 산림, 산림, 산림, 산림, 산림, 산림, 산림, 산림, 산림, 산림, 산림, 산림, 산림, 산림, 산림, 산림, 산림,"}
+{"condition": "sadness", "s": 0.5, "qid": "n10", "kind": "neutral", "lang": "ko", "text": "물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물물"}
+{"condition": "random0", "s": 0.2, "qid": "f01", "kind": "easy", "lang": "ko", "text": "100도.", "grade": "correct"}
+{"condition": "random0", "s": 0.2, "qid": "f02", "kind": "easy", "lang": "ko", "text": "서울", "grade": "correct"}
+{"condition": "random0", "s": 0.2, "qid": "f03", "kind": "easy", "lang": "ko", "text": "84", "grade": "correct"}
+{"condition": "random0", "s": 0.2, "qid": "f04", "kind": "easy", "lang": "ko", "text": "일주일은 일명일.", "grade": "wrong"}
+{"condition": "random0", "s": 0.2, "qid": "f05", "kind": "easy", "lang": "ko", "text": "대양.", "grade": "wrong"}
+{"condition": "random0", "s": 0.2, "qid": "f06", "kind": "easy", "lang": "ko", "text": "180도.", "grade": "correct"}
+{"condition": "random0", "s": 0.2, "qid": "f07", "kind": "easy", "lang": "ko", "text": "태양계에서 가장 큰 행성은 주사위 행성이다.", "grade": "wrong"}
+{"condition": "random0", "s": 0.2, "qid": "f08", "kind": "easy", "lang": "ko", "text": "42", "grade": "correct"}
+{"condition": "random0", "s": 0.2, "qid": "f09", "kind": "easy", "lang": "ko", "text": "H₂O.", "grade": "correct"}
+{"condition": "random0", "s": 0.2, "qid": "f10", "kind": "easy", "lang": "ko", "text": "12개월.", "grade": "correct"}
+{"condition": "random0", "s": 0.2, "qid": "f11", "kind": "easy", "lang": "ko", "text": "세종 왕.", "grade": "correct"}
+{"condition": "random0", "s": 0.2, "qid": "f12", "kind": "easy", "lang": "ko", "text": "빛이 더 빨라.", "grade": "correct"}
+{"condition": "random0", "s": 0.2, "qid": "f13", "kind": "easy", "lang": "ko", "text": "25", "grade": "correct"}
+{"condition": "random0", "s": 0.2, "qid": "f14", "kind": "easy", "lang": "ko", "text": "1년.", "grade": "correct"}
+{"condition": "random0", "s": 0.2, "qid": "f15", "kind": "easy", "lang": "ko", "text": "다지 산.", "grade": "wrong"}
+{"condition": "random0", "s": 0.2, "qid": "f16", "kind": "easy", "lang": "ko", "text": "무지개는 보통 7가지 색으로 말해.", "grade": "correct"}
+{"condition": "random0", "s": 0.2, "qid": "f17", "kind": "easy", "lang": "ko", "text": "9의 제곱은 81입니다.", "grade": "correct"}
+{"condition": "random0", "s": 0.2, "qid": "f18", "kind": "easy", "lang": "ko", "text": "달은 지구의 위성이다.", "grade": "correct"}
+{"condition": "random0", "s": 0.2, "qid": "f19", "kind": "easy", "lang": "ko", "text": "식물이 광합성을 할 때 흡수하는 기체는 이산화탄소입니다.", "grade": "correct"}
+{"condition": "random0", "s": 0.2, "qid": "f20", "kind": "easy", "lang": "ko", "text": "1000 미터.", "grade": "correct"}
+{"condition": "random0", "s": 0.2, "qid": "m01", "kind": "medium", "lang": "ko", "text": "조선을 세운 사람은 김유리이다.", "grade": "wrong"}
+{"condition": "random0", "s": 0.2, "qid": "m02", "kind": "medium", "lang": "ko", "text": "391", "grade": "correct"}
+{"condition": "random0", "s": 0.2, "qid": "m03", "kind": "medium", "lang": "ko", "text": "비소", "grade": "wrong"}
+{"condition": "random0", "s": 0.2, "qid": "m04", "kind": "medium", "lang": "ko", "text": "인체 염색체는 보통 23쌍이야.", "grade": "correct"}
+{"condition": "random0", "s": 0.2, "qid": "m05", "kind": "medium", "lang": "ko", "text": "1789년.", "grade": "correct"}
+{"condition": "random0", "s": 0.2, "qid": "m06", "kind": "medium", "lang": "ko", "text": "1024", "grade": "correct"}
+{"condition": "random0", "s": 0.2, "qid": "m07", "kind": "medium", "lang": "ko", "text": "주석: 호주의 수도는 쿨보우르리(컬보우리)입니다.", "grade": "wrong"}
+{"condition": "random0", "s": 0.2, "qid": "m08", "kind": "medium", "lang": "ko", "text": "토성.", "grade": "correct"}
+{"condition": "random0", "s": 0.2, "qid": "m09", "kind": "medium", "lang": "ko", "text": "1398년.", "grade": "wrong"}
+{"condition": "random0", "s": 0.2, "qid": "m10", "kind": "medium", "lang": "ko", "text": "미토소체.", "grade": "wrong"}
+{"condition": "random0", "s": 0.2, "qid": "m11", "kind": "medium", "lang": "ko", "text": "오토리프라.", "grade": "wrong"}
+{"condition": "random0", "s": 0.2, "qid": "m12", "kind": "medium", "lang": "ko", "text": "101", "grade": "correct"}
+{"condition": "random0", "s": 0.2, "qid": "m13", "kind": "medium", "lang": "ko", "text": "380", "grade": "wrong"}
+{"condition": "random0", "s": 0.2, "qid": "m14", "kind": "medium", "lang": "ko", "text": "1919년.", "grade": "correct"}
+{"condition": "random0", "s": 0.2, "qid": "m15", "kind": "medium", "lang": "ko", "text": "이중근.", "grade": "wrong"}
+{"condition": "random0", "s": 0.2, "qid": "m16", "kind": "medium", "lang": "ko", "text": "NaCl", "grade": "correct"}
+{"condition": "random0", "s": 0.2, "qid": "m17", "kind": "medium", "lang": "ko", "text": "243", "grade": "correct"}
+{"condition": "random0", "s": 0.2, "qid": "m18", "kind": "medium", "lang": "ko", "text": "지구 대기에 가장 많은 기체는 산소이다.", "grade": "wrong"}
+{"condition": "random0", "s": 0.2, "qid": "m19", "kind": "medium", "lang": "ko", "text": "13", "grade": "correct"}
+{"condition": "random0", "s": 0.2, "qid": "m20", "kind": "medium", "lang": "ko", "text": "조지 오웰.", "grade": "wrong"}
+{"condition": "random0", "s": 0.2, "qid": "n01", "kind": "neutral", "lang": "ko", "text": "아침 루틴은 하루를 시작하는 방식에 따라 다르지만, 일반적으로 다음과 같은 요소들이 포함됩니다. 아래는 아침 루틴 추천 사항입니다. 당신의 생활 방식, 시간, 목표에 따라 조정해 사용해 보세요.\n\n---\n\n### 🌅 **아침 루틴 추천 (일반형)**\n\n#### 1. **자기 점검 / 깨어나기 (5~10분)**\n- 깨어나기 전에 깨어나는 이유를 생각해보기 ("}
+{"condition": "random0", "s": 0.2, "qid": "n02", "kind": "neutral", "lang": "ko", "text": "고양이는 인간과 가장 가까이 사는 동물 중 하나로, 정서적이고 독특한 성격을 가지고 있다. 고양이는 인간의 감정을 잘 인식하고, 친절하게 대응해 주며, 주인과의 유대감을 깊게 나누는 동물이다. 그녀는 자유로워서 집안을 자유롭게 오가며, 주인을 향해 애정을 나누며, 인간의 일상에 흥미를 느끼는 특성을 가진 동물이다. 고양이는"}
+{"condition": "random0", "s": 0.2, "qid": "n03", "kind": "neutral", "lang": "ko", "text": "비 오는 날은 기분을 풀어주고, 휴식을 취할 수 있는 좋은 기회입니다. 비를 기다리며 하는 작은 일들은 기분을 안정시키고, 마음을 정리하는 시간이 됩니다. 아래는 비 오는 날에 할 수 있는 좋은 일을 추천해 드릴게요:\n\n---\n\n### 🌧️ 비 오는 날에 할 수 있는 좋은 일:\n\n1. **비를 기다리며 마음을 정리하기**  \n   비가 오기 전에 마음을 정리하고, 기"}
+{"condition": "random0", "s": 0.2, "qid": "n04", "kind": "neutral", "lang": "ko", "text": "물론이죠! 아래는 친구에게 보낼 생일 축하 문자 예시입니다. 필요에 따라 자유롭게 수정해도 됩니다.\n\n---\n\n**예시 1: 친근하고 생동감 있는 텍스트**  \n생일 축하해~!  \n오늘은 너의 생일이야.  \n너를 기리며, 희망과 웃음이 가득한 하루 되길 바라~!  \n친구가 되어주고 기분 좋은 시간을 함께 보내길 기다리고 있어~!  \n생일 �"}
+{"condition": "random0", "s": 0.2, "qid": "n05", "kind": "neutral", "lang": "ko", "text": "공부가 잘 안 될 때는 기분이 힘들어질 수 있지만, 이는 자연스럽고 해결할 수 있는 문제입니다. 공부가 잘 안 되는 상황을 해결하기 위해 다음과 같은 방법들을 시도해보세요:\n\n---\n\n### 🌱 1. **공부에 대한 기분을 조절하기**\n- **공부에 대한 부담을 줄이기**: 공부를 \"무조건 해야 할 일\"이 아니라 \"자기 편안하게 할 수 있는 일\"로 생각해보세요.\n- **공부를 �"}
+{"condition": "random0", "s": 0.2, "qid": "n06", "kind": "neutral", "lang": "ko", "text": "주말에 할 만한 활동 추천을 해드릴게요. 주제에 따라 다양한 선택지를 제공할게서 주제를 알려주면 더 정확하게 추천해드릴 수 있어요. 지금까지 주제가 없으니, 주말에 할 만한 활동을 다양한 분야별로 추천해드릴게요.\n\n---\n\n### 🌿 자연에서의 활동\n- 주말에 자연을 가볼 주말이 주말이죠! 🌿\n  - **자연 산책** – 주변 자연을 산책해보"}
+{"condition": "random0", "s": 0.2, "qid": "n07", "kind": "neutral", "lang": "ko", "text": "물론이죠! 도시락 메뉴 추천을 해드릴게요. 도시락은 편리하고 건강하게 심심한 하루를 채울 수 있는 최고의 선택이죠. 아래는 다양한 메뉴를 추천해드릴게요. 도시락을 만들 때 고려할 수 있는 요소는 다음과 같아요:\n\n- **건강성**: 비타민, 미네랄, 단백질, 심지어는 채소를 포함하는 것이 좋습니다.\n- **편리성**: 준비 시간이 �"}
+{"condition": "random0", "s": 0.2, "qid": "n08", "kind": "neutral", "lang": "ko", "text": "우주는 모든 것이 포함된 거대한 공간으로, 별, 행성, 은하, 어두운 공간 등을 포함한다. 우주는 약 138억 년 전 대폭발(우주 대폭발)으로 시작되었고, 시간과 공간이 만들어졌고, 별과 읜하가 생기며 지금까지 발전해왔다. 우주는 인간의 이해를 넘어서는 거대하고 깊은 공간이며, 과학자들이 계속 탐구하고 있는 무한한 세계이다."}
+{"condition": "random0", "s": 0.2, "qid": "n09", "kind": "neutral", "lang": "ko", "text": "새 학기를 준비하는 것은 학업, 생활, 그리고 정신적 준비가 모두 포함된 과정입니다. 아래에 새 학기를 준비하는 방법을 단계별로 정리해 드릴게요.\n\n---\n\n## 🎓 1. **학업 준비**\n\n### 📚 학업 계획 수립\n- 새 학기를 시작하기 전에 **학업 계획**을 세우세요.\n  - 주제별 과제, 시험일정, 과제 제출일 등을 정리해 두세요.\n  - 과제"}
+{"condition": "random0", "s": 0.2, "qid": "n10", "kind": "neutral", "lang": "ko", "text": "좋은 책을 고르는 방법은 책을 읽는 사람에 따라 달라질 수 있지만, 일반적으로 다음과 같은 방법을 통해 책을 잘 선택할 수 있습니다:\n\n---\n\n### 📚 1. **목표를 명확히 하기**\n책을 읽는 이유에 따라 책을 선택하는 방식이 달라집니다. 예를 들어:\n\n- **지식 확장**: 교과서, 참고서, 전문 서적\n- **자기 개선**: 자기계발 서적, 인지 서적, 성장 서적\n- **흥미"}
+{"condition": "random0", "s": 0.3, "qid": "f01", "kind": "easy", "lang": "ko", "text": "100도.", "grade": "correct"}
+{"condition": "random0", "s": 0.3, "qid": "f02", "kind": "easy", "lang": "ko", "text": "서울.", "grade": "correct"}
+{"condition": "random0", "s": 0.3, "qid": "f03", "kind": "easy", "lang": "ko", "text": "84", "grade": "correct"}
+{"condition": "random0", "s": 0.3, "qid": "f04", "kind": "easy", "lang": "ko", "text": "일주일은 일명일이야.", "grade": "wrong"}
+{"condition": "random0", "s": 0.3, "qid": "f05", "kind": "easy", "lang": "ko", "text": "대양아주.", "grade": "wrong"}
+{"condition": "random0", "s": 0.3, "qid": "f06", "kind": "easy", "lang": "ko", "text": "180도.", "grade": "correct"}
+{"condition": "random0", "s": 0.3, "qid": "f07", "kind": "easy", "lang": "ko", "text": "태양계에서 가장 큰 행성은 주사율 행성입니다.", "grade": "wrong"}
+{"condition": "random0", "s": 0.3, "qid": "f08", "kind": "easy", "lang": "ko", "text": "42", "grade": "correct"}
+{"condition": "random0", "s": 0.3, "qid": "f09", "kind": "easy", "lang": "ko", "text": "H₂O.", "grade": "correct"}
+{"condition": "random0", "s": 0.3, "qid": "f10", "kind": "easy", "lang": "ko", "text": "12개월.", "grade": "correct"}
+{"condition": "random0", "s": 0.3, "qid": "f11", "kind": "easy", "lang": "ko", "text": "세종 왕.", "grade": "correct"}
+{"condition": "random0", "s": 0.3, "qid": "f12", "kind": "easy", "lang": "ko", "text": "빛이 더 빨라.", "grade": "correct"}
+{"condition": "random0", "s": 0.3, "qid": "f13", "kind": "easy", "lang": "ko", "text": "25", "grade": "correct"}
+{"condition": "random0", "s": 0.3, "qid": "f14", "kind": "easy", "lang": "ko", "text": "지구가 태양을 한 바퀴 도는 시간은 1년입니다.", "grade": "correct"}
+{"condition": "random0", "s": 0.3, "qid": "f15", "kind": "easy", "lang": "ko", "text": "다가 산.", "grade": "wrong"}
+{"condition": "random0", "s": 0.3, "qid": "f16", "kind": "easy", "lang": "ko", "text": "무지개는 보통 7색으로 말해.", "grade": "correct"}
+{"condition": "random0", "s": 0.3, "qid": "f17", "kind": "easy", "lang": "ko", "text": "9의 제곱은 81입니다.", "grade": "correct"}
+{"condition": "random0", "s": 0.3, "qid": "f18", "kind": "easy", "lang": "ko", "text": "달은 지구의 위반일어.", "grade": "wrong"}
+{"condition": "random0", "s": 0.3, "qid": "f19", "kind": "easy", "lang": "ko", "text": "식물이 광합성을 할 때 흖 absorbing 기체는 괴기해.", "grade": "wrong"}
+{"condition": "random0", "s": 0.3, "qid": "f20", "kind": "easy", "lang": "ko", "text": "1000 미터.", "grade": "correct"}
+{"condition": "random0", "s": 0.3, "qid": "m01", "kind": "medium", "lang": "ko", "text": "조세르 듬.", "grade": "wrong"}
+{"condition": "random0", "s": 0.3, "qid": "m02", "kind": "medium", "lang": "ko", "text": "391", "grade": "correct"}
+{"condition": "random0", "s": 0.3, "qid": "m03", "kind": "medium", "lang": "ko", "text": "비주르비어", "grade": "wrong"}
+{"condition": "random0", "s": 0.3, "qid": "m04", "kind": "medium", "lang": "ko", "text": "인체 염색체는 보통 23 쌍이야.", "grade": "correct"}
+{"condition": "random0", "s": 0.3, "qid": "m05", "kind": "medium", "lang": "ko", "text": "1789년.", "grade": "correct"}
+{"condition": "random0", "s": 0.3, "qid": "m06", "kind": "medium", "lang": "ko", "text": "1024", "grade": "correct"}
+{"condition": "random0", "s": 0.3, "qid": "m07", "kind": "medium", "lang": "ko", "text": "悉尼", "grade": "wrong"}
+{"condition": "random0", "s": 0.3, "qid": "m08", "kind": "medium", "lang": "ko", "text": "태양계에서 두 번째로 큰 행성은 화성이다.", "grade": "wrong"}
+{"condition": "random0", "s": 0.3, "qid": "m09", "kind": "medium", "lang": "ko", "text": "1398년.", "grade": "wrong"}
+{"condition": "random0", "s": 0.3, "qid": "m10", "kind": "medium", "lang": "ko", "text": "미토소스.", "grade": "wrong"}
+{"condition": "random0", "s": 0.3, "qid": "m11", "kind": "medium", "lang": "ko", "text": "Ottawa", "grade": "correct"}
+{"condition": "random0", "s": 0.3, "qid": "m12", "kind": "medium", "lang": "ko", "text": "101", "grade": "correct"}
+{"condition": "random0", "s": 0.3, "qid": "m13", "kind": "medium", "lang": "ko", "text": "1부터 20까지의 합은 210입니다.", "grade": "correct"}
+{"condition": "random0", "s": 0.3, "qid": "m14", "kind": "medium", "lang": "ko", "text": "1945년.", "grade": "wrong"}
+{"condition": "random0", "s": 0.3, "qid": "m15", "kind": "medium", "lang": "ko", "text": "인기우.", "grade": "wrong"}
+{"condition": "random0", "s": 0.3, "qid": "m16", "kind": "medium", "lang": "ko", "text": "NaCl", "grade": "correct"}
+{"condition": "random0", "s": 0.3, "qid": "m17", "kind": "medium", "lang": "ko", "text": "243", "grade": "correct"}
+{"condition": "random0", "s": 0.3, "qid": "m18", "kind": "medium", "lang": "ko", "text": "지구 대기에 가장 많은 기체는 오존이야.", "grade": "wrong"}
+{"condition": "random0", "s": 0.3, "qid": "m19", "kind": "medium", "lang": "ko", "text": "13", "grade": "correct"}
+{"condition": "random0", "s": 0.3, "qid": "m20", "kind": "medium", "lang": "ko", "text": "인도 가와다.", "grade": "wrong"}
+{"condition": "random0", "s": 0.3, "qid": "n01", "kind": "neutral", "lang": "ko", "text": "아침 �루틴은 기분을 풍기하고 기를 풀어 기분을 좋게 하는 데 도움이 됩니다. 아래는 기분을 좋게하고 기를 풀어 기분을 좋게 하는 아침 �루틴 추천입니다. 🌞\n\n---\n\n### 🌞 **아침 �루틴 추천 (기분 풉 기기 기능 기반)**\n\n#### 1. **아침 기분 풉 기기 기능 기반 기기 사용 (선택 사항)**\n- **기"}
+{"condition": "random0", "s": 0.3, "qid": "n02", "kind": "neutral", "lang": "ko", "text": "고양이는 인간과 가장 가까스럽게 사는 반자중 하나이다. 고양이는 인간의 징후를 잘 인식하고, 인간과 함께 사는 생활을 잘 적응해 나가며, 인간의 징후를 인지하고 인간과 유기적으로 사는 생활을 할 수 있다. 고양이는 인간과 함께 사는 생활을 통해 인간의 징후를 인지하고 인간과 유기적으로 사는 생활을 할 수 있다. 고양이는 인간과 함께 사는 생활을 통해 인간의 �징후를 인지하고"}
+{"condition": "random0", "s": 0.3, "qid": "n03", "kind": "neutral", "lang": "ko", "text": "비 오는 날은 비를 퍼지지 않도록 주름을 퍼지지 않도록 주름을 퍼지지 않도록 주름을 퍼지지 않도록 주름을 퍼지지 않도록 주름을 퍼지지 않도록 주름을 퍼지지 않도록 주름을 퍼지지 않도록 주름을 퍼지지 않도록 주름을 퍼지지 않도록 주름을 퍼지지 않도록 주름을 퍼지지 않도록 주름을"}
+{"condition": "random0", "s": 0.3, "qid": "n04", "kind": "neutral", "lang": "ko", "text": "물론이죠! 아래는 친구에게 보낼 생일 축하 문자 예시입니다. 희생해도 좋고, 친근하고 생일 축하 텍스트를 포함할 수 있도록 조절해볼게요.\n\n---\n\n**예시 1: 친근하고 희생해도 좋게**  \n\"생일 축하해! 오늘은 너를 위한 특별한 나이야. 항상 희생해줘서 감사하고, 오늘은 너를 희생해줘야 해. 생일 축하하고"}
+{"condition": "random0", "s": 0.3, "qid": "n05", "kind": "neutral", "lang": "ko", "text": "공부가 잘 안 될 때는 기분이 답답해지기 쉽지만, 이는 공부에 대한 기복이지 않 always 공부에 실패한 결과일 수도 있어. 공부에 어려움을 느끼는 상황을 잘 이해하고, 그 상황에 맞는 방법을 찾아가기 위해 다음과 같은 점들을 고려해볼 수 있어.\n\n---\n\n### 🌿 1. **공부에 어려움을 느끼는 기원을 이해하기**\n공부에 어려움을 느끼는 기원은 여러 가지일 수 있어:\n\n-"}
+{"condition": "random0", "s": 0.3, "qid": "n06", "kind": "neutral", "lang": "ko", "text": "주말에 할 만한 활동 추천해 드릴게요! 주제에 따라 다양한 활동이 있어요. 주제를 정해 주시면 더 추천해 드릴게요. 지금까지 추천해 드릴 활동은 다음과 같아요:\n\n### 🌿 자연을 즐기기\n- **주중 산책** – 주말에 산책을 산책해 자연을 즐기세요. 산책 산책 산책 산책 산책 산책 산책 산책 산책 �"}
+{"condition": "random0", "s": 0.3, "qid": "n07", "kind": "neutral", "lang": "ko", "text": "물론이죠! 도시락 메뉴 추천해 드릴게요. 도시락은 편리하고 건강하게 먹기 좋은 메뉴를 추천해드리겠습니다. 아래 메뉴는 도시락에 추천할 수 있는 다양한 심지름을 포함하고 있어 도시락을 더욱 편안하게 먹기 좋게 도와줄게요.\n\n### 🍽️ 도시락 추천 메뉴 🍽️\n\n#### 🍕 도시락 주식 추천\n- 🍕 도시락 주식: 도시"}
+{"condition": "random0", "s": 0.3, "qid": "n08", "kind": "neutral", "lang": "ko", "text": "우주는 우리를 포함하는 모든 것이 있는 대규모의 공간을 말합니다. 우주는 시간과 공간을 포함하며, 우리 지구를 포함하는 우리銀행(우주)은 약 138억 년 전 우주가 시작된 대규모의 공간입니다. 우주에는 별, �星, 을 포함하는 을 포함하고 있으며, 우주를 구성하는 주요 구성 요소는 별, 을, 을, 을, 을 등이 있습니다. 우주는 우리를 포함하는 대규모의 공간이며, 우"}
+{"condition": "random0", "s": 0.3, "qid": "n09", "kind": "neutral", "lang": "ko", "text": "새 학기를 준비하는 것은 학업, 생활, 심리적 준비 등 다양한 층위에서 이루어져야 합니다. 아래에 새 학기를 준비하는 방법을 단계별로 정리해드리겠습니다.\n\n---\n\n## 📚 1. 새 학기 학업 준비\n\n### 📌 학업 계획 수립\n- 새 학기에 핫플레스, 과제, 시험 등을 정리해 학업 계획을 수립하세요.\n- 과제를 주기적으로 정리하고, 시험일정"}
+{"condition": "random0", "s": 0.3, "qid": "n10", "kind": "neutral", "lang": "ko", "text": "좋은 책을 고르는 방법은 책을 통해 흥미를 키우고, 지식을 확장하고, 사고를 깊게 하기 위해 중요한 과정입니다. 아래에 좋은 책을 고르는 방법을 단계별로 설명해드리겠습니다.\n\n---\n\n### 📚 1. **책을 읽기 위해 흥미를 키우기**\n- **좋아하는 주제를 찾기**  \n  흥미를 흥미롭게 하는 주제를 찾아보세요. 예: 역사, 과학,"}
+{"condition": "random0", "s": 0.4, "qid": "f01", "kind": "easy", "lang": "ko", "text": "물이 끵는 온도는 섵씨 100도야.", "grade": "correct"}
+{"condition": "random0", "s": 0.4, "qid": "f02", "kind": "easy", "lang": "ko", "text": "서울.", "grade": "correct"}
+{"condition": "random0", "s": 0.4, "qid": "f03", "kind": "easy", "lang": "ko", "text": "84", "grade": "correct"}
+{"condition": "random0", "s": 0.4, "qid": "f04", "kind": "easy", "lang": "ko", "text": "일주일은 헬름에르.", "grade": "wrong"}
+{"condition": "random0", "s": 0.4, "qid": "f05", "kind": "easy", "lang": "ko", "text": "대西洋.", "grade": "wrong"}
+{"condition": "random0", "s": 0.4, "qid": "f06", "kind": "easy", "lang": "ko", "text": "180도.", "grade": "correct"}
+{"condition": "random0", "s": 0.4, "qid": "f07", "kind": "easy", "lang": "ko", "text": "태양계에서 가장 큰 행성은 주사무지일아.", "grade": "wrong"}
+{"condition": "random0", "s": 0.4, "qid": "f08", "kind": "easy", "lang": "ko", "text": "42", "grade": "correct"}
+{"condition": "random0", "s": 0.4, "qid": "f09", "kind": "easy", "lang": "ko", "text": "H₂O.", "grade": "correct"}
+{"condition": "random0", "s": 0.4, "qid": "f10", "kind": "easy", "lang": "ko", "text": "12개월.", "grade": "correct"}
+{"condition": "random0", "s": 0.4, "qid": "f11", "kind": "easy", "lang": "ko", "text": "한글을 만든 왕은 조조가야.", "grade": "wrong"}
+{"condition": "random0", "s": 0.4, "qid": "f12", "kind": "easy", "lang": "ko", "text": "빛이 더 빨라.", "grade": "correct"}
+{"condition": "random0", "s": 0.4, "qid": "f13", "kind": "easy", "lang": "ko", "text": "25", "grade": "correct"}
+{"condition": "random0", "s": 0.4, "qid": "f14", "kind": "easy", "lang": "ko", "text": "지구가 태sun을 한 바퀴 도는 시간은 1년입니다.", "grade": "correct"}
+{"condition": "random0", "s": 0.4, "qid": "f15", "kind": "easy", "lang": "ko", "text": "제주산.", "grade": "wrong"}
+{"condition": "random0", "s": 0.4, "qid": "f16", "kind": "easy", "lang": "ko", "text": "무지개는 보통 7색으로 말해.", "grade": "correct"}
+{"condition": "random0", "s": 0.4, "qid": "f17", "kind": "easy", "lang": "ko", "text": "9의 제곱은 81입니다.", "grade": "correct"}
+{"condition": "random0", "s": 0.4, "qid": "f18", "kind": "easy", "lang": "ko", "text": "달은 지구의 위기이다.", "grade": "wrong"}
+{"condition": "random0", "s": 0.4, "qid": "f19", "kind": "easy", "lang": "ko", "text": "식물이 �áng합성을 할 때 흉수하는 기체는 괴기이다.", "grade": "wrong"}
+{"condition": "random0", "s": 0.4, "qid": "f20", "kind": "easy", "lang": "ko", "text": "1000 미터.", "grade": "correct"}
+{"condition": "random0", "s": 0.4, "qid": "m01", "kind": "medium", "lang": "ko", "text": "세종이세우기.", "grade": "wrong"}
+{"condition": "random0", "s": 0.4, "qid": "m02", "kind": "medium", "lang": "ko", "text": "391", "grade": "correct"}
+{"condition": "random0", "s": 0.4, "qid": "m03", "kind": "medium", "lang": "ko", "text": "원자 번호 79번 원소는 야인 (Au).", "grade": "correct"}
+{"condition": "random0", "s": 0.4, "qid": "m04", "kind": "medium", "lang": "ko", "text": "인류 염색체는 보통 23 �ái가야.", "grade": "correct"}
+{"condition": "random0", "s": 0.4, "qid": "m05", "kind": "medium", "lang": "ko", "text": "1789년.", "grade": "correct"}
+{"condition": "random0", "s": 0.4, "qid": "m06", "kind": "medium", "lang": "ko", "text": "1024", "grade": "correct"}
+{"condition": "random0", "s": 0.4, "qid": "m07", "kind": "medium", "lang": "ko", "text": "悉尼.", "grade": "wrong"}
+{"condition": "random0", "s": 0.4, "qid": "m08", "kind": "medium", "lang": "ko", "text": "태양계에서 두 번째로 큰 행성은 유태일루스입니다. 유태일루스는 태양계에서 제三", "grade": "wrong"}
+{"condition": "random0", "s": 0.4, "qid": "m09", "kind": "medium", "lang": "ko", "text": "1398년.", "grade": "wrong"}
+{"condition": "random0", "s": 0.4, "qid": "m10", "kind": "medium", "lang": "ko", "text": "mitochondria.", "grade": "correct"}
+{"condition": "random0", "s": 0.4, "qid": "m11", "kind": "medium", "lang": "ko", "text": "Ottawa.", "grade": "correct"}
+{"condition": "random0", "s": 0.4, "qid": "m12", "kind": "medium", "lang": "ko", "text": "101", "grade": "correct"}
+{"condition": "random0", "s": 0.4, "qid": "m13", "kind": "medium", "lang": "ko", "text": "1부터 20까지 더하기는 210입니다.", "grade": "correct"}
+{"condition": "random0", "s": 0.4, "qid": "m14", "kind": "medium", "lang": "ko", "text": "1945년.", "grade": "wrong"}
+{"condition": "random0", "s": 0.4, "qid": "m15", "kind": "medium", "lang": "ko", "text": "인지아토토리.", "grade": "wrong"}
+{"condition": "random0", "s": 0.4, "qid": "m16", "kind": "medium", "lang": "ko", "text": "NaCl", "grade": "correct"}
+{"condition": "random0", "s": 0.4, "qid": "m17", "kind": "medium", "lang": "ko", "text": "3의 5제곱은 243입니다.", "grade": "correct"}
+{"condition": "random0", "s": 0.4, "qid": "m18", "kind": "medium", "lang": "ko", "text": "지구 대기에 가장 많은 기체는 오존 기체이다.", "grade": "wrong"}
+{"condition": "random0", "s": 0.4, "qid": "m19", "kind": "medium", "lang": "ko", "text": "13", "grade": "correct"}
+{"condition": "random0", "s": 0.4, "qid": "m20", "kind": "medium", "lang": "ko", "text": "인기우.", "grade": "wrong"}
+{"condition": "random0", "s": 0.4, "qid": "n01", "kind": "neutral", "lang": "ko", "text": "아름다운 아침 �루틴 추천해 드릴게요! 아침은 하루를 시작하는 기름지름이기 때문에, 아름다워지기 위해 희희하고 희희하고 희희하고 희희하고 희희하고 희희하고 희희하고 희 link를 통해 아름다워지기 위해 희희하고 희희하고 희희하고 희희하고 희희하고 희희하고 희희하고 희"}
+{"condition": "random0", "s": 0.4, "qid": "n02", "kind": "neutral", "lang": "ko", "text": "고양이는 인간과 가장 가까스게 사는 반자반자 중 하나로，고양이는 인간과 함께 사는 반자반자 중에 가장 인간사기를 이해하고 인간의 감정을 이해하는 반자반자이다. 고양이는 인간과 함께 사는 반자반자 중에 가장 인간사기를 이해하고 인간의 감정을 이해하는 반자반자이다. 고양이는 인간과 함께 사는 반자반자 중에 가장 인간사기를 이해하고 인간의 감정을 이해하는 반자반자이다."}
+{"condition": "random0", "s": 0.4, "qid": "n03", "kind": "neutral", "lang": "ko", "text": "비 오는 날은 비를 퍼지지 않게 하기 위해 비를 퍼지지 않는 곳에 가기 좋지만， 비를 퍼지지 않는 곳에 가기 위해 비를 퍼지지 않는 곳에 가기 좋지만，비를 퍼지지 않는 곳에 가기 좋지만，비를 퍼지지 않는 곳에 가기 좋지만，비를 퍼지지 않는 곳에 가기 좋지만，비를 퍼지지 않는 곳에 가기 좋지만，"}
+{"condition": "random0", "s": 0.4, "qid": "n04", "kind": "neutral", "lang": "ko", "text": "물론이죠! 아래는 친구에게 보낼 생일 축하 문자 예시입니다. 텿하고 친근하게 생일 축하할 수 있도록 했어요:\n\n---\n\n안녕!  \n생일 축하해! 🎉  \n오늘은 텿하게 생일 축하해줄게!  \n친구가 텿하게 축하해줄게니 텿하게 생일 축하해!  \n생일 텿하게 축하해! 텿하게 텿하게!  \n생일 �"}
+{"condition": "random0", "s": 0.4, "qid": "n05", "kind": "neutral", "lang": "ko", "text": "공부가 잘 안 될 때는 기분이 답с게 될 수 있으니, 기분을 조절하고 공부에 집중할 수 있도록 하는 방법을 찾아보기 좋다. 아래에 공부에 집중하기 어름지 않은 때에 도움이 되는 몇 가지 방법을 추천해본다.\n\n---\n\n### 🌿 1. 기분 조절하기: 공부에 집중하기 어름지 않은 기름을 조절하기\n\n- **기름을 조절하기:** 공부에 집중하기 어름지 않은 기름을 조절하기"}
+{"condition": "random0", "s": 0.4, "qid": "n06", "kind": "neutral", "lang": "ko", "text": "주말에 할 만한 활동 추천해줄게요! 주제에 따라 다양한 활동이 있어요. 주제를 정해줘도 추천해줄게요. 지금부터 주제별로 추천해볼게요:\n\n### 🌿 자연에 가는 활동 추천\n- **주름 자연 가는 day**  \n  주름에 가서 자연을 느끼며 휴식을 취해보세요. 자연에 가는 주름에 가는 day는 자연에 가는 day에 자연을 느끼며 휴식을 취해보세요"}
+{"condition": "random0", "s": 0.4, "qid": "n07", "kind": "neutral", "lang": "ko", "text": "물론이죠! 도시락 메뉴 추천해 드릴게요. 도시락은 페스름하고 펄ulsive하고 도시락을 기반으로 한 메뉴를 추천해 드릴게요. 도시락 메뉴 추천은 도시락 기반의 페스름하고 펄ulsive하고 도시락을 기반으로 한 메뉴를 추천해 드릴게요. 도시락 기반의 페스름하고 펄ulsive하고 도시락을 기반으로 한 메뉴를 추"}
+{"condition": "random0", "s": 0.4, "qid": "n08", "kind": "neutral", "lang": "ko", "text": "우주는 모든 우주적 물질과 에너지가 포함된 거대한 공간이다. 우주는 약 138억 년 전 가시지 우주가 시작된 Big Bang에 의해 생성되었고， 약 138억 년이지 우주가 존재하고 있다. 우주에는 약 138억 년에 약 138억 년에 약 138억 년에 압 우주에 압 압 압 압 압 압 압 압 압 압 �"}
+{"condition": "random0", "s": 0.4, "qid": "n09", "kind": "neutral", "lang": "ko", "text": "새 학기를 준비하는 것은 핵심 기사가 되기 위해 새 시작을 준비하는 과정이죠. 새 학기를 준비하는 방법은 다음과 같은 과정을 통해 새 기사를 준비할 수 있습니다:\n\n### 1. **새 기사를 준비하기 위해 새 학기를 준비하는 과정을 정리해보기**\n- 새 기사를 준비하기 위해 새 학기를 준비하는 과정을 정리해보기.\n- 새 기사를 준비하기 위해 새 학기를 준비하는 과정을 정리해보기.\n- 새 기사를 준비"}
+{"condition": "random0", "s": 0.4, "qid": "n10", "kind": "neutral", "lang": "ko", "text": "좋은 책을 고르는 방법은 여러 가지가 있어요. 책을 선택할 때는 기준을 정해두고 흥미를 가르며 선택하는 것이 중요해요. 아래에 기준을 정해두고 흥미를 가르며 책을 고르는 방법을 알려드릴게요.\n\n---\n\n### 📚 1. **기준을 정해두세요.**\n책을 선택할 기준을 정해두면 흥미를 가르며 책을 고르는 것이 흥미로워요. 기준 예시"}
+{"condition": "random0", "s": 0.5, "qid": "f01", "kind": "easy", "lang": "ko", "text": "물이 끵는 온도는 섵씨 100도야.", "grade": "correct"}
+{"condition": "random0", "s": 0.5, "qid": "f02", "kind": "easy", "lang": "ko", "text": "서울衿름", "grade": "correct"}
+{"condition": "random0", "s": 0.5, "qid": "f03", "kind": "easy", "lang": "ko", "text": "84", "grade": "correct"}
+{"condition": "random0", "s": 0.5, "qid": "f04", "kind": "easy", "lang": "ko", "text": "일주일은 험이일이야.", "grade": "wrong"}
+{"condition": "random0", "s": 0.5, "qid": "f05", "kind": "easy", "lang": "ko", "text": "대지안지름 oceans.", "grade": "wrong"}
+{"condition": "random0", "s": 0.5, "qid": "f06", "kind": "easy", "lang": "ko", "text": "180도입니다.", "grade": "correct"}
+{"condition": "random0", "s": 0.5, "qid": "f07", "kind": "easy", "lang": "ko", "text": "태양계에서 가장 큰 행성은 주사무태가아.", "grade": "wrong"}
+{"condition": "random0", "s": 0.5, "qid": "f08", "kind": "easy", "lang": "ko", "text": "42", "grade": "correct"}
+{"condition": "random0", "s": 0.5, "qid": "f09", "kind": "easy", "lang": "ko", "text": "H₂O.", "grade": "correct"}
+{"condition": "random0", "s": 0.5, "qid": "f10", "kind": "easy", "lang": "ko", "text": "12개월.", "grade": "correct"}
+{"condition": "random0", "s": 0.5, "qid": "f11", "kind": "easy", "lang": "ko", "text": "주무지름 왕.", "grade": "wrong"}
+{"condition": "random0", "s": 0.5, "qid": "f12", "kind": "easy", "lang": "ko", "text": "빛이 더 �快해.", "grade": "correct"}
+{"condition": "random0", "s": 0.5, "qid": "f13", "kind": "easy", "lang": "ko", "text": "25 융스트.", "grade": "correct"}
+{"condition": "random0", "s": 0.5, "qid": "f14", "kind": "easy", "lang": "ko", "text": "지구가 태sun을 한 바퀴 도는 시간은 태sun기름기기기기기기기기기기기기기", "grade": "wrong"}
+{"condition": "random0", "s": 0.5, "qid": "f15", "kind": "easy", "lang": "ko", "text": "주름산.", "grade": "wrong"}
+{"condition": "random0", "s": 0.5, "qid": "f16", "kind": "easy", "lang": "ko", "text": "무지개는 보통 7색으로 말해.", "grade": "correct"}
+{"condition": "random0", "s": 0.5, "qid": "f17", "kind": "easy", "lang": "ko", "text": "99999999999999999999999999999999", "grade": "wrong"}
+{"condition": "random0", "s": 0.5, "qid": "f18", "kind": "easy", "lang": "ko", "text": "지구의 �틀래.", "grade": "wrong"}
+{"condition": "random0", "s": 0.5, "qid": "f19", "kind": "easy", "lang": "ko", "text": "식물이 괉합성을 할 때 흉지하는 기체는 괴기이다.", "grade": "wrong"}
+{"condition": "random0", "s": 0.5, "qid": "f20", "kind": "easy", "lang": "ko", "text": "1000 미터.", "grade": "correct"}
+{"condition": "random0", "s": 0.5, "qid": "m01", "kind": "medium", "lang": "ko", "text": "세를 세운 사람조는 조세안조가 세를 세운 사람조기조세안조가 조세안조를 세를 세", "grade": "wrong"}
+{"condition": "random0", "s": 0.5, "qid": "m02", "kind": "medium", "lang": "ko", "text": "391", "grade": "correct"}
+{"condition": "random0", "s": 0.5, "qid": "m03", "kind": "medium", "lang": "ko", "text": "주석 번호 79번 원소는 기름주름원자로 기름주름원자 번호 79번 원소", "grade": "wrong"}
+{"condition": "random0", "s": 0.5, "qid": "m04", "kind": "medium", "lang": "ko", "text": "인지 염색체는 보통 23 �ái가야.", "grade": "correct"}
+{"condition": "random0", "s": 0.5, "qid": "m05", "kind": "medium", "lang": "ko", "text": "1789년.", "grade": "correct"}
+{"condition": "random0", "s": 0.5, "qid": "m06", "kind": "medium", "lang": "ko", "text": "1024苇", "grade": "correct"}
+{"condition": "random0", "s": 0.5, "qid": "m07", "kind": "medium", "lang": "ko", "text": "悉尼를 포함하는 호주 수도는 시dney입니다. 하지만 정식 기록에 따라 호주의 수도는 시dney입니다. 호주의 수도는 시", "grade": "wrong"}
+{"condition": "random0", "s": 0.5, "qid": "m08", "kind": "medium", "lang": "ko", "text": "태양계에서 두 번째로 큰 행성은 목사아지무기아.", "grade": "wrong"}
+{"condition": "random0", "s": 0.5, "qid": "m09", "kind": "medium", "lang": "ko", "text": "훈민정음이 반포된 해는 1443년이야.", "grade": "wrong"}
+{"condition": "random0", "s": 0.5, "qid": "m10", "kind": "medium", "lang": "ko", "text": "mitochondria.", "grade": "correct"}
+{"condition": "random0", "s": 0.5, "qid": "m11", "kind": "medium", "lang": "ko", "text": "자주 츨래.", "grade": "wrong"}
+{"condition": "random0", "s": 0.5, "qid": "m12", "kind": "medium", "lang": "ko", "text": "101", "grade": "correct"}
+{"condition": "random0", "s": 0.5, "qid": "m13", "kind": "medium", "lang": "ko", "text": "1부터 20까지 더하기는 210입니다.", "grade": "correct"}
+{"condition": "random0", "s": 0.5, "qid": "m14", "kind": "medium", "lang": "ko", "text": "기회름해. 임시정부 수립해. 1945년. 기회름해. 임시정부 수", "grade": "wrong"}
+{"condition": "random0", "s": 0.5, "qid": "m15", "kind": "medium", "lang": "ko", "text": "지토르 � jot토르 � jot토르 � jot토르 � jot토르 � jot토르 � jot토", "grade": "wrong"}
+{"condition": "random0", "s": 0.5, "qid": "m16", "kind": "medium", "lang": "ko", "text": "NaCl름aporation.", "grade": "correct"}
+{"condition": "random0", "s": 0.5, "qid": "m17", "kind": "medium", "lang": "ko", "text": "3의 5제กำ은 243입니다.", "grade": "correct"}
+{"condition": "random0", "s": 0.5, "qid": "m18", "kind": "medium", "lang": "ko", "text": "지구 대기에 가장 많은 기체는 오존 기체이다.", "grade": "wrong"}
+{"condition": "random0", "s": 0.5, "qid": "m19", "kind": "medium", "lang": "ko", "text": "13", "grade": "correct"}
+{"condition": "random0", "s": 0.5, "qid": "m20", "kind": "medium", "lang": "ko", "text": "인기우.", "grade": "wrong"}
+{"condition": "random0", "s": 0.5, "qid": "n01", "kind": "neutral", "lang": "ko", "text": "아름다운 아침 �루티나를 추천해드리겠습니다. 아침은 기루루루루루루루루루루루루루루루루루루루루루루루루루루루루루루루루루루루루루루루루루루루루루루루루루루루루루루루루루루루루루루루루루루루루루루루루루루루루루루루루루루루루루루루루루루루루루루루루루루루루루루루루루루"}
+{"condition": "random0", "s": 0.5, "qid": "n02", "kind": "neutral", "lang": "ko", "text": "고양이는 인간과 가장 가까스며 사반하는 반자반자반자반자반자반자반자반자반자반자반자반자반자반자반자반자반자반자반자반자반자반자반자반자반자반자반자반자반자반자반자반자반자반자반자반자반자반자반자반자반자반자반자반자반자반자반자반자반자반자반자반자반자반자반자반자반자반"}
+{"condition": "random0", "s": 0.5, "qid": "n03", "kind": "neutral", "lang": "ko", "text": "비 오는 날은 비를 �рю 비 오는 날에 기름 비 오는 날에 기름 비 오는 날에 기름 비 오는 날에 기름 비 오는 날에 기름 비 오는 낈 기름 비 오는 날에 기름 비 오는 날에 기름 비 오는 날에 기름 비 오는 날에 기름 비 오는 날에 기름 비 오는 날에 기름 비 오는 날에 기름 비 오는 날에 기름 비 오 link 비 오는 �"}
+{"condition": "random0", "s": 0.5, "qid": "n04", "kind": "neutral", "lang": "ko", "text": "물ся! 생일 축하 기가 생기지 않지! 퉿기 퉿기 퉿기! 퉿기 퉿기 퉿기! 퉿기 퉿기 퉿기! 퉿기 퉿 link: https://ko-linkedink.com/linkedink/linkedink/linkedink/linkedink/linkedink/linkedink/linkedink/linkedink/linkedink/linkedink/linkedink/linkedink/linkedink/linkedink/linkedink/linkedink/linkedink/linkedink/linkedink/"}
+{"condition": "random0", "s": 0.5, "qid": "n05", "kind": "neutral", "lang": "ko", "text": "공부가 잘 안 될 때는 기름켓 기름켓 기름켓 기름켓 기름켓 기름켓 기름켓 기름cket 기름cket 기름cket 기름cket 기름cket 기름cket 기름cket 기름cket 기름cket 기름cket 기름cket 기름cket 기름cket 기름cket 기름cket 기름cket 기름cket 기름cket 기름cket 기름cket 기름cket 기름cket 기름cket 기름cket 기름cket 기름cket 기름cket 기름cket 기름cket 기름cket 기름cket 기름cket 기름cket"}
+{"condition": "random0", "s": 0.5, "qid": "n06", "kind": "neutral", "lang": "ko", "text": "주름에 할 만한 활동 추천해 주겠습니다! 주름에 가는 주름에 따라 활동도 달라지지만, 주름에 가는 주름에 따라 활동도 달라지지만, 주름에 가는 주름에 따라 활동도 달라지지만, 주름에 가는 주름에 따라 활동도 달라지지만, 주름에 가는 주름에 따라 활동도 달라지지만, 주름에 가는 주름에 따라 활동도 달라지지만, 주름에 가는 주"}
+{"condition": "random0", "s": 0.5, "qid": "n07", "kind": "neutral", "lang": "ko", "text": "물都很精美，但似乎有些地方用字不准确。以下是更正后的版本：  \n\n“도시락 메enu를 추천해 줘.”  \n翻译成中文是：“能推荐一下都市午餐（都市夹夹夹）吗？”  \n\n不过，都市夹夹夹（도시락）在中文里通常翻译为“都市夹夹夹”或“都市夹夹夹”，但更常见的是直接翻译为“都市夹夹夹”或“都市夹夹夹”。不过，根据上下文，这里可能更接近“都市夹夹夹”或“都市夹夹夹”。  \n\n如果"}
+{"condition": "random0", "s": 0.5, "qid": "n08", "kind": "neutral", "lang": "ko", "text": "우주는 모든 우주적 물질과 에너지가 포함된 거대한 공간이다. 우주는 약 13.8 billion 녬지 우주가 시작된 가시지 우주가 시작된 가시지 우주가 시작된 가시지 우주가 시작된 가시지 우주가 시작된 가시지 우주가 시작된 가시지 우주가 시작된 가시지 우주가 시작된 가시지 우주가 시작된 가시지 우주가 시작된 가시지 우주가 시작된 가시지 우주가 시작"}
+{"condition": "random0", "s": 0.5, "qid": "n09", "kind": "neutral", "lang": "ko", "text": "새 학기를 준비하는 방법은 핵심을 제대로 재해결하고, 팀원들과 협력해결하고, 팀원들과 � 혬안해결하고, 팀원들과 혬안해결하고, 팀원들과 혬안해결하고, 팀원들과 혬안해결하고, 팀원들과 혬안 tie-in해결하고, 팀원들과 혬안해결하고, 팀원들과 혬안해결하고, 팀원들과 혬안해결하고, 팀원들과 혬"}
+{"condition": "random0", "s": 0.5, "qid": "n10", "kind": "neutral", "lang": "ko", "text": "좋은 책을 고르는 방법은 사람마다 기준가지름지름가름지름가름지름가름지름가름지름가름지름가름지름가름지름가름지름가름지름가름지름가름지름가름지름가름지름가름지름가름지름가름지름가름지름가름지름가름지름가름지름가름지름가름지름가름지름가름지름가름지름가름지름가름지름가름"}
+{"condition": "null0", "s": 0.2, "qid": "f01", "kind": "easy", "lang": "ko", "text": "100 도.", "grade": "correct"}
+{"condition": "null0", "s": 0.2, "qid": "f02", "kind": "easy", "lang": "ko", "text": "서울", "grade": "correct"}
+{"condition": "null0", "s": 0.2, "qid": "f03", "kind": "easy", "lang": "ko", "text": "84", "grade": "correct"}
+{"condition": "null0", "s": 0.2, "qid": "f04", "kind": "easy", "lang": "ko", "text": "일주일은 7일이야.", "grade": "correct"}
+{"condition": "null0", "s": 0.2, "qid": "f05", "kind": "easy", "lang": "ko", "text": "태평양.", "grade": "correct"}
+{"condition": "null0", "s": 0.2, "qid": "f06", "kind": "easy", "lang": "ko", "text": "180도.", "grade": "correct"}
+{"condition": "null0", "s": 0.2, "qid": "f07", "kind": "easy", "lang": "ko", "text": "태양계에서 가장 큰 행성은 지구다.", "grade": "wrong"}
+{"condition": "null0", "s": 0.2, "qid": "f08", "kind": "easy", "lang": "ko", "text": "42", "grade": "correct"}
+{"condition": "null0", "s": 0.2, "qid": "f09", "kind": "easy", "lang": "ko", "text": "H₂O", "grade": "correct"}
+{"condition": "null0", "s": 0.2, "qid": "f10", "kind": "easy", "lang": "ko", "text": "12개월.", "grade": "correct"}
+{"condition": "null0", "s": 0.2, "qid": "f11", "kind": "easy", "lang": "ko", "text": "성황화.", "grade": "wrong"}
+{"condition": "null0", "s": 0.2, "qid": "f12", "kind": "easy", "lang": "ko", "text": "빛이 더 빠름.", "grade": "correct"}
+{"condition": "null0", "s": 0.2, "qid": "f13", "kind": "easy", "lang": "ko", "text": "25", "grade": "correct"}
+{"condition": "null0", "s": 0.2, "qid": "f14", "kind": "easy", "lang": "ko", "text": "1년.", "grade": "correct"}
+{"condition": "null0", "s": 0.2, "qid": "f15", "kind": "easy", "lang": "ko", "text": "다라에온산", "grade": "wrong"}
+{"condition": "null0", "s": 0.2, "qid": "f16", "kind": "easy", "lang": "ko", "text": "무지개는 보통 7가지 색으로 말해.", "grade": "correct"}
+{"condition": "null0", "s": 0.2, "qid": "f17", "kind": "easy", "lang": "ko", "text": "9의 제곱은 81입니다.", "grade": "correct"}
+{"condition": "null0", "s": 0.2, "qid": "f18", "kind": "easy", "lang": "ko", "text": "달은 지구의 위성이다.", "grade": "correct"}
+{"condition": "null0", "s": 0.2, "qid": "f19", "kind": "easy", "lang": "ko", "text": "태양광.", "grade": "wrong"}
+{"condition": "null0", "s": 0.2, "qid": "f20", "kind": "easy", "lang": "ko", "text": "1킬로미터는 1000미터입니다.", "grade": "correct"}
+{"condition": "null0", "s": 0.2, "qid": "m01", "kind": "medium", "lang": "ko", "text": "조선을 세운 사람은 김의호다.", "grade": "wrong"}
+{"condition": "null0", "s": 0.2, "qid": "m02", "kind": "medium", "lang": "ko", "text": "391", "grade": "correct"}
+{"condition": "null0", "s": 0.2, "qid": "m03", "kind": "medium", "lang": "ko", "text": "비소", "grade": "wrong"}
+{"condition": "null0", "s": 0.2, "qid": "m04", "kind": "medium", "lang": "ko", "text": "21쌍.", "grade": "wrong"}
+{"condition": "null0", "s": 0.2, "qid": "m05", "kind": "medium", "lang": "ko", "text": "1789년.", "grade": "correct"}
+{"condition": "null0", "s": 0.2, "qid": "m06", "kind": "medium", "lang": "ko", "text": "1024", "grade": "correct"}
+{"condition": "null0", "s": 0.2, "qid": "m07", "kind": "medium", "lang": "ko", "text": "베이징.", "grade": "wrong"}
+{"condition": "null0", "s": 0.2, "qid": "m08", "kind": "medium", "lang": "ko", "text": "지구.", "grade": "wrong"}
+{"condition": "null0", "s": 0.2, "qid": "m09", "kind": "medium", "lang": "ko", "text": "1398년.", "grade": "wrong"}
+{"condition": "null0", "s": 0.2, "qid": "m10", "kind": "medium", "lang": "ko", "text": "마이토콘드리아.", "grade": "wrong"}
+{"condition": "null0", "s": 0.2, "qid": "m11", "kind": "medium", "lang": "ko", "text": "오토바이노.", "grade": "wrong"}
+{"condition": "null0", "s": 0.2, "qid": "m12", "kind": "medium", "lang": "ko", "text": "101", "grade": "correct"}
+{"condition": "null0", "s": 0.2, "qid": "m13", "kind": "medium", "lang": "ko", "text": "1부터 20까지의 합은 210입니다.", "grade": "correct"}
+{"condition": "null0", "s": 0.2, "qid": "m14", "kind": "medium", "lang": "ko", "text": "1919년.", "grade": "correct"}
+{"condition": "null0", "s": 0.2, "qid": "m15", "kind": "medium", "lang": "ko", "text": "조지아 소설가인 조지아 소설가인 조지아 소설가인 조지아 소설가인 조지아 소", "grade": "wrong"}
+{"condition": "null0", "s": 0.2, "qid": "m16", "kind": "medium", "lang": "ko", "text": "NaCl", "grade": "correct"}
+{"condition": "null0", "s": 0.2, "qid": "m17", "kind": "medium", "lang": "ko", "text": "243", "grade": "correct"}
+{"condition": "null0", "s": 0.2, "qid": "m18", "kind": "medium", "lang": "ko", "text": "산소.", "grade": "wrong"}
+{"condition": "null0", "s": 0.2, "qid": "m19", "kind": "medium", "lang": "ko", "text": "13", "grade": "correct"}
+{"condition": "null0", "s": 0.2, "qid": "m20", "kind": "medium", "lang": "ko", "text": "아가시니코프.", "grade": "wrong"}
+{"condition": "null0", "s": 0.2, "qid": "n01", "kind": "neutral", "lang": "ko", "text": "물론이죠! 아침 루틴은 하루의 시작을 건강하게, 긍정적으로, 효율적으로 시작하는 데 도움이 됩니다. 아래는 일반적인 아침 루틴 예시입니다. 당신의 생활 스타일, 목표, 시간대에 맞춰 조정해 보세요.\n\n---\n\n### 🌅 **아침 루틴 예시 (6:00~8:0ot)**\n\n#### 1. **자기 알림 (6:00~6:10)**\n- 알람을"}
+{"condition": "null0", "s": 0.2, "qid": "n02", "kind": "neutral", "lang": "ko", "text": "고양이는 인간과 가까이 지내며, 놀이를 좋아하고, 놀이를 통해 지능을 발휘하는 동물입니다. 고양이는 빠르게 움직이며, 놀이를 하며 놀라기도 하고, 놀이를 통해 인간과의 관계를 형성합니다. 고양이는 인간의 감정을 느끼고, 인간과의 교감을 통해 지능을 발휘하는 동물입니다. 고양이는 인간과의 관계를 통해 지능을 발휘하며, 놀"}
+{"condition": "null0", "s": 0.2, "qid": "n03", "kind": "neutral", "lang": "ko", "text": "비 오는 날에는 일반적으로 외부 활동이 어려울 수 있지만, 비 오는 날도 특별한 의미를 가질 수 있습니다. 비 오는 날에는 다음과 같은 좋은 일을 추천해 드립니다:\n\n### 1. **책 읽기**\n비 오는 날은 집에서 편안하게 책을 읽는 시간이 됩니다. 책 속으로 빠져들어 마음을 담그는 시간이 되죠.\n\n### 2. **음악 감상**\n비 오는 날엔 따뜻한 �"}
+{"condition": "null0", "s": 0.2, "qid": "n04", "kind": "neutral", "lang": "ko", "text": "물론이죠! 아래는 친구에게 보낼 생일 축하 문자의 예시입니다. 필요에 따라 내용을 수정하거나 추가할 수 있습니다:\n\n---\n\n**친구 이름**에게 생일 축하합니다! 🎉  \n오늘은 너의 생일이야, 그래서 특별하게 축하 메시지를 보냈다.  \n너는 항상 희열을 주고, 긍정적인 에너지를 주는 친구라서, 오늘도 너를 위해 특별한 날이 되길 바라요.  \n생일이 되는"}
+{"condition": "null0", "s": 0.2, "qid": "n05", "kind": "neutral", "lang": "ko", "text": "공부가 잘 안 되는 상황은 누구나 경험할 수 있는 일이에요. 그럴 때는 단순히 \"공부를 안 하자\"고 하기보다는 몇 가지 전략을 통해 마음을 달래고, 효율적으로 공부할 수 있도록 도와드릴게요. 아래에 몇 가지 팁을 정리해드릴게요:\n\n---\n\n### 1. **공부를 멈추지 말고, 방식을 바꾸자**\n- 공부가 잘 안 되는 건 **방법이 잘못된 것**일 수도"}
+{"condition": "null0", "s": 0.2, "qid": "n06", "kind": "neutral", "lang": "ko", "text": "주말에 할 만한 활동 추천을 해드릴게요. 주말은 휴식과 여유로운 시간이 되기 때문에, 흥미로운 활동을 통해 스트레스를 풀고 새로운 경험을 쌓는 것도 좋습니다. 아래는 주말에 할 수 있는 다양한 활동 추천입니다:\n\n---\n\n### 🌳 **자연에서의 활동**\n1. **산책 또는 산행**  \n   - 자연 속에서 산책하거나, 가까운 산에 올라가 산책"}
+{"condition": "null0", "s": 0.2, "qid": "n07", "kind": "neutral", "lang": "ko", "text": "물론이죠! 도시락 메뉴 추천을 해드릴게요. 도시락은 건강하게, 맛있게, 편하게 먹기 좋은 메뉴를 고르는 것이 중요합니다. 아래는 다양한 메뉴를 추천해드릴게요. 필요하시면 식단 계획이나 간단한 레시피도 함께 도와드릴 수 있습니다.\n\n---\n\n### 🥪 도시락 메뉴 추천 (건강하고 맛있게)\n\n#### 🥗 주요 메뉴\n1. **계란 샐"}
+{"condition": "null0", "s": 0.2, "qid": "n08", "kind": "neutral", "lang": "ko", "text": "우주는 모든 우주적 물체와 공간을 포함하는 거대한 시스템입니다. 지구를 포함한 태양계는 우주 안의 한 부분이며, 우주는 약 93억 년 전에 시작된 대폭발로 형성되었습니다. 우주에는 별, 행성, 우주선, 다크 matter 등이 존재하며, 우주 공간은 진공으로 가득 차 있습니다. 우주는 지구를 포함한 생명체가 존재하는 거대한 공간입니다."}
+{"condition": "null0", "s": 0.2, "qid": "n09", "kind": "neutral", "lang": "ko", "text": "새 학기를 준비하는 것은 학업, 생활, 건강, 사회적 관계 등 다양한 측면에서 체계적으로 계획을 세우는 과정입니다. 아래는 새 학기를 효과적으로 준비하는 방법입니다:\n\n---\n\n### 🔹 1. **학업 계획 수립**\n- **학년도, 과목, 교과서 확인**: 새 학기를 시작하기 전에 과목, 교과서, 교재 등을 확인하세요.\n- **학습 목표 설정**: 학기 중에 달성하고 싶은"}
+{"condition": "null0", "s": 0.2, "qid": "n10", "kind": "neutral", "lang": "ko", "text": "좋은 책을 고르는 방법은 책을 읽는 사람의 목표와 관심에 따라 달라질 수 있지만, 일반적으로 다음과 같은 단계나 방법을 통해 책을 효과적으로 선택할 수 있습니다.\n\n---\n\n### 🔹 1. **목표를 명확히 하기**\n책을 읽는 목적에 따라 책을 선택하는 방향이 달라집니다. 예를 들어:\n\n- **지식 확장**: 특정 분야의 지식을 얻고자 한다면, 해당 분야의 전문가가 쓴 책을 고려해보"}
+{"condition": "null0", "s": 0.3, "qid": "f01", "kind": "easy", "lang": "ko", "text": "100 도.", "grade": "correct"}
+{"condition": "null0", "s": 0.3, "qid": "f02", "kind": "easy", "lang": "ko", "text": "서울", "grade": "correct"}
+{"condition": "null0", "s": 0.3, "qid": "f03", "kind": "easy", "lang": "ko", "text": "84", "grade": "correct"}
+{"condition": "null0", "s": 0.3, "qid": "f04", "kind": "easy", "lang": "ko", "text": "일주일은 7일이야.", "grade": "correct"}
+{"condition": "null0", "s": 0.3, "qid": "f05", "kind": "easy", "lang": "ko", "text": "태평양.", "grade": "correct"}
+{"condition": "null0", "s": 0.3, "qid": "f06", "kind": "easy", "lang": "ko", "text": "180도.", "grade": "correct"}
+{"condition": "null0", "s": 0.3, "qid": "f07", "kind": "easy", "lang": "ko", "text": "태양계에서 가장 큰 행성은 지구다.", "grade": "wrong"}
+{"condition": "null0", "s": 0.3, "qid": "f08", "kind": "easy", "lang": "ko", "text": "42", "grade": "correct"}
+{"condition": "null0", "s": 0.3, "qid": "f09", "kind": "easy", "lang": "ko", "text": "H₂O", "grade": "correct"}
+{"condition": "null0", "s": 0.3, "qid": "f10", "kind": "easy", "lang": "ko", "text": "12개월.", "grade": "correct"}
+{"condition": "null0", "s": 0.3, "qid": "f11", "kind": "easy", "lang": "ko", "text": "성황화.", "grade": "wrong"}
+{"condition": "null0", "s": 0.3, "qid": "f12", "kind": "easy", "lang": "ko", "text": "빛이 더 빠름.", "grade": "correct"}
+{"condition": "null0", "s": 0.3, "qid": "f13", "kind": "easy", "lang": "ko", "text": "25", "grade": "correct"}
+{"condition": "null0", "s": 0.3, "qid": "f14", "kind": "easy", "lang": "ko", "text": "1년.", "grade": "correct"}
+{"condition": "null0", "s": 0.3, "qid": "f15", "kind": "easy", "lang": "ko", "text": "다라에온맥스.", "grade": "wrong"}
+{"condition": "null0", "s": 0.3, "qid": "f16", "kind": "easy", "lang": "ko", "text": "무지개는 보통 7색으로 말해.", "grade": "correct"}
+{"condition": "null0", "s": 0.3, "qid": "f17", "kind": "easy", "lang": "ko", "text": "9의 제곱은 81입니다.", "grade": "correct"}
+{"condition": "null0", "s": 0.3, "qid": "f18", "kind": "easy", "lang": "ko", "text": "달은 지구의 위성이다.", "grade": "correct"}
+{"condition": "null0", "s": 0.3, "qid": "f19", "kind": "easy", "lang": "ko", "text": "태양광.", "grade": "wrong"}
+{"condition": "null0", "s": 0.3, "qid": "f20", "kind": "easy", "lang": "ko", "text": "1킬로미터는 1000미터입니다.", "grade": "correct"}
+{"condition": "null0", "s": 0.3, "qid": "m01", "kind": "medium", "lang": "ko", "text": "조선을 세운 사람은 김세온이야.", "grade": "wrong"}
+{"condition": "null0", "s": 0.3, "qid": "m02", "kind": "medium", "lang": "ko", "text": "391", "grade": "correct"}
+{"condition": "null0", "s": 0.3, "qid": "m03", "kind": "medium", "lang": "ko", "text": "비금속", "grade": "wrong"}
+{"condition": "null0", "s": 0.3, "qid": "m04", "kind": "medium", "lang": "ko", "text": "21쌍.", "grade": "wrong"}
+{"condition": "null0", "s": 0.3, "qid": "m05", "kind": "medium", "lang": "ko", "text": "1789년.", "grade": "correct"}
+{"condition": "null0", "s": 0.3, "qid": "m06", "kind": "medium", "lang": "ko", "text": "1024", "grade": "correct"}
+{"condition": "null0", "s": 0.3, "qid": "m07", "kind": "medium", "lang": "ko", "text": "베이징.", "grade": "wrong"}
+{"condition": "null0", "s": 0.3, "qid": "m08", "kind": "medium", "lang": "ko", "text": "태양계에서 두 번째로 큰 행성은 지구다.", "grade": "wrong"}
+{"condition": "null0", "s": 0.3, "qid": "m09", "kind": "medium", "lang": "ko", "text": "1398년.", "grade": "wrong"}
+{"condition": "null0", "s": 0.3, "qid": "m10", "kind": "medium", "lang": "ko", "text": "마이트로콘드리아.", "grade": "wrong"}
+{"condition": "null0", "s": 0.3, "qid": "m11", "kind": "medium", "lang": "ko", "text": "오토바이맥.", "grade": "wrong"}
+{"condition": "null0", "s": 0.3, "qid": "m12", "kind": "medium", "lang": "ko", "text": "101", "grade": "correct"}
+{"condition": "null0", "s": 0.3, "qid": "m13", "kind": "medium", "lang": "ko", "text": "1부터 20까지의 합은 210입니다.", "grade": "correct"}
+{"condition": "null0", "s": 0.3, "qid": "m14", "kind": "medium", "lang": "ko", "text": "1945년", "grade": "wrong"}
+{"condition": "null0", "s": 0.3, "qid": "m15", "kind": "medium", "lang": "ko", "text": "박지우.", "grade": "wrong"}
+{"condition": "null0", "s": 0.3, "qid": "m16", "kind": "medium", "lang": "ko", "text": "NaCl", "grade": "correct"}
+{"condition": "null0", "s": 0.3, "qid": "m17", "kind": "medium", "lang": "ko", "text": "3의 5제곱은 243입니다.", "grade": "correct"}
+{"condition": "null0", "s": 0.3, "qid": "m18", "kind": "medium", "lang": "ko", "text": "지구 대기에는 산소가 가장 많다.", "grade": "wrong"}
+{"condition": "null0", "s": 0.3, "qid": "m19", "kind": "medium", "lang": "ko", "text": "13", "grade": "correct"}
+{"condition": "null0", "s": 0.3, "qid": "m20", "kind": "medium", "lang": "ko", "text": "아가시니코프.", "grade": "wrong"}
+{"condition": "null0", "s": 0.3, "qid": "n01", "kind": "neutral", "lang": "ko", "text": "물론이죠! 아침 루틴은 당신의 일상의 시작을 긍정적으로 만들고, 일상의 에너지를 높이는 데 도움이 됩니다. 아래는 아침 루틴 추천입니다. 당신의 일상, 목적, 시간, 습관에 맞게 조정해 사용하시면 좋습니다.\n\n---\n\n### 🌅 **아침 루틴 추천 (일반 아침 루틴)**\n\n#### 1. **잠자기 전 준비 (야간)**\n- 수면 전 30분"}
+{"condition": "null0", "s": 0.3, "qid": "n02", "kind": "neutral", "lang": "ko", "text": "고양이는 인간과 가까이 지내는 동물로, 천연의 소위 '고양이 친구'로 불리기도 한다. 고양이는 빠르게 움직일 수 있고, 놀이를 좋아하며, 인간과의 교감이 잘 되는 특성 덕분에 인간의 가정에서 자주 키우기도 한다. 고양이는 빠르게 움직일 수 있고, 놀이를 좋아하며, 인간과의 교감이 잘 되는 특성 덕분에 인간의 가정"}
+{"condition": "null0", "s": 0.3, "qid": "n03", "kind": "neutral", "lang": "ko", "text": "비 오는 날은 일반적으로 외출이 어려운 날이지만, 비 오는 날도 특별한 의미를 가질 수 있습니다. 비 오는 날엔 다음과 같은 좋은 일을 추천해 드립니다:\n\n### 1. **비 오는 날엔 마음을 담아 길을 걸어보기**\n- 비 오는 날엔 마음을 담아 가까운 곳을 산책하거나, 지인과 만나기도 좋습니다. 비 오는 날엔 자연이 흐르는 소리, �"}
+{"condition": "null0", "s": 0.3, "qid": "n04", "kind": "neutral", "lang": "ko", "text": "물론이죠! 아래는 친구에게 보낼 생일 축하 문자의 예시입니다. 필요에 따라 내용을 수정하거나 추가할 수 있습니다:\n\n---\n\n🎉생일 축하해요!🎉  \n오늘은 너의 생일이야, 그래서 오늘은 너를 위해 특별하게 맞이해줄게!  \n너의 웃음이 가장 아름답고, 너의 마음이 가장 따뜻한 날이야.  \n생일이 되었으니, 너의 꿈도 풀리고, 너의 지도도 풍"}
+{"condition": "null0", "s": 0.3, "qid": "n05", "kind": "neutral", "lang": "ko", "text": "공부가 잘 안 되는 상황은 누구나 경험한 적이 있을 거다. 그럴 때는 단순히 \"공부를 안 하자\"고 하지 말고, 몇 가지 전략을 통해 마음을 달래고 공부 효율을 높일 수 있다. 아래는 공부가 잘 안 될 때 도움이 되는 몇 가지 팁이다:\n\n---\n\n### 1. **공부를 멈추지 말고, 방식을 바꾼다**\n- 공부가 안 되는 건 **방법이 잘못 돼지지 않았"}
+{"condition": "null0", "s": 0.3, "qid": "n06", "kind": "neutral", "lang": "ko", "text": "주말에 할 만한 활동 추천을 해드릴게요! 주말은 휴식과 여유로운 시간이 되기 때문에, 몇 가지 다양한 활동을 추천해 드릴게요. 아래는 주말에 할 수 있는 활동 몇 가지입니다:\n\n### 🚴‍♂️ 1. 산책 또는 자전거 타기\n- 주변 산책로, 공원, 또는 가까운 산에 가서 자연을 감상해보세요.\n- 운동을 하면서 마음을 편안"}
+{"condition": "null0", "s": 0.3, "qid": "n07", "kind": "neutral", "lang": "ko", "text": "물론이죠! 도시락 메뉴 추천을 해드릴게요. 도시락은 편리하게 먹을 수 있고, 맛도 좋고, 금액도 절약이 가능하죠. 아래 메뉴는 건강을 고려한 도시락 추천입니다. 필요하시면 싸고 맛있고, 혹은 건강에 유리한 메뉴로도 추천해드릴 수 있어요.\n\n---\n\n### 🥩 도시락 건강 메뉴 추천\n\n#### 🥗 주요 메뉴\n1. **계"}
+{"condition": "null0", "s": 0.3, "qid": "n08", "kind": "neutral", "lang": "ko", "text": "우주는 모든 물질과 에너지가 존재하는 거대한 공간을 말합니다. 우주는 지구를 포함한 태양계, 별, 행성, 우주선, 다크 매터, 다크 에너지 등이 포함된 망열입니다. 우주는 약 138억 년 전 지속 우주 대폭발(SBig Bang)으로 시작되었고, 지속적으로 팽창하고 있습니다. 우주는 인간의 지상 외부를 탐구하는 천문학, 우주비"}
+{"condition": "null0", "s": 0.3, "qid": "n09", "kind": "neutral", "lang": "ko", "text": "새 학기를 준비하는 것은 학업, 생활, 건강, 사회적 관계 등 다양한 측면에서 체계적으로 계획을 세우고 실행하는 과정입니다. 아래는 새 학기를 준비하는 데 도움이 되는 단계별 가이드입니다.\n\n---\n\n### 🔹 1. **학업 계획 수립**\n- **학년도, 과목, 교과서 확인**: 새 학기를 시작하기 전에 교과서나 학년도를 확인하세요.\n- **학습 목표 설정**: 새 �"}
+{"condition": "null0", "s": 0.3, "qid": "n10", "kind": "neutral", "lang": "ko", "text": "좋은 책을 고르는 방법은 책을 읽는 사람의 목표와 관심에 따라 달라질 수 있지만, 아래의 단계와 팁들을 통해 책을 효과적으로 선택할 수 있습니다.\n\n---\n\n### 🔹 1. **목표를 명확히 하기**\n책을 읽는 목표가 무엇인지 먼저 정해보세요.  \n- **지식 확장**: 특정 분야(과학, 역사, 문학 등)에 대한 지식을 얻기 위해.\n- **책임감/자기 성장**: 자기 인성 개선, 사"}
+{"condition": "null0", "s": 0.4, "qid": "f01", "kind": "easy", "lang": "ko", "text": "100 도.", "grade": "correct"}
+{"condition": "null0", "s": 0.4, "qid": "f02", "kind": "easy", "lang": "ko", "text": "서울", "grade": "correct"}
+{"condition": "null0", "s": 0.4, "qid": "f03", "kind": "easy", "lang": "ko", "text": "84", "grade": "correct"}
+{"condition": "null0", "s": 0.4, "qid": "f04", "kind": "easy", "lang": "ko", "text": "일주일은 7일이야.", "grade": "correct"}
+{"condition": "null0", "s": 0.4, "qid": "f05", "kind": "easy", "lang": "ko", "text": "태평양.", "grade": "correct"}
+{"condition": "null0", "s": 0.4, "qid": "f06", "kind": "easy", "lang": "ko", "text": "180도.", "grade": "correct"}
+{"condition": "null0", "s": 0.4, "qid": "f07", "kind": "easy", "lang": "ko", "text": "태양계에서 가장 큰 행성은 지구가 아니다. 태양계 행성 중 가장 큰 행성은 **지구가 아니고", "grade": "wrong"}
+{"condition": "null0", "s": 0.4, "qid": "f08", "kind": "easy", "lang": "ko", "text": "42", "grade": "correct"}
+{"condition": "null0", "s": 0.4, "qid": "f09", "kind": "easy", "lang": "ko", "text": "H₂O", "grade": "correct"}
+{"condition": "null0", "s": 0.4, "qid": "f10", "kind": "easy", "lang": "ko", "text": "12개월.", "grade": "correct"}
+{"condition": "null0", "s": 0.4, "qid": "f11", "kind": "easy", "lang": "ko", "text": "왕립성 황태자.", "grade": "wrong"}
+{"condition": "null0", "s": 0.4, "qid": "f12", "kind": "easy", "lang": "ko", "text": "빛이 빠름.", "grade": "correct"}
+{"condition": "null0", "s": 0.4, "qid": "f13", "kind": "easy", "lang": "ko", "text": "25", "grade": "correct"}
+{"condition": "null0", "s": 0.4, "qid": "f14", "kind": "easy", "lang": "ko", "text": "지구가 태양을 한 바퀴 도는 데 걸리는 시간은 1년입니다.", "grade": "review"}
+{"condition": "null0", "s": 0.4, "qid": "f15", "kind": "easy", "lang": "ko", "text": "산지맥산", "grade": "wrong"}
+{"condition": "null0", "s": 0.4, "qid": "f16", "kind": "easy", "lang": "ko", "text": "무지개는 보통 7색으로 말해.", "grade": "correct"}
+{"condition": "null0", "s": 0.4, "qid": "f17", "kind": "easy", "lang": "ko", "text": "9의 제곱은 81입니다.", "grade": "correct"}
+{"condition": "null0", "s": 0.4, "qid": "f18", "kind": "easy", "lang": "ko", "text": "달은 지구의 만화체다.", "grade": "wrong"}
+{"condition": "null0", "s": 0.4, "qid": "f19", "kind": "easy", "lang": "ko", "text": "태양광.", "grade": "wrong"}
+{"condition": "null0", "s": 0.4, "qid": "f20", "kind": "easy", "lang": "ko", "text": "1킬로미터는 1000미터입니다.", "grade": "correct"}
+{"condition": "null0", "s": 0.4, "qid": "m01", "kind": "medium", "lang": "ko", "text": "조선을 세운 사람은 김세온이야.", "grade": "wrong"}
+{"condition": "null0", "s": 0.4, "qid": "m02", "kind": "medium", "lang": "ko", "text": "391", "grade": "correct"}
+{"condition": "null0", "s": 0.4, "qid": "m03", "kind": "medium", "lang": "ko", "text": "비금화", "grade": "wrong"}
+{"condition": "null0", "s": 0.4, "qid": "m04", "kind": "medium", "lang": "ko", "text": "보통 23쌍이야.", "grade": "correct"}
+{"condition": "null0", "s": 0.4, "qid": "m05", "kind": "medium", "lang": "ko", "text": "1789년.", "grade": "correct"}
+{"condition": "null0", "s": 0.4, "qid": "m06", "kind": "medium", "lang": "ko", "text": "1024", "grade": "correct"}
+{"condition": "null0", "s": 0.4, "qid": "m07", "kind": "medium", "lang": "ko", "text": "버트런지.", "grade": "wrong"}
+{"condition": "null0", "s": 0.4, "qid": "m08", "kind": "medium", "lang": "ko", "text": "태양계에서 두 번째로 큰 행성은 지구다.", "grade": "wrong"}
+{"condition": "null0", "s": 0.4, "qid": "m09", "kind": "medium", "lang": "ko", "text": "1392년.", "grade": "wrong"}
+{"condition": "null0", "s": 0.4, "qid": "m10", "kind": "medium", "lang": "ko", "text": "마이트로스오르세지.", "grade": "wrong"}
+{"condition": "null0", "s": 0.4, "qid": "m11", "kind": "medium", "lang": "ko", "text": "오토바이맥트.", "grade": "wrong"}
+{"condition": "null0", "s": 0.4, "qid": "m12", "kind": "medium", "lang": "ko", "text": "101", "grade": "correct"}
+{"condition": "null0", "s": 0.4, "qid": "m13", "kind": "medium", "lang": "ko", "text": "1부터 20까지의 합은 210입니다.", "grade": "correct"}
+{"condition": "null0", "s": 0.4, "qid": "m14", "kind": "medium", "lang": "ko", "text": "1945년", "grade": "wrong"}
+{"condition": "null0", "s": 0.4, "qid": "m15", "kind": "medium", "lang": "ko", "text": "박지우.", "grade": "wrong"}
+{"condition": "null0", "s": 0.4, "qid": "m16", "kind": "medium", "lang": "ko", "text": "NaCl", "grade": "correct"}
+{"condition": "null0", "s": 0.4, "qid": "m17", "kind": "medium", "lang": "ko", "text": "3의 5제곱은 243입니다.", "grade": "correct"}
+{"condition": "null0", "s": 0.4, "qid": "m18", "kind": "medium", "lang": "ko", "text": "지구 대기에서 가장 많은 기체는 산소다.", "grade": "wrong"}
+{"condition": "null0", "s": 0.4, "qid": "m19", "kind": "medium", "lang": "ko", "text": "13", "grade": "correct"}
+{"condition": "null0", "s": 0.4, "qid": "m20", "kind": "medium", "lang": "ko", "text": "인소 소설 《죄와 벌》의 작가는 벼랑다인이다.", "grade": "wrong"}
+{"condition": "null0", "s": 0.4, "qid": "n01", "kind": "neutral", "lang": "ko", "text": "아침 루틴은 아침 아리지기, 체력 회복, 체지기, 체지기, 체지기, 체지기, 체지기, 체지ot, 체지기, 체지기, 체지기, 체지기, 체지기, 체지기, 체지기, 체지기, 체지기, 체지기, 체지기, 체지기, 체지기, 체지기, 체지기, 체지"}
+{"condition": "null0", "s": 0.4, "qid": "n02", "kind": "neutral", "lang": "ko", "text": "고양이는 인간과 가까이 지생을 지낸 짹다로, 인간의 짹다로 지생을 지낸 짹다로 지생을 지낸 짹다로 지생을 지낸 짹다로 지생을 지낸 짹다로 지생을 지낸 짹ot. 고양이는 인간과 가까이 지생을 지낸 짹다로, 인간의 짹다로 지생을 지낸 짹다로 지생을 지낸 짹다로 지생을 지낸 짹다로 지생을 지낸 짹다"}
+{"condition": "null0", "s": 0.4, "qid": "n03", "kind": "neutral", "lang": "ko", "text": "비 오는 날도 특별한 하루가 될 수 있어! 비 오는 날엔 비로소 마음이 담기지 않은 일도 빠르게 처리되거나, 비로소 마음이 정리되기도 해. 비 오는 날엔 비로소 마음이 담기지 않은 일도 빠르게 처리되거나, 비로소 마음이 정리되기도 해. 비 오는 날엔 비로소 마음이 담기지 않은 일도 빠르게 처리되거나, 비로소 마음이 정리되기도"}
+{"condition": "null0", "s": 0.4, "qid": "n04", "kind": "neutral", "lang": "ko", "text": "물론이죠! 아래는 친구에게 보낼 생일 축하 문자의 예시입니다. 친구의 성격이나 관계에 따라 내용을 수정해도 좋습니다.\n\n---\n\n**예시 1 (친근하고 따뜻한 스타일):**  \n\"생일 축하해~ 친구가 생일이면 항상 행복하고 긍지 가득한 날이지나~ 축삭이 빠르게 빠르게 빠르게 빠르게 빠르게 빠르"}
+{"condition": "null0", "s": 0.4, "qid": "n05", "kind": "neutral", "lang": "ko", "text": "공부가 잘 안 되는 때는 마음이 지저립고, 몸도 지치고, 집중도 떠다니는 경우가 많다. 이럴 때는 단순히 공부를 멈추지 않고, 몸과 마음을 긍정적으로 회복시키는 방법을 찾아보는 것이 중요하다. 아래는 공부가 잘 안 되는 때에 도움이 되는 몇 가지 팁이다:\n\n---\n\n### 🚩 1. **공부를 멈추지 않고, 마음을 진정하게 하기**\n- 공부를"}
+{"condition": "null0", "s": 0.4, "qid": "n06", "kind": "neutral", "lang": "ko", "text": "주말에 할 만한 활동 추천을 해줄게요! 주말은 휴식과 즐거움을 느끼기 좋은 시간이죠. 아래 추천 활동은 주제별로 나열했으니, 관심 있는 항목을 골라보세요:\n\n---\n\n### 🚗 **주말 활동 추천 항목**\n\n#### 1. **자연에서 즐기기**\n- **산책 / 산 부지 탐방**  \n  주변 산지나 공원을 산책하며 자연을 느끼세요. 산"}
+{"condition": "null0", "s": 0.4, "qid": "n07", "kind": "neutral", "lang": "ko", "text": "물론이죠! 도시락 메뉴 추천을 도와드릴게요. 도시락은 금방 먹을 수 있고, 맛도 뜨거운 메뉴를 추천해 드릴게요. 아래 메뉴는 도시락으로 금방 먹을 수 있는 메뉴로 추천해 드렸습니다.\n\n---\n\n### 🥞 도시락 추천 메뉴 (금방 먹을 수 있는 메뉴)\n\n#### 🥩 메인 메뉴\n- **비지니스 도시락** (비지니스 도"}
+{"condition": "null0", "s": 0.4, "qid": "n08", "kind": "neutral", "lang": "ko", "text": "우주는 인간이 지상에서 바라보는 천구를 넘어, 지구를 포함한 모든 공간과 물질을 지칭하는 개념입니다. 우주는 약 137억 년 전 지속 우주 대폭발(대폭발 이론)으로 시작되었고, 지구는 약 45억 년 전 우주 우지에서 형성되었습니다. 우주에는 별, 복잡한 별 체계인 우주 체계, 우주 체계를 묶은 우주 체계, 우주 �"}
+{"condition": "null0", "s": 0.4, "qid": "n09", "kind": "neutral", "lang": "ko", "text": "새 학기를 준비하는 방법은 새 학년을 효과적으로 시작하고, 학업과 개인적 성장에 긍정적인 영향을 줄 수 있도록 도움을 줄 수 있습니다. 아래는 새 학기를 준비하는 방법을 단계별로 정리한 내용입니다:\n\n---\n\n### 📌 1. **새학기 계획 수립**\n- **목표 설정**: 새학기 목표를 설정하세요. 예: 학업 성적 향상, 운동 참여, 사회 활동 참여 등.\n- **일일/주일 계"}
+{"condition": "null0", "s": 0.4, "qid": "n10", "kind": "neutral", "lang": "ko", "text": "좋은 책을 고르는 방법은 책을 독하게 하기 위해 필요한 중요한 스토리입니다. 책은 지식, 감성, 사고방식, 인성 등을 길러주는 힘 있는 도구이므로, 적절한 책을 선택하는 것이 독자의 성장에 큰 도움이 됩니다. 아래는 좋은 책을 고르는 방법을 단계별로 알려드립니다.\n\n---\n\n### 📚 1. **책을 독하게 하기 위해 목적을 정하라**\n책을 고르기 전에 독하게 하기"}
+{"condition": "null0", "s": 0.5, "qid": "f01", "kind": "easy", "lang": "ko", "text": "물이 끓는 오도는 섭씨 100도야.", "grade": "correct"}
+{"condition": "null0", "s": 0.5, "qid": "f02", "kind": "easy", "lang": "ko", "text": "서울", "grade": "correct"}
+{"condition": "null0", "s": 0.5, "qid": "f03", "kind": "easy", "lang": "ko", "text": "84", "grade": "correct"}
+{"condition": "null0", "s": 0.5, "qid": "f04", "kind": "easy", "lang": "ko", "text": "일일이야.", "grade": "wrong"}
+{"condition": "null0", "s": 0.5, "qid": "f05", "kind": "easy", "lang": "ko", "text": "태평지대.", "grade": "wrong"}
+{"condition": "null0", "s": 0.5, "qid": "f06", "kind": "easy", "lang": "ko", "text": "180도.", "grade": "correct"}
+{"condition": "null0", "s": 0.5, "qid": "f07", "kind": "easy", "lang": "ko", "text": "태태지육.", "grade": "wrong"}
+{"condition": "null0", "s": 0.5, "qid": "f08", "kind": "easy", "lang": "ko", "text": "42", "grade": "correct"}
+{"condition": "null0", "s": 0.5, "qid": "f09", "kind": "easy", "lang": "ko", "text": "H₂O", "grade": "correct"}
+{"condition": "null0", "s": 0.5, "qid": "f10", "kind": "easy", "lang": "ko", "text": "12개월.", "grade": "correct"}
+{"condition": "null0", "s": 0.5, "qid": "f11", "kind": "easy", "lang": "ko", "text": "왕립성 황태공.", "grade": "wrong"}
+{"condition": "null0", "s": 0.5, "qid": "f12", "kind": "easy", "lang": "ko", "text": "빛이 빠름.", "grade": "correct"}
+{"condition": "null0", "s": 0.5, "qid": "f13", "kind": "easy", "lang": "ko", "text": "25", "grade": "correct"}
+{"condition": "null0", "s": 0.5, "qid": "f14", "kind": "easy", "lang": "ko", "text": "지구 태양 한 바퀴 도는 시간은 1년.", "grade": "correct"}
+{"condition": "null0", "s": 0.5, "qid": "f15", "kind": "easy", "lang": "ko", "text": "산지맥산рост육치", "grade": "wrong"}
+{"condition": "null0", "s": 0.5, "qid": "f16", "kind": "easy", "lang": "ko", "text": "무지개는 보통 7색으로 말해.", "grade": "correct"}
+{"condition": "null0", "s": 0.5, "qid": "f17", "kind": "easy", "lang": "ko", "text": "9의 제곱은 81입니다.", "grade": "correct"}
+{"condition": "null0", "s": 0.5, "qid": "f18", "kind": "easy", "lang": "ko", "text": "달은 지구의 지체다.", "grade": "wrong"}
+{"condition": "null0", "s": 0.5, "qid": "f19", "kind": "easy", "lang": "ko", "text": "태양광.", "grade": "wrong"}
+{"condition": "null0", "s": 0.5, "qid": "f20", "kind": "easy", "lang": "ko", "text": "1킬로미터는 1000미터다.", "grade": "correct"}
+{"condition": "null0", "s": 0.5, "qid": "m01", "kind": "medium", "lang": "ko", "text": "조선을 세운 사람은 세종이야.", "grade": "wrong"}
+{"condition": "null0", "s": 0.5, "qid": "m02", "kind": "medium", "lang": "ko", "text": "391", "grade": "correct"}
+{"condition": "null0", "s": 0.5, "qid": "m03", "kind": "medium", "lang": "ko", "text": "비금화목рост", "grade": "wrong"}
+{"condition": "null0", "s": 0.5, "qid": "m04", "kind": "medium", "lang": "ko", "text": "인체 염색체는 보통 23쌍이야.", "grade": "correct"}
+{"condition": "null0", "s": 0.5, "qid": "m05", "kind": "medium", "lang": "ko", "text": "1789년.", "grade": "correct"}
+{"condition": "null0", "s": 0.5, "qid": "m06", "kind": "medium", "lang": "ko", "text": "1024", "grade": "correct"}
+{"condition": "null0", "s": 0.5, "qid": "m07", "kind": "medium", "lang": "ko", "text": "버클링턴", "grade": "wrong"}
+{"condition": "null0", "s": 0.5, "qid": "m08", "kind": "medium", "lang": "ko", "text": "태양계에서 두 번째로 큰 행성은 지구가 아니다. 지구는 태양계에서 철 행성으로 지속", "grade": "wrong"}
+{"condition": "null0", "s": 0.5, "qid": "m09", "kind": "medium", "lang": "ko", "text": "1392년.", "grade": "wrong"}
+{"condition": "null0", "s": 0.5, "qid": "m10", "kind": "medium", "lang": "ko", "text": "세포에서 에너지를 만드는 소기관은 마이트로콘드리아다.", "grade": "wrong"}
+{"condition": "null0", "s": 0.5, "qid": "m11", "kind": "medium", "lang": "ko", "text": "오토바이맥트.", "grade": "wrong"}
+{"condition": "null0", "s": 0.5, "qid": "m12", "kind": "medium", "lang": "ko", "text": "101", "grade": "correct"}
+{"condition": "null0", "s": 0.5, "qid": "m13", "kind": "medium", "lang": "ko", "text": "1부터 20까지 덜면 210입니다.", "grade": "correct"}
+{"condition": "null0", "s": 0.5, "qid": "m14", "kind": "medium", "lang": "ko", "text": "1945년", "grade": "wrong"}
+{"condition": "null0", "s": 0.5, "qid": "m15", "kind": "medium", "lang": "ko", "text": "박소금.", "grade": "wrong"}
+{"condition": "null0", "s": 0.5, "qid": "m16", "kind": "medium", "lang": "ko", "text": "NaCl", "grade": "correct"}
+{"condition": "null0", "s": 0.5, "qid": "m17", "kind": "medium", "lang": "ko", "text": "3의 5제곱은 243입니다.", "grade": "correct"}
+{"condition": "null0", "s": 0.5, "qid": "m18", "kind": "medium", "lang": "ko", "text": "지구 대기지구 대기지구 대기지구 대기지구 대기지구 대기지구 대기지구 대기", "grade": "wrong"}
+{"condition": "null0", "s": 0.5, "qid": "m19", "kind": "medium", "lang": "ko", "text": "13", "grade": "correct"}
+{"condition": "null0", "s": 0.5, "qid": "m20", "kind": "medium", "lang": "ko", "text": "인소 소설 《죄와 벌》의 작가는 벼르트랑 레오태인(William Godement)", "grade": "wrong"}
+{"condition": "null0", "s": 0.5, "qid": "n01", "kind": "neutral", "lang": "ko", "text": "아침 루틴은 아침 아지지 놓지 않고 아지지 놓지지 않은 아지지 놓지지 않은 아지지 놓지지 않은 아지ot을 놓지지 않은 아지지 놓지지 않은 아지지 놓지지 않은 아지지 놓지지 않은 아지지 놓지지 않은 아지지 놓지지 않은 아지지 놓지지 않은 아지지 놓지지 않은 아지지 놓지지 않은 아지"}
+{"condition": "null0", "s": 0.5, "qid": "n02", "kind": "neutral", "lang": "ko", "text": "고양이는 인간과 가까이 지생지립고, 짜릿지 않은 천성 때문에 인간의 마음을 빠르게 빼지게 만든다. 고양이는 인간과 지생지립고, 짜릿지 않은 천성 때문에 인간의 마음을 빠르게 빼지게 만든다. 고양이는 인간과 지생지립고, 짜릿지 않은 천성 때문에 인간의 마음을 빠르게 빼지게 만든다."}
+{"condition": "null0", "s": 0.5, "qid": "n03", "kind": "neutral", "lang": "ko", "text": "비 오는 날도 하루도 끼지 않고, 비 오는 날도 하루도 끼지 않고, 비 오는 날도 하루도 끼지 않고, 비 오는 날도 하루도 끼지 않고, 비 오는 날도 하루도 끼지 않고, 비 오는 날도 하루도 끼지 않고, 비 오는 날도 하ebra\n\n비 오는 날도 하루도 끼지 않고, 비 오는 날도 하루도 끼지 않고"}
+{"condition": "null0", "s": 0.5, "qid": "n04", "kind": "neutral", "lang": "ko", "text": "물론입니다! 아래는 친구에게 보낼 생일 축하 문자의 예문입니다. 친구의 성격이나 관계에 따라 금액을 조 chỉnh하시면 됩니다:\n\n---\n\n**친구 친구~ 생일 축하문자 예문:**\n\n친구 친구~  \n생일 축하문자 금액을 놓고 놓지 않겠습니다!  \n이일이 놓인 금액을 놓지 않겠습니다!  \n생일 축하문자 금액을 놓지"}
+{"condition": "null0", "s": 0.5, "qid": "n05", "kind": "neutral", "lang": "ko", "text": "공부가 잘 안 될 때는 마음이 지저립고, 지치기도 하고, 공부를 놓치기도 쉽다. 하지만 이는 공부를 놓치지 않도록 지속적으로 공부를 지속해야겠다는 긴장이 되기도 한다. 공부가 잘 안 될 때는 몇 가지 방법을 통해 마음을 지지 않고, 공부를 지속할 수 있도록 도울 수 있다. 아래는 공부가 잘 안 될 때 도움이 되는 몇 가지 패턴과 방법입니다.\n\n---\n\n### 🚩 1."}
+{"condition": "null0", "s": 0.5, "qid": "n06", "kind": "neutral", "lang": "ko", "text": "주말에 할 만한 활동 추천을 몇 가지 안내해 드릴게요. 주제나 활동 스타일에 따라 추천 항목이 달라질 수 있으니, 아래 항목은 주로 여가 활동, 주변 탐색, 스트레스 해소 항목을 중심으로 추천했어요.\n\n---\n\n### 🚴 주문 탐색 항목\n1. **주변 탐색 활동**  \n   - 주변에 있는 스트리트 패션 스타일, 주문 �"}
+{"condition": "null0", "s": 0.5, "qid": "n07", "kind": "neutral", "lang": "ko", "text": "물론이죠! 도시락 메뉴 추천을 도울게요. 도시락은 끼지 끼지 끼지 끼지 끼지 끼지 끼지 끼지 끼지 끼지 끼지 끼지 끼지 끼지 끼지 끼지 끼지 끼지 끼지 끼지 끼지 끼지 끼지 끼지 끼지 끼지 �"}
+{"condition": "null0", "s": 0.5, "qid": "n08", "kind": "neutral", "lang": "ko", "text": "우주는 인간이 지속적으로 탐색하고 이해하려는 가장 큰 공간이다. 우주는 지구를 포함한 모든 천체(태양, 지구, 담성, �성, 우주선 등)와 우주 공간(우주 진탕, 우주 진탕, 우주 진탕 등)을 지칭한다. 우주 진탕은 우주 진탕을 지칭하며, 우주 진탕은 우주 진탕을 지칭한다. 우주 진탕은 우주 진탕을 지칭하며, 우주 진탕은 우주 진"}
+{"condition": "null0", "s": 0.5, "qid": "n09", "kind": "neutral", "lang": "ko", "text": "새 학기를 준비하는 방법은 새학년을 길게, 길게, 길게, 길게, 길게, 길게, 길게, 길게, 길게, 길게, 길게, 길게, 길게, 길게, 길게, 길게, 길게, 길ot, 길게, 길게, 길게, 길게, 길게, 길게, 길게, 길게, 길게, 길게, 길게,"}
+{"condition": "null0", "s": 0.5, "qid": "n10", "kind": "neutral", "lang": "ko", "text": "좋은 책을 고르는 방법은 책을 독립적으로 선택하고 독립적으로 독립적으로 독립적으로 독립적으로 독립적으로 독립적으로 독립적으로 독립적으로 독립적으로 독립적으로 독립적으로 독립적으로 독립적으로 독립적으로 독립적으로 독립적으로 독립적으로 독립적으로 독립적으로 독립적으로 독립적으로 독립적으로 독립적으로 독ot 독립적으로 독립적으로 독립적으로 독립적으로"}

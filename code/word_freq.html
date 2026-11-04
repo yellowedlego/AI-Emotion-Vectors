@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>토큰 빈도</title>
+<style>
+:root{--bg:#f7f6f3;--card:#fff;--text:#22211e;--sub:#6f6c64;--line:#e4e1d9;--accent:#0072B2;--hot:213,94,0;--cold:0,114,178}
+@media (prefers-color-scheme:dark){:root{--bg:#1c1b19;--card:#262522;--text:#ece9e2;--sub:#a29e94;--line:#3a3833;--accent:#6da5e0;--hot:240,130,60;--cold:90,170,230}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font:15px/1.5 system-ui,"Malgun Gothic",sans-serif}
+main{max-width:1680px;margin:0 auto;padding:16px 16px 60px}
+header{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+h1{font-size:20px;margin:0}
+h2{font-size:15px;margin:0 0 6px;font-weight:600}
+a{color:var(--accent)}
+.sub{color:var(--sub);font-size:13px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 14px;min-width:0;margin-bottom:10px}
+.controls{position:sticky;top:0;z-index:4;background:var(--bg);display:flex;flex-wrap:wrap;gap:10px;align-items:end;padding:10px 0;margin-bottom:8px;border-bottom:1px solid var(--line)}
+label{display:flex;flex-direction:column;gap:3px;font-size:12px;color:var(--sub)}
+label.chk{flex-direction:row;align-items:center;gap:5px;font-size:13px;color:var(--text);padding-bottom:6px}
+select,input[type=number],button{font:inherit;color:var(--text);background:var(--card);border:1px solid var(--line);border-radius:7px;padding:5px 8px}
+input[type=number]{width:64px}
+button{cursor:pointer}
+button.main{background:var(--accent);border-color:var(--accent);color:#fff}
+.four{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:10px;margin-bottom:10px}
+.four .card{margin:0}
+table{border-collapse:collapse;width:100%;font-size:13px}
+td,th{padding:3px 6px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-weight:600;color:var(--sub);font-size:12px}
+td.n{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.g{font-family:Consolas,"D2Coding","Malgun Gothic",monospace;white-space:pre;overflow-wrap:anywhere}
+.g i{color:var(--sub);font-style:normal}
+.more{margin-top:6px;font-size:12px;padding:3px 9px}
+.strow{display:grid;grid-template-columns:5.5em 4.5em 1fr;gap:8px;padding:6px 0;border-bottom:1px solid var(--line);align-items:start}
+.strow .s{font-weight:600;font-variant-numeric:tabular-nums}
+.strow .s.pos{color:rgb(var(--hot))}.strow .s.neg{color:rgb(var(--cold))}
+.chips{display:flex;flex-wrap:wrap;gap:4px}
+.chip{border:1px solid var(--line);border-radius:6px;padding:1px 6px;font-size:13px;display:inline-flex;gap:5px;align-items:baseline}
+.chip small{color:var(--sub);font-size:11px}
+.bar{display:inline-block;height:6px;border-radius:3px;background:var(--accent);opacity:.55;vertical-align:middle}
+#status{min-height:1.5em}
+details summary{cursor:pointer;color:var(--sub);font-size:13px}
+details p{margin:6px 0;font-size:13px}
+@media (max-width:500px){.strow{grid-template-columns:4em 1fr}.strow .cnt{display:none}}
+</style>
+</head>
+<body>
+<main>
+<header><h1>토큰 빈도 · 말버릇 찾기</h1><a class="sub" href="/">← 대시보드</a></header>
+<p class="sub">층별 탐색 답변(중립 질문 10개)을 쪼개어, 감정 벡터를 어느 쪽으로 얼마나 넣었을 때 어떤 말이 자주 나오는지 셉니다. 측정 중이라 새로 고치면 새 답변이 더해집니다.</p>
+
+<div class="controls">
+  <label>감정<select id="cond"></select></label>
+  <label>층<select id="layer"><option value="all">전체 층</option></select></label>
+  <label>단위<select id="unit"><option value="token">토큰(모델이 쓰는 조각)</option><option value="word">어절(띄어쓰기 단위)</option></select></label>
+  <label>몇 개 이어서(n)<input type="number" id="n" min="1" max="5" value="1"></label>
+  <label>줄 세우기<select id="sort"><option value="1">많이 나온 순</option><option value="3">기준 답변보다 많이</option><option value="4">다른 감정보다 많이</option></select></label>
+  <label class="chk"><input type="checkbox" id="junk" checked>공백·기호 빼기</label>
+  <label>무너진 답변<select id="broken"><option value="0">빼고 보기</option><option value="1">같이 보기</option><option value="2">무너진 답변만</option></select></label>
+  <button class="main" id="csv">CSV 내려받기</button>
+</div>
+<div id="status" class="sub"></div>
+
+<details class="card"><summary>숫자 읽는 법</summary>
+<p><b>횟수</b>: 그 조각이 나온 수. <b>답변당</b>: 횟수 ÷ 답변 수. 세기마다 답변 수가 달라서(무너지면 뒤 세기를 건너뜀) 비교할 때는 답변당을 보세요.</p>
+<p><b>기준 대비</b>: 주입하지 않은 답변(10개)에서보다 몇 배 자주 나왔는지. 기준이 10개뿐이라 거칩니다.</p>
+<p><b>다른 감정 대비</b>: 같은 층·세기에서 나머지 감정들보다 몇 배 자주 나왔는지. 벡터를 세게 넣으면 어떤 감정이든 생기는 공통 버릇을 걸러 내고, 이 감정에서만 늘어난 말을 찾을 때 씁니다. 배수로 줄 세울 때는 5번 미만 나온 것은 뺍니다.</p>
+<p><b>무너진 답변만</b>: 같은 말 되풀이·외국어 섞임 등으로 무너진 답변만 셉니다. 문장이 부서져도 그 감정의 단어가 남는지 볼 때 씁니다. 다른 감정 대비도 다른 감정의 무너진 답변과 비교하고, 기준은 주입 없는 멀쩡한 답변 그대로입니다. 붕괴율이 2번 연속 90% 이상이라 건너뛴 세기는 답변 자체가 없어서 여기에도 없습니다.</p>
+<p><b>n</b>: 2면 이어진 두 조각("수 있습니다"), 3이면 세 조각. 말버릇은 어절 2~3에서 잘 보입니다.</p>
+<p>토큰은 답변 글을 Kanana 토크나이저로 다시 쪼갠 것이라 생성 때와 아주 조금 다를 수 있습니다. 앞의 띄어쓰기는 <i>·</i>, 줄바꿈은 <i>⏎</i>로 보입니다.</p>
+</details>
+
+<h2>묶어서 비교</h2>
+<div class="four" id="sum"></div>
+
+<h2>세기별 상위 10개</h2>
+<div class="card" id="str"></div>
+</main>
+<script>
+const KO={joy:'즐거움',anger:'화남',sadness:'슬픔',fear:'공포',surprise:'놀람',disgust:'역겨움',calm:'평온',love:'사랑',gratitude:'고마움',pride:'자부심',shame:'부끄러움',guilt:'죄책감',desperation:'절박함',curiosity:'호기심',boredom:'지루함',eogul:'억울함',seoreum:'서러움',dapdap:'답답함',loneliness:'외로움',jealousy:'질투',random0:'무작위 벡터(대조군)'};
+const SUM_TEXT={기준:'주입 없음',감소:'벡터를 뺀 답변(세기 < 0)',증가:'벡터를 더한 답변(세기 > 0)',전체:'주입한 답변 전부'};
+const $=id=>document.getElementById(id);
+const esc=s=>s.replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
+const show=s=>esc(s).replace(/^ /,'<i>·</i>').replace(/\n/g,'<i>⏎</i>');
+const fmt=x=>x==null?'–':x>=100?Math.round(x).toLocaleString():x.toFixed(2);
+let data=null, open={};
+const ctl=['cond','layer','unit','n','sort','junk','broken'];
+
+function params(){
+  const p=new URLSearchParams();
+  p.set('cond',$('cond').value||st.cond||'all');p.set('layer',$('layer').value||st.layer||'all');p.set('unit',$('unit').value);
+  p.set('n',Math.min(5,Math.max(1,+$('n').value||1)));p.set('sort',$('sort').value);
+  p.set('junk',$('junk').checked?'0':'1');p.set('broken',$('broken').value||'0');
+  return p;
+}
+let st={};
+try{st=JSON.parse(localStorage.getItem('wf')||'{}')}catch(e){}
+function save(){try{localStorage.setItem('wf',JSON.stringify(Object.fromEntries(ctl.map(k=>[k,$(k).type==='checkbox'?$(k).checked:$(k).value]))))}catch(e){}}
+function restore(){for(const k of ctl)if(k in st){if($(k).type==='checkbox')$(k).checked=st[k];else $(k).value=st[k]}if(!$('broken').value)$('broken').value='0'}
+
+async function load(){
+  if($('cond').options.length>1)save();
+  const t0=performance.now();
+  $('status').textContent='세는 중… 처음이나 감정·단위·n을 바꾼 직후에는 10~30초 걸려요.';
+  try{
+    const r=await fetch('/api/freq?'+params()+'&top=50');
+    data=await r.json();
+  }catch(e){$('status').textContent='불러오지 못했어요: '+e;return}
+  fillChoices();
+  const sel=$('cond').value, nm=sel==='all'?'전체 감정(대조군 제외)':(KO[sel]||sel);
+  $('status').textContent=`${nm} · ${$('layer').value==='all'?'전체 층':$('layer').value+'층'} · 지금까지 답변 ${data.answers.toLocaleString()}개 읽음 · ${((performance.now()-t0)/1000).toFixed(1)}초`;
+  open={};render();
+}
+function fillChoices(){
+  const c=$('cond'), want=c.value||'all';
+  if(c.options.length<2){
+    c.innerHTML='<option value="all">전체 감정 (대조군 제외)</option>'+data.emotions.map(e=>`<option value="${e}">${KO[e]||e}</option>`).join('');
+    c.value=want;
+    $('layer').innerHTML='<option value="all">전체 층</option>'+data.layers.map(x=>`<option value="${x}">${x}층</option>`).join('');
+    restore();
+    if(!c.value)c.value='all';
+    if(!$('layer').value)$('layer').value='all';
+  }
+}
+function table(g,key){
+  const lim=open[key]?50:10, rows=g.items.slice(0,lim), max=Math.max(1,...g.items.map(x=>x[2]));
+  const other=$('cond').value!=='all';
+  let h=`<table><tr><th>#</th><th>조각</th><th>답변당</th><th>횟수</th><th>기준 대비</th>${other&&key!=='기준'?'<th>다른 감정 대비</th>':''}</tr>`;
+  rows.forEach((x,i)=>{h+=`<tr><td class="n">${i+1}</td><td class="g">${show(x[0])}</td><td class="n"><span class="bar" style="width:${Math.round(28*x[2]/max)}px"></span> ${x[2].toFixed(2)}</td><td class="n">${x[1].toLocaleString()}</td><td class="n">${fmt(x[3])}</td>${other&&key!=='기준'?`<td class="n">${fmt(x[4])}</td>`:''}</tr>`});
+  h+='</table>';
+  if(!rows.length)h+='<p class="sub">해당하는 조각이 없어요.</p>';
+  if(g.items.length>10)h+=`<button class="more" data-k="${key}">${open[key]?'접기':'더보기 (50개까지)'}</button>`;
+  return h;
+}
+function render(){
+  const only=$('broken').value==='2', tag=only?' · 무너진 답변만':'';
+  $('sum').innerHTML=['기준','감소','증가','전체'].map(k=>{const g=data.summary[k];return `<div class="card"><h2>${k} <span class="sub">${SUM_TEXT[k]}${k==='기준'?(only?' · 멀쩡한 답변':''):tag} · 답변 ${g.answers.toLocaleString()}개</span></h2>${table(g,k)}</div>`}).join('');
+  $('str').innerHTML=data.strengths.map(([s,g])=>{
+    const k='s'+s, lim=open[k]?50:10;
+    const chips=g.items.slice(0,lim).map(x=>`<span class="chip"><span class="g">${show(x[0])}</span><small>${$('sort').value==='1'?x[2].toFixed(2):'×'+fmt(+$('sort').value===3?x[3]:x[4])}</small></span>`).join('')||'<span class="sub">없음</span>';
+    const more=g.items.length>10?` <button class="more" data-k="${k}">${open[k]?'접기':'더보기'}</button>`:'';
+    return `<div class="strow"><span class="s ${s>0?'pos':'neg'}">${s>0?'+':''}${s}</span><span class="sub cnt">답변 ${g.answers}</span><div><div class="chips">${chips}</div>${more}</div></div>`;
+  }).join('')+`<p class="sub">칩 옆 숫자: ${$('sort').value==='1'?'답변당 횟수':'배수'}. ${only?'무너진 답변만 세는 중이라, 약한 세기에는 답변이 거의 없어요.':'세기가 셀수록 많이 무너져서, 무너진 답변을 빼면 센 세기에는 남은 답변이 적어요.'}</p>`;
+}
+document.addEventListener('click',e=>{const b=e.target.closest('.more');if(b){open[b.dataset.k]=!open[b.dataset.k];render()}});
+for(const k of ctl)$(k).addEventListener('change',load);
+$('csv').onclick=()=>{location.href='/api/freq.csv?'+params()};
+restore();load();
+</script>
+</body>
+</html>

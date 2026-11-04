@@ -1,0 +1,751 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>실험 대시보드</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<style>
+:root{--bg:#f7f6f3;--card:#fff;--text:#22211e;--sub:#6f6c64;--line:#e4e1d9;--accent:#0072B2;--good:#3c8a5a;--warn:#b5742f;--hot:213,94,0;--cold:0,114,178}
+@media (prefers-color-scheme:dark){:root{--bg:#1c1b19;--card:#262522;--text:#ece9e2;--sub:#a29e94;--line:#3a3833;--accent:#6da5e0;--good:#6dbb8b;--warn:#dba468;--hot:240,130,60;--cold:90,170,230}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font:15px/1.5 system-ui,"Malgun Gothic",sans-serif}
+main{max-width:1680px;margin:0 auto;padding:16px 16px 60px}
+header{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+h1{font-size:20px;margin:0}
+h2{font-size:15px;margin:0 0 6px;font-weight:600}
+.sub{color:var(--sub);font-size:13px}
+nav{display:flex;gap:4px;margin:12px 0;border-bottom:1px solid var(--line);overflow-x:auto}
+nav button{font:inherit;background:none;border:0;border-bottom:2px solid transparent;color:var(--sub);padding:7px 12px;cursor:pointer;white-space:nowrap}
+nav button.on{color:var(--text);border-color:var(--accent)}
+.tab{display:none}.tab.on{display:block}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:10px 0}
+.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:10px;margin-bottom:10px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 14px;min-width:0}
+.stat b{display:block;font-size:22px;font-weight:600}
+.term{cursor:help;border-bottom:1px dashed var(--sub)}
+.job{margin-bottom:10px}
+.job h3{font-size:15px;margin:0;font-weight:600}
+.row{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.bar{height:10px;background:var(--line);border-radius:5px;overflow:hidden;margin:8px 0}
+.bar i{display:block;height:100%;background:var(--accent)}
+.done .bar i{background:var(--good)}
+.tag{font-size:12px;padding:1px 7px;border-radius:9px;border:1px solid var(--line);color:var(--sub)}
+.stale{color:var(--warn);border-color:var(--warn)}.ok{color:var(--good);border-color:var(--good)}
+.stats{display:flex;gap:16px;flex-wrap:wrap;font-size:13px;color:var(--sub);margin-top:4px}
+.stats b{color:var(--text);font-weight:600}
+.mini{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:2px 14px;margin-top:8px;font-size:12px;color:var(--sub)}
+.mini span{display:flex;justify-content:space-between}
+#term{background:#111;color:#d6d6d0;font:13px/1.45 Consolas,"D2Coding","Malgun Gothic",monospace;height:360px;min-height:120px;resize:vertical;overflow-y:auto;margin:0 0 10px;padding:12px 14px;border-radius:10px;white-space:pre-wrap;overflow-wrap:anywhere}
+.chart{position:relative;height:320px}.chart.tall{height:440px}.chart.xtall{height:560px}
+.card.wide{margin-bottom:10px}
+.card.note{border-left:3px solid var(--accent)}
+.tab>.card.wide svg.big{max-width:1400px}
+nav{align-items:flex-end}
+nav .ng{font-size:11px;color:var(--sub);padding:0 4px 9px 14px;white-space:nowrap}
+nav .ng:first-child{padding-left:2px}
+.tags{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:6px 0}
+.tag-chip{display:inline-flex;align-items:center;gap:4px;border:1px solid var(--line);border-radius:14px;padding:2px 4px 2px 10px;font-size:13px;background:var(--card)}
+.tag-chip i{width:9px;height:9px;border-radius:50%;display:inline-block}
+.tag-chip button{border:0;background:none;color:var(--sub);cursor:pointer;font:inherit;font-size:15px;line-height:1;padding:0 4px;border-radius:50%}
+.tag-chip button:hover{color:var(--text);background:var(--line)}
+.mini-btn,.main-btn{font:inherit;font-size:13px;color:var(--text);background:var(--card);border:1px solid var(--line);border-radius:7px;padding:4px 10px;cursor:pointer}
+.main-btn{background:var(--accent);border-color:var(--accent);color:#fff;align-self:end}
+input:not([type]),input[type=number]{font:inherit;color:var(--text);background:var(--card);border:1px solid var(--line);border-radius:7px;padding:5px 8px}
+.fold{border-top:1px solid var(--line);display:grid;grid-template-columns:1fr auto;align-items:start}
+.fold>.fh{display:flex;align-items:center;gap:8px;padding:8px 0;cursor:pointer;grid-column:1/-1}
+.fold>.fh b{font-weight:600}
+.fold>.fh .tw{margin-left:auto;font-size:12px;color:var(--sub);border:1px solid var(--line);border-radius:6px;padding:1px 8px}
+.fold>.fb{grid-column:1/-1;padding-bottom:8px}
+.fold.shut>.fb{display:none}
+.multi{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:2px 12px}
+.multi>div{cursor:zoom-in;border-radius:6px;padding:2px 4px}
+.multi>div:hover{background:var(--bg)}
+.multi h4{margin:4px 0 0;font-size:13px;font-weight:600}
+mark{background:#ffd54a;color:#111;border-radius:2px;padding:0 1px}
+span.hit{outline:2px solid #e6b800;outline-offset:0}
+.kwic{font:13px/1.7 Consolas,"D2Coding","Malgun Gothic",monospace;display:grid;grid-template-columns:auto 1fr auto 1fr;gap:0 8px;align-items:baseline}
+.kwic .l{text-align:right;white-space:pre;overflow:hidden;color:var(--sub)}
+.kwic .r{white-space:pre;overflow:hidden;color:var(--sub)}
+.kwic .m{white-space:pre}
+.kwic .meta{font-family:system-ui,"Malgun Gothic",sans-serif;font-size:12px;color:var(--sub);white-space:nowrap}
+.hitcard{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 14px;margin-bottom:8px}
+.hitcard .box{white-space:pre-wrap;overflow-wrap:anywhere;line-height:1.7;margin-top:4px}
+.controls{display:flex;flex-wrap:wrap;gap:10px;margin:10px 0;align-items:end}
+label{display:flex;flex-direction:column;gap:3px;font-size:12px;color:var(--sub)}
+select{font:inherit;color:var(--text);background:var(--card);border:1px solid var(--line);border-radius:7px;padding:5px 8px}
+.tab>.controls{position:sticky;top:0;z-index:4;background:var(--bg);padding:8px 0;margin:0 0 6px;border-bottom:1px solid var(--line)}
+input[type=range]{width:120px}
+.qa{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 16px;margin-bottom:36px}
+.qa .part{margin-top:10px}
+.qa .role{font-size:12px;color:var(--sub);margin-bottom:4px}
+.qa .role b{display:inline-block;font-size:16px;font-weight:600;color:var(--text);margin-right:8px}
+.hint{font-size:11px;color:var(--sub);max-width:150px;line-height:1.3}
+.qa .box{border:1px solid var(--line);border-radius:7px;padding:9px 11px;white-space:pre-wrap;overflow-wrap:anywhere;line-height:1.75}
+.qa .prompt{color:var(--sub);font-size:14px}
+.qa .think{opacity:.6;font-size:14px}
+.qa span.t{border-radius:2px}
+.qa span.t:hover{outline:1px solid var(--text)}
+.probe{flex:1;min-width:220px;font-size:12px}
+#pWord{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:240px}
+#pBar{position:relative;height:10px;border-radius:5px;margin:3px 0;background:linear-gradient(90deg,rgb(var(--cold)),var(--line),rgb(var(--hot)))}
+#pDot{position:absolute;top:-3px;left:50%;width:16px;height:16px;margin-left:-8px;border-radius:50%;background:var(--text);border:2px solid var(--bg);display:none}
+.md{min-height:.8em}.mh{font-weight:600;font-size:1.1em;margin-top:6px}.mli{padding-left:14px}.mb{font-weight:600}
+.mk{display:none}.hr{border-top:1px solid var(--line);margin:8px 0;height:0;min-height:0;overflow:hidden}
+.heat{overflow-x:auto}
+table{border-collapse:separate;border-spacing:2px;font-size:12px}
+th{font-weight:500;color:var(--sub);padding:3px 6px;white-space:nowrap}
+td.c{min-width:58px;height:30px;text-align:center;border-radius:3px;cursor:pointer}
+td.c:hover,td.c.sel{outline:2px solid var(--text)}
+.small td.c{min-width:26px;height:26px;font-size:10px}
+.small th{font-size:11px;padding:1px 3px}
+.ans{border-top:1px solid var(--line);padding:8px 0;font-size:14px;overflow-wrap:anywhere;white-space:pre-wrap}
+.ans b{font-weight:600}
+#gloss{position:fixed;right:16px;bottom:16px;width:min(380px,calc(100vw - 32px));background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 14px;display:none;z-index:5;box-shadow:0 2px 12px rgba(0,0,0,.18)}
+#gloss button{float:right;font:inherit;background:none;border:0;color:var(--sub);cursor:pointer}
+dt{font-weight:600;margin-top:10px}dd{margin:2px 0 0;color:var(--sub);font-size:14px}
+</style>
+</head>
+<body>
+<!--STATIC-->
+<main>
+<header><h1>실험 대시보드</h1><a class="sub" href="/words" style="color:var(--accent)">토큰 빈도 · 말버릇 찾기 →</a><span class="sub" id="clock">연결 중…</span></header>
+<nav id="nav"></nav>
+
+<section class="tab" data-tab="실시간">
+<div class="grid">
+<div class="card stat"><span class="sub">전체 남은 시간</span><b id="eta">–</b></div>
+<div class="card stat"><span class="sub">GPU 사용률</span><b id="util">–</b></div>
+<div class="card stat"><span class="sub">GPU 메모리</span><b id="mem">–</b></div>
+<div class="card stat"><span class="sub">온도</span><b id="temp">–</b></div>
+<div class="card stat"><span class="sub">토큰당 시간</span><b id="stepV">–</b><span class="sub" id="stepS"></span></div>
+</div>
+<div class="card" id="warn" style="display:none;margin-bottom:10px;border-color:var(--warn)"></div>
+<div class="card" style="margin-bottom:10px"><div class="row"><h2>남은 일정</h2><span class="sub" id="planSum"></span></div><div class="heat" id="plan"></div><p class="sub" style="margin:6px 0 0">답변 수 × 답변 길이 상한 × 현재 속도로 계산한 예상이에요. 답변이 일찍 끝나면 더 빨라지고, 단계가 바뀌면 다시 계산돼요.</p></div>
+<pre id="term">실시간 출력 대기 중…</pre>
+<div class="two">
+<div class="card"><div class="row"><h2>답변 1개당 시간과 예측</h2><span class="sub" id="fSum"></span></div><div class="chart"><canvas id="cDone"></canvas></div></div>
+<div class="card"><div class="row"><h2>시간 예측 모델 검증</h2><span class="sub" id="etaSum"></span></div><div class="chart"><canvas id="cEta"></canvas></div></div>
+<div class="card"><h2>GPU 사용률과 메모리</h2><div class="chart"><canvas id="cGpu"></canvas></div></div>
+</div>
+<section id="jobs"></section>
+</section>
+
+<section class="tab" data-tab="스티어링">
+<div class="grid" id="baseTiles"></div>
+<div class="controls">
+<label>층<select id="layer"></select></label>
+<label>조건 묶음<select id="condSet"><option value="main">기쁨·화남·슬픔 ± + 대조군</option><option value="others">나머지 17개 감정 (23층, 세기 0.2·0.4)</option><option value="all">전부</option></select></label>
+<label>지표<select id="metric"></select></label>
+<span class="sub" id="metricHelp"></span>
+</div>
+<div class="two">
+<div class="card"><h2>세기에 따른 변화</h2><div class="chart tall"><canvas id="cCurve"></canvas></div></div>
+<div class="card"><h2>층 비교</h2><div class="controls" style="margin-top:0"><label>조건<select id="cmpCond"></select></label></div><div class="chart"><canvas id="cCmp"></canvas></div></div>
+</div>
+<div class="card" style="margin-bottom:10px"><h2>조건 × 세기 히트맵</h2><p class="sub" style="margin:0 0 6px">칸을 누르면 그 조건의 실제 답변이 아래에 나와요.</p><div class="heat" id="heat"></div></div>
+<div class="card" id="answers"><span class="sub">히트맵 칸을 눌러 보세요.</span></div>
+</section>
+
+<section class="tab" data-tab="벡터">
+<div class="controls">
+<label style="min-width:260px;flex:1">층 <span id="lLayerOut"></span><input type="range" id="lLayer" min="0" max="31" value="23" style="width:100%"></label>
+<label>지도 방법<select id="lMethod"><option value="pca2">PCA 2D</option><option value="pca3">PCA 3D</option><option value="mds2">MDS 2D</option></select></label>
+<label>기준 감정<select id="lEmo"></select><span class="hint">순위·강조에 쓸 감정</span></label>
+<label>히트맵 순서<select id="vOrder"><option value="sim">비슷한 감정끼리</option><option value="abc">이름순</option></select></label>
+</div>
+<p class="sub" style="margin:0 0 10px">감정 벡터 자체를 보는 탭입니다. 위 층 막대 하나로 이 탭의 지도·순위·히트맵·감정별 구별력이 함께 바뀝니다. 벡터는 32층 전부에서 계산한 것(layer_vectors)이고, 무작위 벡터(random0)를 비교용으로 함께 놓았습니다.</p>
+<div class="card wide"><h2>층별 감정 구별력 (<span class="term" data-t="AUC">AUC</span>)</h2><p class="sub" style="margin:0 0 6px">벡터 방향 값만으로 그 감정 글과 다른 글을 가려내는 능력의 층별 평균입니다. 한국어는 0~31층, 영어는 13~29층만 쟀습니다. AUC가 가짜 벡터 최대값보다 높아야 구별된다고 보고, 아래 막대가 그 간격입니다. 0~6층은 가짜 벡터도 0.8을 넘어서 간격을 봐야 합니다.</p><div class="chart tall"><canvas id="cLScan"></canvas></div></div>
+<div class="two">
+<div class="card"><h2>감정별 AUC <span class="sub" id="aucLayer"></span></h2><p class="sub" style="margin:0 0 6px">고른 층에서 감정마다의 AUC입니다. 회색 선은 그 층 가짜 벡터 최대값입니다.</p><div class="chart xtall"><canvas id="cAuc"></canvas></div></div>
+<div class="card"><h2>실제 코사인 순위 <span class="sub" id="nearLayer"></span></h2><p class="sub" style="margin:0 0 6px">기준 감정과 다른 감정 벡터의 코사인(2560차원 그대로)입니다. 지도는 근사라 정확한 가까움은 이 순위로 봅니다.</p><div class="chart xtall"><canvas id="cLNear"></canvas></div></div>
+</div>
+<div class="two">
+<div class="card"><h2>벡터 지도</h2>
+<label style="flex-direction:row;align-items:center;gap:6px;font-size:13px"><input type="checkbox" id="lEdges" checked>실제 코사인 0.4 이상인 쌍을 선으로 잇기</label>
+<p class="sub" id="lFit" style="margin:6px 0"></p><canvas id="cLMap" style="width:100%;height:560px;display:block;touch-action:none"></canvas></div>
+<div class="card"><h2>감정 간 <span class="term" data-t="코사인 유사도">코사인 유사도</span></h2><p class="sub" id="cosPick" style="margin:0 0 6px">칸이나 감정 이름을 누르면 기준 감정이 바뀝니다.</p><div class="heat small" id="cosHeat"></div></div>
+</div>
+<div class="card wide"><h2>한국어와 영어 벡터의 유사도</h2><p class="sub" style="margin:0 0 6px">같은 감정의 한국어 글 벡터와 영어 글 벡터의 코사인입니다(29층, 처음 계산한 벡터). 높을수록 언어와 상관없이 같은 방향입니다.</p><div class="chart xtall"><canvas id="cKoEn"></canvas></div></div>
+</section>
+
+<section class="tab" data-tab="붕괴">
+<div class="card wide note"><b>층별 탐색</b> · 감정 20개와 무작위 벡터를 32층 각각에 세기 ±0.1~2.0으로 넣고 중립 질문 10개에 답하게 한 결과입니다. 계획은 LAYER_PLAN.md에 있고, 모두 탐색 결과입니다(보고서의 주 판정은 판정 탭). <span id="lSweepNote"></span></div>
+<div class="card wide"><h2>층별 평균 붕괴율</h2><p class="sub" style="margin:0 0 6px">층마다 세기 ±0.1~±1.0(20개)의 붕괴율을 평균한 값입니다. 이미 무너져서 건너뛴 세기는 100%로 셉니다. 낮을수록 그 층이 벡터를 잘 버팁니다.</p><div class="tags" id="tagMean"></div><div class="chart tall"><canvas id="cLMeanCollapse"></canvas></div></div>
+<div class="card wide"><h2>감정 전체 층별 평균 붕괴율</h2><p class="sub" style="margin:0 0 6px" id="lAllNote"></p><div id="lAllCollapse"></div></div>
+<div class="card wide"><div class="row"><h2>세기에 따른 층별 붕괴율</h2><label style="flex-direction:row;align-items:center;gap:6px">감정<select id="lGridEmo"></select></label></div><p class="sub" style="margin:0 0 6px">가로는 층, 세로는 넣은 세기(위가 +, 아래가 −)입니다. 칸 색이 진할수록 많이 무너졌고, 이미 무너져서 건너뛴 세기는 100%로 칠했습니다. 칸에 마우스를 올리면 값이 나오고, 작은 그림을 누르면 그 감정만 크게 봅니다.</p><div id="lCollapseGrid"></div></div>
+<div class="card wide"><h2>쓰기 지도: 층별 붕괴 시작 세기</h2><p class="sub" style="margin:0 0 6px">감정 방향마다 붕괴율이 처음 50% 이상이 되는 세기입니다. 진할수록 작은 세기에서 무너집니다. 벡터를 얼마나 넣을 수 있는지를 봅니다.</p><div id="lCollapse"></div></div>
+</section>
+
+<section class="tab" data-tab="감정 효과">
+<div class="card wide note"><b>층별 탐색</b>에서 무너지지 않은 답변이 실제로 그 감정을 띠는지 KOTE 감정 점수로 봅니다. 답답함·외로움·질투는 KOTE에 맞는 이름표가 없어서 빠집니다. <span id="kNote"></span></div>
+<div class="card wide"><h2>감정별 층 민감도</h2><p class="sub" style="margin:0 0 6px" id="lSensNote"></p>
+<div class="tags" id="tagSens"></div>
+<div class="row" style="justify-content:flex-end;gap:6px;margin:4px 0"><button class="mini-btn" id="sensOpen">모두 펴기</button><button class="mini-btn" id="sensClose">모두 접기</button><label style="flex-direction:row;align-items:center;gap:6px;font-size:13px"><input type="checkbox" id="sensSame" checked>세로축 범위 같게</label></div>
+<div id="sensList"></div></div>
+<div class="card wide"><h2>층별 감정 효과: 안 무너진 답변의 KOTE 점수 변화</h2><p class="sub" style="margin:0 0 6px" id="lEffectNote"></p><div id="lEffect"></div></div>
+<div class="card wide"><h2>층별 질문 무시 비율</h2><p class="sub" style="margin:0 0 6px">무너지지 않았지만 질문에 답하지 않은 답변의 비율입니다. 붕괴율 50% 미만인 세기를 양쪽 부호 모두 모았습니다. 판정: 원래 모델이 이 답변을 실제 질문 뒤에서 '아무 이야기나 해 줘' 뒤보다 더 쉽게 예상하지 못하면, 또는 질문을 되풀이하거나 약속만 하고 끝나면 답하지 않은 것으로 봅니다. 대략적인 판정이라 일부는 틀립니다.</p><div id="lIgnored"></div></div>
+</section>
+
+<section class="tab" data-tab="답변 찾기">
+<div class="controls">
+<label style="flex:1;min-width:220px">찾을 말<input id="fQ" placeholder="예: 슬픔 · /미안|죄송/ 처럼 /…/는 정규식"><span class="hint">비워 두면 조건에 맞는 답변 전부</span></label>
+<label>감정<select id="fCond"></select></label>
+<label>층<select id="fLayer"></select></label>
+<label>방향<select id="fSign"><option value="all">양쪽</option><option value="+">더함 (+)</option><option value="-">뺌 (−)</option></select></label>
+<label>세기 범위<span style="display:flex;gap:4px"><input type="number" id="fMin" value="0" min="0" max="2" step="0.1" style="width:64px"><input type="number" id="fMax" value="2" min="0" max="2" step="0.1" style="width:64px"></span></label>
+<label>무너진 답변<select id="fBroken"><option value="all">같이</option><option value="drop">빼기</option><option value="only">무너진 것만</option></select></label>
+<label>보기<select id="fView"><option value="kwic">찾은 곳 앞뒤만</option><option value="full">답변 전체</option></select></label>
+<button class="main-btn" id="fGo">찾기</button>
+</div>
+<p class="sub" style="margin:0 0 8px">층별 탐색 답변 전부에서 찾습니다. 찾은 말은 노란색으로 칠합니다. "찾은 곳 앞뒤만"은 찾은 곳마다 앞뒤 30글자를 한 줄로 늘어놓아, 같은 말이 어떤 문맥에서 나오는지 한눈에 비교하는 보기(KWIC)입니다. 조각별 빈도와 말버릇은 <a href="/words">토큰 빈도 페이지</a>에서 셉니다.</p>
+<div class="row"><span class="sub" id="fCount"></span><span id="fPage"></span></div>
+<div id="fList"></div>
+</section>
+
+<section class="tab" data-tab="토큰 색칠">
+<div class="controls">
+<label style="min-width:200px">찾을 말<input id="tQ" placeholder="답변·입력에서 찾기"><span class="hint">찾은 곳은 노란 테두리, 없는 글은 숨김</span></label>
+<label>실험<select id="tCat"></select><span class="hint">어떤 측정의 글을 볼지</span></label>
+<label>보기<select id="tView"><option value="cmp">같은 질문을 조건별로 비교</option><option value="one">하나씩</option></select><span class="hint">답변을 묶어 볼지</span></label>
+<label>조건<select id="tCond"></select><span class="hint">어떤 벡터를 민 답변인지 (하나씩 보기)</span></label>
+<label>색칠 기준<select id="tEmo"></select><span class="hint">색만 바뀌고 답변은 그대로</span></label>
+<label>층<select id="tLayer"></select><span class="hint">어느 층의 값으로 칠할지</span></label>
+<label>색 범위 <span id="tRangeV"></span><input type="range" id="tRange" min="30" max="300" step="10" value="100"><span class="hint">이 값에서 가장 진해짐</span></label>
+<label>표시<select id="tMode"><option value="all">양쪽 다</option><option value="pos">빨강만</option><option value="neg">파랑만</option></select><span class="hint">빨강 같은 방향, 파랑 반대</span></label>
+<label>생각 글<select id="tThink"><option value="fade">흐리게</option><option value="plain">그대로</option><option value="hide">숨기기</option></select><span class="hint">생각 칸 표시 방식</span></label>
+<label>정렬<select id="tSort"><option value="order">기본 순서</option><option value="high">평균 높은 순</option><option value="low">평균 낮은 순</option></select><span class="hint">글 평균값으로 줄 세움</span></label>
+<span class="sub" id="tCount"></span>
+<div class="probe"><div class="row"><span id="pWord">토큰에 마우스를 올려 보세요</span><b id="pVal"></b></div><div id="pBar"><i id="pDot"></i></div><div class="row sub"><span id="pLo"></span><span>0</span><span id="pHi"></span></div></div>
+</div>
+<p class="sub">토큰마다 내부 값이 고른 감정 방향과 얼마나 같은 쪽을 보는지 칠했어요. 어텐션이 아니라 활성도이고, 중립 상황 답변의 평균을 뺀 값이에요. 색이 감정을 느낀다는 뜻은 아니에요. 토큰에 마우스를 올리면 값이 나와요.</p>
+<div id="tList"></div>
+</section>
+
+<section class="tab" data-tab="뉴런">
+<div class="controls"><label>층<select id="nLayer"></select><span class="hint">측정한 층</span></label><span class="sub" id="nSum"></span></div>
+<div class="card" style="margin-bottom:10px"><h2>이 지도를 읽는 법</h2><p class="sub" style="margin:0">점 하나가 뉴런 하나예요. 위치는 실제 자리가 아니에요. 뉴런 번호에는 공간의 의미가 없어서, 감정에 대한 반응이 비슷한 뉴런끼리 가깝게 놓았어요. 색은 가장 크게 반응한 감정의 묶음이고, 채운 점은 그 감정에서 켜지는 뉴런, 빈 점은 꺼지는 뉴런이에요. 그래서 같은 색이 원점을 사이에 두고 양쪽으로 갈라져요. 23층은 가로축이 긍정과 화남·두려움을, 세로축이 슬픔과 화남을 나눠요. 다른 층은 축의 방향과 뜻이 다를 수 있어요. 특정 구역에 모여 있어도 그 뉴런이 감정을 담당한다는 증거는 아니고, 끄는 실험을 해야 알 수 있어요. 소재를 반으로 나눠 양쪽에서 같은 방향으로 반응한 뉴런만 그렸어요.</p></div>
+<div class="card"><div class="chart" style="height:620px"><canvas id="cNeuron"></canvas></div></div>
+</section>
+
+<section class="tab" data-tab="요약"><div id="sumBox"></div></section>
+
+<section class="tab" data-tab="분석 보기">
+<div class="controls"><label>데이터<select id="xSet"></select><span class="hint">어떤 질문 묶음인지</span></label><label>세기<select id="xS"></select><span class="hint">답변 이동 지도에 쓸 s</span></label><label>조건<select id="xCond"></select><span class="hint">어떤 벡터를 민 답변인지</span></label></div>
+<div class="card" style="margin-bottom:10px"><h2>효과 크기 숲 그림</h2><p class="sub" style="margin:0 0 8px">점은 기준 답변 대비 평균 변화, 가로 막대는 95% 구간, 회색 세로 막대는 대조 벡터 구간의 상한이에요. 채운 점이 판정 통과이고, 빈 점은 기준 미달이에요. 칸마다 가로 눈금이 달라서 칸끼리 길이를 직접 비교하면 안 돼요.</p><div class="two" id="forest"></div></div>
+<div class="card" style="margin-bottom:10px"><h2>세기별 반응 곡선</h2><p class="sub" style="margin:0 0 8px">띠는 목표 감정 변화의 95% 구간이고, 점선은 같은 감정을 대조 벡터로 밀었을 때의 구간 상한이에요. 붕괴율은 같은 질문 묶음의 값이에요.</p><div class="two"><div class="chart"><canvas id="cDoseJ"></canvas></div><div class="chart"><canvas id="cDoseA"></canvas></div><div class="chart"><canvas id="cDoseS"></canvas></div><div class="chart"><canvas id="cDoseC"></canvas></div></div></div>
+<div class="two">
+<div class="card"><h2>답변 이동 지도</h2><p class="sub" id="xNote" style="margin:0 0 8px"></p><div class="chart" style="height:520px"><canvas id="cMove"></canvas></div></div>
+<div class="card"><h2>평균 이동 거리</h2><p class="sub" style="margin:0 0 8px">18개 감정 점수 공간을 두 축으로 줄인 평면에서, 같은 질문의 기준 답변과 벌어진 평균 거리예요. 대조 벡터도 움직이므로 회색 막대가 기준선이에요.</p><div class="chart" style="height:520px"><canvas id="cDist"></canvas></div></div>
+</div>
+</section>
+
+<section class="tab" data-tab="판정">
+<div class="card" style="margin-bottom:10px"><h2>판정 기준</h2><p class="sub" style="margin:0">주 분석은 23층이고 29층은 탐색이에요. 세기는 s_max 0.5예요. 대상 감정 점수 변화의 95% 구간 하한이 0과 대조군 4개의 구간 상한을 모두 넘어야 "효과 있음"이에요. 단, 붕괴 답변을 뺀 값도 함께 봐야 해요. 뺀 뒤 답변이 몇 개 안 남으면 그 효과는 고장 난 글이 만든 것일 수 있어요.</p></div>
+<div id="verdict"></div>
+<div id="extras"></div>
+</section>
+
+<section class="tab" data-tab="용어"><div class="card"><dl id="dict"></dl></div></section>
+</main>
+<div id="gloss"><button aria-label="닫기" onclick="this.parentNode.style.display='none'">닫기</button><b id="glossT"></b><div class="sub" id="glossB" style="margin-top:4px"></div></div>
+<script>
+const $=id=>document.getElementById(id);
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const css=n=>getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+const TERMS={
+'base':'아무것도 더하지 않은 기준 답변이에요. s=0이고 모든 변화는 이 답변과 비교해요.',
+'joy / anger / sadness':'그 감정 방향으로 민 조건이에요. 실험의 본체예요.',
+'neg_':'감정 방향을 반대로 민 조건이에요. 정말 축이라면 효과도 뒤집혀야 해요.',
+'random':'의미 없는 무작위 방향이에요. 어떤 방향으로 밀어도 생기는 변화를 재요.',
+'null':'중립 글을 반으로 나눠 뺀 방향이에요. 데이터에서 나왔지만 감정이 없는 방향이라 더 엄격한 대조군이에요.',
+'s':'더하는 벡터의 크기예요. s=0.4면 그 토큰 활성값 크기의 40%를 더해요.',
+'s_max':'붕괴율이 20%를 넘기 직전의 가장 큰 세기예요. 주 판정은 이 세기에서 해요.',
+'붕괴율':'반복되거나, 글자·숫자 비율이 50% 미만이거나, 빈 답변의 비율이에요. 20%를 넘으면 그 세기는 쓰지 않아요.',
+'정답률':'정답 질문 40개 중 맞힌 비율이에요. review 판정은 아직 맞힌 것으로 세지 않아요.',
+'쉬운문제':'쉬운 정답 질문 20개의 정답률이에요.',
+'중간문제':'중간 난도 정답 질문 20개의 정답률이에요.',
+'이모티콘':'중립 질문 답변 1개당 평균 이모티콘 수예요.',
+'글자수':'중립 질문 답변의 평균 글자 수예요.',
+'Δjoy':'같은 질문의 기준 답변 대비 KOTE 즐거움 점수 변화예요. 양수면 올라간 거예요.',
+'Δanger':'같은 질문의 기준 답변 대비 KOTE 화남 점수 변화예요.',
+'Δsadness':'같은 질문의 기준 답변 대비 KOTE 슬픔 점수 변화예요.',
+'Δ목표':'넣은 감정 자신의 KOTE 점수가 기준 답변보다 얼마나 바뀌었는지예요(− 방향이면 같은 감정 점수). 답답함·외로움·질투는 KOTE에 맞는 이름표가 없어 비어요. 나머지 17개 감정은 점수를 매긴 뒤에 채워져요.',
+'KOTE':'한국어 감정 분류기예요. 글을 읽고 감정 라벨마다 0~1 점수를 줘요. 글에 드러난 감정을 재는 것이지 모델의 내부 상태를 재는 건 아니에요.',
+'AUC':'벡터로 감정 글과 다른 글을 가려내는 능력이에요. 0.5는 동전 던지기, 1은 완벽한 구분이고 기준은 0.70이에요.',
+'가짜 벡터 최대값':'가짜 벡터 20개로 잰 AUC 중 가장 큰 값이에요. 감정 벡터는 이 값도 넘어야 해요.',
+'코사인 유사도':'두 방향이 같은 쪽을 보는 정도예요. 1은 같은 쪽, 0은 무관, −1은 반대예요.',
+'PCA':'감정 20개가 공통으로 퍼진 축을 이름 없이 찾는 분석이에요. 괄호의 %는 그 축이 설명하는 비율이에요.',
+'평균 빼기':'감정 평균에서 전체 감정 평균을 뺀 벡터예요. 감정들의 공통 성분을 지워요. 스티어링에 쓰는 종류예요.',
+'중립 기준':'감정 평균에서 중립 글 평균을 뺀 벡터예요. "감정적인 글투" 공통 성분이 섞여요.',
+'부트스트랩 신뢰구간':'질문을 다시 뽑는 계산을 10,000번 해서 값의 흔들림 범위를 구해요. 0을 포함하면 효과가 있다고 말하기 어려워요.',
+'Bonferroni 보정':'세 감정을 동시에 검사하므로 우연히 통과할 가능성을 줄이려고 기준을 더 엄격하게 잡는 방법이에요.'
+};
+function gloss(t){$('glossT').textContent=t;$('glossB').textContent=TERMS[t]||'';$('gloss').style.display='block';}
+document.addEventListener('click',e=>{const t=e.target.closest('.term');if(t)gloss(t.dataset.t);});
+$('dict').innerHTML=Object.entries(TERMS).map(([k,v])=>'<dt>'+esc(k)+'</dt><dd>'+esc(v)+'</dd>').join('');
+
+const STATIC=window.STATIC||null;
+const unzipTokens=()=>new Response(new Blob([Uint8Array.from(atob(window.STATIC_TOKENS),c=>c.charCodeAt(0))]).stream().pipeThrough(new DecompressionStream('gzip'))).json();
+if(STATIC){window.fetch=async u=>{const q=new URL(u,'http://x').searchParams,p=u.split('?')[0].replace('/api/','');return{json:async()=>p==='answers'?(STATIC.answers[q.get('layer')+'|'+q.get('cond')+'|'+(+q.get('s'))]||[]):p==='tokens'?unzipTokens():STATIC[p]};};$('clock').textContent='결과 스냅샷';}
+// 탭은 묶음별로 나눈다. 묶음 이름은 탭 줄에 작은 글씨로 나온다.
+const GROUPS=[...(STATIC?[]:[['',['실시간']]]),['결과',['요약','판정']],['주입 실험 (23·29층)',['스티어링','분석 보기']],['층별 탐색 (32층)',['붕괴','감정 효과']],['내부 구조',['벡터','뉴런']],['글 보기',['토큰 색칠','답변 찾기']],['',['용어']]];
+const tabs=GROUPS.flatMap(g=>g[1]);let active=tabs[0];
+let nmap=null;const NCOL={'긍정':'#E69F00','슬픔':'#0072B2','화남·불만':'#D55E00','두려움·수치':'#CC79A7','관심':'#009E73'};
+async function loadNeuron(){
+  if(!nmap){nmap=await (await fetch('/api/neurons')).json();if(!nmap.layers)return;opts($('nLayer'),Object.keys(nmap.layers));$('nLayer').value=Object.keys(nmap.layers).includes('23')?'23':Object.keys(nmap.layers)[0];}
+  const L=nmap.layers[$('nLayer').value];
+  $('nSum').textContent='믿을 만한 뉴런 '+L.total+'개 / 8,192개 · 두 축이 설명하는 비율 '+Math.round((L.ratio[0]+L.ratio[1])*100)+'%';
+  draw('cNeuron',{type:'scatter',data:{datasets:nmap.groups.flatMap(g=>[1,-1].map(s=>({label:s>0?g:g+' 억제',data:L.points.filter(p=>p[4]===g&&Math.sign(p[5])===s).map(p=>({x:p[1],y:p[2],n:p[0],e:p[3],d:p[5]})),backgroundColor:s>0?NCOL[g]:'transparent',borderColor:NCOL[g],borderWidth:1,pointRadius:2.5})))},options:{responsive:true,maintainAspectRatio:false,scales:{x:{title:{display:true,text:'반응 축 1'}},y:{title:{display:true,text:'반응 축 2'}}},plugins:{legend:{position:'bottom',labels:{filter:i=>!i.text.endsWith('억제')}},tooltip:{callbacks:{label:c=>'뉴런 '+c.raw.n+' · '+condName(c.raw.e)+' '+c.raw.d}}}}});
+}
+let tok=null;
+const opts=(el,vals)=>{const k=el.value;el.innerHTML=vals.map(v=>'<option>'+esc(v)+'</option>').join('');if(vals.includes(k))el.value=k;};
+const part=(g,i)=>g.split(': ')[i];
+const KO={base:'기준(스티어링 없음)',joy:'즐거움',anger:'화남',sadness:'슬픔',fear:'공포',surprise:'놀람',disgust:'역겨움',calm:'평온',love:'사랑',gratitude:'고마움',pride:'자부심',shame:'부끄러움',guilt:'죄책감',desperation:'절박함',curiosity:'호기심',boredom:'지루함',eogul:'억울함',seoreum:'서러움',dapdap:'답답함',loneliness:'외로움',jealousy:'질투',random0:'무작위 벡터',random1:'무작위 벡터 2',random2:'무작위 벡터 3',random3:'무작위 벡터 4',random4:'무작위 벡터 5',null0:'가짜 벡터',null1:'가짜 벡터 2',neutral:'중립',praise:'칭찬',hostile:'적대',loss:'상실',pressure:'압박'};
+const condName=c=>KO[c]||c;
+const isRnd=c=>/^random\d$/.test(c);
+async function loadTok(){
+  if(!tok){tok=await (await fetch('/api/tokens')).json();opts($('tCat'),[...new Set(tok.items.map(x=>part(x.group,0)))]);opts($('tEmo'),['조건과 같은 감정',...(tok.emotions||[])]);opts($('tLayer'),(tok.layers||[]).map(String));}
+  tokCond();
+}
+function tokCond(){opts($('tCond'),['전체',...new Set(tok.items.filter(x=>part(x.group,0)===$('tCat').value).map(x=>part(x.group,1)))]);renderTok();}
+// 마크다운 기호는 숨겨서 보기 좋게 그리되 data-raw에 원문을 남겨, 복사하면 원문이 나오게 한다.
+// 찾을 말이 있는 글자 자리(코드 단위가 아니라 글자 순서)
+function hitsOf(text,q){const out=new Set();if(!q)return out;const cs=[...text],qs=[...q];for(let i=0;i+qs.length<=cs.length;i++){let ok=true;for(let k=0;k<qs.length;k++)if(cs[i+k]!==qs[k]){ok=false;break;}if(ok)for(let k=0;k<qs.length;k++)out.add(i+k);}return out;}
+function tokSpans(words,s,max,mode,q){
+  const chars=[];words.forEach((w,i)=>{for(const c of w)chars.push({c,i});});
+  const hit=hitsOf(chars.map(x=>x.c).join(''),q);let pos=0;chars.forEach(x=>x.h=hit.has(pos++));
+  const paint=i=>{const v=s[i]||0,on=mode==='all'||(mode==='pos'?v>0:v<0),a=on?Math.min(1,Math.abs(v)/max)*.8:0;return ' data-v="'+v+'" style="background:rgba(var('+(v<0?'--cold':'--hot')+'),'+a.toFixed(2)+')"';};
+  const lines=[[]];chars.forEach(x=>{if(x.c==='\n')lines.push([]);else lines[lines.length-1].push(x);});
+  return lines.map((line,n)=>{
+    const raw=line.map(x=>x.c).join(''),hide=new Set(),bold=new Set();let cls='md';
+    const h=raw.match(/^(#{1,6})\s+/),li=raw.match(/^(\s*)([-*•]|\d+\.)\s+/);
+    if(/^\s*([-*_])\1{2,}\s*$/.test(raw))cls+=' hr';
+    else if(h){cls+=' mh';for(let k=0;k<h[0].length;k++)hide.add(k);}
+    else if(li)cls+=' mli';
+    for(const m of raw.matchAll(/\*\*(.+?)\*\*/g)){for(let k=0;k<2;k++){hide.add(m.index+k);hide.add(m.index+m[0].length-1-k);}for(let k=m.index+2;k<m.index+m[0].length-2;k++)bold.add(k);}
+    let out='',k=0;
+    while(k<line.length){let e=k+1;const key=q=>line[q].i+'|'+hide.has(q)+'|'+bold.has(q)+'|'+line[q].h;while(e<line.length&&key(e)===key(k))e++;
+      const t=line.slice(k,e).map(x=>x.c).join(''),c='t'+(hide.has(k)?' mk':'')+(bold.has(k)?' mb':'')+(line[k].h?' hit':'');out+='<span class="'+c+'" data-raw="'+esc(t)+'"'+paint(line[k].i)+'>'+esc(t)+'</span>';k=e;}
+    return '<div class="'+cls+'">'+out+(n<lines.length-1?'<span class="mk" data-raw="&#10;"></span>':'')+'</div>';
+  }).join('');
+}
+document.addEventListener('copy',e=>{
+  const sel=getSelection();if(!sel.rangeCount||sel.isCollapsed)return;const r=sel.getRangeAt(0);
+  const spans=[...document.querySelectorAll('span[data-raw]')].filter(x=>r.intersectsNode(x));
+  if(!spans.length)return;e.clipboardData.setData('text/plain',spans.map(x=>x.dataset.raw).join(''));e.preventDefault();
+});
+function renderTok(){
+  const L=$('tLayer').value,E=$('tEmo').value,c=$('tCond').value,mode=$('tMode').value,th=$('tThink').value,mul=+$('tRange').value;
+  const max=(tok.scale[L]||100)*mul/100;$('tRangeV').textContent='±'+(max/1000).toFixed(3);tMax=max;$('pLo').textContent='−'+(max/1000).toFixed(3);$('pHi').textContent='+'+(max/1000).toFixed(3);
+  const cmp=$('tView').value==='cmp';
+  const q=$('tQ').value.trim();
+  let list=tok.items.filter(x=>part(x.group,0)===$('tCat').value&&(cmp||c==='전체'||part(x.group,1)===c));
+  // 찾을 말이 있으면 그 말이 입력이나 답변에 든 글만 남긴다(비교 보기는 그 질문 묶음 전체를 남김).
+  if(q){const has=x=>x.prompt.includes(q)||x.tokens.join('').includes(q);if(cmp){const ps=new Set(list.filter(has).map(x=>x.prompt));list=list.filter(x=>ps.has(x.prompt));}else list=list.filter(has);}
+  // 조건이 감정이면 그 감정 방향으로, base처럼 감정이 아니면 고를 수 없으니 joy로 칠한다.
+  const emoOf=x=>{if(E!=='조건과 같은 감정')return E;const k=part(x.group,1);return tok.emotions.includes(k)?k:'joy';};
+  const avg=x=>{const s=x.scores[L][emoOf(x)];return s.reduce((a,b)=>a+b,0)/(s.length||1);};
+  const parts=(x)=>{const s=x.scores[L][emoOf(x)],t=x.think_end||0;
+    const name=condName(part(x.group,1));
+    const think=t&&th!=='hide'?'<div class="part"><div class="role"><b>'+esc(name)+' 생각</b></div><div class="box '+(th==='fade'?'think':'')+'">'+tokSpans(x.tokens.slice(0,t),s.slice(0,t),max,mode,q)+'</div></div>':'';
+    return think+'<div class="part"><div class="role"><b>'+esc(name)+' 답변</b>색칠 기준 '+esc(condName(emoOf(x)))+' · 평균 '+(avg(x)/1000).toFixed(3)+'</div><div class="box">'+tokSpans(x.tokens.slice(t),s.slice(t),max,mode,q)+'</div></div>';};
+  const mark=p=>q?esc(p).split(esc(q)).join('<mark>'+esc(q)+'</mark>'):esc(p);
+  if(cmp){
+    const by=new Map();list.forEach(x=>{if(!by.has(x.prompt))by.set(x.prompt,[]);by.get(x.prompt).push(x);});
+    $('tCount').textContent=by.size+'문제 · 답변 '+list.length+'개';
+    $('tList').innerHTML=[...by.entries()].map(([p,xs])=>'<article class="qa"><b>'+esc(xs[0].label)+'</b><div class="part"><div class="role">입력</div><div class="box prompt">'+mark(p)+'</div></div>'+xs.map(parts).join('')+'</article>').join('');
+    return;
+  }
+  if($('tSort').value!=='order'){const d=$('tSort').value==='high'?-1:1;list=[...list].sort((a,b)=>d*(avg(a)-avg(b)));}
+  $('tCount').textContent=list.length+'개';
+  $('tList').innerHTML=list.map(x=>'<article class="qa"><div class="row"><b>'+esc(x.label)+'</b><span class="sub">'+esc(part(x.group,1))+' · 평균 '+(avg(x)/1000).toFixed(3)+'</span></div><div class="part"><div class="role">입력</div><div class="box prompt">'+mark(x.prompt)+'</div></div>'+parts(x)+'</article>').join('');
+}
+let tMax=100;
+$('tList').addEventListener('mouseover',e=>{
+  const t=e.target.closest('span[data-v]');if(!t)return;const v=+t.dataset.v;
+  $('pWord').textContent=(t.textContent.trim()||'(공백)')+' · '+t.closest('.part').querySelector('.role').textContent;$('pVal').textContent=(v>0?'+':'')+(v/1000).toFixed(3);
+  const d=$('pDot');d.style.display='block';d.style.left=(Math.max(-1,Math.min(1,v/tMax))+1)*50+'%';
+});
+$('nLayer').onchange=loadNeuron;$('tCat').onchange=tokCond;['tView','tCond','tEmo','tLayer','tRange','tMode','tThink','tSort','tQ'].forEach(i=>$(i).oninput=renderTok);
+function show(t){active=t;document.querySelectorAll('.tab').forEach(s=>s.classList.toggle('on',s.dataset.tab===t));document.querySelectorAll('#nav button').forEach(b=>b.classList.toggle('on',b.textContent===t));if(t==='스티어링')loadSteer();if(t==='벡터')loadVec();if(t==='붕괴'||t==='감정 효과')loadLayers();if(t==='판정')loadVerdict();if(t==='토큰 색칠')loadTok();if(t==='답변 찾기')loadFind();if(t==='뉴런')loadNeuron();if(t==='분석 보기')loadViews();if(t==='요약')loadSummary();}
+async function loadSummary(){
+  const s=await (await fetch('/api/summary')).json(),list=a=>'<ul style="margin:0;padding-left:20px">'+a.map(x=>'<li>'+esc(x)+'</li>').join('')+'</ul>';
+  $('sumBox').innerHTML='<div class="card" style="margin-bottom:10px"><h2 style="font-size:18px">'+esc(s.title)+'</h2><p class="sub" style="margin:0 0 8px">'+esc(s.subtitle)+'</p><p style="margin:0">'+esc(s.lead)+'</p></div><div class="two">'+s.findings.map(f=>'<div class="card"><h2>'+esc(f.title)+'</h2><p class="sub" style="margin:0">'+esc(f.text)+'</p></div>').join('')+'</div><div class="two"><div class="card"><h2>방법</h2>'+list(s.method)+'</div><div class="card"><h2>한계</h2>'+list(s.limits)+'<p class="sub" style="margin:8px 0 0">'+esc(s.pending)+' '+esc(s.ai)+'</p></div></div>';
+}
+async function loadVerdict(){
+  const a=await (await fetch('/api/analysis')).json();const pct=v=>(v>0?'+':'')+v.toFixed(3),th=l=>'<tr>'+l.map(x=>'<th>'+x+'</th>').join('')+'</tr>';
+  const ex=await (await fetch('/api/extras')).json();
+  $('extras').innerHTML=Object.entries(ex).map(([t,x])=>'<div class="card heat" style="margin-bottom:10px"><h2>탐색: '+esc(t)+'</h2><table><tr>'+x.columns.map(c=>'<th>'+esc(c)+'</th>').join('')+'</tr>'+x.rows.map(r=>'<tr>'+r.map(v=>'<td style="padding:2px 8px;white-space:nowrap">'+esc(v==null?'':v)+'</td>').join('')+'</tr>').join('')+'</table></div>').join('');
+  $('verdict').innerHTML=Object.entries(a).map(([L,d])=>'<div class="card heat" style="margin-bottom:10px"><h2>'+L+'</h2><table>'+th(['감정','평균 변화','95% 구간','보정 구간','대조군 상한','붕괴 제외 평균','남은 답변','판정'])+d.kote.map(r=>'<tr><th>'+r.emotion+'</th><td>'+pct(r.mean)+'</td><td>['+pct(r.ci95_lo)+', '+pct(r.ci95_hi)+']</td><td>['+pct(r.ci9833_lo)+', '+pct(r.ci9833_hi)+']</td><td>'+pct(r.control_hi_max)+'</td><td>'+pct(r.mean_no_collapse)+'</td><td>'+r.n_no_collapse+'/10</td><td>'+(r.effect?'효과 있음':'기준 미달')+'</td></tr>').join('')+'</table><h2 style="margin-top:12px">정답률 변화</h2><table>'+th(['조건','기준 대비','95% 구간','붕괴·review 제외'])+d.accuracy.map(r=>'<tr><th>'+r.condition+'</th><td>'+pct(r.diff)+'</td><td>['+pct(r.ci95_lo)+', '+pct(r.ci95_hi)+']</td><td>'+pct(r.diff_clean)+'</td></tr>').join('')+'</table></div>').join('');
+}
+$('nav').innerHTML=GROUPS.map(([g,ts])=>(g?'<span class="ng">'+esc(g)+'</span>':'')+ts.map(t=>'<button>'+t+'</button>').join('')).join('');document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>show(b.textContent));
+
+Chart.defaults.color=css('--sub');Chart.defaults.borderColor=css('--line');Chart.defaults.font.family='system-ui,"Malgun Gothic",sans-serif';Chart.defaults.animation=false;
+Chart.defaults.elements.line.borderWidth=2;Chart.defaults.elements.point.radius=2.5;Chart.defaults.elements.point.hitRadius=10;Chart.defaults.plugins.legend.labels.boxWidth=14;
+const charts={};
+function draw(id,cfg){if(charts[id]){charts[id].destroy();}charts[id]=new Chart($(id),cfg);}
+function dur(s){if(s==null||!isFinite(s))return'–';s=Math.round(s);const m=Math.floor(s/60);if(m>=60)return Math.floor(m/60)+'시간 '+(m%60)+'분';return m?m+'분 '+(s%60)+'초':s+'초';}
+
+const COND_MAIN=['joy','anger','sadness','neg_joy','neg_anger','neg_sadness','random0','random1','null0','null1'];
+const COLOR={joy:'#E69F00',anger:'#D55E00',sadness:'#0072B2'};
+// 감정 20개의 색. 주 실험 세 감정은 고정 색, 나머지는 감정 묶음 색에 밝기를 달리한다.
+const EMO_COLOR=c=>{if(COLOR[c])return COLOR[c];const g=EMO_GROUP[c];if(!g)return css('--sub');const same=Object.keys(EMO_GROUP).filter(k=>EMO_GROUP[k]===g&&!COLOR[k]),i=same.indexOf(c);return 'hsl('+({'긍정':38,'슬픔':205,'화남·불만':16,'두려움·수치':320,'관심':160}[g])+','+(70-i*8)+'%,'+(40+i*9)+'%)';};
+const style=c=>{const k=c.replace('neg_','');const neg=c.startsWith('neg_');if(EMO_GROUP[k]){const col=EMO_COLOR(k);return{borderColor:col,backgroundColor:col,borderDash:neg?[6,4]:[]};}const g=css('--sub');return{borderColor:g,backgroundColor:g,borderDash:c.startsWith('null')?[2,3]:[],borderWidth:1.5};};
+let S=[0.05,0.1,0.15,0.2,0.3,0.4,0.5,0.6],COND=COND_MAIN;
+const METRICS=['붕괴율','정답률','쉬운문제','중간문제','이모티콘','글자수','Δ목표','Δjoy','Δanger','Δsadness'];
+let steer=null,sel=null;
+$('metric').innerHTML=METRICS.map(m=>'<option>'+m+'</option>').join('');
+// 고른 조건 묶음에 맞춰 조건 목록과 세기 목록을 정한다.
+function steerConds(){
+  const c=steer.runs[$('layer').value]||{},have=new Set(Object.keys(c).map(k=>k.split('|')[0]));
+  const others=[...have].filter(k=>!COND_MAIN.includes(k)&&k!=='base').sort((a,b)=>condName(a).localeCompare(condName(b),'ko'));
+  const set=$('condSet').value;COND=(set==='main'?COND_MAIN:set==='others'?others:[...COND_MAIN,...others]).filter(k=>have.has(k));
+  S=[...new Set(Object.keys(c).filter(k=>COND.includes(k.split('|')[0])).map(k=>+k.split('|')[1]))].sort((a,b)=>a-b);
+  opts($('cmpCond'),COND);
+}
+const fmt=(m,v)=>v==null?'–':(['붕괴율','정답률','쉬운문제','중간문제'].includes(m)?(v*100).toFixed(0)+'%':m==='글자수'?v.toFixed(0):(m[0]==='Δ'&&v>0?'+':'')+v.toFixed(m==='이모티콘'?1:3));
+async function loadSteer(){
+  steer=await (await fetch('/api/steering')).json();
+  const ls=Object.keys(steer.runs);const keep=$('layer').value;
+  $('layer').innerHTML=ls.map(l=>'<option>'+l+'</option>').join('');if(keep)$('layer').value=keep;
+  const b=steer.base;
+  $('baseTiles').innerHTML=[['정답률','기준 정답률'],['쉬운문제','기준 쉬운 문제'],['중간문제','기준 중간 문제'],['붕괴율','기준 붕괴율'],['이모티콘','기준 이모티콘'],['글자수','기준 글자 수']].map(([m,t])=>'<div class="card stat"><span class="sub term" data-t="'+m+'">'+t+'</span><b>'+fmt(m,b[m])+'</b></div>').join('');
+  renderSteer();
+}
+const yOpts=m=>({title:{display:true,text:m},beginAtZero:m[0]!=='Δ'});
+function renderSteer(){
+  if(!steer)return;steerConds();const L=$('layer').value,m=$('metric').value,c=steer.runs[L]||{};
+  $('metricHelp').textContent=TERMS[m]||'';
+  draw('cCurve',{type:'line',data:{labels:S,datasets:COND.map(k=>({label:k,data:S.map(s=>(c[k+'|'+s]||{})[m]??null),...style(k)}))},options:{responsive:true,maintainAspectRatio:false,scales:{x:{title:{display:true,text:'세기 s'}},y:yOpts(m)},plugins:{legend:{position:'bottom'}}}});
+  const k=$('cmpCond').value;
+  draw('cCmp',{type:'line',data:{labels:S,datasets:Object.keys(steer.runs).map((l,i)=>({label:l,data:S.map(s=>(steer.runs[l][k+'|'+s]||{})[m]??null),borderColor:i?'#D55E00':'#0072B2',backgroundColor:i?'#D55E00':'#0072B2',borderDash:i?[6,4]:[]}))},options:{responsive:true,maintainAspectRatio:false,scales:{x:{title:{display:true,text:'세기 s'}},y:yOpts(m)},plugins:{legend:{position:'bottom'}}}});
+  const vals=[];COND.forEach(k=>S.forEach(s=>{const v=(c[k+'|'+s]||{})[m];if(v!=null)vals.push(Math.abs(v));}));
+  const max=Math.max(...vals,1e-6),div=m[0]==='Δ';
+  let h='<table><tr><th></th>'+S.map(s=>'<th>'+s+'</th>').join('')+'</tr>';
+  COND.forEach(k=>{h+='<tr><th style="text-align:right" title="'+k+'">'+esc(condName(k.replace('neg_',''))+(k.startsWith('neg_')?' −':''))+'</th>';S.forEach(s=>{const v=(c[k+'|'+s]||{})[m];const a=v==null?0:Math.min(1,Math.abs(v)/max)*.8;const col=div&&v<0?'--cold':(div?'--hot':'--cold');
+    h+='<td class="c'+(sel&&sel.k===k&&sel.s===s?' sel':'')+'" data-k="'+k+'" data-s="'+s+'" title="'+k+' s='+s+'" style="background:rgba(var('+col+'),'+a.toFixed(2)+')">'+fmt(m,v)+'</td>';});h+='</tr>';});
+  $('heat').innerHTML=h+'</table>';
+  $('heat').querySelectorAll('td.c').forEach(td=>td.onclick=()=>pick(td.dataset.k,+td.dataset.s));
+}
+async function pick(k,s){
+  sel={k,s};renderSteer();const L=$('layer').value;
+  const rows=await (await fetch('/api/answers?layer='+encodeURIComponent(L)+'&cond='+k+'&s='+s)).json();
+  const c=(steer.runs[L]||{})[k+'|'+s]||{};
+  $('answers').innerHTML='<h2>'+L+' · '+k+' · s='+s+' · 답변 '+rows.length+'개</h2><div class="stats">'+METRICS.map(m=>'<span class="term" data-t="'+m+'">'+m+' <b>'+fmt(m,c[m])+'</b></span>').join('')+'</div>'+rows.map(r=>'<div class="ans"><span class="sub">'+esc(r.qid)+' · '+esc(r.kind)+(r.grade?' · '+esc(r.grade):'')+(r.collapsed?' · 붕괴':'')+'</span>\n<b>'+esc(r.q)+'</b>\n<div style="white-space:pre-wrap">'+tokSpans([r.text],[0],1,'all')+'</div></div>').join('');
+}
+['layer','metric','cmpCond','condSet'].forEach(i=>$(i).onchange=renderSteer);
+
+let vec=null;
+// 벡터 탭: 위의 층 막대 하나로 감정별 AUC, 지도, 코사인 순위, 히트맵이 같이 바뀐다.
+async function loadVec(){
+  if(!LY)LY=await (await fetch('/api/layers')).json();
+  if(!vec)vec=await (await fetch('/api/vectors')).json();
+  const G=LY.geo;
+  if(G.names&&!$('lEmo').options.length){$('lEmo').innerHTML=G.names.map(n=>'<option value="'+n+'">'+esc(condName(n))+'</option>').join('');$('lEmo').value='joy';}
+  const sc=LY.scan,en=(vec.scan&&vec.scan.en)||[],enAt=Object.fromEntries(en.map(r=>[r.layer,r.mean_auc]));
+  if(sc.length)draw('cLScan',{type:'line',data:{labels:sc.map(r=>r.layer),datasets:[
+    {label:'한국어 평균 AUC',data:sc.map(r=>r.mean_auc),borderColor:'#0072B2',backgroundColor:'#0072B2'},
+    {label:'영어 평균 AUC',data:sc.map(r=>enAt[r.layer]??null),borderColor:'#D55E00',backgroundColor:'#D55E00',borderDash:[6,4]},
+    {label:'가짜 벡터 최대',data:sc.map(r=>r.null_auc_max),borderColor:css('--sub'),backgroundColor:css('--sub'),borderDash:[4,3],pointRadius:0},
+    {type:'bar',label:'간격 (한국어 AUC − 가짜)',data:sc.map(r=>+(r.mean_auc-r.null_auc_max).toFixed(3)),backgroundColor:sc.map(r=>r.mean_auc>r.null_auc_max?'#009E73':'#D55E00'),yAxisID:'y1',borderRadius:2}]},
+    options:{responsive:true,maintainAspectRatio:false,interaction:{mode:'index',intersect:false},scales:{x:{title:{display:true,text:'층'}},y:{min:.4,max:1,title:{display:true,text:'AUC'}},y1:{position:'right',min:-.2,max:.2,grid:{display:false},title:{display:true,text:'간격'}}},plugins:{legend:{position:'bottom'}}}});
+  const ke=vec.ko_en||[];
+  draw('cKoEn',{type:'bar',data:{labels:ke.map(r=>condName(r[0])),datasets:[{label:'코사인 유사도',data:ke.map(r=>r[1]),backgroundColor:ke.map(r=>EMO_COLOR(r[0])),borderRadius:3}]},options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,scales:{y:{ticks:{autoSkip:false,font:{size:12}}}},plugins:{legend:{display:false}}}});
+  renderLayerMap();
+}
+function renderLayerMap(){
+  const G=LY&&LY.geo;if(!G||!G.items||active!=='벡터')return;
+  const li=+$('lLayer').value,it=G.items[li],kind=$('lMethod').value,f=it.fit[kind],L=G.layers[li],pick=$('lEmo').value;
+  $('lLayerOut').textContent=L+'층';$('aucLayer').textContent='· '+L+'층';$('nearLayer').textContent='· '+L+'층 · 기준 '+condName(pick);
+  const row=LY.scan[li]||{},emos=G.names.filter(n=>row[n]!=null).sort((a,b)=>row[b]-row[a]);
+  if(emos.length)draw('cAuc',{type:'bar',data:{labels:emos.map(condName),datasets:[{label:'AUC',data:emos.map(n=>row[n]),backgroundColor:emos.map(EMO_COLOR),borderRadius:3},{label:'가짜 벡터 최대 ('+row.null_auc_max+')',data:emos.map(()=>row.null_auc_max),backgroundColor:css('--line'),borderRadius:3}]},options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,scales:{x:{min:.4,max:1},y:{ticks:{autoSkip:false,font:{size:12}}}},plugins:{legend:{position:'bottom'}}}});
+  const share=kind==='pca2'?it.ratio[0]+it.ratio[1]:kind==='pca3'?it.ratio[0]+it.ratio[1]+it.ratio[2]:null;
+  $('lFit').textContent=(share!=null?'분산의 '+Math.round(share*100)+'%를 담습니다. ':'')+'거리 순서 일치 '+f.rank+' (1이면 완벽), 가장 가까운 3개 이웃 중 지도에서도 가까운 비율 '+Math.round(f.nn3*100)+'%.'+(kind==='pca3'?' 끌어서 돌려 보세요.':'');
+  const cv=$('cLMap'),r=cv.getBoundingClientRect(),dpr=devicePixelRatio||1;cv.width=r.width*dpr;cv.height=r.height*dpr;const x=cv.getContext('2d');x.setTransform(dpr,0,0,dpr,0,0);x.clearRect(0,0,r.width,r.height);
+  const P=kind==='mds2'?it.mds:it.pca,all=G.items.flatMap(t=>(kind==='mds2'?t.mds:t.pca)).flat(),m=Math.max(...all.map(Math.abs))||1,scale=Math.min(r.width,r.height)*.42/m;
+  const pts=P.map((p,i)=>{let [a,b,c]=[p[0],p[1],kind==='pca3'?p[2]:0];if(kind==='pca3'){const ca=Math.cos(lSpin.a),sa=Math.sin(lSpin.a),cb=Math.cos(lSpin.b),sb=Math.sin(lSpin.b);const X=a*ca+c*sa,Z=-a*sa+c*ca;[a,b,c]=[X,b*cb-Z*sb,b*sb+Z*cb];}const d=kind==='pca3'?1/(1-c/(m*5)):1;return{x:r.width/2+a*scale*d,y:r.height/2-b*scale*d,z:c,d,n:G.names[i],i};});
+  if($('lEdges').checked){x.strokeStyle=css('--sub');it.gram.forEach((row,i)=>row.forEach((g,j)=>{if(j>i&&g>=.4){x.globalAlpha=Math.min(1,(g-.3)*2);x.lineWidth=1+(g-.4)*4;x.beginPath();x.moveTo(pts[i].x,pts[i].y);x.lineTo(pts[j].x,pts[j].y);x.stroke();}}));x.globalAlpha=1;}
+  [...pts].sort((p,q)=>p.z-q.z).forEach(p=>{x.fillStyle=p.n==='random0'?css('--sub'):EMO_COLOR(p.n);x.beginPath();x.arc(p.x,p.y,(p.n===pick?7:5)*p.d,0,7);x.fill();x.fillStyle=css('--text');x.font=(p.n===pick?'bold ':'')+'13px system-ui,"Malgun Gothic"';x.fillText(condName(p.n),p.x+8,p.y+4);});
+  const k=G.names.indexOf(pick),near=G.names.map((n,i)=>[n,it.gram[k][i]]).filter(([n])=>n!==pick).sort((a,b)=>b[1]-a[1]);
+  draw('cLNear',{type:'bar',data:{labels:near.map(v=>condName(v[0])),datasets:[{label:'코사인',data:near.map(v=>v[1]),backgroundColor:near.map(v=>v[1]>=0?'#0072B2':'#D55E00'),borderRadius:3}]},options:{indexAxis:'y',animation:false,responsive:true,maintainAspectRatio:false,scales:{x:{min:-1,max:1},y:{ticks:{autoSkip:false,font:{size:12}}}},plugins:{legend:{display:false}}}});
+  const order=$('vOrder').value==='sim'?seriate(it.gram):[...G.names.keys()].sort((a,b)=>condName(G.names[a]).localeCompare(condName(G.names[b]),'ko'));
+  let sc=0;order.forEach(i=>order.forEach(j=>{if(i!==j)sc=Math.max(sc,Math.abs(it.gram[i][j]));}));
+  const nm=i=>esc(condName(G.names[i])),bold=i=>G.names[i]===pick?';font-weight:700;color:var(--text)':'';
+  let h='<table><tr><th></th>'+order.map(i=>'<th data-x="'+G.names[i]+'" style="writing-mode:vertical-rl;cursor:pointer'+bold(i)+'">'+nm(i)+'</th>').join('')+'</tr>';
+  order.forEach(i=>{h+='<tr><th data-x="'+G.names[i]+'" style="text-align:right;cursor:pointer;white-space:nowrap'+bold(i)+'">'+nm(i)+'</th>';order.forEach(j=>{const c=it.gram[i][j],a=i===j?0:Math.min(1,Math.abs(c)/sc)*.9;h+='<td class="c" data-x="'+G.names[i]+'" data-y="'+G.names[j]+'" title="'+nm(i)+' · '+nm(j)+': '+c.toFixed(3)+'" style="background:rgba(var('+(c<0?'--cold':'--hot')+'),'+a.toFixed(2)+')"></td>';});h+='</tr>';});
+  $('cosHeat').innerHTML=h+'</table>';
+  $('cosHeat').querySelectorAll('[data-x]').forEach(el=>el.onclick=()=>{if(el.dataset.y)$('cosPick').textContent=el.title;$('lEmo').value=el.dataset.x;renderLayerMap();});
+}
+$('lLayer').oninput=renderLayerMap;['lMethod','lEdges','lEmo','vOrder'].forEach(i=>$(i).onchange=renderLayerMap);
+$('cLMap').onpointerdown=e=>{lDrag=[e.clientX,e.clientY];$('cLMap').setPointerCapture(e.pointerId);};
+$('cLMap').onpointermove=e=>{if(!lDrag||$('lMethod').value!=='pca3')return;lSpin.a+=(e.clientX-lDrag[0])*.01;lSpin.b+=(e.clientY-lDrag[1])*.01;lDrag=[e.clientX,e.clientY];renderLayerMap();};
+$('cLMap').onpointerup=()=>lDrag=null;
+let views=null;
+async function getViews(){if(!views)views=await (await fetch('/api/views')).json();return views;}
+function forestSvg(f){
+  const W=470,top=8,rh=30,left=64,right=16,H=top+rh*f.rows.length+22,vals=f.rows.flatMap(r=>[r.lo,r.hi,r.c]).concat(0),lo=Math.min(...vals),hi=Math.max(...vals),pad=(hi-lo)*.06||.01,x=v=>left+(v-lo+pad)/(hi-lo+2*pad)*(W-left-right);
+  const n=v=>(v>0?'+':'')+(Math.abs(v)<.1?v.toFixed(3):v.toFixed(2));
+  let s='<svg viewBox="0 0 '+W+' '+H+'" style="width:100%;display:block" role="img" aria-label="'+esc(f.title)+'"><line x1="'+x(0)+'" x2="'+x(0)+'" y1="'+top+'" y2="'+(H-20)+'" stroke="var(--sub)" stroke-width="1"/>';
+  f.rows.forEach((r,i)=>{const y=top+rh*i+rh/2,c=COLOR[r.e],t=condName(r.e)+' 평균 '+n(r.m)+' · 95% ['+n(r.lo)+', '+n(r.hi)+'] · 대조 상한 '+n(r.c)+(r.col!=null?' · 붕괴 '+Math.round(r.col*100)+'%':'')+(r.n!=null?' · 붕괴 제외 후 '+r.n+'/'+r.t+'개':'')+' · '+(r.ok?'통과':'기준 미달');
+    s+='<g><title>'+esc(t)+'</title><rect x="0" y="'+(y-rh/2)+'" width="'+W+'" height="'+rh+'" fill="transparent"/><text x="0" y="'+(y+4)+'" font-size="12" fill="var(--text)">'+esc(condName(r.e))+'</text><line x1="'+x(r.c)+'" x2="'+x(r.c)+'" y1="'+(y-9)+'" y2="'+(y+9)+'" stroke="var(--sub)" stroke-width="3"/><line x1="'+x(r.lo)+'" x2="'+x(r.hi)+'" y1="'+y+'" y2="'+y+'" stroke="'+c+'" stroke-width="2"/><circle cx="'+x(r.m)+'" cy="'+y+'" r="5" fill="'+(r.ok?c:'var(--card)')+'" stroke="'+c+'" stroke-width="2"/></g>';});
+  [lo,0,hi].forEach(v=>{s+='<text x="'+x(v)+'" y="'+(H-5)+'" font-size="11" text-anchor="middle" fill="var(--sub)">'+n(v)+'</text>';});
+  return '<div><div class="sub" style="color:var(--text);margin-bottom:2px">'+esc(f.title)+'</div>'+s+'</svg></div>';
+}
+async function loadViews(){
+  await getViews();$('forest').innerHTML=views.forest.map(forestSvg).join('');
+  if(!$('xSet').options.length){opts($('xSet'),Object.keys(views.dose));syncViews();}
+  renderViews();
+}
+function syncViews(){
+  const m=views.moves[$('xSet').value],keys=Object.keys(m.conds),ss=[...new Set(keys.map(k=>k.split('|')[1]))].sort((a,b)=>a-b);
+  opts($('xS'),ss);if(ss.includes('0.5'))$('xS').value='0.5';
+  $('xCond').innerHTML=[...new Set(keys.map(k=>k.split('|')[0]))].map(c=>'<option value="'+c+'">'+esc(condName(c.replace('neg_','')))+(c.startsWith('neg_')?' 반대 방향':'')+'</option>').join('');$('xCond').value='joy';
+}
+const arrows={id:'arrows',afterDatasetsDraw(ch){const c=ch.options.moveLines;if(!c)return;const X=ch.scales.x,Y=ch.scales.y,x=ch.ctx;x.save();x.lineWidth=1;x.strokeStyle=c.color+'66';c.lines.forEach(l=>{x.beginPath();x.moveTo(X.getPixelForValue(l[0]),Y.getPixelForValue(l[1]));x.lineTo(X.getPixelForValue(l[2]),Y.getPixelForValue(l[3]));x.stroke();});
+  const a=[0,1,2,3].map(i=>c.lines.reduce((s,l)=>s+l[i],0)/c.lines.length),x0=X.getPixelForValue(a[0]),y0=Y.getPixelForValue(a[1]),x1=X.getPixelForValue(a[2]),y1=Y.getPixelForValue(a[3]),t=Math.atan2(y1-y0,x1-x0);
+  x.strokeStyle=c.color;x.fillStyle=c.color;x.lineWidth=3;x.beginPath();x.moveTo(x0,y0);x.lineTo(x1,y1);x.stroke();x.beginPath();x.moveTo(x1,y1);x.lineTo(x1-11*Math.cos(t-.45),y1-11*Math.sin(t-.45));x.lineTo(x1-11*Math.cos(t+.45),y1-11*Math.sin(t+.45));x.fill();x.restore();}};
+function renderViews(){
+  if(!views)return;const name=$('xSet').value,D=views.dose[name],M=views.moves[name],s=$('xS').value,cd=$('xCond').value;
+  [['joy','cDoseJ'],['anger','cDoseA'],['sadness','cDoseS']].forEach(([e,id])=>{const r=D.emotions[e],c=COLOR[e],xy=k=>D.s.map((x,i)=>({x,y:r[k][i]}));
+    draw(id,{type:'scatter',data:{datasets:[{label:'95% 상한',data:xy('hi'),showLine:true,pointRadius:0,borderWidth:0,backgroundColor:c+'33',fill:'+1'},{label:'95% 하한',data:xy('lo'),showLine:true,pointRadius:0,borderWidth:0,backgroundColor:'transparent'},{label:condName(e)+' 평균 변화',data:xy('mean'),showLine:true,borderColor:c,backgroundColor:c},{label:'대조 상한',data:xy('control'),showLine:true,pointRadius:0,borderColor:css('--sub'),borderDash:[6,4]}]},options:{responsive:true,maintainAspectRatio:false,scales:{x:{title:{display:true,text:'세기 s'},min:0},y:{title:{display:true,text:'점수 변화'}}},plugins:{legend:{position:'bottom',labels:{filter:l=>!l.text.startsWith('95%')}}}}});});
+  draw('cDoseC',{type:'line',data:{labels:D.s,datasets:Object.entries(D.collapse).map(([k,v])=>({label:condName(k),data:v.map(p=>p==null?null:p*100),...style(k)}))},options:{responsive:true,maintainAspectRatio:false,scales:{x:{title:{display:true,text:'세기 s'}},y:{title:{display:true,text:'붕괴율 %'},min:0,max:100}},plugins:{legend:{position:'bottom'}}}});
+  const q=M.conds[cd+'|'+s];
+  $('xNote').textContent='점 하나가 답변 하나예요. 회색 점이 기준, 색 점이 조건 답변이고 굵은 화살표가 평균 이동이에요. 빈 점은 붕괴 답변이에요. 두 축이 정보의 '+Math.round((M.ratio[0]+M.ratio[1])*100)+'%를 담아요. 이 축은 데이터마다 새로 계산해서, 다른 데이터의 지도와 위치를 비교하면 안 돼요.';
+  const ax=a=>a.neg.map(condName).join('·')+' ← → '+a.pos.map(condName).join('·'),col=COLOR[cd.replace('neg_','')]||css('--sub');
+  draw('cMove',{type:'scatter',plugins:[arrows],data:{datasets:[{label:'기준 답변',data:Object.entries(M.base).map(([k,p])=>({x:p[0],y:p[1],q:k})),backgroundColor:css('--sub'),pointRadius:3},...(q?[{label:$('xCond').selectedOptions[0].textContent,data:q.points.map(p=>({x:p[1],y:p[2],q:p[0],c:p[3]})),backgroundColor:q.points.map(p=>p[3]?'transparent':col),borderColor:col,borderWidth:1,pointRadius:4}]:[])]},options:{moveLines:q?{color:col.startsWith('#')?col:'#888888',lines:q.points.map(p=>[...M.base[p[0]],p[1],p[2]])}:null,responsive:true,maintainAspectRatio:false,scales:{x:{title:{display:true,text:ax(M.axes[0])}},y:{title:{display:true,text:ax(M.axes[1])}}},plugins:{legend:{position:'bottom'},tooltip:{callbacks:{label:c=>c.raw.q+(c.raw.c?' · 붕괴':'')}}}}});
+  const dist=Object.entries(M.conds).filter(([k])=>k.split('|')[1]===s).map(([k,v])=>[k.split('|')[0],v.dist]).sort((a,b)=>b[1]-a[1]);
+  draw('cDist',{type:'bar',data:{labels:dist.map(d=>condName(d[0].replace('neg_',''))+(d[0].startsWith('neg_')?' 반대':'')),datasets:[{label:'평균 이동 거리',data:dist.map(d=>d[1]),backgroundColor:dist.map(d=>COLOR[d[0].replace('neg_','')]||css('--sub')),borderRadius:3}]},options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,scales:{y:{ticks:{autoSkip:false}},x:{beginAtZero:true}},plugins:{legend:{display:false}}}});
+}
+const EMO_GROUP={joy:'긍정',love:'긍정',gratitude:'긍정',pride:'긍정',calm:'긍정',sadness:'슬픔',loneliness:'슬픔',seoreum:'슬픔',anger:'화남·불만',eogul:'화남·불만',jealousy:'화남·불만',dapdap:'화남·불만',disgust:'화남·불만',fear:'두려움·수치',desperation:'두려움·수치',shame:'두려움·수치',guilt:'두려움·수치',curiosity:'관심',surprise:'관심',boredom:'관심'};
+let LY=null,lSpin={a:.7,b:.35},lDrag=null,SW=null;
+const SWEEP_S=[.1,.2,.3,.4,.5,.6,.7,.8,.9,1,1.5,2],FIRST=['joy','anger','sadness'];
+async function loadLayers(){
+  LY=await (await fetch('/api/layers')).json();
+  renderSweep();
+}
+// 층별 탐색에 나온 조건: 기쁨·화남·슬픔 먼저, 나머지는 이름순, 무작위 벡터(random0~4)는 맨 끝
+function sweepConds(S){
+  const have=new Set(S.cells.map(x=>x[0]));have.delete('base');
+  return [...FIRST.filter(c=>have.has(c)),...[...have].filter(c=>!FIRST.includes(c)&&!isRnd(c)).sort((a,b)=>condName(a).localeCompare(condName(b),'ko')),...[...have].filter(isRnd).sort()];
+}
+const condLabel=c=>condName(c)+(isRnd(c)?' (대조군)':'');
+// 줄마다 32층 칸을 그린 표. cell(줄, 층)은 [색, 설명]을, 아직 안 잰 칸은 null을 돌려준다.
+function layerHeat(rows,cell,{label,legend,lw=150,cw=26,rh=20}){
+  const W=lw+32*cw+8,H=18+rows.length*rh+22;
+  let s='<svg class="big" viewBox="0 0 '+W+' '+H+'" style="width:100%;display:block">';
+  for(let l=0;l<32;l+=2)s+='<text x="'+(lw+l*cw+cw/2)+'" y="12" font-size="11" text-anchor="middle" fill="var(--sub)">'+l+'</text>';
+  rows.forEach((r,i)=>{const y=18+i*rh;s+='<text x="'+(lw-6)+'" y="'+(y+rh/2+4)+'" font-size="12" text-anchor="end" fill="'+(r.muted?'var(--sub)':'var(--text)')+'">'+esc(label(r))+'</text>';
+    for(let l=0;l<32;l++){const c=cell(r,l);s+='<rect x="'+(lw+l*cw+1)+'" y="'+(y+1)+'" width="'+(cw-2)+'" height="'+(rh-2)+'" rx="2" fill="'+(c?c[0]:'transparent')+'" stroke="var(--line)"><title>'+esc(label(r)+' · '+l+'층 · '+(c?c[1]:'아직 안 잼'))+'</title></rect>';}
+    if(r.gap&&i<rows.length-1)s+='<line x1="'+(lw-120)+'" x2="'+(lw+32*cw)+'" y1="'+(y+rh+.5)+'" y2="'+(y+rh+.5)+'" stroke="var(--line)"/>';});
+  return s+'<text x="'+lw+'" y="'+(H-4)+'" font-size="11" fill="var(--sub)">'+esc(legend)+'</text></svg>';
+}
+// 태그 고르기: 고른 것은 칩으로 보이고, 칩의 ×로 빼고, 끝의 목록으로 더한다.
+function tagBox(el,all,sel,onChange){
+  const left=all.filter(x=>!sel.includes(x));
+  el.innerHTML=sel.map(x=>'<span class="tag-chip"><i style="background:'+EMO_COLOR(x)+'"></i>'+esc(condLabel(x))+'<button data-x="'+x+'" aria-label="'+esc(condName(x))+' 빼기">×</button></span>').join('')+
+    '<select><option value="">+ 감정 추가</option>'+(left.length>1?'<option value="*">남은 것 전부 추가</option>':'')+left.map(x=>'<option value="'+x+'">'+esc(condLabel(x))+'</option>').join('')+(sel.length?'<option value="-">모두 빼기</option>':'')+'</select>';
+  el.querySelectorAll('button[data-x]').forEach(b=>b.onclick=()=>onChange(sel.filter(x=>x!==b.dataset.x)));
+  el.querySelector('select').onchange=e=>{const v=e.target.value;if(v)onChange(v==='*'?[...sel,...left]:v==='-'?[]:[...sel,v]);};
+}
+function renderSweep(){
+  const S=LY.sweep;SW={cell:{},skip:new Set(S.skips.map(x=>x.join('|')))};
+  S.cells.forEach(([c,l,s,n,k])=>{SW.cell[c+'|'+l+'|'+s]=k/n;});
+  $('lSweepNote').textContent='판정: '+(S.judge==='collapsed3'?'반복 또는 뜻이 깨진 답변(collapsed3)':'반복(collapsed2)')+'. '+S.cells.length+'칸을 쟀고 '+S.skips.length+'칸은 이미 무너져서 건너뛰었습니다.';
+  if(active==='붕괴'){renderCollapse(S);}else{renderSensitivity(S);renderEffect(S);renderIgnored(S);}
+}
+// 잰 칸은 붕괴율, 건너뛴 칸은 1, 아직 안 잰 칸은 null
+const sweepRate=(c,l,s)=>{const key=c+'|'+l+'|'+(+s.toFixed(1));return key in SW.cell?SW.cell[key]:SW.skip.has(key)?1:null;};
+const blue=r=>r==null?null:`hsl(205,70%,${Math.round(96-r*66)}%)`;
+let meanTags=['joy','anger','sadness','random0'];
+function renderCollapse(S){
+  const conds=sweepConds(S),layers=[...Array(32).keys()],grid=SWEEP_S.filter(s=>s<=1);
+  const mean=(c,l)=>{const v=grid.flatMap(s=>[sweepRate(c,l,s),sweepRate(c,l,-s)]).filter(x=>x!=null);return v.length===grid.length*2?v.reduce((a,b)=>a+b,0)/v.length:null;};
+  meanTags=meanTags.filter(c=>conds.includes(c));
+  tagBox($('tagMean'),conds,meanTags,v=>{meanTags=v;renderCollapse(S);});
+  draw('cLMeanCollapse',{type:'line',data:{labels:layers,datasets:meanTags.map(c=>({label:condLabel(c),data:layers.map(l=>{const r=mean(c,l);return r==null?null:+(r*100).toFixed(1);}),borderColor:EMO_COLOR(c),backgroundColor:EMO_COLOR(c),borderDash:c==='random0'?[4,3]:[],borderWidth:2,pointRadius:2}))},
+    options:{responsive:true,maintainAspectRatio:false,interaction:{mode:'index',intersect:false},scales:{x:{title:{display:true,text:'층'}},y:{min:0,max:100,title:{display:true,text:'평균 붕괴율 (%)'}}},plugins:{legend:{position:'bottom'},tooltip:{callbacks:{label:x=>x.dataset.label+': '+x.parsed.y+'%'}}}}});
+  let filled=0;
+  $('lAllCollapse').innerHTML=layerHeat(conds.map(c=>({c,muted:isRnd(c)})),(r,l)=>{const m=mean(r.c,l);if(m==null)return null;filled++;return[blue(m),'평균 붕괴 '+Math.round(m*100)+'%'];},{label:r=>condLabel(r.c),legend:'흰색 0% → 진한 파랑 100% · 테두리만 있는 칸은 세기 20개를 다 안 잰 층',rh:19});
+  $('lAllNote').textContent='층마다 세기 ±0.1~±1.0(20개)의 붕괴율 평균입니다(건너뛴 세기는 100%). 지금 '+filled+'/'+conds.length*32+'칸.';
+  const sel=$('lGridEmo'),keep=sel.value||'all';
+  sel.innerHTML='<option value="all">전체 모아 보기</option>'+conds.map(c=>'<option value="'+c+'">'+esc(condLabel(c))+'</option>').join('');
+  sel.value=conds.includes(keep)?keep:'all';sel.onchange=()=>renderCollapse(LY.sweep);
+  const rows=[...SWEEP_S].reverse().concat(SWEEP_S.map(s=>-s));
+  // 작은 그림은 칸을 작게, 하나만 볼 때는 크게 그린다.
+  const svgOf=(c,big)=>{const cw=big?26:9,ch=big?17:6,L=big?50:26,top=big?18:12,W=L+32*cw+4,H=top+rows.length*ch+(big?24:4),fs=big?11:8;
+    let s='<svg viewBox="0 0 '+W+' '+H+'" style="width:100%;display:block'+(big?';max-width:1400px':'')+'" role="img" aria-label="'+esc(condName(c))+' 세기에 따른 층별 붕괴율">';
+    for(let l=0;l<32;l+=big?2:8)s+='<text x="'+(L+l*cw+cw/2)+'" y="'+(top-4)+'" font-size="'+fs+'" text-anchor="middle" fill="var(--sub)">'+l+'</text>';
+    rows.forEach((v,i)=>{const y=top+i*ch;if((big?[2,1,.5,-.5,-1,-2]:[2,1,-1,-2]).includes(v))s+='<text x="'+(L-3)+'" y="'+(y+ch-1)+'" font-size="'+fs+'" text-anchor="end" fill="var(--sub)">'+(v>0?'+':'−')+Math.abs(v)+'</text>';
+      layers.forEach(l=>{const r=sweepRate(c,l,v),k=c+'|'+l+'|'+(+v.toFixed(1));s+='<rect x="'+(L+l*cw+.5)+'" y="'+(y+.5)+'" width="'+(cw-1)+'" height="'+(ch-1)+'" fill="'+(blue(r)||'transparent')+'"'+(r==null?' stroke="var(--line)" stroke-width=".5"':'')+'><title>'+esc(condName(c))+' · '+l+'층 · 세기 '+(v>0?'+':'−')+Math.abs(v)+' · '+(r==null?'안 잼':SW.skip.has(k)?'건너뜀(이미 무너짐)':'붕괴 '+Math.round(r*100)+'%')+'</title></rect>';});
+      if(v===.1)s+='<line x1="'+L+'" x2="'+(L+32*cw)+'" y1="'+(y+ch)+'" y2="'+(y+ch)+'" stroke="var(--text)" stroke-width="'+(big?1.2:.8)+'"/>';});
+    if(big)s+='<text x="'+L+'" y="'+(H-5)+'" font-size="11" fill="var(--sub)">흰색 0% → 진한 파랑 100% · 가운데 굵은 선이 세기 0 · 위가 +, 아래가 −</text>';
+    return s+'</svg>';};
+  if(sel.value==='all'){
+    $('lCollapseGrid').innerHTML='<div class="multi">'+conds.map(c=>'<div data-c="'+c+'" title="눌러서 크게 보기"><h4>'+esc(condLabel(c))+'</h4>'+svgOf(c,false)+'</div>').join('')+'</div><p class="sub" style="margin:6px 0 0">흰색 0% → 진한 파랑 100% · 굵은 선이 세기 0, 위가 +, 아래가 − · 칸에 마우스를 올리면 값이 나옵니다.</p>';
+    $('lCollapseGrid').querySelectorAll('[data-c]').forEach(d=>d.onclick=()=>{sel.value=d.dataset.c;renderCollapse(LY.sweep);});
+  }else $('lCollapseGrid').innerHTML='<p style="margin:4px 0"><button class="mini-btn" id="gridBack">← 전체 모아 보기</button></p>'+svgOf(sel.value,true),$('gridBack').onclick=()=>{sel.value='all';renderCollapse(LY.sweep);};
+  // 방향마다 붕괴율이 처음 50% 이상이 되는 세기
+  const onset=(c,sign,l)=>{for(const s of SWEEP_S){const v=sweepRate(c,l,sign*s);if(v==null)return null;if(v>=.5)return{s};}return{s:null};};
+  const col=s=>s==null?css('--line'):`hsl(205,70%,${Math.round(25+Math.min(s,2)/2*60)}%)`;
+  $('lCollapse').innerHTML=layerHeat(conds.flatMap(c=>[{c,sign:1,muted:isRnd(c)},{c,sign:-1,gap:true,muted:isRnd(c)}]),(r,l)=>{const o=onset(r.c,r.sign,l);return o==null?null:[col(o.s),o.s==null?'2.0까지 50% 미만':'붕괴 50% 이상 시작 '+o.s];},{label:r=>condLabel(r.c)+(r.sign>0?' +':' −'),legend:'진할수록 작은 세기에서 무너짐 · 회색은 2.0까지 50% 미만 · 테두리만 있는 칸은 아직 안 잼',rh:16});
+}
+// 민감도: 붕괴율 50% 미만이고 질문에 답한 답변이 5개 이상인 + 세기들에서, 목표 감정 점수 변화를 세기에 대해 원점을 지나는 직선으로 맞춘 기울기.
+// 세기 +1.0을 넣었을 때 점수가 얼마나 오르는지로 읽는다. 쓸 수 있는 세기가 없는 층은 비운다.
+let sensTags=['joy','anger','sadness'],sensShut=new Set();
+function renderSensitivity(S){
+  const E=S.emos||[],layers=[...Array(32).keys()];
+  $('kNote').textContent=E.length?'지금 KOTE 점수가 있는 감정 '+E.length+'개.':'KOTE 점수를 매기는 중이라 아직 비어 있습니다.';
+  if(!S.base||!E.length||S.base[0]==null){$('lSensNote').textContent='감정 점수가 아직 없습니다. 층별 탐색의 KOTE 채점이 끝나면 채워집니다.';$('sensList').innerHTML='';$('tagSens').innerHTML='';return;}
+  const avail=sweepConds(S).filter(c=>E.includes(c));sensTags=sensTags.filter(c=>avail.includes(c));
+  tagBox($('tagSens'),avail,sensTags,v=>{sensTags=v;renderSensitivity(S);});
+  const want=new Set([...sensTags,'random0']),fit={},first={};
+  S.cells.forEach(([c,l,s,n,k,ok,m])=>{if(s===.1)first[c+'|'+l]=[k/n,ok];if(!want.has(c)||s<=0||k/n>=.5||ok<5)return;m.forEach((v,t)=>{if(v==null)return;const f=fit[c+'|'+t+'|'+l]||(fit[c+'|'+t+'|'+l]={sd:0,ss:0,pts:[]});f.sd+=s*(v-S.base[t]);f.ss+=s*s;f.pts.push(s);});});
+  const slope=(c,t,l)=>{const f=fit[c+'|'+t+'|'+l];return f?+(f.sd/f.ss).toFixed(2):null;};
+  const why=(c,l)=>{const f=first[c+'|'+l];return !f?'아직 안 잼':f[0]>=.5?'+0.1에서 이미 '+Math.round(f[0]*100)+'% 무너짐':'+0.1에서 질문에 답한 답변이 '+f[1]+'개뿐';};
+  const all=sensTags.flatMap(c=>layers.map(l=>slope(c,E.indexOf(c),l))).filter(v=>v!=null);
+  const same=$('sensSame').checked,hi=Math.ceil(Math.max(...all,.5)*2)/2,lo=Math.min(0,Math.floor(Math.min(...all,0)*2)/2);
+  $('sensList').innerHTML=sensTags.map(c=>{const t=E.indexOf(c),gaps=layers.filter(l=>slope(c,t,l)==null),best=layers.map(l=>[l,slope(c,t,l)]).filter(x=>x[1]!=null).sort((a,b)=>b[1]-a[1])[0];
+    return '<div class="fold'+(sensShut.has(c)?' shut':'')+'" data-c="'+c+'"><div class="fh"><i style="width:10px;height:10px;border-radius:50%;background:'+EMO_COLOR(c)+'"></i><b>'+esc(condName(c))+'</b><span class="sub">'+(best?'가장 큰 층 '+best[0]+'층 ('+(best[1]>0?'+':'')+best[1]+')':'쓸 수 있는 층 없음')+(gaps.length?' · 빈 층 '+gaps.length+'개':'')+'</span><span class="tw">'+(sensShut.has(c)?'펴기 ▸':'접기 ▾')+'</span></div><div class="fb"><div class="chart"><canvas id="cSens_'+c+'"></canvas></div><p class="sub" style="margin:4px 0 0">'+(gaps.length?'✕ 층(쓸 수 있는 세기 없음): '+gaps.map(l=>l+'층 — '+why(c,l)).join(' · '):'')+'</p></div></div>';}).join('')||'<p class="sub">위에서 감정을 추가하세요.</p>';
+  $('sensList').querySelectorAll('.fh').forEach(h=>h.onclick=()=>{const c=h.parentNode.dataset.c;sensShut.has(c)?sensShut.delete(c):sensShut.add(c);renderSensitivity(S);});
+  sensTags.filter(c=>!sensShut.has(c)).forEach(c=>{const t=E.indexOf(c),gaps=layers.filter(l=>slope(c,t,l)==null),col=EMO_COLOR(c),lbl=condName(c);
+    draw('cSens_'+c,{type:'line',data:{labels:layers,datasets:[
+      {label:lbl+' 벡터 → '+lbl+' 점수',data:layers.map(l=>slope(c,t,l)),borderColor:col,backgroundColor:col,borderWidth:2,pointRadius:3,spanGaps:false},
+      {label:'무작위 벡터 → '+lbl+' 점수 (대조군)',data:layers.map(l=>slope('random0',t,l)),borderColor:css('--sub'),backgroundColor:css('--sub'),borderDash:[4,3],borderWidth:1.5,pointRadius:0,spanGaps:false},
+      {label:'쓸 수 있는 세기 없음',data:layers.map(l=>gaps.includes(l)?(same?lo:0):null),showLine:false,clip:false,pointStyle:'crossRot',pointRadius:7,pointBorderWidth:2,borderColor:col,backgroundColor:col}]},
+      options:{responsive:true,maintainAspectRatio:false,interaction:{mode:'index',intersect:false},scales:{x:{title:{display:true,text:'층'}},y:{...(same?{min:lo,max:hi}:{}),title:{display:true,text:'세기 1당 점수 변화'}}},
+        plugins:{legend:{position:'bottom'},tooltip:{callbacks:{label:x=>x.datasetIndex===2?lbl+' 벡터: '+why(c,x.dataIndex):x.dataset.label+': '+x.parsed.y,afterLabel:x=>{if(x.datasetIndex===2)return '';const f=fit[(x.datasetIndex?'random0':c)+'|'+t+'|'+x.dataIndex];return f?'쓴 세기: +'+f.pts.join(', +'):'';}}}}}});});
+  $('lSensNote').textContent='감정마다, 그 감정 벡터를 세기 +1.0 넣었을 때 같은 감정의 KOTE 점수(0~1)가 기준 답변보다 얼마나 오르는지 층별로 봅니다. 붕괴율 50% 미만이고 질문에 답한 답변이 5개 이상인 + 세기만 써서 원점을 지나는 직선의 기울기로 구했습니다. 점선은 같은 점수를 무작위 벡터로 밀었을 때입니다. 앞층은 아주 작은 세기만 쓸 수 있어서 기울기가 커도 실제로 올릴 수 있는 점수는 작습니다. 감정 이름 줄을 누르면 접고 펼 수 있습니다.';
+}
+$('sensOpen').onclick=()=>{sensShut.clear();renderSensitivity(LY.sweep);};
+$('sensClose').onclick=()=>{sensTags.forEach(c=>sensShut.add(c));renderSensitivity(LY.sweep);};
+$('sensSame').onchange=()=>renderSensitivity(LY.sweep);
+// 층마다, 붕괴율 50% 미만이고 안 무너진 답변이 5개 이상인 + 세기 중에서 목표 감정 점수가 가장 많이 오른 값
+function renderEffect(S){
+  const E=S.emos||[];
+  if(!S.base||!E.length||S.base[0]==null){$('lEffect').innerHTML='';$('lEffectNote').textContent='감정 점수가 아직 없습니다.';return;}
+  const conds=sweepConds(S).filter(c=>E.includes(c)),best={};
+  S.cells.forEach(([c,l,s,n,k,ok,m])=>{if(c==='base'||s<=0||k/n>=.5||ok<5)return;m.forEach((v,t)=>{if(v==null)return;const key=c+'|'+t+'|'+l,d=v-S.base[t];if(best[key]==null||d>best[key][0])best[key]=[d,s,ok];});});
+  const col=d=>d<=0?css('--line'):`hsl(28,85%,${Math.round(88-Math.min(d,.8)/.8*55)}%)`;
+  $('lEffect').innerHTML=layerHeat(conds.flatMap(c=>{const t=E.indexOf(c);return[{c,t},{c:'random0',t,muted:true,gap:true}];}),(r,l)=>{const b=best[r.c+'|'+r.t+'|'+l];return b?[col(b[0]),'+'+b[1]+'에서 '+(b[0]>=0?'+':'')+b[0].toFixed(2)+' (답변 '+b[2]+'개)']:[ 'transparent','쓸 수 있는 세기 없음'];},{label:r=>condName(r.c)+' → '+condName(E[r.t]),legend:'진할수록 점수가 많이 오름(최대 +0.8) · 회색 글씨 줄은 같은 점수를 무작위 벡터로 밀었을 때',rh:16,lw:170});
+  $('lEffectNote').textContent='층마다 붕괴율 50% 미만이고 질문에 답한 답변이 5개 이상인 + 세기 가운데, 그 답변들의 목표 감정 점수가 기준 답변보다 가장 많이 오른 값입니다. 질문을 무시하고 감정 섞인 글만 쓴 답변은 뺐습니다. 세기 하나에 질문 10개라 칸마다 흔들림이 큽니다.';
+}
+// 층마다, 붕괴율 50% 미만인 세기들(양쪽 부호)에서 무너지지 않은 답변 중 질문에 답하지 않은 비율
+function renderIgnored(S){
+  const sum={};
+  S.cells.forEach(([c,l,s,n,k,ok,m,ign])=>{if(c==='base'||k/n>=.5||ign==null)return;const key=c+'|'+l,v=sum[key]||(sum[key]=[0,0]);v[0]+=ign;v[1]+=ok+ign;});
+  const col=r=>`hsl(280,45%,${Math.round(92-Math.min(r,.6)/.6*55)}%)`;
+  $('lIgnored').innerHTML=layerHeat(sweepConds(S).map(c=>({c,muted:isRnd(c)})),(r,l)=>{const v=sum[r.c+'|'+l];return v&&v[1]?[col(v[0]/v[1]),'답하지 않음 '+Math.round(v[0]/v[1]*100)+'% ('+v[0]+'/'+v[1]+')']:null;},{label:r=>condLabel(r.c),legend:'진할수록 질문을 무시한 답변이 많음(60% 이상은 같은 색) · 기준 답변은 0%',rh:18});
+}
+$('xSet').onchange=()=>{syncViews();renderViews();};['xS','xCond'].forEach(i=>$(i).onchange=renderViews);
+// 비슷한 감정이 이웃하도록 가장 닮은 쌍에서 시작해 양 끝에 하나씩 붙인다.
+function seriate(M){
+  const n=M.length;let a=0,b=1;
+  for(let i=0;i<n;i++)for(let j=0;j<n;j++)if(i!==j&&M[i][j]>M[a][b]){a=i;b=j;}
+  const out=[a,b],left=new Set([...Array(n).keys()].filter(i=>i!==a&&i!==b));
+  while(left.size){let best=null,val=-2,end=0;
+    for(const i of left){const f=M[i][out[0]],l=M[i][out[out.length-1]];if(f>val){val=f;best=i;end=0;}if(l>val){val=l;best=i;end=1;}}
+    left.delete(best);end?out.push(best):out.unshift(best);}
+  return out;
+}
+
+// 답변 찾기: 층별 탐색 답변 전부에서 글자나 정규식으로 찾는다. 서버가 있어야 한다.
+let fPage=0;
+function loadFind(){
+  if($('fCond').options.length)return;
+  if(STATIC){$('fList').innerHTML='<div class="card sub">답변 찾기는 실험 서버(python code/dashboard.py)에서만 됩니다. 이 파일에는 답변 13만 개가 들어 있지 않아요.</div>';return;}
+  const names=['joy','anger','sadness',...Object.keys(EMO_GROUP).filter(k=>!['joy','anger','sadness'].includes(k)).sort((a,b)=>condName(a).localeCompare(condName(b),'ko')),'random0','base'];
+  $('fCond').innerHTML='<option value="all">전부</option>'+names.map(c=>'<option value="'+c+'">'+esc(condLabel(c))+'</option>').join('');
+  $('fLayer').innerHTML='<option value="all">전부</option>'+[...Array(32).keys()].map(l=>'<option>'+l+'</option>').join('');
+}
+async function runFind(page){
+  fPage=page;const q=$('fQ').value,p=new URLSearchParams({q,cond:$('fCond').value,layer:$('fLayer').value,sign:$('fSign').value,smin:$('fMin').value||0,smax:$('fMax').value||2,broken:$('fBroken').value,page});
+  $('fCount').textContent='찾는 중…';
+  const r=await (await fetch('/api/search?'+p)).json();
+  if(r.error){$('fCount').textContent=r.error;$('fList').innerHTML='';return;}
+  const pages=Math.ceil(r.total/r.size),kwic=$('fView').value==='kwic'&&q;
+  $('fCount').textContent='답변 '+r.total.toLocaleString()+'개'+(pages>1?' · '+(page+1)+'/'+pages+'쪽':'');
+  $('fPage').innerHTML=(page>0?'<button class="mini-btn" data-p="'+(page-1)+'">← 앞</button> ':'')+(page+1<pages?'<button class="mini-btn" data-p="'+(page+1)+'">다음 →</button>':'');
+  $('fPage').querySelectorAll('button').forEach(b=>b.onclick=()=>runFind(+b.dataset.p));
+  const meta=h=>esc(condLabel(h.cond))+(h.cond==='base'?'':' · '+h.layer+'층 · '+(h.s>0?'+':'')+h.s)+' · '+h.qid+(h.collapsed?' · 무너짐':'');
+  const marked=h=>{let out='',at=0;h.spans.forEach(([a,b])=>{out+=esc(h.text.slice(at,a))+'<mark>'+esc(h.text.slice(a,b))+'</mark>';at=b;});return out+esc(h.text.slice(at));};
+  const flat=t=>t.replace(/\s+/g,' ');
+  $('fList').innerHTML=kwic?'<div class="card"><div class="kwic">'+r.hits.flatMap(h=>h.spans.map(([a,b])=>'<span class="meta">'+meta(h)+'</span><span class="l">'+esc(flat(h.text.slice(Math.max(0,a-30),a)))+'</span><span class="m"><mark>'+esc(flat(h.text.slice(a,b)))+'</mark></span><span class="r">'+esc(flat(h.text.slice(b,b+30)))+'</span>')).join('')+'</div></div>'
+    :r.hits.map(h=>'<div class="hitcard"><span class="sub">'+meta(h)+(h.count?' · '+h.count+'곳':'')+'</span><div class="box">'+marked(h)+'</div></div>').join('');
+}
+$('fGo').onclick=()=>runFind(0);$('fQ').onkeydown=e=>{if(e.key==='Enter')runFind(0);};$('fView').onchange=()=>{if($('fCount').textContent)runFind(fPage);};
+function jobHtml(j){
+  const pct=j.total?Math.min(100,j.done/j.total*100):0,done=j.status==='done';
+  const tag=done?'<span class="tag ok">완료</span>':j.status==='failed'?'<span class="tag stale">실패</span>':j.stale?'<span class="tag stale">3분 이상 멈춤</span>':'<span class="tag">진행 중</span>';
+  const st=Object.entries(j.stats||{}).map(([k,v])=>'<span>'+esc(k)+' <b>'+esc(v)+'</b></span>').join('');
+  const rate=j.rate?'<span>속도 <b>'+(j.rate*60).toFixed(1)+'개/분</b></span>':'';
+  const eta=!done&&j.eta!=null?'<span>남은 시간 <b>'+dur(j.eta)+'</b></span>':'';
+  const per=j.per?'<div class="mini">'+Object.entries(j.per).map(([k,v])=>'<span>'+esc(k)+'<b>'+v+'</b></span>').join('')+'</div>':'';
+  return '<article class="card job'+(done?' done':'')+'"><div class="row"><h3>'+esc(j.title)+'</h3>'+tag+'</div><div class="bar"><i style="width:'+pct+'%"></i></div><div class="stats"><span><b>'+j.done+'</b> / '+j.total+' ('+pct.toFixed(1)+'%)</span>'+rate+eta+st+'</div>'+per+'</article>';
+}
+// 끝난 단계의 실제 시간과 모델 예측을 비교한다. 대각선에 가까울수록 잘 맞는다.
+async function etaChart(){
+  const e=await (await fetch('/api/eta')).json();if(!e.model)return;
+  const pts=e.stages.map((s,i)=>({x:s.seconds/60,y:e.model.pred[i]/60,n:s.name.replace('steer_','')})),max=Math.max(...pts.flatMap(p=>[p.x,p.y]))*1.05;
+  const c=e.model.coef,left=(e.left||[]).reduce((a,x)=>[a[0]+x.sec,a[1]+x.lo,a[2]+x.hi],[0,0,0]);
+  $('etaSum').textContent='답변 묶음 스텝 '+c[0].toFixed(3)+'초 · 답변 '+c[1].toFixed(3)+'초 · 남은 측정 '+dur(left[0])+' ('+dur(left[1])+' ~ '+dur(left[2])+')';
+  draw('cEta',{type:'scatter',data:{datasets:[{label:'끝난 단계',data:pts,backgroundColor:'#0072B2',pointRadius:5},{label:'예측 = 실제',data:[{x:0,y:0},{x:max,y:max}],showLine:true,pointRadius:0,borderColor:css('--sub'),borderDash:[6,4]}]},options:{responsive:true,maintainAspectRatio:false,scales:{x:{title:{display:true,text:'실제 시간(분)'},min:0,max},y:{title:{display:true,text:'예측 시간(분)'},min:0,max}},plugins:{legend:{position:'bottom'},tooltip:{callbacks:{label:c=>c.raw.n?c.raw.n+': 실제 '+c.raw.x.toFixed(1)+'분, 예측 '+c.raw.y.toFixed(1)+'분':''}}}}});
+}
+// 누적 시간 T(N)의 기울기 dT/dN이 답변당 시간이다. 이것을 직선 y=a+bN으로 맞춘 뒤
+// 남은 구간에서 적분해 남은 시간을 낸다. 범위는 잔차 표준편차 ±1배다.
+function forecast(j){
+  const h=(j&&j.history)||[];
+  if(h.length<5){$('fSum').textContent='측정 쌓는 중';return;}
+  const step=Math.max(1,Math.floor(h.length/40)),pts=[];
+  for(let i=step;i<h.length;i+=step){const dd=h[i][1]-h[i-step][1];if(dd>0)pts.push({x:(h[i][1]+h[i-step][1])/2,y:(h[i][0]-h[i-step][0])/dd});}
+  if(pts.length<3){$('fSum').textContent='측정 쌓는 중';return;}
+  const n=pts.length,mx=pts.reduce((s,p)=>s+p.x,0)/n,my=pts.reduce((s,p)=>s+p.y,0)/n;
+  const b=pts.reduce((s,p)=>s+(p.x-mx)*(p.y-my),0)/(pts.reduce((s,p)=>s+(p.x-mx)**2,0)||1),a=my-b*mx;
+  const sd=Math.sqrt(pts.reduce((s,p)=>s+(p.y-a-b*p.x)**2,0)/n),floor=Math.min(...pts.map(p=>p.y));
+  const fit=x=>Math.max(floor,a+b*x),x0=h[h.length-1][1],X=[...Array(21).keys()].map(i=>x0+(j.total-x0)*i/20);
+  const area=f=>X.slice(1).reduce((s,x,i)=>s+(f(X[i])+f(x))/2*(x-X[i]),0);
+  const lo=x=>Math.max(floor,fit(x)-sd),hi=x=>fit(x)+sd;
+  $('fSum').textContent=esc(j.title)+' · 남은 '+dur(area(fit))+' ('+dur(area(lo))+' ~ '+dur(area(hi))+')';
+  const line=f=>X.map(x=>({x,y:f(x)}));
+  draw('cDone',{type:'scatter',data:{datasets:[
+    {label:'오차 범위',data:line(hi),showLine:true,pointRadius:0,borderWidth:0,backgroundColor:'rgba('+css('--hot')+',.22)',fill:'+1'},
+    {label:'범위 하한',data:line(lo),showLine:true,pointRadius:0,borderWidth:0,backgroundColor:'transparent'},
+    {label:'예측',data:line(fit),showLine:true,pointRadius:0,borderColor:'#D55E00',backgroundColor:'#D55E00',borderDash:[6,4]},
+    {label:'실제',data:pts,showLine:true,pointRadius:2,borderColor:'#0072B2',backgroundColor:'#0072B2'}
+  ]},options:{responsive:true,maintainAspectRatio:false,scales:{x:{title:{display:true,text:'완료한 답변 수'},min:h[0][1],max:j.total},y:{title:{display:true,text:'답변 1개당 시간(초)'},min:0}},plugins:{legend:{position:'bottom',labels:{filter:l=>l.text!=='범위 하한'}}}}});
+}
+async function tick(){
+  try{
+    const d=await (await fetch('/api/status')).json(),g=d.gpu||{};
+    $('clock').textContent='갱신 '+new Date(d.now*1000).toLocaleTimeString('ko-KR');
+    if(!g.error){$('util').textContent=g.util+'%';$('mem').textContent=(g.used/1024).toFixed(1)+' / '+(g.total/1024).toFixed(1)+' GiB';$('temp').textContent=g.temp+'°C';}
+    const run=d.jobs.filter(j=>j.status==='running');
+    const H=d.health;$('stepV').textContent=H?H.per.toFixed(3)+'초':'–';$('stepS').textContent=H?'기준의 '+H.ratio.toFixed(1)+'배':'';
+    $('warn').style.display=H&&H.warn?'block':'none';if(H&&H.warn)$('warn').innerHTML='<b>느려짐 경고</b> · '+esc(H.job)+' · 토큰당 '+H.per.toFixed(3)+'초 (기준 '+H.base+'초의 '+H.ratio.toFixed(1)+'배)<br><span class="sub">'+H.causes.map(esc).join('<br>')+'</span>';
+    const P=d.plan;$('eta').textContent=dur(P.total);
+    $('planSum').textContent='토큰 스텝 '+P.step.toFixed(2)+'초 · 끝나는 시각 약 '+new Date((d.now+P.total)*1000).toLocaleString('ko-KR',{month:'numeric',day:'numeric',hour:'2-digit',minute:'2-digit'});
+    let acc=0;
+    $('plan').innerHTML='<table><tr><th style="text-align:left">단계</th><th>진행</th><th>답변당 길이</th><th>예상 시간</th><th>끝나는 시각</th></tr>'+P.rows.map(r=>{acc+=r.sec;const fin=r.total&&r.done>=r.total;return '<tr><th style="text-align:left">'+esc(r.title)+'</th><td>'+(r.total?r.done+' / '+r.total:'')+'</td><td>'+(r.tokens?'최대 '+r.tokens+'토큰':'')+'</td><td>'+(fin?'완료':dur(r.sec))+'</td><td>'+(fin?'':new Date((d.now+acc)*1000).toLocaleTimeString('ko-KR',{hour:'2-digit',minute:'2-digit'}))+'</td></tr>';}).join('')+'</table>';
+    const order=[...d.jobs].sort((a,b)=>(a.status==='running'?0:1)-(b.status==='running'?0:1)||b.updated-a.updated);
+    $('jobs').innerHTML=order.length?order.map(jobHtml).join(''):'<div class="card sub">아직 돌아가는 작업이 없어요.</div>';
+    if(active==='실시간'){
+      const t=x=>new Date(x*1000).toLocaleTimeString('ko-KR',{hour:'2-digit',minute:'2-digit',second:'2-digit'}),h=d.gpu_hist||[];
+      draw('cGpu',{type:'line',data:{labels:h.map(p=>t(p.t)),datasets:[{label:'사용률 %',data:h.map(p=>p.util),borderColor:'#0072B2',pointRadius:0},{label:'메모리 %',data:h.map(p=>p.used/g.total*100),borderColor:css('--sub'),borderDash:[6,4],pointRadius:0}]},options:{responsive:true,maintainAspectRatio:false,scales:{y:{min:0,max:100},x:{ticks:{maxTicksLimit:5}}},plugins:{legend:{position:'bottom'}}}});
+      forecast(run[0]||order[0]);
+    }
+  }catch(e){$('clock').textContent='연결 끊김, 다시 시도 중';}
+}
+let hist='',cur='',curHeader='';
+function block(l){return '$ '+l.header+'\n'+(l.prompts||[]).map((p,i)=>'> '+p+'\n< '+(l.outputs[i]||'')+'\n').join('')+'\n';}
+async function live(){
+  try{
+    const l=await (await fetch('/api/live')).json();if(!l.header)return;
+    if(l.header!==curHeader){hist=(hist+cur).slice(-200000);curHeader=l.header;}
+    cur=block(l);const t=$('term'),end=t.scrollHeight-t.scrollTop-t.clientHeight<60;t.textContent=hist+cur;if(end)t.scrollTop=t.scrollHeight;
+  }catch(e){}
+}
+show(tabs[0]);
+if(!STATIC){etaChart();tick();setInterval(tick,3000);setInterval(live,300);setInterval(()=>{if(active==='스티어링')loadSteer();},30000);}
+</script>
+</body>
+</html>
